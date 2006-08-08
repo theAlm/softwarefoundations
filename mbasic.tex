@@ -1,0 +1,170 @@
+\documentclass[11pt, a4paper, twoside]{scrartcl}
+
+\usepackage{german}
+\usepackage[german]{algorithm2e}
+\usepackage{ae}
+\usepackage{aecompl}
+\usepackage[latin1]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{script}
+\usepackage{multicol}
+\usepackage{color}
+\usepackage{makeidx}
+\usepackage{enumerate}
+\usepackage[dvipdfm,
+            bookmarksopen=true,
+            bookmarks=false,
+	    pdfpagemode=UseOutlines,
+            pdftitle={Elementare Begriffe und Schreibweisen der Mathematik},
+            pdfauthor={Steffen Reith},
+            pdfcreator={Steffen Reith}
+           ]{hyperref}
+\usepackage[nofancy]{svninfo}
+\usepackage{nassi}
+\usepackage{wrapfig}
+\usepackage{subfigure}
+
+% Setze bibliography style
+\bibliographystyle{alpha}
+
+% Seitenaufteilung
+\geometry{top=3.0cm, left=2.5cm, right=2.5cm, bottom=3.0cm}
+
+% Seitenstil (Fuß- und Kopfzeilen)
+\pagestyle{headings}
+\pagestyle{fancy}
+
+% Suchpfad für Graphiken
+\graphicspath{{pics/}}
+
+\renewcommand{\sectionmark}[1]{\markboth{\bf\boldmath\thesection\ #1}{}}
+\renewcommand{\subsectionmark}[1]{\markright{\thesubsection\ #1}}
+\lhead[\fancyplain{}{\thepage}]{\fancyplain{}{\rightmark}}
+\chead[\fancyplain{}{}]{\fancyplain{}{}}
+\rhead[\fancyplain{}{\leftmark}]{\fancyplain{}{\thepage}}
+\lfoot[\fancyplain{}{}]{\fancyplain{}{}}
+\cfoot[\fancyplain{}{}]{\fancyplain{}{}}
+\rfoot[\fancyplain{}{}]{\fancyplain{}{}}
+
+\fancypagestyle{plain}{
+    \fancyhead{}
+    \renewcommand{\headrulewidth}{0pt}
+}
+
+% Aufzählung mit (i), (ii), (iii), (iv) usw.
+%\renewcommand{\theenumi}{\roman{enumi}}
+%\renewcommand{\labelenumi}{(\theenumi)}
+
+% Definitionen für Titelseite
+\newcommand{\quotename}{\textit}
+\newcommand{\emphasize}{\emph}
+
+\newcommand{\docutyp}{Skript}
+\newcommand{\lecture}{Elementare Begriffe und
+  Schreibweisen der Mathematik}
+\newcommand{\docudate}{Sommersemester 2006}
+
+\newcommand{\institution}{{\Large Fachhochschule Wiesbaden}\\
+                          Fachbereich Design Informatik Medien}
+\newcommand{\lecturer}{Prof.~Dr.~Steffen Reith}
+\newcommand{\lectureremail}{reith@informatik.fh-wiesbaden.de}
+
+\svnInfo $Id$
+
+\newcommand{\writer}{Steffen Reith}
+\newcommand{\reviser}{Steffen Reith}
+\newcommand{\email}{reith@informatik.fh-wiesbaden.de}
+\newcommand{\writtendate}{Juli 2006}
+
+\begin{document}
+
+\begin{titlepage}
+        \ifpdf
+        \special{pdf: out 1 << /Title 
+        (Elementare Begriffe und Schreibweisen der Mathematik) 
+        /Dest [ @thispage /FitH @ypos ] >>}
+        \fi	
+        \vspace{60pt}
+	\begin{center}
+		\vspace{20pt}
+		\textbf{\huge {\docutyp}} \\
+			
+		\vspace{30pt}
+		\textbf{\huge {\lecture}} \\
+			
+		\vspace{20pt}
+		\textbf{\docudate} \\
+
+		\vspace{20pt}
+		\textbf{\lecturer} \\
+		\textbf{\lectureremail}
+		\\
+		\vspace{120pt}
+		{\institution} \\
+		
+		\vfill			
+		\vspace{20pt}
+		\begin{tabular}[t]{rl}
+			Erstellt von: & {\writer} \\
+                        Zuletzt überarbeitet von: & {\reviser} \\
+			Email: & {\email}\\
+			Erste Version vollendet: & {\writtendate} \\
+			Version: & {\svnInfoRevision} \\
+			Date: & {\svnInfoDate} \\
+		\end{tabular}
+	\end{center}
+	\newpage
+\end{titlepage}
+
+\pagenumbering{roman}
+
+\special{pdf: out 2 << /Title 
+(Inhaltsverzeichnis) 
+/Dest [ @thispage /FitH @ypos ] >>}
+\tableofcontents
+
+\newpage
+	
+% Haupt-Textteil
+\pagenumbering{arabic}
+
+%%%%%%%%%%%%%%%%%%%%%%%%% Sektion 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{element.tex}
+
+\begin{center}
+\mbox{}
+\vfill
+$\star \star \star$ \textsc{Ende} $\star \star \star$
+\end{center}
+
+% Index
+\cleardoublepage
+\ifpdf
+\special{pdf: out 2 << /Title 
+(Index) 
+/Dest [ @thispage /FitH @ypos ] >>}
+\fi
+\addcontentsline{toc}{section}{Index}
+\makeatletter
+\printindex
+\makeatother
+
+% Literatur
+\cleardoublepage
+\ifpdf
+\special{pdf: out 2 << /Title 
+(Literatur) 
+/Dest [ @thispage /FitH @ypos ] >>}
+\fi
+\def\bibname{Literatur}
+\addcontentsline{toc}{section}{Literatur}
+\bibliography{algo}
+
+\end{document}
+ 
