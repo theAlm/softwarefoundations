@@ -1,7 +1,6 @@
 \documentclass[11pt, a4paper, twoside]{scrartcl}
 
 \usepackage{german}
-\usepackage[german]{algorithm2e}
 \usepackage{ae}
 \usepackage{aecompl}
 \usepackage[latin1]{inputenc}
@@ -20,7 +19,7 @@
             bookmarksopen=true,
             bookmarks=false,
 	    pdfpagemode=UseOutlines,
-            pdftitle={Elementare Begriffe und Schreibweisen der Mathematik},
+            pdftitle={Einige elementare Begriffe und Schreibweisen der Mathematik},
             pdfauthor={Steffen Reith},
             pdfcreator={Steffen Reith}
            ]{hyperref}
@@ -65,7 +64,7 @@
 \newcommand{\emphasize}{\emph}
 
 \newcommand{\docutyp}{Skript}
-\newcommand{\lecture}{Elementare Begriffe und
+\newcommand{\lecture}{Einige elementare Begriffe und
   Schreibweisen der Mathematik}
 \newcommand{\docudate}{Sommersemester 2006}
 
@@ -86,7 +85,7 @@
 \begin{titlepage}
         \ifpdf
         \special{pdf: out 1 << /Title 
-        (Einiger elementare Begriffe und Schreibweisen der Mathematik) 
+        (Einige elementare Begriffe und Schreibweisen der Mathematik) 
         /Dest [ @thispage /FitH @ypos ] >>}
         \fi	
         \vspace{60pt}
@@ -136,25 +135,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%% Sektion 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Einige Informationen über Mengen
-\include{element.tex}
+\include{element}
 
 \begin{center}
 \mbox{}
 \vfill
 $\star \star \star$ \textsc{Ende} $\star \star \star$
 \end{center}
-
-% Index
-\cleardoublepage
-\ifpdf
-\special{pdf: out 2 << /Title 
-(Index) 
-/Dest [ @thispage /FitH @ypos ] >>}
-\fi
-\addcontentsline{toc}{section}{Index}
-\makeatletter
-\printindex
-\makeatother
 
 % Literatur
 \cleardoublepage
