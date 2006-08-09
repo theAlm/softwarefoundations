@@ -28,7 +28,7 @@
 %
 \item $a \not\in M$ \iffd\ $a$ ist kein Element der Menge $M$
 %
-\item $M \subseteq N$ \iffd\ aus $a \in M$ folgt $a \in M$ ($M$ ist
+\item $M \subseteq N$ \iffd\ aus $a \in M$ folgt $a \in N$ ($M$ ist
 Teilmenge von $N$)
 %
 \item $M \not\subseteq N$ \iffd\ es gilt nicht $M \subseteq N$ ($M$ ist
@@ -52,11 +52,11 @@ Spezielle Mengen können auf verschiedene Art und Weise definiert werden:
 
 \begin{itemize}
 %
-\item durch Angabe von Elementen: so ist $\set{\enu{a}{1}{n}}$ die Menge,
+\item durch Angabe von Elementen:\ so ist $\set{\enu{a}{1}{n}}$ die Menge,
 die aus den Elementen $\enu{a}{1}{n}$ besteht, oder
 %
-\item durch eine Eigenschaft $E$: dabei ist $\set{a \colon E(a)}$ die Menge
-aller Elemente, die die Eigenschaft $E$ besitzen.
+\item durch eine Eigenschaft $E$:\ dabei ist $\set{a \colon E(a)}$ die Menge
+aller Elemente $a$, die die Eigenschaft $E$ besitzen.
 %
 \end{itemize}
 
@@ -85,7 +85,7 @@ aller Elemente, die die Eigenschaft $E$ besitzen.
 %
 \item $\set{n \colon n \in \N \text{ und $n$ ist Primzahl und $n \le 40$}}$
 %
-\item $\emptyset \eqd \set{a \colon a \not= a}$
+\item $\emptyset \eqd \set{a \colon a \not= a}$ (die leere Menge)
 %
 \end{itemize}
 \end{itemize}
@@ -115,8 +115,8 @@ $\emptyset$ Teilmenge jeder Menge ist.
 \item $A \backslash B \eqd \set{a \colon a \in A \text{ und } a
 \not\in B}$ (Differenz von $A$ und $B$)
 %
-\item $\overline{A} \eqd M \backslash A$ (Komplement bezüglich
-einer festen Grundmenge $M$ von $A \subseteq M$)
+\item $\overline{A} \eqd M \backslash A$ (Komplement von $A$ 
+bezüglich einer festen Grundmenge $M$)
 %
 \item $\PowerSet{A} \eqd \set{B \colon B \subseteq A}$ (Potenzmenge von
 $A$)
@@ -179,7 +179,7 @@ Seien $A, A_1, \dots , A_n$ im folgenden Mengen, dann bezeichnet
 %
 \item $(\enu{a}{1}{n}) \eqd$ die Elemente $\enu{a}{1}{n}$ in
 dieser festgelegten \emph{Reihenfolge}. Wir sprechen von einem
-$n$-Tupel, 
+$n$-Tupel.
 %
 \item $A_1 \times A_2 \times \dots \times A_n \eqd
 \set{(\enu{a}{1}{n}) \colon a_1 \in A_1, a_2 \in A_2, \dots ,a_n \in
@@ -188,7 +188,7 @@ A_n }$ (Kreuzprodukt der Mengen $A_1, A_2, \dots , A_n$),
 \item $A^n \eqd \underbrace{A \times A \times \dots \times
 A}_{n\text{-mal}}$ ($n$-faches Kreuzprodukt der Menge $A$) und
 %
-\item speziell gilt: $A^1 = \set{(a) \colon a \in A}$.
+\item speziell gilt $A^1 = \set{(a) \colon a \in A}$.
 %
 \end{itemize}
 Wir nennen $2$-Tupel auch Paare, $3$-Tupel auch Tripel, $4$-Tupel auch
@@ -209,6 +209,7 @@ Kreuzprodukt von $A$ und $B$ die Menge von Paaren $A \times B =
 /Dest [ @thispage /FitH @ypos ] >>}
 \fi
 \subsubsection{Die Anzahl von Elementen in Mengen}
+\label{cntSet}
 
 Sei $A$ eine Menge, die endlich viele Elemente\footnote{Solche Mengen
 werden als \emph{endliche Mengen} bezeichnet.} enthält, dann ist
@@ -260,7 +261,7 @@ $(a, b) \in f$. Ist $(a,b) \in f$, so schreibt man $f(a) = b$.
 \item Eine Funktion $f \colon A \mapsto B$ ist \emph{total} \iffd $D_f
 = A$.
 % 
-\item Eine Funktion heißt \emph{surjektiv} \iffd $W_f = B$.
+\item Eine Funktion $f \colon A \mapsto B$ heißt \emph{surjektiv} \iffd $W_f = B$.
 %
 \item Eine Funktion heißt \emph{injektiv} (oder eineindeutig) \iffd
 \ aus $f(a_1) = f(a_2)$ folgt $a_1 = a_2$.
@@ -270,10 +271,10 @@ $(a, b) \in f$. Ist $(a,b) \in f$, so schreibt man $f(a) = b$.
 
 \begin{example}
 Die Funktion $f \colon \N \mapsto \Z$ gegeben durch $f(n) = (-1)^n
-\lceil \frac{n}{2} \rceil$ ist eine Bijektion. Dabei ist 
-$\lceil x \rceil \eqd \text{die kleineste ganze Zahl, die größer oder
-gleich $x$ ist}$ ($=$ "`Aufrunden"'), denn $f(0) = 0, f(1) = -1
-f(2) = 1, f(3) = -2, f(4) = 2, \dots$. Weiterhin ist $f$ auch total. 
+\lceil \frac{n}{2} \rceil$ ist eine Bijektion, denn $f(0) = 0, f(1) = -1
+f(2) = 1, f(3) = -2, f(4) = 2, \dots$. Dabei bezeichnen wir mit $\lceil
+x \rceil \eqd \text{die kleinste ganze Zahl, die größer oder gleich
+$x$ ist}$ ($=$ "`Aufrunden"'). Weiterhin ist $f$ auch total. 
 \end{example}
 
 \ifpdf
@@ -283,10 +284,10 @@ f(2) = 1, f(3) = -2, f(4) = 2, \dots$. Weiterhin ist $f$ auch total.
 \fi
 \subsubsection{Eigenschaften von Relationen}
 
-Seinen $\enu{A}{1}{n}$ beliebige Mengen, dann ist $R$ eine
-$n$-stellige Relationen \iffd \ $R \subseteq A_1 \times A_2 \times \dots
+Seien $\enu{A}{1}{n}$ beliebige Mengen, dann ist $R$ eine
+\emph{$n$-stellige Relation} \iffd \ $R \subseteq A_1 \times A_2 \times \dots
 \times A_n$. Oft werden auch Relationen $R \subseteq A^n$
-betrachtet. Diese bezeichnet man dann als $n$-stellige Relation über
+betrachtet, diese bezeichnet man dann als $n$-stellige Relation über
 der Menge $A$.
 
 \noindent  Sei $R$ eine zweistellige Relation über $A$, dann ist $R$
@@ -296,13 +297,13 @@ der Menge $A$.
 %
 \item \emph{symmetrisch} \iffd \ aus $(a,b) \in R$ folgt $(b,a) \in R$,
 %
-\item \emph{antisymmetrisch} \iffd \ aus $(a,b),(b,a) \in R$ folgt $a =
+\item \emph{antisymmetrisch} \iffd \ aus $(a,b) \in R$ und $(b,a) \in R$ folgt $a =
 b$,
 %
-\item \emph{transitiv} \iffd \ aus $(a,b),(b,c) \in R$ folgt $(a,c)
+\item \emph{transitiv} \iffd \ aus $(a,b) \in R$ und $(b,c) \in R$ folgt $(a,c)
 \in R$ und 
 %
-\item \emph{linear} \iffd \ es gilt $(a,b) \in R$ oder $(b, a) \in R$.
+\item \emph{linear} \iffd \ es gilt immer $(a,b) \in R$ oder $(b, a) \in R$.
 %
 \item Wir nennen $R$ eine \emph{Halbordnung} \iffd $R$ ist reflexiv,
 antisymmetrisch und transitiv,
