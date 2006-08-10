@@ -3,7 +3,7 @@
 (Einige formale Grundlagen von Beweistechniken) 
 /Dest [ @thispage /FitH @ypos ] >>}
 \fi
-\section{Einige formale Grundlagen von Beweistechniken}
+\section{Einige Grundlagen von formale Beweistechniken}
 Praktisch arbeitende Informatiker glauben oft völlig ohne (formale)
 Beweistechniken auskommen zu können. Dabei meinen sie sogar, dass
 formale Beweise keinerlei Berechtigung in der Praxis der Informatik
@@ -28,7 +28,7 @@ Reaktion führen oder es sogar abstürzen\footnote{Dies wird
 Anwendersoftware sind solche Fehler ärgerlich, aber oft zu
 verschmerzen. Bei sicherheitskritischer Software (z.B.~bei der Regelung
 von Atomkraftwerken, Airbags und Bremssystemen in Autos oder bei der
-Steuerung von Raumsonden) gefährden solche Felder menschliches Leben
+Steuerung von Raumsonden) gefährden solche Fehler menschliches Leben
 oder führen zu extrem hohen finanziellen Verlusten und müssen deswegen
 unbedingt vermieden werden.
 
@@ -64,7 +64,7 @@ die eigentliche Strategie erschließt.
 
 \begin{theorem}
 \label{ExpoGTSquare}
-Sei $n \in N$. Falls $n \ge 4$, dann ist $2^n \ge x^2$.
+Sei $n \in \N$. Falls $n \ge 4$, dann ist $2^n \ge x^2$.
 \end{theorem}
 
 Wir müssen also, in Abhängigkeit des Parameters $n$, die Richtigkeit
@@ -208,7 +208,7 @@ Wenn $p \in \N$ eine Primzahl ist, dann ist $p$ ungerade.
 \end{conjecture}
 
 \begin{counterexample}
-Die natürliche Zahl 2 ist eine Primzahl und $2$ ist gerade.
+Die natürliche Zahl 2 ist eine Primzahl und $2$ ist gerade. \qed
 \end{counterexample}
 
 \begin{conjecture}
@@ -217,7 +217,7 @@ Es gibt keine Zahlen $a,b \in \N$, sodass $a \textrm{ mod } b = b
 \end{conjecture}
 
 \begin{counterexample}
-Für $a = b = 2$ gilt $a \textrm{ mod } b = b \textrm{ mod } a = 0$.
+Für $a = b = 2$ gilt $a \textrm{ mod } b = b \textrm{ mod } a = 0$. \qed
 \end{counterexample}
 
 \ifpdf
@@ -257,7 +257,7 @@ natürliche Zahlen gezeigt werden.
 
 Wie in Piratenfilmen üblich, seien Kanonenkugeln in einer
 quadratischen Pyramide gestapelt. Wir stellen uns die Frage, wieviele
-Kugeln (in Abhängigkeit von der Höhe) in der Pyramide
+Kugeln (in Abhängigkeit von der Höhe) in einer solchen Pyramide
 gestapelt sind.
 
 \begin{theorem}
@@ -267,7 +267,7 @@ als Munition, können wir $\frac{n(n+1)(2n+1)}{6}$ Schüsse abgeben.
 
 \goodbreak
 \begin{proof}
-Einfacher formuliert sollen wir zeigen, $\sum\limits_{i=1}^n i^2 =
+Einfacher formuliert: wir sollen zeigen, dass $\sum\limits_{i=1}^n i^2 =
 \frac{n(n+1)(2n+1)}{6}$.
 \induproof%
 {Eine Pyramide der Höhe $n = 1$ enthält $\frac{1 \cdot 2 \cdot 3}{6} =
@@ -296,12 +296,22 @@ Die Zeile $\star$ (bzw.~$\star\star$) ergibt sich, indem man $2n^3 +
 }
 \end{proof}
 
-\bigskip
-
 Solche Induktionsbeweise treten z.B.~bei der Analyse von Programmen
-immer wieder auf. Das Induktionsprinzip kann aber auch dazu verwendet
-werden, (Daten-)strukturen formal zu spezifizieren. Diese Technik ist
-als \emph{rekursive Definition} bekannt.
+immer wieder auf.
+
+\ifpdf
+\special{pdf: out 4 << /Title 
+(Induktive Definitionen)
+/Dest [ @thispage /FitH @ypos ] >>}
+\fi
+\subsubsection{Induktive Definitionen}
+
+Das Induktionsprinzip kann aber auch dazu verwendet werden,
+(Daten-)strukturen formal zu spezifizieren. Dazu werden in einem
+ersten Schritt ($=$ Induktionsanfang) die "`atomaren"' Objekte
+definiert und dann in einem zweiten Schritt die zusammengesetzten
+Objekte ($=$ Induktionsschritt). Diese Technik ist
+als \emph{induktive Definition} bekannt.
 
 \begin{example}
 \noindent Ein Baum ist wie folgt definiert:
@@ -339,6 +349,7 @@ induktiv definierten Objekten belegen.
 \subsubsection{Die strukturelle Induktion}
 
 \begin{theorem}
+\label{CntBrack}
 Die Anzahl der öffnenden Klammern eines arithmetischen Ausdrucks stimmt
 mit der Anzahl der schließenden Klammern überein.
 \end{theorem}
@@ -366,3 +377,13 @@ Sei $E$ ein Ausdruck, dann gilt $\cnt_[(E) = \cnt_](E)$.
  der schließenden Klammern.\qed
 }
 \end{proof}
+
+\bigskip
+
+Mit Hilfe von Satz \ref{CntBrack} können wir nun leicht ein Programm
+entwickeln, das einen Plausibilitätscheck (z.B.~direkt in einem Editor)
+durchführt und die Klammern zählt, bevor die Syntax von arithmetischen
+Ausdrücken überprüft wird. Definiert man eine vollständige
+Programmiersprache induktiv, dann werden ganz ähnliche
+Induktionsbeweise möglich, d.h.~man kann die Techniken aus diesem
+Beispiel relativ leicht auf die Praxis der Informatik übertragen.
