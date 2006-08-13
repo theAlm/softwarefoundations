@@ -64,7 +64,7 @@ die eigentliche Strategie erschließt.
 
 \begin{theorem}
 \label{ExpoGTSquare}
-Sei $n \in \N$. Falls $n \ge 4$, dann ist $2^n \ge x^2$.
+Sei $n \in \N$. Falls $n \ge 4$, dann ist $2^n \ge n^2$.
 \end{theorem}
 
 Wir müssen also, in Abhängigkeit des Parameters $n$, die Richtigkeit
@@ -115,7 +115,7 @@ Richtigkeit einer Aussage zu belegen.
 \begin{theorem}
 \label{ExpoGTSquare2}
 Sei $n \in \N$ die Summe von $4$ Quadratzahlen, die größer als $0$
-sind, dann ist $2^n \ge x^2$.
+sind, dann ist $2^n \ge n^2$.
 \end{theorem}
 
 \begin{proof}
@@ -141,8 +141,8 @@ Aussage $C$ falsch ist, dann ist die Aussage $H$ falsch"' und oft ist
 eine solche Aussage leichter zu zeigen. 
 
 Die Kontraposition von Satz \ref{ExpoGTSquare} ist also die folgende
-Aussage: "`Wenn nicht $2^x \ge n^2$, dann gilt nicht $n \ge 4$."'. Das
-ist gleichwertig zu der Aussage: "`Wenn $2^x < n^2$, dann gilt $n <
+Aussage: "`Wenn nicht $2^n \ge n^2$, dann gilt nicht $n \ge 4$."'. Das
+ist gleichwertig zu der Aussage: "`Wenn $2^n < n^2$, dann gilt $n <
 4$."', was offensichtlich der ursprünglichen Aussage entspricht.
 
 \ifpdf
@@ -371,7 +371,7 @@ Sei $E$ ein Ausdruck, dann gilt $\cnt_[(E) = \cnt_](E)$.
  Für einen Ausdruck $E + F$ gilt $\cnt_[(E + F) = \cnt_[(E
 ) +
  \cnt_[(F) \stackrel{\text{\textbf{\textsf{IV}}}}{=} \cnt_](E) +
- \cnt_](F) = \cnt_](E + F)$. Völlig analog zeigt man, dass für $E *
+ \cnt_](F) = \cnt_](E + F)$. Völlig analog zeigt man dies für $E *
  F$. Für den Ausdruck $[E]$ ergibt sich $\cnt_[([E]) = \cnt_[(E) + 1
  \stackrel{\text{\textbf{\textsf{IV}}}}{=} \cnt_](E) + 1 = \cnt_]([E])$.
  In jedem Fall ist die Anzahl der öffnenden Klammern gleich der Anzahl
