@@ -35,7 +35,7 @@ unbedingt vermieden werden.
 Für den Praktiker bringen Kenntnisse über formale Beweise aber noch
 andere Vorteile.  Einige Beweistechniken beschreiben direkt den zur
 Lösung benötigten Algorithmus, d.h.~eigentlich wird die Richtigkeit
-einer Aussage durch die (implizite) Angabe eine Algorithmus
+einer Aussage durch die (implizite) Angabe eines Algorithmus
 gezeigt. Aber es gibt noch einen anderen Vorteil. Ist der umzusetzende
 Algorithmus komplex (z.B.~aufgrund einer komplizierten
 Schleifenstruktur oder einer verschachtelten Rekursion), so ist es
@@ -53,11 +53,11 @@ führt.
 /Dest [ @thispage /FitH @ypos ] >>}
 \fi
 \subsection{Direkte Beweise}
-Um einen direkten Beweis zu führen, müssen wir beginnend von einer
-initialen Aussage ($=$ Hypothese) durch Angabe einer Folge von
+Um einen direkten Beweis zu führen, müssen wir, beginnend von einer
+initialen Aussage ($=$ Hypothese), durch Angabe einer Folge von
 (richtigen) Zwischenschritten zu der zu beweisenden Aussage ($=$
 Folgerung) gelangen. Jeder Zwischenschritt ist dabei entweder
-unmittelbar klar, oder muss wieder durch einen weiteren (kleinen)
+unmittelbar klar oder muss wieder durch einen weiteren (kleinen)
 Beweis belegt werden. Dabei müssen nicht alle Schritt völlig formal
 beschrieben werden, sondern es kommt darauf an, dass sich dem Leser
 die eigentliche Strategie erschließt.
@@ -152,11 +152,11 @@ ist gleichwertig zu der Aussage: "`Wenn $2^x < n^2$, dann gilt $n <
 \fi
 \subsection{Widerspruchsbeweise}
 Obwohl die Technik der Widerspruchsbeweise auf den ersten Blick sehr
-kompliziert erscheint, ist sehr mächtig und liefert oft sehr kurze
+kompliziert erscheint, ist sie sehr mächtig und liefert oft sehr kurze
 Beweise. Angenommen wir sollen die Richtigkeit einer Aussage "`aus der
 Hypothese $H$ folgt $C$"' zeigen. Dazu beweisen wir, dass sich ein
-Widerspruch ergibt, wenn wir, von $H$ und der Annahme das $C$ falsch
-ist, ausgehen. Also war die Annahme falsch und die Aussage $C$ muss
+Widerspruch ergibt, wenn wir, von $H$ und der Annahme, dass $C$ falsch
+ist, ausgehen. Also war die Annahme falsch, und die Aussage $C$ muss
 richtig sein.
 
 Anschaulicher wird diese Beweistechnik durch folgendes Beispiel:
@@ -177,7 +177,7 @@ das Komplement von $S$ bzgl.~$U$, dann ist $T$ eine unendliche Menge.
 \begin{proof}
 Hier ist unsere Hypothese "`$S$ endlich, $U$ unendlich und $T$
 Komplement von $S$ bzgl.~$U$"' und unsere Folgerung ist "`$T$ ist
-unendlich"'. Wir nehmen als an, dass $T$ eine endliche Menge ist. Da
+unendlich"'. Wir nehmen also an, dass $T$ eine endliche Menge ist. Da
 $T$ das Komplement von $S$ ist, gilt $S \cap T = \emptyset$, also ist
 $\cnt(S) + \cnt(T) = \cnt (S \cap T) + \cnt (S \cup T) = \cnt (S \cup T)
 = n \in \N$ (siehe Abschnitt \ref{cntSet}) und damit ist $S \cup T = U$ eine
@@ -191,12 +191,12 @@ war die Annahme "`$T$ ist endlich"' falsch. \qed
 /Dest [ @thispage /FitH @ypos ] >>}
 \fi
 \subsection{Gegenbeispiele}
-Im wirklichen Leben wissen wir nicht, ob eine Aussage richtig ist,
-oder falsch. Oft sind wir dann mit einer Aussage konfrontiert, die auf
+Im wirklichen Leben wissen wir nicht, ob eine Aussage richtig oder
+falsch ist. Oft sind wir dann mit einer Aussage konfrontiert, die auf
 den ersten Blick richtig ist und sollen dazu ein Programm
 entwickeln. Wir müssen also entscheiden, ob diese Aussage wirklich
 richtig ist, denn sonst ist evtl.~alle Arbeit umsonst und hat hohe
-Kosten verursacht. In solchen Fällen kann man versuchen ein einziges
+Kosten verursacht. In solchen Fällen kann man versuchen, ein einziges
 Beispiel dafür zu finden, dass die Aussage falsch ist, um so unnötige
 Arbeit zu sparen.
 
@@ -241,7 +241,7 @@ die Aussage "`$n$ besitzt die Eigenschaft $E$"'.
 Dabei ist \textbf{\textsf{IA}} die Abkürzung für
 \emph{Induktionsanfang} und \textbf{\textsf{IS}} ist die Kurzform von
 \emph{Induktionsschritt}. Die Voraussetzung ($=$ Hypothese) im
-Induktionsschritt wieder auch \emph{Induktionsvoraussetzung} (kurz
+Induktionsschritt wird auch \emph{Induktionsvoraussetzung} (kurz
 \textbf{\textsf{IV}}) genannt.
 
 Es gibt verschiedene Versionen von Induktionsbeweisen. Die bekannteste
@@ -307,7 +307,7 @@ immer wieder auf.
 \subsubsection{Induktive Definitionen}
 
 Das Induktionsprinzip kann aber auch dazu verwendet werden,
-(Daten-)strukturen formal zu spezifizieren. Dazu werden in einem
+(Daten-)Strukturen formal zu spezifizieren. Dazu werden in einem
 ersten Schritt ($=$ Induktionsanfang) die "`atomaren"' Objekte
 definiert und dann in einem zweiten Schritt die zusammengesetzten
 Objekte ($=$ Induktionsschritt). Diese Technik ist
@@ -336,9 +336,9 @@ dieser Definition.
 
 Bei diesem Beispiel ahnt man schon, dass solche Techniken zur präzisen
 Definition von Programmiersprachen und Dateiformaten gute Dienste
-leisten. Induktive Definition haben noch einen weiteren Vorteil, denn
-man kann leicht Induktionsbeweise konstruieren, die Aussagen über
-induktiv definierten Objekten belegen.
+leisten. Induktive Definitionen haben noch einen weiteren Vorteil,
+denn man kann leicht Induktionsbeweise konstruieren, die Aussagen über
+induktiv definierte Objekte belegen.
 
 
 \ifpdf
@@ -368,9 +368,10 @@ Die einfachsten Ausdrücke sind Buchstaben und Zahlen. Die Anzahl der
 Sei $E$ ein Ausdruck, dann gilt $\cnt_[(E) = \cnt_](E)$.
 }
 {
- Für einen Ausdruck $E + F$ gilt $\cnt_[(E + F) = \cnt_[(E) +
+ Für einen Ausdruck $E + F$ gilt $\cnt_[(E + F) = \cnt_[(E
+) +
  \cnt_[(F) \stackrel{\text{\textbf{\textsf{IV}}}}{=} \cnt_](E) +
- \cnt_](F) = \cnt_](E + F)$. Völlig analog zeigt man das für $E *
+ \cnt_](F) = \cnt_](E + F)$. Völlig analog zeigt man, dass für $E *
  F$. Für den Ausdruck $[E]$ ergibt sich $\cnt_[([E]) = \cnt_[(E) + 1
  \stackrel{\text{\textbf{\textsf{IV}}}}{=} \cnt_](E) + 1 = \cnt_]([E])$.
  In jedem Fall ist die Anzahl der öffnenden Klammern gleich der Anzahl
