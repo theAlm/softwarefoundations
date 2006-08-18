@@ -31,7 +31,8 @@
 \item $M \subseteq N$ \iffd\ aus $a \in M$ folgt $a \in N$ ($M$ ist
 Teilmenge von $N$)
 %
-\item $M \not\subseteq N$ \iffd\ es gilt nicht $M \subseteq N$ ($M$ ist
+\item $M \not\subseteq N$ \iffd\ es gilt nicht $M \subseteq
+N$. Gleichwertig: es gibt ein $a \in M$ mit $a \not\in N$ ($M$ ist
 keine Teilmenge von $N$)
 %
 \item $M \subset N$ \iffd\ es gilt $M \subseteq N$ und $M \not= N$ ($M$ ist
@@ -48,14 +49,15 @@ echte Teilmenge von $N$)
 \fi
 \subsubsection{Definition spezieller Mengen}
 
-Spezielle Mengen können auf verschiedene Art und Weise definiert werden:
+Spezielle Mengen können auf verschiedene Art und Weise definiert
+werden, z.B.
 
 \begin{itemize}
 %
-\item durch Angabe von Elementen:\ so ist $\set{\enu{a}{1}{n}}$ die Menge,
+\item durch Angabe von Elementen:\ So ist $\set{\enu{a}{1}{n}}$ die Menge,
 die aus den Elementen $\enu{a}{1}{n}$ besteht, oder
 %
-\item durch eine Eigenschaft $E$:\ dabei ist $\set{a \colon E(a)}$ die Menge
+\item durch eine Eigenschaft $E$:\ Dabei ist $\set{a \colon E(a)}$ die Menge
 aller Elemente $a$, die die Eigenschaft $E$ besitzen.
 %
 \end{itemize}
@@ -131,18 +133,17 @@ natürlichen Zahlen, also $M = \N$, dann ist $\overline{A} = \set{n
 \colon n
 \in \N \text{ und } a \not= 2 \text{ und } a \not= 3 \text{ und } a
 \not= 5 \text{ und } a \not= 7} = \set{1, 4, 6, 8, 9, 10, 11,
-\dots}$. Als Potenzmenge der Menge $A$ ergibt sich also die Menge von Mengen
-$\PowerSet{A} = \set{\emptyset, \allowbreak \set{2}, \allowbreak \set{3}, 
-\set{5}, \set{7}, \set{2,3}, \set{2,5}, \allowbreak \set{2,7}, \allowbreak \set{3,5}, 
-\allowbreak \set{3,7}, \allowbreak \set{5,7}, \set{2,3,5},
-\set{2,3,7}, \allowbreak \set{2,5,7}, \allowbreak \set{3,5,7}, 
-\allowbreak \set{2,3,5,7}}$.  
-\end{example}
+\dots}$. Als Potenzmenge der Menge $A$ ergibt sich die Menge von Mengen
+$\set{\emptyset, \set{2},\set{3}, \set{5}, \set{7}, \set{2,3},
+\set{2,5}, \allowbreak \set{2,7}, \allowbreak \set{3,5}, \allowbreak \set{3,7},
+\allowbreak \set{5,7}, \set{2,3,5},
+\set{2,3,7},\set{2,5,7},\set{3,5,7},\set{2,3,5,7}}$.  \end{example}
 \end{definition}
 
 \ifpdf
 \special{pdf: out 4 << /Title 
-(Gesetze für Mengenoperationen) /Dest [ @thispage /FitH @ypos ] >>}
+(Gesetze für Mengenoperationen) 
+/Dest [ @thispage /FitH @ypos ] >>}
 \fi
 \subsubsection{Gesetze für Mengenoperationen}
 \begin{displaymath}
@@ -179,8 +180,8 @@ Seien $A, A_1, \dots , A_n$ im folgenden Mengen, dann bezeichnet
 \begin{itemize}
 %
 \item $(\enu{a}{1}{n}) \eqd$ die Elemente $\enu{a}{1}{n}$ in
-dieser festgelegten \emph{Reihenfolge}. Wir sprechen von einem
-$n$-Tupel.
+dieser festgelegten \emph{Reihenfolge} und z.B.~$(3,2) \not=
+(2,3)$. Wir sprechen von einem $n$-Tupel.
 %
 \item $A_1 \times A_2 \times \dots \times A_n \eqd
 \set{(\enu{a}{1}{n}) \colon a_1 \in A_1, a_2 \in A_2, \dots ,a_n \in
@@ -194,7 +195,7 @@ A}_{n\text{-mal}}$ ($n$-faches Kreuzprodukt der Menge $A$) und
 \end{itemize}
 Wir nennen $2$-Tupel auch Paare, $3$-Tupel auch Tripel, $4$-Tupel auch
 Quadrupel und $5$-Tupel Quintupel. Bei $n$-Tupeln ist, im Gegensatz zu
-Mengen, eine Reihenfolge vorgegeben, d.h.~es gilt immer $\set{a,b} =
+Mengen, eine Reihenfolge vorgegeben, d.h.~es gilt z.B.~immer $\set{a,b} =
 \set{b,a}$, aber im Allgemeinen $(a,b) \not= (b,a)$.
 
 \begin{example}
@@ -214,69 +215,29 @@ Kreuzprodukt von $A$ und $B$ die Menge von Paaren $A \times B =
 
 Sei $A$ eine Menge, die endlich viele Elemente\footnote{Solche Mengen
 werden als \emph{endliche Mengen} bezeichnet.} enthält, dann ist
-
 \begin{displaymath}
 \cnt(A) \eqd \text{Anzahl der Elemente in der Menge $A$}.
 \end{displaymath}
+\noindent Beispielsweise ist $\cnt \set{4,7,9} = 3$. Mit dieser Definition gilt
 
-\noindent Es gilt
 \begin{itemize}
 %
-\item $\cnt(A^n) = (\cnt A)^n$
+\item $\cnt(A^n) = (\cnt A)^n$,
 %
-\item $\cnt \PowerSet{A} = 2^{\cnt A}$
+\item $\cnt \PowerSet{A} = 2^{\cnt A}$,
 %
-\item $\cnt A + \cnt B = \cnt(A \cup B) + \cnt (A \cap B)$
+\item $\cnt A + \cnt B = \cnt(A \cup B) + \cnt (A \cap B)$ und
 %
-\item $\cnt A = \cnt (A \backslash B) + \cnt(A \cap B)$
+\item $\cnt A = \cnt (A \backslash B) + \cnt(A \cap B)$.
 %
 \end{itemize}
 
 \ifpdf
 \special{pdf: out 3 << /Title 
-(Funktionen und Relationen) 
+(Relationen und Funktionen) 
 /Dest [ @thispage /FitH @ypos ] >>}
 \fi
-\subsection{Funktionen und Relationen}
-
-\ifpdf
-\special{pdf: out 4 << /Title 
-(Eigenschaften von Funktionen) 
-/Dest [ @thispage /FitH @ypos ] >>}
-\fi
-\subsubsection{Eigenschaften von Funktionen}
-
-Seien $A$ und $B$ beliebige Mengen. $f$ ist eine \emph{Funktion} von $A$ nach
-$B$ (Schreibweise: $f \colon A \mapsto B$) \iffd \ $f \subseteq A \times
-B$ und für jedes $a \in A$ gibt es \emph{höchstens} ein $b \in B$ mit
-$(a, b) \in f$. Ist $(a,b) \in f$, so schreibt man $f(a) = b$.
-
-\begin{enumerate}
-%
-\item Der \emph{Definitionsbereich} einer Funktion $f$ ist $D_f \eqd
-\set{a \colon \text{es existiert ein $b$ mit $f(a) = b$}}$.
-%
-\item Der \emph{Wertebereich} einer Funktion $f$ ist $W_f \eqd
-\set{b \colon \text{es existiert ein $a$ mit $f(a) = b$}}$.
-%
-\item Eine Funktion $f \colon A \mapsto B$ ist \emph{total} \iffd $D_f
-= A$.
-% 
-\item Eine Funktion $f \colon A \mapsto B$ heißt \emph{surjektiv} \iffd $W_f = B$.
-%
-\item Eine Funktion heißt \emph{injektiv} (oder eineindeutig) \iffd
-\ aus $f(a_1) = f(a_2)$ folgt $a_1 = a_2$.
-%
-\item Eine Funktion heißt \emph{bijektiv} \iffd $f$ ist injektiv und surjektiv.
-\end{enumerate}
-
-\begin{example}
-Die Funktion $f \colon \N \mapsto \Z$ gegeben durch $f(n) = (-1)^n
-\lceil \frac{n}{2} \rceil$ ist eine Bijektion, denn $f(0) = 0, f(1) = -1
-f(2) = 1, f(3) = -2, f(4) = 2, \dots$. Dabei bezeichnen wir mit $\lceil
-x \rceil \eqd \text{die kleinste ganze Zahl, die größer oder gleich
-$x$ ist}$ ($=$ "`Aufrunden"'). Weiterhin ist $f$ auch total. 
-\end{example}
+\subsection{Relationen und Funktionen}
 
 \ifpdf
 \special{pdf: out 4 << /Title 
@@ -322,4 +283,78 @@ eine Halbordnung, aber keine Ordnung. Wir schreiben $a \equiv b \mod
 n$, falls es eine ganze Zahl $q$ gibt, für die $a - b = q n$ gilt. Für $n \ge 2$
 ist die Relation $R_n(a,b) \eqd \set{(a,b) \colon a \equiv b \mod n} \subseteq
 \Z^2$ eine Äquivalenzrelation.
+\end{example}
+
+\ifpdf
+\special{pdf: out 4 << /Title 
+(Eigenschaften von Funktionen) 
+/Dest [ @thispage /FitH @ypos ] >>}
+\fi
+\subsubsection{Eigenschaften von Funktionen}
+
+Seien $A$ und $B$ beliebige Mengen. $f$ ist eine \emph{Funktion} von $A$ nach
+$B$ (Schreibweise: $f \colon A \mapsto B$) \iffd \ $f \subseteq A \times
+B$ und für jedes $a \in A$ gibt es \emph{höchstens} ein $b \in B$ mit
+$(a, b) \in f$.
+ 
+\medskip
+
+\noindent Ist $(a,b) \in f$, so schreibt man $f(a) = b$.
+
+\begin{remark}
+Unsere Definition von Funktionen umfasst auch mehrstellige
+Funktionen. Seien $C$ und $B$ Mengen und $A = C^n$ das $n$-fache
+Kreuzprodukt von $C$. Die Funktion $f \colon A \mapsto B$ ist dann
+eine $n$-stellige Funktion, denn sie bildet $n$-Tupel aus $C^n$ auf Elemente
+aus $B$ ab.
+\end{remark}
+
+\begin{enumerate}
+%
+\item Der \emph{Definitionsbereich} einer Funktion $f$ ist $D_f \eqd
+\set{a \colon \text{es existiert ein $b$ mit $f(a) = b$}}$.
+%
+\item Der \emph{Wertebereich} einer Funktion $f$ ist $W_f \eqd
+\set{b \colon \text{es existiert ein $a$ mit $f(a) = b$}}$.
+%
+\item Eine Funktion $f \colon A \mapsto B$ ist \emph{total} \iffd $D_f
+= A$.
+% 
+\item Eine Funktion $f \colon A \mapsto B$ heißt \emph{surjektiv} \iffd $W_f = B$.
+%
+\item Eine Funktion heißt \emph{injektiv} (oder eineindeutig) \iffd
+\ immer wenn $f(a_1) = f(a_2)$ gilt $a_1 = a_2$.
+%
+\item Eine Funktion heißt \emph{bijektiv} \iffd $f$ ist injektiv und surjektiv.
+\end{enumerate}
+
+\begin{example}
+Sei die Funktion $f \colon \N \mapsto \Z$ durch $f(n) = (-1)^n
+\lceil \frac{n}{2} \rceil$ gegeben, wobei
+%
+\begin{displaymath}
+\lceil x \rceil \eqd \text{die kleinste
+ganze  Zahl, die größer oder gleich $x$ ist}\ (=
+\text{"`Aufrunden"'}).
+\end{displaymath}
+
+Die Funktion $f$ ist surjektiv, denn $f(0) = 0, f(1) = -1, f(2) = 1,
+f(3) = -2, f(4) = 2, \dots$, d.h.~die ungeraden natürlichen Zahlen
+werden auf die negativen ganzen Zahlen abgebildet, die geraden Zahlen
+aus $\N$ werden auf die positiven ganzen Zahlen abgebildet und deshalb
+ist $W_f = \Z$.
+
+Weiterhin ist $f$ auch injektiv, denn aus $(-1)^{a_1}
+\lceil \frac{a_1}{2} \rceil = (-1)^{a_2}
+\lceil \frac{a_2}{2} \rceil$ folgt, dass entweder $a_1$ und $a_2$
+gerade oder $a_1$ und $a_2$ ungerade, denn sonst würden auf der linken
+und rechten Seite der Gleichung unterschiedliche Vorzeichen
+auftreten. Ist $a_1$ gerade und $a_2$ gerade, dann gilt
+$\lceil \frac{a_1}{2} \rceil = \lceil \frac{a_2}{2} \rceil$ und auch
+$a_1 = a_2$. Sind $a_1$ und $a_2$ ungerade, dann gilt
+$-\lceil \frac{a_1}{2} \rceil = -\lceil \frac{a_2}{2} \rceil$, woraus
+auch folgt, dass $a_1 = a_2$.
+%
+Damit ist die Funktion $f$ bijektiv. Weiterhin ist $f$ auch total,
+d.h.~$D_f = \N$.
 \end{example}

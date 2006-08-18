@@ -77,14 +77,15 @@ durch eine Reihe von (kleinen) Schritten belegen:
 
 Wir haben schon gesehen, dass die Aussage für $n = 4$ und $n = 5$
 richtig ist. Erhöhen wir $n$ auf $n + 1$, so verdoppelt sich der Wert
-der linken Seite der Ungleichung von $2^n$ auf $2^{n+1}$. Für die
-rechte Seite ergibt sich ein Verhältnis von $(\frac{n+1}{n})^2$. Je
-größer $n$ wird, desto kleiner wird der Wert $\frac{n+1}{n}$, d.h.~der
-maximale Wert ist bei $n = 4$ mit $1.25$ erreicht. Wir wissen $1.25^2
-= 1.5625$. D.h.~immer wenn wir $n$ um eins erhöhen, verdoppelt sich
-der Wert der linken Seite, wogegen sich der Wert der rechten Seite um
-maximal das $1.5625$ fache erhöht. Damit muss die linke Seite der
-Ungleichung immer größer als die rechte Seite sein.\qed
+der linken Seite der Ungleichung von $2^n$ auf $2 \cdot 2^n =
+2^{n+1}$. Für die rechte Seite ergibt sich ein Verhältnis von
+$(\frac{n+1}{n})^2$. Je größer $n$ wird, desto kleiner wird der Wert
+$\frac{n+1}{n}$, d.h.~der maximale Wert ist bei $n = 4$ mit $1.25$
+erreicht. Wir wissen $1.25^2 = 1.5625$. D.h.~immer wenn wir $n$ um
+eins erhöhen, verdoppelt sich der Wert der linken Seite, wogegen sich
+der Wert der rechten Seite um maximal das $1.5625$ fache erhöht. Damit
+muss die linke Seite der Ungleichung immer größer als die rechte Seite
+sein.\qed
 \end{proof}
 
 \bigskip
@@ -105,7 +106,9 @@ auch Formalismen, die eine präzise Beschreibung von Algorithmen
 erzwingen und die durch einen Compiler verarbeitet werden können.}
 ausgleichen, d.h.~die Antwort muss lauten: "`So viele Formalismen wie
 notwendig und so wenige wie möglich!"'. Durch Übung und Praxis lernt
-man die Balance zwischen diesen Anforderungen zu halten.
+man die Balance zwischen diesen Anforderungen zu halten und es zeigt
+sich bald, dass "`Geübte"' die formale Beschreibung sogar wesentlich
+leichter verstehen.
 
 \bigskip
 
@@ -142,8 +145,9 @@ eine solche Aussage leichter zu zeigen.
 
 Die Kontraposition von Satz \ref{ExpoGTSquare} ist also die folgende
 Aussage: "`Wenn nicht $2^n \ge n^2$, dann gilt nicht $n \ge 4$."'. Das
-ist gleichwertig zu der Aussage: "`Wenn $2^n < n^2$, dann gilt $n <
-4$."', was offensichtlich der ursprünglichen Aussage entspricht.
+entspricht der Aussage: "`Wenn $2^n < n^2$, dann gilt $n < 4$."', was
+offensichtlich zu der ursprünglichen Aussage von
+Satz \ref{ExpoGTSquare} gleichwertig ist.
 
 \ifpdf
 \special{pdf: out 3 << /Title 
@@ -179,10 +183,11 @@ Hier ist unsere Hypothese "`$S$ endlich, $U$ unendlich und $T$
 Komplement von $S$ bzgl.~$U$"' und unsere Folgerung ist "`$T$ ist
 unendlich"'. Wir nehmen also an, dass $T$ eine endliche Menge ist. Da
 $T$ das Komplement von $S$ ist, gilt $S \cap T = \emptyset$, also ist
-$\cnt(S) + \cnt(T) = \cnt (S \cap T) + \cnt (S \cup T) = \cnt (S \cup T)
-= n \in \N$ (siehe Abschnitt \ref{cntSet}) und damit ist $S \cup T = U$ eine
-endliche Menge. Dies ist ein Widerspruch zu unserer Hypothese! Also
-war die Annahme "`$T$ ist endlich"' falsch. \qed
+$\cnt(S) + \cnt(T) = \cnt (S \cap T) + \cnt (S \cup T) = \cnt (S \cup
+T) = n$, wobei $n$ eine Zahl aus $\N$ ist (siehe
+Abschnitt \ref{cntSet}). Damit ist $S \cup T = U$ eine endliche
+Menge. Dies ist ein Widerspruch zu unserer Hypothese! Also war die
+Annahme "`$T$ ist endlich"' falsch. \qed
 \end{proof}
 
 \ifpdf
@@ -235,14 +240,14 @@ die Aussage "`$n$ besitzt die Eigenschaft $E$"'.
 
 \noindent Es gelten 
 \indudef%
-{$E(0)$ und}%
+{$E(0)$}%
 {Für $n \ge 0$ gilt, wenn $E(n)$ korrekt ist, dann ist auch $E(n+1)$ richtig.}
 
 Dabei ist \textbf{\textsf{IA}} die Abkürzung für
 \emph{Induktionsanfang} und \textbf{\textsf{IS}} ist die Kurzform von
-\emph{Induktionsschritt}. Die Voraussetzung ($=$ Hypothese) im
-Induktionsschritt wird auch \emph{Induktionsvoraussetzung} (kurz
-\textbf{\textsf{IV}}) genannt.
+\emph{Induktionsschritt}. Die Voraussetzung ($=$ Hypothese) $E(n)$, die im
+Induktionsschritt benutzt wird, wird
+auch \emph{Induktionsvoraussetzung} (kurz \textbf{\textsf{IV}}) genannt.
 
 Es gibt verschiedene Versionen von Induktionsbeweisen. Die bekannteste
 Version ist die vollständige Induktion, bei der Aussagen über
@@ -255,10 +260,10 @@ natürliche Zahlen gezeigt werden.
 \fi
 \subsubsection{Die vollständige Induktion}
 
-Wie in Piratenfilmen üblich, seien Kanonenkugeln in einer
-quadratischen Pyramide gestapelt. Wir stellen uns die Frage, wieviele
-Kugeln (in Abhängigkeit von der Höhe) in einer solchen Pyramide
-gestapelt sind.
+Wie in Piratenfilmen üblich, seien Kanonenkugeln in einer Pyramide mit
+quadratischer Grundfläche gestapelt. Wir stellen uns die Frage,
+wieviele Kugeln (in Abhängigkeit von der Höhe) in einer solchen
+Pyramide gestapelt sind.
 
 \begin{theorem}
 Mit einer quadratische Pyramide aus Kanonenkugeln der Höhe $n \ge 1$
@@ -271,8 +276,8 @@ Einfacher formuliert: wir sollen zeigen, dass $\sum\limits_{i=1}^n i^2 =
 \frac{n(n+1)(2n+1)}{6}$.
 \induproof%
 {Eine Pyramide der Höhe $n = 1$ enthält $\frac{1 \cdot 2 \cdot 3}{6} =
-  1$ Kugeln. D.h.~wir haben die Eigenschaft für $n = 0$ verifiziert.}%
-{$\sum\limits_{i=1}^n i^2 = \frac{n(n+1)(2n+1)}{6}$}%
+  1$ Kugeln. D.h.~wir haben die Eigenschaft für $n = 1$ verifiziert.}%
+{Für $k \le n$ gilt $\sum\limits_{i=1}^k i^2 = \frac{k(k+1)(2k+1)}{6}$.}%
 {%
 Wir müssen nun zeigen, dass $\sum\limits_{i=1}^{n+1} i^2 =
 \frac{(n+1)((n+1)+1)(2(n+1)+1)}{6}$ gilt und dabei muss die
@@ -329,9 +334,9 @@ $w$ mit allen Wurzeln $\enu{k}{1}{n}$, dann entsteht ein neuer Baum
 Ausdruck.}{Seien $E$ und $F$ Ausdrücke, so sind auch $E + F$, $E * F$
 und $[E]$ Ausdrücke.}
 
-\noindent D.h. $x$, $x+y$, $[2*x + z]$ sind arithmetische Ausdrücke und
-$x + $, $yy$, $][x+y$ sowie $x +* z$ sind keine Ausdrücke im Sinn
-dieser Definition.
+\noindent D.h.~$x$, $x+y$, $[2*x + z]$ sind arithmetische Ausdrücke,
+aber beispielsweise sind $x + $, $yy$, $][x+y$ sowie $x +* z$ keine
+Ausdrücke im Sinn dieser Definition.
 \end{example}
 
 Bei diesem Beispiel ahnt man schon, dass solche Techniken zur präzisen
