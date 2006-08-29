@@ -3,7 +3,7 @@
 (Einige formale Grundlagen von Beweistechniken) 
 /Dest [ @thispage /FitH @ypos ] >>}
 \fi
-\section{Einige Grundlagen von formale Beweistechniken}
+\section{Einige formale Grundlagen von Beweistechniken}
 Praktisch arbeitende Informatiker glauben oft völlig ohne (formale)
 Beweistechniken auskommen zu können. Dabei meinen sie sogar, dass
 formale Beweise keinerlei Berechtigung in der Praxis der Informatik
@@ -236,18 +236,20 @@ Induktionsprinzip. Wir wollen jetzt nachweisen, dass für jedes $n \in
 \N$ eine bestimmte Eigenschaft $E$ gilt. Wir schreiben kurz $E(n)$ für
 die Aussage "`$n$ besitzt die Eigenschaft $E$"'.
 
-\noindent\textbf{Induktionsprinzip} 
+\bigskip
+
+\noindent\textbf{Induktionsprinzip:} 
 
 \noindent Es gelten 
 \indudef%
 {$E(0)$}%
-{Für $n \ge 0$ gilt, wenn $E(n)$ korrekt ist, dann ist auch $E(n+1)$ richtig.}
+{Für $n \ge 0$ gilt, wenn $E(k)$ für $k \le n$ korrekt ist, dann ist auch $E(n+1)$ richtig.}
 
 Dabei ist \textbf{\textsf{IA}} die Abkürzung für
 \emph{Induktionsanfang} und \textbf{\textsf{IS}} ist die Kurzform von
-\emph{Induktionsschritt}. Die Voraussetzung ($=$ Hypothese) $E(n)$, die im
-Induktionsschritt benutzt wird, wird
-auch \emph{Induktionsvoraussetzung} (kurz \textbf{\textsf{IV}}) genannt.
+\emph{Induktionsschritt}. Die Voraussetzung ($=$ Hypothese) $E(k)$ ist korrekt für $k \le n$, 
+die im Induktionsschritt benutzt wird, wird auch \emph{Induktionsvoraussetzung} 
+(kurz \textbf{\textsf{IV}}) genannt.
 
 Es gibt verschiedene Versionen von Induktionsbeweisen. Die bekannteste
 Version ist die vollständige Induktion, bei der Aussagen über
@@ -276,7 +278,7 @@ Einfacher formuliert: wir sollen zeigen, dass $\sum\limits_{i=1}^n i^2 =
 \frac{n(n+1)(2n+1)}{6}$.
 \induproof%
 {Eine Pyramide der Höhe $n = 1$ enthält $\frac{1 \cdot 2 \cdot 3}{6} =
-  1$ Kugeln. D.h.~wir haben die Eigenschaft für $n = 1$ verifiziert.}%
+  1$ Kugel. D.h.~wir haben die Eigenschaft für $n = 1$ verifiziert.}%
 {Für $k \le n$ gilt $\sum\limits_{i=1}^k i^2 = \frac{k(k+1)(2k+1)}{6}$.}%
 {%
 Wir müssen nun zeigen, dass $\sum\limits_{i=1}^{n+1} i^2 =
