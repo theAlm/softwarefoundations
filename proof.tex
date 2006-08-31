@@ -11,7 +11,7 @@ haben und bezeichnen solches Wissen als "`in der Praxis irrelevantes
 Zeug, das nur von und für seltsame Wissenschaftler erfunden
 wurde"'. Oft stellen sie sich auf den Standpunkt, dass die Korrektheit
 von Programmen und Algorithmen durch "'Lassen wir es doch mal laufen
-und probieren es aus!"' ($=$ Testen) belegt werden könne.
+und probieren es aus!"' ($\triangleq$ Testen) belegt werden könne.
 
 Theoretiker, die sich mit den Grundlagen der Informatik beschäftigen,
 vertreten oft den Standpunkt, dass die Korrektheit \emph{jedes}
@@ -23,14 +23,14 @@ Menge von Eingaben sicherlich nicht belegen, dass ein Programm
 vollständig den Spezifikationen entspricht. Im praktischen Einsatz ist
 es dann oft mit Eingaben konfrontiert, die zu einer fehlerhaften
 Reaktion führen oder es sogar abstürzen\footnote{Dies wird
-  eindrucksvoll durch viele Softwarepakete und verbreitete
-  Betriebssysteme im PC-Umfeld belegt.} lassen. Bei einfacher
+eindrucksvoll durch viele Softwarepakete und verbreitete
+Betriebssysteme im PC-Umfeld belegt.} lassen. Bei einfacher
 Anwendersoftware sind solche Fehler ärgerlich, aber oft zu
-verschmerzen. Bei sicherheitskritischer Software (z.B.~bei der Regelung
-von Atomkraftwerken, Airbags und Bremssystemen in Autos oder bei der
-Steuerung von Raumsonden) gefährden solche Fehler menschliches Leben
-oder führen zu extrem hohen finanziellen Verlusten und müssen deswegen
-unbedingt vermieden werden.
+verschmerzen. Bei sicherheitskritischer Software (z.B.~bei der
+Regelung von Atomkraftwerken, Airbags und Bremssystemen in Autos oder
+bei der Steuerung von Raumsonden) gefährden solche Fehler menschliches
+Leben oder führen zu extrem hohen finanziellen Verlusten und müssen
+deswegen unbedingt vermieden werden.
 
 Für den Praktiker bringen Kenntnisse über formale Beweise aber noch
 andere Vorteile.  Einige Beweistechniken beschreiben direkt den zur
@@ -40,12 +40,12 @@ gezeigt. Aber es gibt noch einen anderen Vorteil. Ist der umzusetzende
 Algorithmus komplex (z.B.~aufgrund einer komplizierten
 Schleifenstruktur oder einer verschachtelten Rekursion), so ist es
 unwahrscheinlich, eine korrekte Implementation an den Kunden liefern
-zu können, ohne die Hintergründe ($=$ Beweis) verstanden zu haben. All
-dies zeigt, dass auch ein praktischer Informatiker Einblicke in
-Beweistechniken haben solle. Interessanterweise zeigt die Erfahrung im
-praktischen Umfeld auch, dass solches (theoretisches) Wissen über die
-Hintergründe oft zu klarer strukturierten und effizienteren Programmen
-führt.
+zu können, ohne die Hintergründe ($\triangleq$ Beweis) verstanden zu
+haben. All dies zeigt, dass auch ein praktischer Informatiker
+Einblicke in Beweistechniken haben solle. Interessanterweise zeigt die
+Erfahrung im praktischen Umfeld auch, dass solches (theoretisches)
+Wissen über die Hintergründe oft zu klarer strukturierten und
+effizienteren Programmen führt.
 
 \ifpdf
 \special{pdf: out 3 << /Title 
@@ -54,13 +54,13 @@ führt.
 \fi
 \subsection{Direkte Beweise}
 Um einen direkten Beweis zu führen, müssen wir, beginnend von einer
-initialen Aussage ($=$ Hypothese), durch Angabe einer Folge von
-(richtigen) Zwischenschritten zu der zu beweisenden Aussage ($=$
-Folgerung) gelangen. Jeder Zwischenschritt ist dabei entweder
-unmittelbar klar oder muss wieder durch einen weiteren (kleinen)
-Beweis belegt werden. Dabei müssen nicht alle Schritt völlig formal
-beschrieben werden, sondern es kommt darauf an, dass sich dem Leser
-die eigentliche Strategie erschließt.
+initialen Aussage ($\triangleq$ Hypothese), durch Angabe einer Folge
+von (richtigen) Zwischenschritten zu der zu beweisenden Aussage
+($\triangleq$ Folgerung) gelangen. Jeder Zwischenschritt ist dabei
+entweder unmittelbar klar oder muss wieder durch einen weiteren
+(kleinen) Beweis belegt werden. Dabei müssen nicht alle Schritt völlig
+formal beschrieben werden, sondern es kommt darauf an, dass sich dem
+Leser die eigentliche Strategie erschließt.
 
 \begin{theorem}
 \label{ExpoGTSquare}
@@ -136,12 +136,12 @@ sein. Die Aussage folgt direkt aus Theorem \ref{ExpoGTSquare}.
 \fi
 \subsubsection{Die Kontraposition}
 
-Mit Hilfe von direkten Beweisen haben wir Zusammenhänge der Form "`Wenn
-Aussage $H$ richtig ist, dann folgt daraus die Aussage $C$"'
+Mit Hilfe von direkten Beweisen haben wir Zusammenhänge der Form
+"`Wenn Aussage $H$ richtig ist, dann folgt daraus die Aussage $C$"'
 untersucht. Manchmal ist es schwierig einen Beweis für eine solchen
-Zusammenhang zu finden. Völlig gleichwertig ist die Behauptung "`Wenn die
-Aussage $C$ falsch ist, dann ist die Aussage $H$ falsch"' und oft ist
-eine solche Aussage leichter zu zeigen. 
+Zusammenhang zu finden. Völlig gleichwertig ist die Behauptung "`Wenn
+die Aussage $C$ falsch ist, dann ist die Aussage $H$ falsch"' und oft
+ist eine solche Aussage leichter zu zeigen.
 
 Die Kontraposition von Satz \ref{ExpoGTSquare} ist also die folgende
 Aussage: "`Wenn nicht $2^n \ge n^2$, dann gilt nicht $n \ge 4$."'. Das
@@ -189,6 +189,26 @@ Abschnitt \ref{cntSet}). Damit ist $S \cup T = U$ eine endliche
 Menge. Dies ist ein Widerspruch zu unserer Hypothese! Also war die
 Annahme "`$T$ ist endlich"' falsch. \qed
 \end{proof}
+
+\ifpdf
+\special{pdf: out 3 << /Title 
+(Der Schubfachschluss)
+/Dest [ @thispage /FitH @ypos ] >>}
+\fi
+\subsection{Der Schubfachschluss}
+Der Schubfachschluss ist auch als \emph{Dirichlets
+Taubenschlagprinzip} bekannt. Werden $k > n$ Tauben auf $n$ Boxen
+verteilt, so gibt es mindestens eine Box in der sich wenigstens zwei
+Tauben aufhalten. Allgemeiner formuliert sagt das Taubenschlagprinzip,
+dass wenn $n$ Objekte auf $k$ Behälter aufgeteilt werden, dann gibt es
+mindestens eine Box die $\lceil \frac{n}{k} \rceil$ Objekte enthält.
+
+\begin{example}
+Auf einer Party unterhalten sich $8$ Personen ($\triangleq$ Objekte),
+dann gibt es mindestens einen Wochentag ($\triangleq$ Box) an dem
+$\lceil \frac{8}{7} \rceil =2$ Personen aus dieser Gruppe Geburtstag
+haben.
+\end{example}
 
 \ifpdf
 \special{pdf: out 3 << /Title 
@@ -247,8 +267,9 @@ die Aussage "`$n$ besitzt die Eigenschaft $E$"'.
 
 Dabei ist \textbf{\textsf{IA}} die Abkürzung für
 \emph{Induktionsanfang} und \textbf{\textsf{IS}} ist die Kurzform von
-\emph{Induktionsschritt}. Die Voraussetzung ($=$ Hypothese) $E(k)$ ist korrekt für $k \le n$, 
-die im Induktionsschritt benutzt wird, wird auch \emph{Induktionsvoraussetzung} 
+\emph{Induktionsschritt}. Die Voraussetzung ($\triangleq$ Hypothese)
+$E(k)$ ist korrekt für $k \le n$, die im Induktionsschritt benutzt
+wird, wird auch \emph{Induktionsvoraussetzung}
 (kurz \textbf{\textsf{IV}}) genannt.
 
 Es gibt verschiedene Versionen von Induktionsbeweisen. Die bekannteste
@@ -315,15 +336,15 @@ immer wieder auf.
 
 Das Induktionsprinzip kann aber auch dazu verwendet werden,
 (Daten-)Strukturen formal zu spezifizieren. Dazu werden in einem
-ersten Schritt ($=$ Induktionsanfang) die "`atomaren"' Objekte
-definiert und dann in einem zweiten Schritt die zusammengesetzten
-Objekte ($=$ Induktionsschritt). Diese Technik ist
-als \emph{induktive Definition} bekannt.
+ersten Schritt ($\triangleq$ Induktionsanfang) die "`atomaren"'
+Objekte definiert und dann in einem zweiten Schritt die
+zusammengesetzten Objekte ($\triangleq$ Induktionsschritt). Diese
+Technik ist als \emph{induktive Definition} bekannt.
 
 \begin{example}
 \noindent Ein Baum ist wie folgt definiert:
 \indudef{Ein einzelner Knoten $w$ ist ein \emph{Baum} und $w$ ist die
-  \emph{Wurzel} dieses Baums}{Seien $T_1, T_2, \dots, T_n$ Bäume mit den
+  \emph{Wurzel} dieses Baums.}{Seien $T_1, T_2, \dots, T_n$ Bäume mit den
   Wurzeln $\enu{k}{1}{n}$ und $w$ ein einzelner Knoten. Verbinden wir
 $w$ mit allen Wurzeln $\enu{k}{1}{n}$, dann entsteht ein neuer Baum
   mit Wurzel $w$.} 
