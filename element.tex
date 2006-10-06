@@ -304,7 +304,7 @@ ist die Relation $R_n(a,b) \eqd \set{(a,b) \colon a \equiv b \mod n} \subseteq
 \subsubsection{Eigenschaften von Funktionen}
 
 Seien $A$ und $B$ beliebige Mengen. $f$ ist eine \emph{Funktion} von $A$ nach
-$B$ (Schreibweise: $f \colon A \mapsto B$) \iffd \ $f \subseteq A \times
+$B$ (Schreibweise: $f \colon A \rightarrow B$) \iffd \ $f \subseteq A \times
 B$ und für jedes $a \in A$ gibt es \emph{höchstens} ein $b \in B$ mit
 $(a, b) \in f$.
  
@@ -315,7 +315,7 @@ $(a, b) \in f$.
 \begin{remark}
 Unsere Definition von Funktionen umfasst auch mehrstellige
 Funktionen. Seien $C$ und $B$ Mengen und $A = C^n$ das $n$-fache
-Kreuzprodukt von $C$. Die Funktion $f \colon A \mapsto B$ ist dann
+Kreuzprodukt von $C$. Die Funktion $f \colon A \rightarrow B$ ist dann
 eine $n$-stellige Funktion, denn sie bildet $n$-Tupel aus $C^n$ auf Elemente
 aus $B$ ab.
 \end{remark}
@@ -328,10 +328,10 @@ aus $B$ ab.
 \item Der \emph{Wertebereich} einer Funktion $f$ ist $W_f \eqd
 \set{b \colon \text{es existiert ein $a$ mit $f(a) = b$}}$.
 %
-\item Eine Funktion $f \colon A \mapsto B$ ist \emph{total} \iffd $D_f
+\item Eine Funktion $f \colon A \rightarrow B$ ist \emph{total} \iffd $D_f
 = A$.
 % 
-\item Eine Funktion $f \colon A \mapsto B$ heißt \emph{surjektiv} \iffd $W_f = B$.
+\item Eine Funktion $f \colon A \rightarrow B$ heißt \emph{surjektiv} \iffd $W_f = B$.
 %
 \item Eine Funktion heißt \emph{injektiv} (oder eineindeutig) \iffd
 \ immer wenn $f(a_1) = f(a_2)$ gilt $a_1 = a_2$.
@@ -340,7 +340,7 @@ aus $B$ ab.
 \end{enumerate}
 
 \begin{example}
-Sei die Funktion $f \colon \N \mapsto \Z$ durch $f(n) = (-1)^n
+Sei die Funktion $f \colon \N \rightarrow \Z$ durch $f(n) = (-1)^n
 \lceil \frac{n}{2} \rceil$ gegeben, wobei
 %
 \begin{displaymath}
@@ -369,3 +369,121 @@ auch folgt, dass $a_1 = a_2$.
 Damit ist die Funktion $f$ bijektiv. Weiterhin ist $f$ auch total,
 d.h.~$D_f = \N$.
 \end{example}
+
+\ifpdf
+\special{pdf: out 4 << /Title 
+(Permutationen) 
+/Dest [ @thispage /FitH @ypos ] >>}
+\fi
+\subsubsection{Permutationen}
+
+Eine bijektive Funktion $\pi \colon S \rightarrow S$
+heißt \emph{Permutation}. Das bedeutet, dass die Funktion $\pi$ Elemente aus $S$
+wieder auf Elemente aus $S$ abbildet, wobei für jedes $b \in S$ ein $a \in S$
+mit $f(a) = b$ existiert (Surjektivität) und falls $f(a_1) = f(a_2)$
+gilt, dann ist $a_1 = a_2$ (Injektivität). Besonders häufig werden in
+der Informatik \emph{Permutation von endlichen Mengen} benötigt.
+
+Sei nun $S = \set{\range{1}{n}}$ eine endliche Menge und
+$\pi \colon \set{\range{1}{n}} \rightarrow \set{\range{1}{n}}$ eine
+Permutation. Permutationen dieser Art kann man sehr anschaulich mit
+Hilfe eine Matrix aufschreiben:
+
+\begin{displaymath}
+\pi = \left( 
+\begin{array}{cccc}
+1 & 2 & \dots & n\\
+\pi(1) & \pi(2) & \dots & \pi(n)
+\end{array}
+\right)
+\end{displaymath}
+Durch diese Notation wird klar, dass das Element $1$ der Menge $S$
+durch das Element $\pi(1)$ ersetzt wird, das Element $2$ wird mit
+$\pi(2)$ vertauscht und allgemein das Element $i$ durch $\pi(i)$ für
+$1 \le i \le n$. In der zweiten Zeile dieser Matrixnotation findet
+sich also \emph{jedes} (Surjektivität) Element der Menge $S$
+genau \emph{einmal} (Injektivität).
+
+\begin{example}
+Sei $S = \set{\range{1}{3}}$ eine Menge mit drei Elementen. Dann gibt
+es, wie man ausprobieren kann, genau $6$ Permutationen von $S$:
+
+\begin{displaymath}
+\begin{array}{rlrlrl}
+\pi_1 &= \left( 
+\begin{array}{ccc}
+1 & 2 & 3\\
+1 & 2 & 3
+\end{array}
+\right)
+&
+\pi_2 &= \left( 
+\begin{array}{ccc}
+1 & 2 & 3\\
+1 & 3 & 2
+\end{array}
+\right)
+&
+\pi_3 &= \left( 
+\begin{array}{ccc}
+1 & 2 & 3\\
+2 & 1 & 3
+\end{array}
+\right)\\[\bigskipamount]
+%
+\pi_4 &= \left( 
+\begin{array}{ccc}
+1 & 2 & 3\\
+2 & 3 & 1
+\end{array}
+\right)
+&
+\pi_5 &= \left( 
+\begin{array}{ccc}
+1 & 2 & 3\\
+3 & 1 & 2
+\end{array}
+\right)
+&
+\pi_6 &= \left( 
+\begin{array}{ccc}
+1 & 2 & 3\\
+3 & 2 & 1
+\end{array}
+\right)\\
+\end{array}
+\end{displaymath}
+\end{example}
+
+\begin{theorem}
+Sei $S$ eine endliche Menge mit $n = |S|$, dann gibt es genau $n!$
+(Fakultät) verschiedene Permutationen von $S$.
+\end{theorem}
+
+\begin{proof}
+Jede Permutation $\pi$ der Menge $S$ von $n$ Elementen kann als Matrix
+der Form
+\begin{displaymath}
+\pi = \left( 
+\begin{array}{cccc}
+1 & 2 & \dots & n\\
+\pi(1) & \pi(2) & \dots & \pi(n)
+\end{array}
+\right)
+\end{displaymath}
+aufgeschrieben werden. Damit ergibt sich die Anzahl der Permutationen
+von $S$ durch die Anzahl der verschiedenen zweiten Zeilen solcher
+Matrizen. In jeder solchen Zeile muss jedes der $n$ Elemente von $S$
+genau einmal vorkommen, da $\pi$ eine bijektive Abbildung ist,
+d.h.~wir haben für die erste Position der zweiten Zeile der
+Matrixdarstellung genau $n$ verschiedene Möglichkeiten, für die zweite
+Position noch $n - 1$ und für die dritte noch $n-2$. Für die $n$-te
+Position bleibt nur noch $1$ mögliches Element aus $S$
+übrig\footnote{Dies kann man sich auch als die Anzahl der
+verschiedenen Möglichkeiten vorstellen, die bestehen, wenn man aus
+einer Urne mit $n$ numerierten Kugeln alle Kugeln \emph{ohne}
+Zurücklegen nacheinander zieht.}. Zusammengenommen haben wir also
+$n \cdot (n - 1) \cdot (n - 2) \cdot (n - 3) \cdot \dots \cdot 2 \cdot
+1 = n!$ verschiedene mögliche Permutationen der Menge $S$.
+\qed
+\end{proof}
