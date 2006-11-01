@@ -17,10 +17,10 @@ zu definieren. Aus diesem Grund soll uns hier die von Cantor 1895 gegebene
 Erklärung genügen, da sie für unsere Zwecke völlig ausreichend ist:
 
 \begin{explain}[Georg Cantor]
-Eine \emph{Menge} ist die Zusammenfassung bestimmter, wohlunterschiedener Objekte
+Eine \dindex{Menge} ist die Zusammenfassung bestimmter, wohlunterschiedener Objekte
 unserer Anschauung oder unseres Denkens, wobei von jedem dieser Objekte
 eindeutig feststeht, ob es zur Menge gehört oder nicht. Die Objekte der Menge
-heißen \emph{Elemente} der Menge.
+heißen \dindex{Elemente} der Menge.
 \end{explain}
 
 \ifpdf
@@ -225,7 +225,8 @@ Kreuzprodukt von $A$ und $B$ die Menge von Paaren $A \times B =
 \label{cntSet}
 
 Sei $A$ eine Menge, die endlich viele Elemente\footnote{Solche Mengen
-werden als \emph{endliche Mengen} bezeichnet.} enthält, dann ist
+werden als \dindex{endliche Mengen}\index{Menge!endlich} bezeichnet.}
+enthält, dann ist
 \begin{displaymath}
 \cnt(A) \eqd \text{Anzahl der Elemente in der Menge $A$}.
 \end{displaymath}
@@ -258,32 +259,32 @@ werden als \emph{endliche Mengen} bezeichnet.} enthält, dann ist
 \subsubsection{Eigenschaften von Relationen}
 
 Seien $\enu{A}{1}{n}$ beliebige Mengen, dann ist $R$ eine
-\emph{$n$-stellige Relation} \iffd \ $R \subseteq A_1 \times A_2 \times \dots
-\times A_n$. Oft werden auch Relationen $R \subseteq A^n$
-betrachtet, diese bezeichnet man dann als $n$-stellige Relation über
-der Menge $A$.
+\emph{$n$-stellige Relation}\index{Relation} \iffd 
+\ $R \subseteq A_1 \times A_2 \times \dots \times A_n$. 
+Oft werden auch Relationen $R \subseteq A^n$ betrachtet, diese
+bezeichnet man dann als $n$-stellige Relation über der Menge $A$.
 
 \noindent  Sei $R$ eine zweistellige Relation über $A$, dann ist $R$
 \begin{itemize}
 %
-\item \emph{reflexiv} \iffd \ $(a,a) \in R$ für alle $a \in A$,
+\item \dindex{reflexiv} \iffd \ $(a,a) \in R$ für alle $a \in A$,
 %
-\item \emph{symmetrisch} \iffd \ aus $(a,b) \in R$ folgt $(b,a) \in R$,
+\item \dindex{symmetrisch} \iffd \ aus $(a,b) \in R$ folgt $(b,a) \in R$,
 %
-\item \emph{antisymmetrisch} \iffd \ aus $(a,b) \in R$ und $(b,a) \in R$ folgt $a =
+\item \dindex{antisymmetrisch} \iffd \ aus $(a,b) \in R$ und $(b,a) \in R$ folgt $a =
 b$,
 %
-\item \emph{transitiv} \iffd \ aus $(a,b) \in R$ und $(b,c) \in R$ folgt $(a,c)
+\item \dindex{transitiv} \iffd \ aus $(a,b) \in R$ und $(b,c) \in R$ folgt $(a,c)
 \in R$ und 
 %
-\item \emph{linear} \iffd \ es gilt immer $(a,b) \in R$ oder $(b, a) \in R$.
+\item \dindex{linear} \iffd \ es gilt immer $(a,b) \in R$ oder $(b, a) \in R$.
 %
-\item Wir nennen $R$ eine \emph{Halbordnung} \iffd $R$ ist reflexiv,
+\item Wir nennen $R$ eine \dindex{Halbordnung} \iffd $R$ ist reflexiv,
 antisymmetrisch und transitiv,
 %
-\item eine \emph{Ordnung} \iffd $R$ ist eine lineare Halbordnung und
+\item eine \dindex{Ordnung} \iffd $R$ ist eine lineare Halbordnung und
 %
-\item eine \emph{Äquivalenzrelation} \iffd $R$ reflexiv, transitiv und
+\item eine \dindex{Äquivalenzrelation} \iffd $R$ reflexiv, transitiv und
 symmetrisch ist.
 %
 \end{itemize}
@@ -296,6 +297,7 @@ ist die Relation $R_n(a,b) \eqd \set{(a,b) \colon a \equiv b \mod n} \subseteq
 \Z^2$ eine Äquivalenzrelation.
 \end{example}
 
+
 \ifpdf
 \special{pdf: out 4 << /Title 
 (Eigenschaften von Funktionen) 
@@ -303,7 +305,7 @@ ist die Relation $R_n(a,b) \eqd \set{(a,b) \colon a \equiv b \mod n} \subseteq
 \fi
 \subsubsection{Eigenschaften von Funktionen}
 
-Seien $A$ und $B$ beliebige Mengen. $f$ ist eine \emph{Funktion} von $A$ nach
+Seien $A$ und $B$ beliebige Mengen. $f$ ist eine \dindex{Funktion} von $A$ nach
 $B$ (Schreibweise: $f \colon A \rightarrow B$) \iffd \ $f \subseteq A \times
 B$ und für jedes $a \in A$ gibt es \emph{höchstens} ein $b \in B$ mit
 $(a, b) \in f$.
@@ -320,23 +322,52 @@ eine $n$-stellige Funktion, denn sie bildet $n$-Tupel aus $C^n$ auf Elemente
 aus $B$ ab.
 \end{remark}
 
+Sei nun $R \subseteq A_1 \times A_2 \times \dots \times A_n$ eine
+$n$-stellige Relation, dann definieren wir $P^n_R \colon A_1 \times
+A_2 \times \dots \times A_n \rightarrow \set{0,1}$ wie folgt:
+
+\begin{displaymath}
+P^n_R(\enu{x}{1}{n}) \eqd 
+\left\{
+\begin{array}{rl}
+1,& \text{ falls $(\enu{x}{1}{n}) \in R$}\\
+0,& \text{ sonst} 
+\end{array}
+\right.
+\end{displaymath}
+Eine solche Funktion, die "`anzeigt"', ob ein Element aus $A_1 \times
+A_2 \times \dots \times A_n$ entweder zu $R$ gehört oder nicht,
+nennt man $n$-stelliges \dindex{Prädikat}.
+
+\begin{example}
+Sei $\mathbb{P} \eqd \set{n \in \N \colon \text{$n$ ist Primzahl}}$, dann
+ist $\mathbb{P}$ eine $1$-stellige Relation über den natürlichen Zahlen. 
+Das Prädikat $P^1_{\mathbb{P}}(n)$ liefert für eine natürliche Zahl
+$n$ genau dann $1$, wenn $n$ eine Primzahl ist.
+\end{example}
+
+Ist für ein Prädikat $P^n_R$ sowohl die Relation $R$ als auch die
+Stelligkeit $n$ aus dem Kontext klar, dann schreibt man auch kurz $P$
+oder verwendet das Relationensymbol $R$ als Notation für das Prädikat
+$P^n_R$.
+
 \begin{enumerate}
 %
-\item Der \emph{Definitionsbereich} einer Funktion $f$ ist $D_f \eqd
+\item Der \dindex{Definitionsbereich} einer Funktion $f$ ist $D_f \eqd
 \set{a \colon \text{es existiert ein $b$ mit $f(a) = b$}}$.
 %
-\item Der \emph{Wertebereich} einer Funktion $f$ ist $W_f \eqd
+\item Der \dindex{Wertebereich} einer Funktion $f$ ist $W_f \eqd
 \set{b \colon \text{es existiert ein $a$ mit $f(a) = b$}}$.
 %
-\item Eine Funktion $f \colon A \rightarrow B$ ist \emph{total} \iffd $D_f
+\item Eine Funktion $f \colon A \rightarrow B$ ist \dindex{total} \iffd $D_f
 = A$.
 % 
-\item Eine Funktion $f \colon A \rightarrow B$ heißt \emph{surjektiv} \iffd $W_f = B$.
+\item Eine Funktion $f \colon A \rightarrow B$ heißt \dindex{surjektiv} \iffd $W_f = B$.
 %
-\item Eine Funktion heißt \emph{injektiv} (oder eineindeutig) \iffd
+\item Eine Funktion heißt \dindex{injektiv} (oder eineindeutig) \iffd
 \ immer wenn $f(a_1) = f(a_2)$ gilt $a_1 = a_2$.
 %
-\item Eine Funktion heißt \emph{bijektiv} \iffd $f$ ist injektiv und surjektiv.
+\item Eine Funktion heißt \dindex{bijektiv} \iffd $f$ ist injektiv und surjektiv.
 \end{enumerate}
 
 \begin{example}
@@ -378,7 +409,7 @@ d.h.~$D_f = \N$.
 \subsubsection{Permutationen}
 
 Eine bijektive Funktion $\pi \colon S \rightarrow S$
-heißt \emph{Permutation}. Das bedeutet, dass die Funktion $\pi$ Elemente aus $S$
+heißt \dindex{Permutation}. Das bedeutet, dass die Funktion $\pi$ Elemente aus $S$
 wieder auf Elemente aus $S$ abbildet, wobei für jedes $b \in S$ ein $a \in S$
 mit $f(a) = b$ existiert (Surjektivität) und falls $f(a_1) = f(a_2)$
 gilt, dann ist $a_1 = a_2$ (Injektivität). Besonders häufig werden in
