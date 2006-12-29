@@ -35,19 +35,19 @@ heißen \dindex{Elemente} der Menge.
 \mbox{}
 \begin{itemize}
 %
-\item $a \in M$ \iffd\ $a$ ist ein Element der Menge $M$
+\item $a \in M$ \iffd\ $a$ ist ein Element der Menge $M$\index{$\in$}
 %
-\item $a \not\in M$ \iffd\ $a$ ist kein Element der Menge $M$
+\item $a \not\in M$ \iffd\ $a$ ist kein Element der Menge $M$\index{$\not\in$}
 %
 \item $M \subseteq N$ \iffd\ aus $a \in M$ folgt $a \in N$ ($M$ ist
-Teilmenge von $N$)
+Teilmenge von $N$)\index{$\subseteq$}
 %
 \item $M \not\subseteq N$ \iffd\ es gilt nicht $M \subseteq
 N$. Gleichwertig: es gibt ein $a \in M$ mit $a \not\in N$ ($M$ ist
-keine Teilmenge von $N$)
+keine Teilmenge von $N$)\index{$\not\subseteq$}
 %
 \item $M \subset N$ \iffd\ es gilt $M \subseteq N$ und $M \not= N$ ($M$ ist
-echte Teilmenge von $N$)
+echte Teilmenge von $N$)\index{$\subset$}
 %
 \end{itemize}
 \end{definition}
@@ -80,15 +80,17 @@ aller Elemente $a$, die die Eigenschaft $E$ besitzen.
 %
 \item Mengen, die durch die Angabe von Elementen definiert sind:
 \begin{itemize}
-%
-\item $\set{0,1}$
-%
-\item $\set{2, 3, 5, 7, 11, 13, 17, 19, 13, 19, 31, 37}$
-%
-\item $\N \eqd \set{0, 1, 2, 3, 4, 5, 6, 7, 8, \dots}$ (Menge der natürlichen Zahlen)
-%
-\item $\Z \eqd \set{\dots, -4, -3, -2, -1, 0, 1, 2, 3, 4, \dots}$ (Menge der ganzen Zahlen)
-%
+  %
+  \item $\set{0,1}$
+  %  
+  \item $\set{2, 3, 5, 7, 11, 13, 17, 19, 13, 19, 31, 37}$
+  %
+  \item $\N \eqd \set{0, 1, 2, 3, 4, 5, 6, 7, 8, \dots}$ (Menge der
+  natürlichen Zahlen)\index{$\N$}
+  %
+  \item $\Z \eqd \set{\dots, -4, -3, -2, -1, 0, 1, 2, 3, 4, \dots}$
+  (Menge der ganzen Zahlen)\index{$\Z$}
+  %
 \end{itemize}
 %
 \item Mengen, die durch eine Eigenschaft $E$ definiert sind:
@@ -120,19 +122,19 @@ $\emptyset$ Teilmenge jeder Menge ist.
 \begin{itemize}
 %
 \item $A \cap B \eqd \set{a \colon a \in A \text{ und } a \in B}$
-(Schnitt von $A$ und $B$)
+(Schnitt von $A$ und $B$)\index{$\cap$}
 %
 \item $A \cup B \eqd \set{a \colon a \in A \text{ oder } a \in B}$
-(Vereinigung von $A$ und $B$)
+(Vereinigung von $A$ und $B$)\index{$\cup$}
 %
 \item $A \backslash B \eqd \set{a \colon a \in A \text{ und } a
-\not\in B}$ (Differenz von $A$ und $B$)
+\not\in B}$ (Differenz von $A$ und $B$)\index{$\backslash$}
 %
 \item $\overline{A} \eqd M \backslash A$ (Komplement von $A$ 
-bezüglich einer festen Grundmenge $M$)
+bezüglich einer festen Grundmenge $M$)\index{$\overline{A}$}
 %
 \item $\PowerSet{A} \eqd \set{B \colon B \subseteq A}$ (Potenzmenge von
-$A$)
+$A$)\index{$\PowerSet{A}$}
 %
 \end{itemize}
 
@@ -189,25 +191,26 @@ A \cup (A \cap B) &=& A & \text{Absorptionsgesetz}\\
 Seien $A, A_1, \dots , A_n$ im folgenden Mengen, dann bezeichnet
 
 \begin{itemize}
-%
-\item $(\enu{a}{1}{n}) \eqd$ die Elemente $\enu{a}{1}{n}$ in
-dieser festgelegten \emph{Reihenfolge} und z.B.~$(3,2) \not=
-(2,3)$. Wir sprechen von einem $n$-Tupel.
-%
-\item $A_1 \times A_2 \times \dots \times A_n \eqd
-\set{(\enu{a}{1}{n}) \colon a_1 \in A_1, a_2 \in A_2, \dots ,a_n \in
-A_n }$ (Kreuzprodukt der Mengen $A_1, A_2, \dots , A_n$),
-%
-\item $A^n \eqd \underbrace{A \times A \times \dots \times
-A}_{n\text{-mal}}$ ($n$-faches Kreuzprodukt der Menge $A$) und
-%
-\item speziell gilt $A^1 = \set{(a) \colon a \in A}$.
-%
+  % 
+  \item $(\enu{a}{1}{n}) \eqd$ die Elemente $\enu{a}{1}{n}$ in dieser
+  festgelegten \emph{Reihenfolge} und z.B.~$(3,2) \not= (2,3)$. Wir
+  sprechen von einem $n$-Tupel.
+  % 
+  \item $A_1 \times A_2 \times \dots \times
+  A_n \eqd \set{(\enu{a}{1}{n}) \colon a_1 \in A_1, a_2 \in A_2, \dots
+  ,a_n \in A_n }$ (Kreuzprodukt der Mengen $A_1, A_2, \dots ,
+  A_n$)\index{Kreuzprodukt}\index{$A_1, A_2, \dots , A_n$},
+  %
+  \item $A^n \eqd \underbrace{A \times A \times \dots \times
+  A}_{n\text{-mal}}$ ($n$-faches Kreuzprodukt der Menge $A$)\index{$A^n$} und
+  %
+  \item speziell gilt $A^1 = \set{(a) \colon a \in A}$.
+  %
 \end{itemize}
 Wir nennen $2$-Tupel auch Paare, $3$-Tupel auch Tripel, $4$-Tupel auch
 Quadrupel und $5$-Tupel Quintupel. Bei $n$-Tupeln ist, im Gegensatz zu
-Mengen, eine Reihenfolge vorgegeben, d.h.~es gilt z.B.~immer $\set{a,b} =
-\set{b,a}$, aber im Allgemeinen $(a,b) \not= (b,a)$.
+Mengen, eine Reihenfolge vorgegeben, d.h.~es gilt z.B.~immer
+$\set{a,b} = \set{b,a}$, aber im Allgemeinen $(a,b) \not= (b,a)$.
 
 \begin{example}
 Sei $A = \set{1, 2, 3}$ und $B = \set{a, b, c}$, dann bezeichnet das
@@ -234,7 +237,7 @@ enthält, dann ist
 
 \begin{itemize}
 %
-\item $\cnt(A^n) = (\cnt A)^n$,
+\item $\cnt(A^n) = (\cnt A)^n$\index{$\cnt$},
 %
 \item $\cnt \PowerSet{A} = 2^{\cnt A}$,
 %
@@ -410,11 +413,12 @@ d.h.~$D_f = \N$.
 \label{Permutationen}
 
 Eine bijektive Funktion $\pi \colon S \rightarrow S$
-heißt \dindex{Permutation}. Das bedeutet, dass die Funktion $\pi$ Elemente aus $S$
-wieder auf Elemente aus $S$ abbildet, wobei für jedes $b \in S$ ein $a \in S$
-mit $f(a) = b$ existiert (Surjektivität) und falls $f(a_1) = f(a_2)$
-gilt, dann ist $a_1 = a_2$ (Injektivität). Besonders häufig werden in
-der Informatik \emph{Permutation von endlichen Mengen} benötigt.
+heißt \dindex{Permutation}\index{$\pi$}. Das bedeutet, dass die
+Funktion $\pi$ Elemente aus $S$ wieder auf Elemente aus $S$ abbildet,
+wobei für jedes $b \in S$ ein $a \in S$ mit $f(a) = b$ existiert
+(Surjektivität) und falls $f(a_1) = f(a_2)$ gilt, dann ist $a_1 = a_2$
+(Injektivität). Besonders häufig werden in der
+Informatik \emph{Permutation von endlichen Mengen} benötigt.
 
 Sei nun $S = \set{\range{1}{n}}$ eine endliche Menge und
 $\pi \colon \set{\range{1}{n}} \rightarrow \set{\range{1}{n}}$ eine
