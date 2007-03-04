@@ -23,7 +23,7 @@ beginfig(1)
 
     dest:=dir(i*(fullCircle/k)) * radius;
 
-    freedotlabel("", dest, origin);
+    freedotlabel(decimal i, dest, origin);
     
   endfor;
 

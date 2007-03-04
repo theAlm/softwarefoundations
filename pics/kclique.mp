@@ -8,7 +8,7 @@ numeric k;
 k:=16;
 
 numeric radius;
-radius:=300;
+radius:=600;
 
 numeric fullCircle;
 fullCircle:=360;
