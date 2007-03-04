@@ -4,7 +4,7 @@ numeric i;
 numeric j;
 
 numeric k;
-k:=8;
+k:=15;
 
 numeric innerRadius;
 innerRadius:=80;
