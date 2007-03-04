@@ -7,7 +7,7 @@ numeric k;
 k:=32;
 
 numeric radius;
-radius:=600;
+radius:=150;
 
 numeric maxEdge;
 maxEdge:=256;

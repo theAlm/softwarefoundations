@@ -16,9 +16,8 @@ SRC = graphex1.mp graphex2.mp moebius.mp random.mp kclique.mp kclique2.mp
 # Implicit rule for converting metapost-graphics into eps-pictures
 %.eps : %.mp
 	mpost $<
-	mptopdf $(basename $<).1
-	mv $(basename $<)-1.pdf $(basename $<).pdf
-	pdftops $(basename $<).pdf $(basename $<).eps
+	mps2eps $(basename $<).1
+	mv $(basename $<).1.eps $(basename $<).eps
 
 # Implicit rule for converting metapost-graphics into pdf-pictures
 %.pdf : %.mp

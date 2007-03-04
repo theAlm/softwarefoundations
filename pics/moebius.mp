@@ -7,10 +7,10 @@ numeric k;
 k:=15;
 
 numeric innerRadius;
-innerRadius:=80;
+innerRadius:=100;
 
 numeric outerRadius;
-outerRadius:=120;
+outerRadius:=150;
 
 numeric fullCircle;
 fullCircle:=360;

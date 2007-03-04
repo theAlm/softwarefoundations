@@ -4,10 +4,10 @@ numeric i;
 numeric j;
 
 numeric k;
-k:=32;
+k:=24;
 
 numeric radius;
-radius:=600;
+radius:=150;
 
 numeric fullCircle;
 fullCircle:=360;
