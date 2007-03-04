@@ -14,15 +14,15 @@ beginfig(1);
   z8=(2cm,-0.5cm);
 
   % Alle Zustände erzeugen
-  newCircle.K0("1") "filled(false)", "circmargin(1mm)";
-  newCircle.K1("2") "filled(false)", "circmargin(1mm)";
-  newCircle.K2("3") "filled(false)", "circmargin(1mm)";
-  newCircle.K3("4") "filled(false)", "circmargin(1mm)";
-  newCircle.K4("5") "filled(false)", "circmargin(1mm)";
-  newCircle.K5("6") "filled(false)", "circmargin(1mm)";
-  newCircle.K6("7") "filled(false)", "circmargin(1mm)";
-  newCircle.K7("8") "filled(false)", "circmargin(1mm)";
-  newCircle.K8("9") "filled(false)", "circmargin(1mm)";
+  newCircle.K0("0") "filled(false)", "circmargin(1mm)";
+  newCircle.K1("1") "filled(false)", "circmargin(1mm)";
+  newCircle.K2("2") "filled(false)", "circmargin(1mm)";
+  newCircle.K3("3") "filled(false)", "circmargin(1mm)";
+  newCircle.K4("4") "filled(false)", "circmargin(1mm)";
+  newCircle.K5("5") "filled(false)", "circmargin(1mm)";
+  newCircle.K6("6") "filled(false)", "circmargin(1mm)";
+  newCircle.K7("7") "filled(false)", "circmargin(1mm)";
+  newCircle.K8("8") "filled(false)", "circmargin(1mm)";
 
   % Position der Zustände festlegen
   K0.c=z0;
