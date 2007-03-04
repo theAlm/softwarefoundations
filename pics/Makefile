@@ -1,5 +1,5 @@
 # Specify all source-files
-SRC = graphex1.mp graphex2.mp
+SRC = graphex1.mp graphex2.mp moebius.mp random.mp kclique.mp kclique2.mp
 
 # Implicit rule for converting fig-graphics into eps-pictures
 %.eps : %.fig
