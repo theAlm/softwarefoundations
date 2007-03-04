@@ -15,17 +15,15 @@ SRC = graphex1.mp graphex2.mp moebius.mp random.mp kclique.mp kclique2.mp
 
 # Implicit rule for converting metapost-graphics into eps-pictures
 %.eps : %.mp
-	mpost $< $@
-	mv $(basename $<).1 $(basename $<).eps
+	mpost $<
+	mptopdf $(basename $<).1
+	mv $(basename $<)-1.pdf $(basename $<).pdf
+	pdftops $(basename $<).pdf $(basename $<).eps
 
 # Implicit rule for converting metapost-graphics into pdf-pictures
 %.pdf : %.mp
 	mpost $< $@
-	ps2pdf < $< > $@
-
-# Implicit rule for converting eps-graphics into pdf-pictures
-%.pdf : %.eps
-	ps2pdf  $<  $@
+	mptopdf < $< > $@
 
 # The generated eps-pictures a intermediate files. Don't delete them
 .PRECIOUS : %.eps
