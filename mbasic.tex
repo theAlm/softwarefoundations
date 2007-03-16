@@ -28,6 +28,9 @@
 \usepackage{wrapfig}
 \usepackage{subfigure}
 
+% Baue einen Index
+\makeindex
+
 % Setze bibliography style
 \bibliographystyle{alpha}
 
@@ -92,7 +95,7 @@
         \vspace{60pt}
 	\begin{center}
 		\vspace{20pt}
-		\textbf{\huge {\docutyp}} \\
+		\textbf{\Large {\docutyp}} \\
 			
 		\vspace{30pt}
 		\textbf{\huge {\lecture}} \\
@@ -149,6 +152,22 @@
 \vfill
 $\star \star \star$ \textsc{Ende} $\star \star \star$
 \end{center}
+
+% Appendix
+\appendix
+
+% Index
+\cleardoublepage
+\ifpdf
+\special{pdf: out 2 << /Title 
+(Stichwortverzeichnis) 
+/Dest [ @thispage /FitH @ypos ] >>}
+\fi
+\addcontentsline{toc}{section}{Stichwortverzeichnis}
+\def\indexname{Stichwortverzeichnis}
+\makeatletter
+\printindex
+\makeatother
 
 \end{document}
  

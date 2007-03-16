@@ -32,23 +32,23 @@ heißen \dindex{Elemente} der Menge.
 
 \begin{definition}
 \label{InclSet}
-\mbox{}
+Sei $M$ eine beliebige Menge, dann ist
 \begin{itemize}
 %
 \item $a \in M$ \iffd\ $a$ ist ein Element der Menge
-$M$\index{$\in$}
+$M$\index{$\in$},
 %
-\item $a \not\in M$ \iffd\ $a$ ist kein Element der Menge $M$\index{$\not\in$}
+\item $a \not\in M$ \iffd\ $a$ ist kein Element der Menge $M$\index{$\not\in$},
 %
 \item $M \subseteq N$ \iffd\ aus $a \in M$ folgt $a \in N$ ($M$ ist
-Teilmenge von $N$)\index{$\subseteq$}
+Teilmenge von $N$)\index{$\subseteq$},
 %
 \item $M \not\subseteq N$ \iffd\ es gilt nicht $M \subseteq
 N$. Gleichwertig: es gibt ein $a \in M$ mit $a \not\in N$ ($M$ ist
-keine Teilmenge von $N$)\index{$\not\subseteq$}
+keine Teilmenge von $N$)\index{$\not\subseteq$} und
 %
 \item $M \subset N$ \iffd\ es gilt $M \subseteq N$ und $M \not= N$ ($M$ ist
-echte Teilmenge von $N$)\index{$\subset$}
+echte Teilmenge von $N$)\index{$\subset$}.
 %
 \end{itemize}
 Statt $a \in M$ schreibt man auch $M \ni a$\index{$\ni$}, was in
@@ -121,25 +121,27 @@ $\emptyset$ Teilmenge jeder Menge ist.
 
 \begin{definition}
 \label{OpSet}
-\mbox{}
+Seien $A$ und $B$ beliebige Mengen, dann ist
 \begin{itemize}
 %
 \item $A \cap B \eqd \set{a \colon a \in A \text{ und } a \in B}$
-(Schnitt von $A$ und $B$)\index{$\cap$}
+(Schnitt von $A$ und $B$)\index{$\cap$},
 %
 \item $A \cup B \eqd \set{a \colon a \in A \text{ oder } a \in B}$
-(Vereinigung von $A$ und $B$)\index{$\cup$}
+(Vereinigung von $A$ und $B$)\index{$\cup$},
 %
 \item $A \backslash B \eqd \set{a \colon a \in A \text{ und } a
-\not\in B}$ (Differenz von $A$ und $B$)\index{$\backslash$}
+\not\in B}$ (Differenz von $A$ und $B$)\index{$\backslash$},
 %
 \item $\overline{A} \eqd M \backslash A$ (Komplement von $A$ 
-bezüglich einer festen Grundmenge $M$)\index{$\overline{A}$}
+bezüglich einer festen Grundmenge $M$)\index{$\overline{A}$} und
 %
 \item $\PowerSet{A} \eqd \set{B \colon B \subseteq A}$ (Potenzmenge von
-$A$)\index{$\PowerSet{A}$}
+$A$)\index{$\PowerSet{A}$}.
 %
 \end{itemize}
+Zwei Mengen $A$ und $B$ mit $A \cap B = \emptyset$ nennt
+man \dindex{disjunkt}.
 
 \begin{example}
 Sei $A = \set{2, 3, 5, 7}$ und $B = \set{1, 2, 4 , 6}$, dann ist $A
@@ -149,11 +151,19 @@ natürlichen Zahlen, also $M = \N$, dann ist $\overline{A} = \set{n
 \colon n
 \in \N \text{ und } a \not= 2 \text{ und } a \not= 3 \text{ und } a
 \not= 5 \text{ und } a \not= 7} = \set{1, 4, 6, 8, 9, 10, 11,
-\dots}$. Als Potenzmenge der Menge $A$ ergibt sich also die Menge von Mengen
-$\PowerSet{A} = \set{\emptyset, \set{2},\set{3}, \set{5}, \set{7}, \allowbreak \set{2,3},
+\dots}$. 
+
+Als Potenzmenge der Menge $A$ ergibt sich die Menge von Mengen
+$\PowerSet{A} = \set{\emptyset,\allowbreak \set{2},\allowbreak \set{3},
+\allowbreak \set{5},\allowbreak \set{7}, \allowbreak \set{2,3},
 \set{2,5}, \allowbreak \set{2,7}, \allowbreak \set{3,5}, \allowbreak \set{3,7},
 \allowbreak \set{5,7}, \set{2,3,5},
-\set{2,3,7},\set{2,5,7}, \allowbreak \set{3,5,7},\set{2,3,5,7}}$.  \end{example}
+\set{2,3,7},\set{2,5,7}, \allowbreak \set{3,5,7},\set{2,3,5,7}}$. 
+
+Offensichtlich sind die Menge $\set{0,2,4,6,8, \dots }$ der geraden
+natürlichen Zahlen und die Menge $\set{1,3,5,7,9, \dots }$ der
+ungeraden natürlichen Zahlen disjunkt.
+\end{example}
 \end{definition}
 
 \ifpdf
@@ -234,7 +244,7 @@ Sei $A$ eine Menge, die endlich viele Elemente\footnote{Solche Mengen
 werden als \dindex{endliche Mengen}\index{Menge!endlich} bezeichnet.}
 enthält, dann ist
 \begin{displaymath}
-\cnt(A) \eqd \text{Anzahl der Elemente in der Menge $A$}.
+\cnt A \eqd \text{Anzahl der Elemente in der Menge $A$}.
 \end{displaymath}
 \noindent Beispielsweise ist $\cnt \set{4,7,9} = 3$. Mit dieser Definition gilt
 
@@ -263,14 +273,18 @@ enthält, dann ist
 /Dest [ @thispage /FitH @ypos ] >>}
 \fi
 \subsubsection{Eigenschaften von Relationen}
+\label{PropRel}
 
 Seien $\enu{A}{1}{n}$ beliebige Mengen, dann ist $R$ eine
 \emph{$n$-stellige Relation}\index{Relation} \iffd 
-\ $R \subseteq A_1 \times A_2 \times \dots \times A_n$. 
-Oft werden auch Relationen $R \subseteq A^n$ betrachtet, diese
-bezeichnet man dann als $n$-stellige Relation über der Menge $A$.
+\ $R \subseteq A_1 \times A_2 \times \dots \times A_n$. Eine
+zweistellige Relation nennt man auch \dindex{binäre
+Relation}\index{Relation!binär}. Oft werden auch Relationen
+$R \subseteq A^n$ betrachtet, diese bezeichnet man dann als
+$n$-stellige Relation über der Menge $A$.
 
-\noindent  Sei $R$ eine zweistellige Relation über $A$, dann ist $R$
+\begin{definition}
+Sei $R$ eine zweistellige Relation über $A$, dann ist $R$
 \begin{itemize}
 %
 \item \dindex{reflexiv} \iffd \ $(a,a) \in R$ für alle $a \in A$,
@@ -294,6 +308,7 @@ antisymmetrisch und transitiv,
 symmetrisch ist.
 %
 \end{itemize}
+\end{definition}
 
 \begin{example}
 Die Teilmengenrelation "`$\subseteq$"' auf allen Teilmengen von $\Z$ ist
@@ -357,24 +372,27 @@ Stelligkeit $n$ aus dem Kontext klar, dann schreibt man auch kurz $P$
 oder verwendet das Relationensymbol $R$ als Notation für das Prädikat
 $P^n_R$.
 
-\begin{enumerate}
+\begin{definition}
+Für eine beliebige Funktion $f$ legen wir fest:
+\begin{itemize}
 %
-\item Der \dindex{Definitionsbereich} einer Funktion $f$ ist $D_f \eqd
+\item Der \dindex{Definitionsbereich} der Funktion $f$ ist $D_f \eqd
 \set{a \colon \text{es existiert ein $b$ mit $f(a) = b$}}$.
 %
-\item Der \dindex{Wertebereich} einer Funktion $f$ ist $W_f \eqd
+\item Der \dindex{Wertebereich} der Funktion $f$ ist $W_f \eqd
 \set{b \colon \text{es existiert ein $a$ mit $f(a) = b$}}$.
 %
-\item Eine Funktion $f \colon A \rightarrow B$ ist \dindex{total} \iffd $D_f
+\item Die Funktion $f \colon A \rightarrow B$ ist \dindex{total} \iffd $D_f
 = A$.
 % 
-\item Eine Funktion $f \colon A \rightarrow B$ heißt \dindex{surjektiv} \iffd $W_f = B$.
+\item Die Funktion $f \colon A \rightarrow B$ heißt \dindex{surjektiv} \iffd $W_f = B$.
 %
-\item Eine Funktion heißt \dindex{injektiv} (oder eineindeutig) \iffd
-\ immer wenn $f(a_1) = f(a_2)$ gilt $a_1 = a_2$.
+\item Die Funktion $f$ heißt \dindex{injektiv} (oder eineindeutig) \iffd
+\ immer wenn $f(a_1) = f(a_2)$ gilt auch $a_1 = a_2$.
 %
-\item Eine Funktion heißt \dindex{bijektiv} \iffd $f$ ist injektiv und surjektiv.
-\end{enumerate}
+\item Die Funktion $f$ heißt \dindex{bijektiv} \iffd $f$ ist injektiv und surjektiv.
+\end{itemize}
+\end{definition}
 
 \begin{example}
 Sei die Funktion $f \colon \N \rightarrow \Z$ durch $f(n) = (-1)^n
