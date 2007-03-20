@@ -11,11 +11,11 @@
 \fi
 \subsection{Grundlagen}
 Die Theorie der Graphen ist heute zu einem unverzichtbaren Bestandteil
-der Informatik geworden. Viele Probleme wie z.B.~das Verlegen von
+der Informatik geworden. Viele Probleme, wie z.B.~das Verlegen von
 Leiterbahnen auf einer Platine, die Modellierung von Netzwerken oder
-die Lösung von Routingproblemen in Verkehrsnetzen benutzen Graphen
+die Lösung von Routingproblemen in Verkehrsnetzen, benutzen Graphen
 oder Algorithmen, die Graphen als Datenstruktur verwenden. Auch schon
-bekannte Datenstrukturen wie Listen und Bäumen können als Graphen
+bekannte Datenstrukturen wie Listen und Bäume können als Graphen
 aufgefasst werden. All dies gibt einen Anhaltspunkt, dass die
 Graphentheorie eine sehr zentrale Rolle für die Informatik spielt und
 vielfältige Anwendungen hat. In diesem Kontext ist es wichtig zu
@@ -47,7 +47,7 @@ beschäftigen, da diese für den Informatiker von großem Nutzen sind.
 \bigskip
 
 Da wir eine Kante $(u,v)$ als Verbindung zwischen den Knoten $u$ und
-$v$ interpretieren können, bietet es sich an Graphen durch Diagramme
+$v$ interpretieren können, bietet es sich an, Graphen durch Diagramme
 darzustellen. Dabei wird die Kante $(u,v)$ durch einen Pfeil von $u$
 nach $v$ dargestellt. Drei Beispiele für eine bildliche Darstellung
 von Graphen finden sich in Abbildung \ref{gGraphen}.
@@ -146,7 +146,7 @@ dann bezeichnen wir $G$ als \dindex{ungerichteten
 Graphen}\index{Graph!ungerichtet} oder kurz als \dindex{Graph}.
 \end{definition}
 
-Es ist praktisch die Kanten $(u,v)$ und $(v,u)$ eines ungerichteten
+Es ist praktisch, die Kanten $(u,v)$ und $(v,u)$ eines ungerichteten
 Graphen als Menge $\set{u,v}$ mit zwei Elementen aufzufassen. Diese
 Vorgehensweise führt zu einem kleinen technischen Problem. Eine Kante
 $(u,u)$ mit gleichem Start- und Endknoten nennen wir, entsprechend der
@@ -186,10 +186,10 @@ $K_{20}$]{\includegraphics[scale=0.7]{kclique3.eps}}
 Sei $G = (V,E)$ ein gerichteter Graph und $v \in V$ ein beliebiger
 Knoten. Der \dindex{Ausgrad} von $v$ (kurz:
 $\mathrm{outdeg}(v)$\index{$\mathrm{outdeg}(v)$}) ist dann die Anzahl
-der Kanten in $G$, die $v$ als als Startknoten haben. Analog ist
+der Kanten in $G$, die $v$ als Startknoten haben. Analog ist
 der \dindex{Ingrad} von $v$ 
 (kurz: $\mathrm{indeg}(v)$\index{$\mathrm{indeg}(v)$}) die Anzahl der Kanten
-in $G$, die $v$ als Endknoten haben. 
+in $G$, die $v$ als Endknoten haben.
 
 Bei ungerichteten Graphen gilt für jeden Knoten
 $\mathrm{outdeg}(v)=\mathrm{indeg}(v)$. Aus diesem Grund schreiben wir
@@ -199,7 +199,7 @@ Ein Graph $G$ heißt \dindex{regulär} \gdw alle
 Knoten von $G$ den gleichen Grad haben.
 \end{definition}
 Die Diagramme der Graphen in den Abbildungen \ref{gGraphen}
-und \ref{ugGraphen} haben Eigenschaft, dass sich einige Kanten
+und \ref{ugGraphen} haben die Eigenschaft, dass sich einige Kanten
 schneiden. Es stellt sich die Frage, ob man diese Diagramme auch so
 zeichnen kann, dass keine Überschneidungen auftreten. Diese
 Eigenschaft von Graphen wollen wir durch die folgende Definition
@@ -219,15 +219,15 @@ Auch planare Graphen haben eine anschauliche Bedeutung. Der Schaltplan
 einer elektronischen Schaltung kann als Graph aufgefasst werden. Die
 Knoten entsprechen den Stellen an denen die Bauteile aufgelötet werden
 müssen, und die Kanten entsprechen den Leiterbahnen auf der
-Platine. In diesem Zusammenhang bedeutet planar nun, ob man die
+Platine. In diesem Zusammenhang bedeutet planar, ob man die
 Leiterbahnen kreuzungsfrei verlegen kann, d.h.~ob es möglich ist, eine
 Platine zu fertigen, die mit einer Kupferschicht auskommt. In der
 Praxis kommen oft Platinen mit mehreren Schichten zum Einsatz
 ("`Multilayer-Platine"'). Ein Grund dafür kann sein, dass der
 "`Schaltungsgraph"' nicht planar war und deshalb mehrere Schichten
 benötigt werden. Da Platinen mit mehreren Schichten in der Fertigung
-deutlich teurer sind als solche mit einer Schicht, hat sich
-Planaritätseigenschaft von Graphen also auch unmittelbare finanzielle
+deutlich teurer sind als solche mit einer Schicht, hat die
+Planaritätseigenschaft von Graphen somit auch unmittelbare finanzielle
 Auswirkungen.
 
 \ifpdf
@@ -245,7 +245,7 @@ $l$}\index{Weg}. Der Knoten $u$
 wird \dindex{Startknoten}\index{Knoten!Start} und $v$
 wird \dindex{Endknoten}\index{Knoten!End} des Wegs genannt.
 
-Ein Weg bei dem Start- und Endknoten gleich sind,
+Ein Weg, bei dem Start- und Endknoten gleich sind,
 heißt \dindex{geschlossener Weg}\index{Weg!geschlossen}. Ein
 geschlossener Weg, bei dem kein Knoten außer dem Startknoten mehrfach
 enthalten ist, wird \dindex{Kreis} genannt.
@@ -268,13 +268,13 @@ Untergraph nennt man \dindex{Zusammenhangskomponente}.
 \end{definition}
 Offensichtlich sind die Graphen in den
 Abbildungen \ref{gGraphen}(a), \ref{ugGraphen}(a), \ref{ugGraphen}(b)
-und \ref{ugGraphen}(d) zusammenhängend und sie haben genau eine
+und \ref{ugGraphen}(d) zusammenhängend und haben genau eine
 Zusammenhangskomponente. Man kann sich sogar leicht überlegen, dass
 die Eigenschaft $u$ hängt mit $v$ zusammen
 eine \emph{Äquivalenzrelation} (siehe Abschnitt \ref{PropRel})
 darstellt.
 
-Mit Hilfe der Definition des geschlossenen Wegs läßt sich nun der
+Mit Hilfe der Definition des geschlossenen Wegs lässt sich nun der
 Begriff der Bäume definieren, die eine sehr wichtige Unterklasse der
 Graphen darstellen.
 \goodbreak
@@ -300,7 +300,7 @@ d.h.~wenn er nur genau eine Zusammenhangskomponente hat.
 Nachdem Graphen eine große Bedeutung sowohl in der praktischen als
 auch in der theoretischen Informatik erlangt haben, stellt sich noch
 die Frage, wie man Graphen effizient als Datenstruktur in einem
-Computer ablegt. Dabei soll es möglich sein Graphen effizient zu
+Computer ablegt. Dabei soll es möglich sein, Graphen effizient zu
 speichern und zu manipulieren. 
 
 Die erste Idee, Graphen als dynamische Datenstrukturen zu
