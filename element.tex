@@ -425,6 +425,12 @@ Damit ist die Funktion $f$ bijektiv. Weiterhin ist $f$ auch total,
 d.h.~$D_f = \N$.
 \end{example}
 
+\ifdiscretemath
+%
+% Remove the subsubsection
+%
+\else
+
 \ifpdf
 \special{pdf: out 4 << /Title 
 (Permutationen) 
@@ -544,3 +550,5 @@ $n \cdot (n - 1) \cdot (n - 2) \cdot (n - 3) \cdot \dots \cdot 2 \cdot
 1 = n!$ verschiedene mögliche Permutationen der Menge $S$.
 \qed
 \end{proof}
+
+\fi
