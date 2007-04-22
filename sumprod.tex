@@ -1,0 +1,79 @@
+\ifpdf
+\special{pdf: out 2 << /Title 
+(Summen und Produkte) 
+/Dest [ @thispage /FitH @ypos ] >>}
+\fi
+\section{Summen und Produkte}
+
+\ifpdf
+\special{pdf: out 3 << /Title 
+(Summen) 
+/Dest [ @thispage /FitH @ypos ] >>}
+\fi
+\subsection{Summen}
+Zur abkürzenden Schreibweise verwendet man für Summen das
+Summenzeichen $\sum$. Dabei ist
+\begin{displaymath}
+\sum_{i=1}^n a_i \eqd a_1 + a_2 + \dots + a_n
+\end{displaymath}
+Mit Hilfe dieser Definition ergeben sich auf elementare Weise die
+folgenden Rechenregeln:
+\begin{itemize}
+%
+\item Sei $a_i = a$ für $1 \le k \le n$, dann gilt $\sum\limits_{i=1}^n a_i =
+  n \cdot a$ (Summe gleicher Summanden).
+%
+\item $\sum\limits_{i=1}^n a_i = \sum\limits_{i=1}^m a_i +
+  \sum\limits_{i = m + 1}^n a_i$, wenn $1 < m < n$ (Aufspalten einer Summe).
+%
+\item $\sum\limits_{i=1}^n (a_i + b_i + c_i + \dots) =
+  \sum\limits_{i=1}^n a_i + \sum\limits_{i=1}^n b_i +
+  \sum\limits_{i=1}^n c_i + \dots$ (Addition von Summen gleicher Länge).
+%
+\item $\sum\limits_{i=1}^n a_i = \sum\limits_{i=m}^{n+m - 1} a_{i-m+1}$
+  und $\sum\limits_{i=1}^n a_i = \sum\limits_{i=l}^{n-m+l} a_{k+m-l}$
+  (Umnumerierung von Summen).
+%
+\item $\sum\limits_{i=1}^n \sum\limits_{j=1}^m a_{i,j} =
+  \sum\limits_{j=1}^m \sum\limits_{i=1}^n a_{i,j}$ (Vertauschen der Summationsfolge).
+%
+\end{itemize}
+
+\ifpdf
+\special{pdf: out 3 << /Title 
+(Summen) 
+/Dest [ @thispage /FitH @ypos ] >>}
+\fi
+\subsection{Produkte}
+
+Zur abkürzenden Schreibweise verwendet man für Produkte das
+Produktzeichen $\prod$. Dabei ist
+\begin{displaymath}
+\prod_{i=1}^n a_i \eqd a_1 \cdot a_2 \cdot \ldots \cdot a_n
+\end{displaymath}
+Mit Hilfe dieser Definition ergeben sich auf elementare Weise die
+folgenden Rechenregeln:
+\begin{itemize}
+%
+\item Sei $a_i = a$ für $1 \le k \le n$, dann gilt $\prod\limits_{i=1}^n a_i =
+  a^n$ (Produkt gleicher Faktoren).
+%
+\item  $\prod\limits_{i=1}^n (c a_i) = c^n \prod\limits_{i=1}^n a_i$
+  (Vorziehen von konstanten Faktoren)
+%
+\item $\prod\limits_{i=1}^n a_i = \prod\limits_{i=1}^m a_i \cdot
+  \sum\limits_{i = m + 1}^n a_i$ , wenn $1 < m < n$ (Aufspalten in Teilprodukte).
+%
+\item $\prod\limits_{i=1}^n (a_i \cdot b_i \cdot c_i \cdot \dots) =
+  \prod\limits_{i=1}^n a_i \cdot \prod\limits_{i=1}^n b_i \cdot
+  \prod\limits_{i=1}^n c_i \cdot \dots$ (Das Produkt von Produkten).
+%
+\item $\prod\limits_{i=m}^n a_i = \sum\limits_{i=l}^{n} a_{i+m-l}$
+  und $\sum\limits_{i=1}^n a_i = \sum\limits_{i=l}^{n-m+l} a_{k+m-l}$
+  (Umnumerierung).
+%
+\item $\prod\limits_{i=1}^n \prod\limits_{j=1}^m a_{i,j} =
+  \prod\limits_{j=1}^m \prod\limits_{i=1}^n a_{i,j}$ (Vertauschen der
+  Reihenfolge bei Doppelprodukten).
+%
+\end{itemize}
