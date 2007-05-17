@@ -40,10 +40,6 @@
 % Seitenaufteilung
 \geometry{top=3.0cm, left=2.5cm, right=2.5cm, bottom=3.0cm}
 
-% Seitenstil (Fuß- und Kopfzeilen)
-\pagestyle{headings}
-\pagestyle{fancy}
-
 % Suchpfad für Graphiken
 \graphicspath{{pics/}}
 
@@ -88,6 +84,8 @@
 
 \begin{document}
 
+\pagestyle{empty}
+
 \begin{titlepage}
         \ifpdf
         \special{pdf: out 1 << /Title 
@@ -127,18 +125,20 @@
 	\newpage
 \end{titlepage}
 
-\pagenumbering{roman}
+\cleardoublepage
 
 \special{pdf: out 2 << /Title 
 (Inhaltsverzeichnis) 
 /Dest [ @thispage /FitH @ypos ] >>}
 \tableofcontents
 
-\newpage
-	
-% Haupt-Textteil
-\pagenumbering{arabic}
+\cleardoublepage
 
+% Seitenstil (Fuß- und Kopfzeilen)
+\pagestyle{headings}
+\pagestyle{fancy}
+\pagenumbering{arabic}
+	
 %%%%%%%%%%%%%%%%%%%%%%%%% Sektion 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %Einige grundlegende Notationen
