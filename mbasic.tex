@@ -20,7 +20,7 @@
             bookmarksopen=true,
             bookmarks=false,
 	    pdfpagemode=UseOutlines,
-            pdftitle={Einige elementare Begriffe und Schreibweisen der Mathematik},
+            pdftitle={Einige elementare Begriffe, Probleme und Schreibweisen der Mathematik},
             pdfauthor={Steffen Reith},
             pdfcreator={Steffen Reith}
            ]{hyperref}
@@ -30,6 +30,9 @@
 
 % Include global settings
 \input{settings.tex}
+\discretemathfalse
+\algorithmsfalse
+\komplextrue
 
 % Baue einen Index
 \makeindex
@@ -66,8 +69,8 @@
 \newcommand{\emphasize}{\emph}
 
 \newcommand{\docutyp}{Skript}
-\newcommand{\lecture}{Einige elementare mathematische Begriffe und
-  Schreibweisen in der Informatik}
+\newcommand{\lecture}{Einige elementare mathematische Begriffe,
+  Probleme  und Schreibweisen in der Informatik}
 \newcommand{\docudate}{Sommersemester 2007}
 
 \newcommand{\institution}{{\Large Fachhochschule Wiesbaden}\\
@@ -147,6 +150,9 @@
 % Graphentheorie
 \include{graph}
 
+% Grundlagen der Komplexitätstheorie
+\include{komplex}
+
 % Einige grundlegende Beweistechniken
 \include{proof}
 
@@ -171,6 +177,17 @@ $\star \star \star$ \textsc{Ende} $\star \star \star$
 \makeatletter
 \printindex
 \makeatother
+
+% Literatur
+\cleardoublepage
+\ifpdf
+\special{pdf: out 2 << /Title 
+(Literatur) 
+/Dest [ @thispage /FitH @ypos ] >>}
+\fi
+\def\bibname{Literatur}
+\addcontentsline{toc}{section}{Literatur}
+\bibliography{mbasic}
 
 \end{document}
  

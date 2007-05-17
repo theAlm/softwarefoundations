@@ -477,6 +477,11 @@ alle Kanten $(u,v) \in E$ gilt, dass $f(u) \neq f(v)$, d.h.~zwei
 adjazente Knoten werden nie mit der gleichen Farbe markiert.
 \end{definition}
 
+\ifkomplex
+Für viele Probleme der Graphentheorie gibt es mit hoher
+Wahrscheinlichkeit keinen effizienten Algorithmus. Mehr Informationen
+zu diesem Thema finden sich in Abschnitt \ref{KomplexSect}.
+\else
 Auch das Färbbarkeitsproblem spielt in der Praxis der Informatik eine
 wichtige Rolle. Ein Beispiel dafür ist die Planung eines
 Mobilfunknetzes. Dabei werden die Basisstationen eines Mobilfunknetzes
@@ -488,7 +493,7 @@ ist es möglich, ein störungsfreies Mobilfunktnetz mit $k$
 verschiedenen Funkfrequenzen aufzubauen. Dabei entsprechen die Farben
 den verfügbaren Frequenzen. Bei der Planung eines solchen
 Mobilfunknetzes ist also das folgende Problem zu lösen:
-\dprob{COLORABILIY}{
+\dprob{$k\mathrm{COL}$}{
 Ein ungerichteter Graph $G$ und eine Zahl $k \in \N$.
 }
 {
@@ -500,3 +505,4 @@ bekannt sind (Stichwort: \NP-Vollständigkeit). Vielfältige Ergebnisse
 der Theoretischen Informatik zeigen sogar, dass man nicht hoffen darf,
 dass ein schneller Algorithmus zur Lösung des Färbbarkeitsproblems
 existiert.
+\fi
