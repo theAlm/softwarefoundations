@@ -7,10 +7,10 @@
 \section{Komplexität von Algorithmen}
 \label{KomplexSect}
 
-Für viele ständig auftretenden Berechnungsprobleme, wie Sortieren, die
+Für viele ständig auftretende Berechnungsprobleme, wie Sortieren, die
 arithmetischen Operationen (Addition, Multiplikation, Division),
 Fourier-Transformation etc., sind sehr effiziente Algorithmen
-konstruiert worden.  Für wenige andere praktische Probleme weiß man,
+konstruiert worden. Für wenige andere praktische Probleme weiß man,
 dass sie nicht oder nicht effizient algorithmisch lösbar sind. Im
 Gegensatz dazu ist für einen sehr großen Teil von Fragestellungen aus
 den verschiedensten Anwendungsbereichen wie Operations Research,
@@ -22,9 +22,9 @@ mit der seit über dreißig Jahren offenen $\P\stackrel{?}{=}\NP$-Frage
 zusammen, wahrscheinlich gegenwärtig das wichtigste ungelöste Problem
 der theoretischen Informatik. Es wurde sogar kürzlich auf Platz 1 der
 Liste der so genannten \emph{Millenium Prize Problems} des Clay
-Mathematics Institute gesetzt\footnote{siehe http://www.claymath.org/millennium}.
+Mathematics Institute gesetzt\footnote{siehe http://www.claymath.org/millennium}.  
 Diese Liste umfasst sieben offene Probleme aus der gesamten
-Mathematik. Das Clay Institute zahlt jedem, der eines der Probleme
+Mathematik. Das Clay Institute zahlt jedem, der eines dieser Probleme 
 löst, eine Million US-Dollar.
 
 In diesem Abschnitt werden die wesentlichen Begriffe aus dem Kontext
@@ -52,23 +52,24 @@ Was ist ein "`Problem?"' Jedem Programmierer ist diese Frage intuitiv
 klar: Man bekommt geeignete Eingaben, und das Programm soll die
 gewünschten Ausgaben ermitteln. Ein einfaches Beispiel ist das Problem
 MULT. (Jedes Problem soll mit einem eindeutigen Namen versehen und
-dieser in in Großbuchstaben geschrieben werden.) Hier bekommt man zwei
+dieser in Großbuchstaben geschrieben werden.) Hier bekommt man zwei
 ganze Zahlen als Eingabe und soll das Produkt beider Zahlen berechnen,
 d.h.~das Programm berechnet einfach eine zweistellige Funktion. Es hat
 sich gezeigt, dass man sich bei der Untersuchung von Effizienzfragen
 auf eine abgeschwächte Form von Problemen beschränken kann, nämlich
 sogenannte \dindex{Entscheidungsprobleme}. Hier ist die Aufgabe, eine
 gewünschte Eigenschaft der Eingaben zu testen. Hat die aktuelle
-Eingabe die gewünschte Eigenschaft, dann gibt man den Wert 1 zurück
+Eingabe die gewünschte Eigenschaft, dann gibt man den Wert $1$
+($\triangleq$ \texttt{true}) zurück
 (man spricht dann auch von einer 
 \dindex{positiven Instanz}\index{Instanz!positiv} des Problems), hat 
-die Eingabe die Eigenschaft nicht, dann gibt man den Wert 0
-zurück. Oder anders formuliert: Das Programm berechnet eine Funktion,
-die den Wert 0 oder 1 zurück gibt und partitioniert damit die Menge
-der möglichen Eingaben in zwei Teile: die Menge der Eingaben mit der
-gewünschten Eigenschaft und die Menge der Eingaben, die die gewünschte
-Eigenschaft nicht besitzen. Folgendes Beispiel soll das Konzept
-verdeutlichen:
+die Eingabe die Eigenschaft nicht, dann gibt man den Wert $0$
+($\triangleq$ \texttt{false}) zurück. Oder anders formuliert: Das
+Programm berechnet eine Funktion, die den Wert 0 oder 1 zurück gibt
+und partitioniert damit die Menge der möglichen Eingaben in zwei
+Teile: die Menge der Eingaben mit der gewünschten Eigenschaft und die
+Menge der Eingaben, die die gewünschte Eigenschaft nicht
+besitzen. Folgendes Beispiel soll das Konzept verdeutlichen:
 
 \prob{PARITY}
 {Positive Integerzahl $x$}
@@ -110,10 +111,10 @@ werden (siehe Abbildung \ref{nikolaus}).
 Ein prominentes Problem in der Graphentheorie ist es, eine sogenannte
 Knotenfärbung zu finden. Dabei wird jedem Knoten eine Farbe
 zugeordnet, und man verbietet, dass zwei Knoten, die durch eine Kante
-verbunden sind, die gleiche Farbe zugeordnet wird. Natürlich ist
-die Anzahl der Farben, die verwendet werden dürfen, beschränkt durch
-eine feste natürliche Zahl $k$. Genau wird das Problem, ob ein
-Graph $k$-färbbar ist, wie folgt beschrieben:
+verbunden sind, die gleiche Farbe zugeordnet wird. Natürlich ist die
+Anzahl der Farben, die verwendet werden dürfen, durch eine feste
+natürliche Zahl $k$ beschränkt. Genau wird das Problem, ob ein Graph
+$k$-färbbar ist, wie folgt beschrieben:
 
 \prob{$k\mathrm{COL}$}
 {Ein Graph $G=(V,E)$}
@@ -133,7 +134,7 @@ schon über ein Mobilfunknetz verfügt, sind die Sendemasten schon
 gebaut. Aus technischen Gründen dürfen Sendemasten, die zu eng stehen,
 nicht mit der gleichen Frequenz funken, da sie sich sonst stören
 würden. In der graphentheoretischen Welt modelliert man die
-Sendestationen mit Knoten eines Graphen, und nahe zusammenstehende
+Sendestationen mit Knoten eines Graphen, und "`nahe"' zusammenstehende
 Sendestationen symbolisiert man mit einer Kante zwischen den Knoten,
 für die sie stehen. Die Aufgabe des Mobilfunkplaners ist es nun, eine
 $3$-Färbung für den entstehenden Graphen zu finden. Offensichtlich
@@ -153,8 +154,8 @@ soll. Wie soll die "`Laufzeit"' eines Algorithmus gemessen werden? Um
 dies festlegen zu können, muss man sich zunächst auf ein sogenanntes
 \dindex{Berechnungsmodell} festlegen. Das kann man damit vergleichen,
 welche Hardware für die Implementation des Algorithmus verwendet
-werden soll. Für die weiteren Analysen soll das folgendes einfache
-PASCAL-artige Modell verwendet werden: Es wird die Syntax von PASCAL
+werden soll. Für die weiteren Analysen soll das folgende einfache
+C-artige Modell verwendet werden: Es wird (grob!) die Syntax von C
 verwendet und festgelegt, dass jede Anweisung in einem Schritt
 abgearbeitet werden kann. Gleichzeitig beschränkt man sich auf zwei
 Datentypen: einen Integer-Typ und zusätzlich Arrays dieses
@@ -171,13 +172,13 @@ der Unterscheidung zwischen \dindex{uniformem Komplexitätsmaß} und
 \dindex{Bitkomplexität} -- findet sich in \cite[S.~62f]{sch01}.)
 
 Umgekehrt kann man ebenfalls sagen, dass dieses einfache Modell die
-Realität genau genug widerspiegelt, da auch reale Programme ohne
-allzu großen Zeitverlust auf diesem Berechnungsmodell simuliert werden
+Realität genau genug widerspiegelt, da auch reale Programme ohne allzu
+großen Zeitverlust auf diesem Berechnungsmodell simuliert werden
 können. Offensichtlich ist die \emph{Eingabe} der Parameter, von dem
 die Rechenzeit für einen festen Algorithmus abhängt. In den
 vergangenen Jahrzehnten, in denen das Gebiet der Analyse von
 Algorithmen entstand, hat die Erfahrung gezeigt, dass die Länge der
-Eingabe, also die Anzahl der Bits, die benötigt werden, um die Eingabe
+Eingabe, also die Anzahl der Bits die benötigt werden, um die Eingabe
 zu speichern, ein geeignetes und robustes Maß ist, in der die
 Rechenzeit gemessen werden kann. Auch der Aufwand, die Eingabe selbst
 festzulegen (zu konstruieren), hängt schließlich von ihrer Länge ab,
@@ -213,7 +214,7 @@ führt zu Algorithmus \ref{TColAlgo}.
 \label{TColAlgo}
 %
 \KwData{Graph $G = (\{v_1, \dots v_n\}, E)$;}
-\KwResult{\texttt{true} wenn es eine $2$-Färbung für $G$ gibt, \texttt{false} sonst}
+\KwResult{$1$ wenn es eine $2$-Färbung für $G$ gibt, $0$ sonst}
 \BlankLine
 \Begin{
 \tcc*[f]{Array für die Färbung initialisieren}
@@ -244,7 +245,7 @@ $\mathrm{Farbe}[1] = 1$\;
               $(\mathrm{Farbe}[i] = \mathrm{Farbe}[k]$$))$}{
             \tcc*[f]{Kollision! Graph nicht $2$-färbbar}
 
-            \Return \texttt{false}\;
+            \Return $0$\;
           }
         } 
       }
@@ -273,7 +274,9 @@ $\mathrm{Farbe}[1] = 1$\;
     }
   }
 }
-\Return \texttt{true}\;
+\tcc*[f]{$2$-Färbung gefunden}
+
+\Return $1$\;
 }
 
 \end{algorithm}
@@ -305,22 +308,22 @@ oder Queues) wesentlich effizientere Verfahren für $2\mathrm{COL}$ möglich.
 Aber auch schon das obige einfache Verfahren zeigt: $2\mathrm{COL}$ hat einen
 Polynomialzeitalgorithmus, also $2\mathrm{COL} \in\P$.
 
-Alle Probleme, für die Algorithmen existieren, die eine Anzahl von
+Alle Probleme für die Algorithmen existieren, die eine Anzahl von
 Rechenschritten benötigen, die durch ein beliebiges Polynom beschränkt
 ist, bezeichnet man mit $\P$ ("`$\P$"' steht dabei für
 "`\textbf{P}olyno\-mi\-al\-zeit"'). Auch dabei wird die Rechenzeit in
 der Länge der Eingabe gemessen, d.h. in der Anzahl der Bits, die
 benötigt werden, um die Eingabe zu speichern (zu kodieren). Die Klasse
 $\P$\index{$\P$} wird auch als Klasse der \emph{effizient lösbaren
-  Probleme} bezeichnet. Dies ist natürlich wieder eine idealisierte
+Probleme} bezeichnet. Dies ist natürlich wieder eine idealisierte
 Auffassung: Einen Algorithmus mit einer Laufzeit $n^{57}$, wobei $n$
 die Länge der Eingabe bezeichnet, kann man schwer als effizient
 bezeichnen. Allerdings hat es sich in der Praxis gezeigt, dass für
 fast alle bekannten Probleme in $\P$ auch Algorithmen existieren,
-deren Laufzeit durch ein Polynom kleinen\footnote{Aktuell scheint es
-kein praktisch relevantes Problem aus $\P$ zu geben, für das es
-keinen Algorithmus mit einer Laufzeit von weniger als $n^8$ gibt.}
-Grades beschränkt ist.
+deren Laufzeit durch ein Polynom
+kleinen\footnote{Aktuell \emph{scheint} es kein praktisch relevantes
+Problem aus $\P$ zu geben, für das es keinen Algorithmus mit einer
+Laufzeit von weniger als $n^9$ gibt.}  Grades beschränkt ist.
 
 In diesem Licht ist die Definition der Klasse $\P$ auch für praktische
 Belange von Relevanz. Dass eine polynomielle Laufzeit etwas
@@ -328,13 +331,13 @@ substanziell Besseres darstellt als exponentielle Laufzeit (hier
 beträgt die benötigte Rechenzeit $2^{c \cdot n}$ für eine Konstante
 $c$, wobei $n$ wieder die Länge der Eingabe bezeichnet), zeigt die
 Tabelle "`Rechenzeitbedarf von Algorithmen"'. Zu beachten ist, dass
-bei einem Exponentialzeit-Algorithmus eine Verdoppelung der
+bei einem Exponentialzeit-Algorithmus mit $c=1$ eine Verdoppelung der
 "`Geschwindigkeit"' der verwendeten Maschine (also Taktzahl pro
 Sekunde) es nur erlaubt, eine um höchstens $1$ Bit längere Eingabe in
 einer bestimmten Zeit zu bearbeiten. Bei einem Linearzeit-Algorithmus
 hingegen verdoppelt sich auch die mögliche Eingabelänge; bei einer
-$n^k$ vergrößert sich die mögliche Eingabelänge immerhin noch um den
-Faktor $\sqrt[k]{2}$. Deswegen sind Probleme, für die nur
+Laufzeit von $n^k$ vergrößert sich die mögliche Eingabelänge immerhin
+noch um den Faktor $\sqrt[k]{2}$. Deswegen sind Probleme, für die nur
 Exponentialzeit-Algorithmen existieren, praktisch nicht lösbar; daran
 ändert sich auch nichts Wesentliches durch die Einführung von immer
 schnelleren Rechnern.
@@ -432,7 +435,7 @@ werden sollen, nämlich die Klasse $\NP$\index{$\NP$}.
 Wie schon erwähnt, gibt es eine große Anzahl verschiedener Probleme,
 für die kein effizienter Algorithmus bekannt ist, die aber eine
 gemeinsame Eigenschaft haben: die \emph{effiziente Überprüfbarkeit von
-Lösungen} für dieses Problem. Diese Eigenschaft soll am schon
+Lösungen} für dieses Problem. Diese Eigenschaft soll an dem schon
 bekannten Problem $3\mathrm{COL}$ veranschaulicht werden: Angenommen,
 man hat einen beliebigen Graphen $G$ gegeben; wie bereits erwähnt ist
 kein effizienter Algorithmus bekannt, der entscheiden kann, ob der
@@ -450,24 +453,24 @@ festzustellen, ob sie eine
 \caption{Ein Algorithmus zur Überprüfung einer potentiellen Färbung}
 \label{TestCOL}
 \KwData{Graph $G = (\set{v_1, \dots v_n}, E)$ und eine potenzielle Knotenfärbung}
-\KwResult{\texttt{true} wenn die Färbung korrekt, \texttt{false} sonst}
+\KwResult{$1$ wenn die Färbung korrekt, $0$ sonst}
 \BlankLine
 \Begin{
     \For{$(i = 1$ $\mathrm{to}$ $n)$}{
       \For{$(j = 1$ $\mathrm{to}$ $n)$}{
         \If{$(((v_i,v_j) \in E)$ $\mathrm{und}$ $(v_i \text{ und }
             v_j \text{ sind gleich gefärbt}))$}{
-          \Return \texttt{false}\;
+          \Return $1$\;
         }
       }
     }
   }
-  \Return \texttt{false}\;
+  \Return $0$\;
 \end{algorithm}
 \end{center}
 \end{figure}
 
-Das Problem $3\mathrm{COL}$ haben also die Eigenschaft, dass eine potenzielle
+Das Problem $3\mathrm{COL}$ hat also die Eigenschaft, dass eine potenzielle
 Lösung leicht daraufhin überprüft werden kann, ob sie eine
 tatsächliche, d.h.~korrekte, Lösung ist.  Viele andere praktisch
 relevante Probleme, für die kein effizienter Algorithmus bekannt ist,
@@ -489,7 +492,7 @@ vorkommen.  Eine solche Folge von Kanten wird als \dindex{Hamiltonscher
 Kreis} bezeichnet. Ein Hamiltonscher Kreis in einem Graphen $G$ ist
 also ein Kreis, der jeden Knoten des Graphen genau einmal besucht.
 Das Problem, einen Hamiltonschen Kreis in einem Graphen zu finden,
-bezeichnet man mit HAMILTON:
+bezeichnet man mit \textsf{HAMILTON}:
 
 \dprob{HAMILTON}
 {Ein Graph $G$}
@@ -596,9 +599,9 @@ Abarbeitung benötigt.  Berechnungen, die, wie soeben beschrieben,
 verschiedene Möglichkeiten raten können, heißen
 \dindex{nichtdeterministisch}. Es sei wiederholt, dass \emph{festgelegt}
 (definiert) wird, dass ein nichtdeterministischer Algorithmus bei
-einer Eingabe den Wert \texttt{true} berechnet, falls \emph{eine
+einer Eingabe den Wert $1$ berechnet, falls \emph{eine
 Möglichkeit} geraten werden kann, sodass der Algorithmus auf die
-Anweisung "`\textbf{return} \texttt{true}"' stösst. Die Klasse $\NP$
+Anweisung "`\textbf{return} $1$"' stösst. Die Klasse $\NP$
 umfasst nun genau die Probleme, die von nichtdeterministischen
 Algorithmen mit polynomieller Laufzeit gelöst werden können.
 "`$\NP$"' steht dabei für
@@ -610,7 +613,7 @@ findet sich z.B.~in \cite[Kapitel 2.3]{GaJo79}.)
 
 Mit Hilfe eines nichtdeterministischen Algorithmus kann das
 $3\mathrm{COL}$-Problem in Polynomialzeit gelöst werden (siehe
-Algorithmus \ref{3COLAlgo}. Die zweite Phase von
+Algorithmus \ref{3COLAlgo}). Die zweite Phase von
 Algorithmus \ref{3COLAlgo}, die
 \dindex{Überprüfungsphase}, entspricht dabei genau dem oben
 angegebenen Algorithmus zum effizienten Überprüfen von möglichen
@@ -624,7 +627,7 @@ Lösungen des $3\mathrm{COL}$-Problems
 \caption{Ein nichtdeterministischer Algorithmus für $3\mathrm{COL}$}
 \label{3COLAlgo}
 \KwData{Graph $G = (\{v_1, \dots v_n\}, E)$}
-\KwResult{\texttt{true} wenn eine Färbung existiert, \texttt{false} sonst}
+\KwResult{$1$ wenn eine Färbung existiert, $0$ sonst}
 \BlankLine
 \Begin{
     \tcc*[f]{Ratephase}
@@ -638,12 +641,12 @@ Lösungen des $3\mathrm{COL}$-Problems
       \For{$(j = 1$ $\mathrm{to}$ $n)$}{
         \If{$(((v_i,v_j) \in E)$ $\mathrm{und}$ $(v_i \text{ und }
             v_j \text{ sind gleich gefärbt}))$}{
-          \Return \texttt{false}\;
+          \Return $0$\;
         }
       }
     }
   }
-  \Return \texttt{false}\;
+  \Return $1$\;
 \end{algorithm}
 \end{center}
 \end{figure}
@@ -705,7 +708,7 @@ eine "`größte"' Laufzeit sein, die Programme für "`schwierigste"'
 Probleme in $\NP$ ja haben müssten?  Außerdem hängt die Laufzeit eines
 Algorithmus vom verwendeten Berechnungsmodell ab. So kennen
 Turingmaschinen keine Arrays im Gegensatz zu der hier verwendeten
-PASCAL-Variante. Also würde jeder Algorithmus, der Arrays verwendet,
+C-Variante. Also würde jeder Algorithmus, der Arrays verwendet,
 auf einer Turingmaschine mühsam simuliert werden müssen und damit
 langsamer abgearbeitet werden, als bei einer Hochsprache, die Arrays
 enthält. Obwohl sich die Komplexität eines Problems nicht ändert,
@@ -763,7 +766,7 @@ und zwar am Ende aufgerufen werden darf.  Das Ergebnis des Algorithmus
 für $A$ ist genau das Ergebnis, das dieser Unterprogrammaufruf
 liefert.  Es gibt zwar, wie oben erwähnt, auch allgemeinere
 Ausprägungen der relativen Berechenbarkeit, die diese Einschränkung
-nicht haben; diese sind aber für die folgenden Untersuchungen nicht
+nicht haben, diese sind aber für die folgenden Untersuchungen nicht
 relevant.
 
 Nachdem nun ein Vergleichsbegriff für die Schwierigkeit von Problemen
@@ -826,7 +829,7 @@ Problems $C$:}
 geeigneter nichtdeterministischer Polynomialzeitalgorithmus
 konstruiert wird.
 \item Suche ein geeignetes "`ähnliches"' schwierigstes Problem $B$ in
-$\NP$ und zeige, dass $C$ nicht leichter als $B$ ist; formal: Finde ein
+$\NP$ und zeige, dass $C$ nicht leichter als $B$ ist. Formal: Finde ein
 $\NP$-vollständiges Problem $B$ und zeige $B \le C$ mit Hilfe einer
 geeigneten Transformation $T$.
 \end{enumerate}
@@ -890,29 +893,35 @@ Wirkungsweise der Transformation, die durch Algorithmus \ref{TSPRed}
 berechnet wird.
 
 \begin{figure}
-\begin{minipage}{0.6\textwidth}
+\begin{center}
+\fbox{
+\begin{minipage}{0.95\textwidth}
+\begin{minipage}{0.46\textwidth}
 Aus dem Graphen $G$ links berechnet die Transformation die rechte
 Eingabe für das TSP-Problem. Die dick gezeichneten Verbindungen deuten
 eine Entfernung von $1$ an, wogegen dünne Linien eine Entfernung
 von $6$ symbolisieren. Weil $G$ den Hamiltonkreis $1,2,3,4,5,1$ hat,
 gibt es rechts eine Rundreise $1,2,3,4,5,1$ mit Gesamtlänge $5$.
 \end{minipage}
-\begin{minipage}{0.35\textwidth}
-\centerline{\includegraphics[scale=0.30]{CG1.eps}}
+\begin{minipage}{0.46\textwidth}
+\centerline{\includegraphics[scale=0.40]{CG1.eps}}
 \end{minipage}
 
 \bigskip
 
-\begin{minipage}{0.6\textwidth}
+\begin{minipage}{0.46\textwidth}
 Im Gegensatz dazu berechnet die Transformation hier aus dem Graphen
 $G'$ auf der linken eine Eingabe für das TSP-Problem auf der rechten
 Seite, die, wie man sich leicht überzeugt, keine Rundreise mit einer
-maximalen Gesamtlänge von $5$ hat. Dies liegt daran, dass ursprünglich
-$G'$ keinen Hamiltonschen Kreis hatte.
+maximalen Gesamtlänge von $5$ hat. Dies liegt daran, dass der
+ursprüngliche Grpah $G'$ keinen Hamiltonschen Kreis hatte.
 \end{minipage}
-\begin{minipage}{0.35\textwidth}
-\centerline{\includegraphics[scale=0.30]{CG2.eps}}
+\begin{minipage}{0.46\textwidth}
+\centerline{\includegraphics[scale=0.40]{CG2.eps}}
 \end{minipage}
+\end{minipage}
+}
+\end{center}
 \caption{Beispiele für die Wirkungsweise von Algorithmus \ref{TSPRed}}
 \label{TSPRedExample}
 \end{figure}
@@ -932,6 +941,8 @@ $G'$ keinen Hamiltonschen Kreis hatte.
 
     $C = V$\;       
 
+    \tcc*[f]{Überprüfe alle potentiell existierenden Kanten}
+    
     \For{$(i = 1$ $\mathrm{to}$ $n)$}{
       \For{$(j = 1$ $\mathrm{to}$ $n)$}{
         \uIf{$((v_i,v_j) \in E)$}{%
@@ -957,6 +968,12 @@ $G'$ keinen Hamiltonschen Kreis hatte.
 \end{center}
 \end{figure}
 
+\ifpdf
+\special{pdf: out 3 << /Title 
+(Die Auswirkungen der NP-Vollständigkeit) 
+/Dest [ @thispage /FitH @ypos ] >>}
+\fi
+\subsection{Die Auswirkungen der $\NP$-Vollständigkeit}
 Welche Bedeutung haben nun die $\NP$-vollständigen Probleme für die
 Klasse $\NP$? Könnte jemand einen deterministischen
 Polynomialzeitalgorithmus $\mathcal{A}_C$ für ein
@@ -1007,12 +1024,13 @@ $\NP$ wurden in ein einziges Problem "`destilliert"'. Die
 $\NP$-vollständigen Probleme sind also in diesem Sinn
 \emph{prototypische} $\NP$-Probleme.
 
-Trotz intensiven Bemühungen in den letzten 30 Jahren konnte bisher
+Trotz intensiver Bemühungen in den letzten 30 Jahren konnte bisher
 niemand einen Polynomialzeitalgorithmus für ein $\NP$-vollständiges
-Problem finden; deshalb geht man heute davon aus, dass $\P \not= \NP$
-gilt. Leider konnte auch dies bisher nicht gezeigt werden, aber in der
-theoretischen Informatik gibt es starke Indizien für die Richtigkeit
-dieser Annahme, sodass heute die große Mehrheit der Forscher von $\P
+Problem finden. Dies ist ein Grund dafür, dass man heute
+$\P \not= \NP$ annimmt. Leider konnte auch dies bisher nicht gezeigt
+werden, aber in der theoretischen Informatik gibt es starke Indizien
+für die Richtigkeit dieser Annahme, sodass heute die große Mehrheit
+der Forscher von $\P
 \not= \NP$ ausgeht.
 
 Für die Praxis bedeutet dies Folgendes: Hat man von einem in der
@@ -1035,7 +1053,7 @@ lediglich, dass dieses Problem höchstwahrscheinlich nicht effizient
 lösbar sein wird. Ein solcher Vollständigkeitsbeweis hat nichts mit
 einem Schritt in Richtung auf eine Lösung des
 $\P\stackrel{?}{=}\NP$-Problems zu tun, wie irreführenderweise
-gelegentlich zu lesen war. Übrigens ist auch für eine Reihe weiterer
+gelegentlich zu lesen ist. Übrigens ist auch für eine Reihe weiterer
 Spiele ihre $\NP$-Vollständigkeit bekannt. Dazu gehören {u.a.}
 bestimmte Puzzle- und Kreuzwortspiele. Typische Brettspiele, wie Dame,
 Schach oder GO, sind hingegen (verallgemeinert auf Spielbretter der
@@ -1169,27 +1187,27 @@ Viele in der Praxis bedeutsame Probleme sind $\NP$-vollständig
 Anwendungsentwickler wird es aber sicher schwer haben, seinem
 Management mitteilen zu müssen, dass ein aktuelles Projekt nicht
 durchgeführt werden kann, weil keine geeigneten Algorithmen zur
-Verfügung stehen. (Wahrscheinlich würden in diesem Fall einfach
-"`geeignetere"' Entwickler eingestellt werden.) Es stellt sich daher
+Verfügung stehen (Wahrscheinlich würden in diesem Fall einfach
+"`geeignetere"' Entwickler eingestellt werden!). Es stellt sich daher
 also die Frage, wie man mit solchen $\NP$-vollständigen Problemen in
 der Praxis umgeht. Zu dieser Fragestellung hat die theoretische
 Informatik ein ausgefeiltes Instrumentarium entwickelt.
 
 Eine erste Idee wäre es, sich mit Algorithmen zufrieden zu geben, die
-mit Zufallszahlen arbeiten und nur mit sehr großer Wahrscheinlichkeit
-die richtige Lösung berechnen, aber sich auch mit kleiner
-(vernachlässigbarer) Wahrscheinlichkeit irren dürfen. Solche
+mit Zufallszahlen arbeiten und die nur mit sehr großer
+Wahrscheinlichkeit die richtige Lösung berechnen, aber sich auch mit
+kleiner (vernachlässigbarer) Wahrscheinlichkeit irren dürfen. Solche
 Algorithmen sind als \emph{probabilistische} oder \emph{randomisierte
 Algorithmen}\index{Algorithmus!probabilistisch}\index{Algorithmus!randomisiert}
-bekannt \cite{mora95} und werden beispielsweise in der
-Kryptographie mit sehr großem Erfolg angewendet.  Das prominenteste
-Beispiel hierfür sind Algorithmen, die testen, ob eine gegebene Zahl
-eine Primzahl ist und sich dabei fast nie irren. Primzahlen spielen
-bekanntermaßen im RSA-Verfahren und damit bei PGP und ähnlichen
-Verschlüsselungen eine zentrale Rolle.  Es konnte aber gezeigt werden,
-dass probabilistische Algorithmen uns bei den $\NP$-vollständigen
-Problemen wohl nicht weiterhelfen. So weiß man heute, dass die Klasse
-der Probleme, die sich mit probabilistischen Algorithmen lösen lässt,
+bekannt \cite{mora95} und werden beispielsweise in der Kryptographie
+mit sehr großem Erfolg angewendet.  Das prominenteste Beispiel hierfür
+sind Algorithmen, die testen, ob eine gegebene Zahl eine Primzahl ist
+und sich dabei fast nie irren. Primzahlen spielen bekanntermaßen im
+RSA-Verfahren und damit bei PGP und ähnlichen Verschlüsselungen eine
+zentrale Rolle.  Es konnte aber gezeigt werden, dass probabilistische
+Algorithmen uns bei den $\NP$-vollständigen Problemen wohl nicht
+weiterhelfen. So weiß man heute, dass die Klasse der Probleme, die
+sich mit probabilistischen Algorithmen effizient lösen lässt,
 höchstwahrscheinlich nicht die Klasse $\NP$ umfasst. Deshalb liegen
 (höchstwahrscheinlich) insbesondere alle $\NP$-vollständigen Probleme
 außerhalb der Möglichkeiten von effizienten probabilistischen
@@ -1199,7 +1217,7 @@ Nun könnte man auch versuchen, "`exotischere"' Computer zu bauen.  In
 der letzten Zeit sind zwei potenzielle Auswege bekannt geworden:
 DNA-Computer und Quantencomputer.
 
-Es konnte gezeigt werden, dass DNA-Computer \cite{pau98} jedes
+Es konnte gezeigt werden, dass DNA-Computer (siehe \cite{pau98}) jedes
 $\NP$-vollständige Problem in Polynomialzeit lösen können. Für diese
 Berechnungsstärke hat man aber einen Preis zu zahlen: Die Anzahl und
 damit die Masse der DNA-Moleküle, die für die Berechnung benötigt
@@ -1213,14 +1231,15 @@ Parallelrechnern schon erwähnte Phänomen: Mit exponentiell vielen
 Prozessoren lassen sich $\NP$-vollständige Probleme lösen, aber solche
 Parallelrechner haben natürlich explodierende Hardware-Kosten.
  
-Der anderer Ausweg könnten Quantencomputer sein \cite{gru99}. Hier
-scheint die Situation zunächst günstiger zu sein: Die Fortschritte bei
-der Quantencomputer-Forschung verlaufen immens schnell, und es besteht
-die berechtigte Hoffnung, dass Quantencomputer mittelfristig verfügbar
-sein werden. Aber auch hier sagen theoretische Ergebnisse voraus, dass
-Quantencomputer (höchstwahrscheinlich) keine $\NP$-vollständigen
-Probleme lösen können. Trotzdem sind Quantencomputer interessant, denn
-es ist bekannt, dass wichtige Probleme existieren, für die kein
+Der anderer Ausweg könnten Quantencomputer sein
+(siehe \cite{gru99}). Hier scheint die Situation zunächst günstiger zu
+sein: Die Fortschritte bei der Quantencomputer-Forschung verlaufen
+immens schnell, und es besteht die berechtigte Hoffnung, dass
+Quantencomputer mittelfristig verfügbar sein werden. Aber auch hier
+sagen theoretische Ergebnisse voraus, dass Quantencomputer
+(höchstwahrscheinlich) keine $\NP$-vollständigen Probleme lösen
+können. Trotzdem sind Quantencomputer interessant, denn es ist
+bekannt, dass wichtige Probleme existieren, für die kein
 Polynomialzeitalgorithmus bekannt ist und die wahrscheinlich nicht
 $\NP$-vollständig sind, die aber auf Quantencomputern effizient gelöst
 werden können. Das prominenteste Beispiel hierfür ist die Aufgabe,
