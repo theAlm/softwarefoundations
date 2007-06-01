@@ -1,0 +1,50 @@
+\ifpdf
+\special{pdf: out 3 << /Title 
+(Einführung) 
+/Dest [ @thispage /FitH @ypos ] >>}
+\fi
+\subsection{Einführung}
+
+Sehr viele Probleme lassen sich durch Objekte und Verbindungen oder
+Beziehungen zwischen diesen Objekten beschreiben. Ein schönes Beispiel
+hierfür ist das 
+\dindex{Königsberger Brückenproblem}\index{Brückenproblem}, das $1736$ 
+von Leonhard Euler\footnote{Der Schweizer Mathematiker Leonhard Euler 
+wurde $1707$ in Basel geboren und starb $1783$ in St.~Petersburg.}  
+formuliert und gelöst wurde.
+
+Zu dieser Zeit hatte Königsberg\footnote{Königsberg heißt heute
+Kaliningrad.} genau sieben Brücken wie die folgende sehr grobe Karte
+zeigt:
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=0.7]{BrueckenProb.eps}
+\end{center}
+\end{figure}
+Die verschiedenen Stadtteile sind dabei mit A-D bezeichnet. Euler
+stellte sich nun die Frage, ob es möglich ist, einen Spaziergang in
+einem beliebigen Stadtteil zu beginnen, jede Brücke \emph{genau
+einmal} zu überqueren und den Spaziergang am Startpunkt zu
+beenden. Ein solcher Weg soll \emph{Euler-Spaziergang} heißen. Die
+Frage lässt sich leicht beantworten, wenn der Stadtplan wie folgt
+formalisiert wird:
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=0.7]{BrueckenProb2.eps}
+\end{center}
+\caption{Der formalisierte Stadtplan von Königsberg.}
+\label{BProb2}
+\end{figure}
+Die Stadtteile sind bei der Formalisierung zu Knoten geworden und die
+Brücken werden durch Kanten zwischen den Knoten
+symbolisiert\footnote{Abbildung \ref{BProb2} nennt
+man \dindex{Multigraph}, denn hier starten mehrere Kanten von
+\emph{einem} Knoten und enden in \emph{einem} anderen Knoten.}.
+
+Angenommen es gäbe einen Euler-Spaziergang, dann müsste für jeden
+Knoten in Abbildung \ref{BProb2} die folgende Eigenschaft erfüllt
+sein: die Anzahl der Kanten die mit einem Knoten verbunden sind ist
+gerade, weil für jede Ankunft (über eine Brücke) in einem Stadtteil
+ein Verlassen eines Stadtteil (über eine Brücke) notwendig ist.

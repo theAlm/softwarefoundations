@@ -1,5 +1,18 @@
 # Specify all source-files
-SRC = graphex1.mp graphex2.mp graphex3.mp moebius.mp random.mp kclique.mp kclique2.mp kclique3.mp CG1.fig CG2.fig niko.fig tree.fig tree2.fig
+SRC = graphex1.mp graphex2.mp graphex3.mp moebius.mp random.mp kclique.mp \
+      kclique2.mp kclique3.mp CG1.fig CG2.fig niko.fig tree.fig tree2.fig \
+      BrueckenProb.fig BrueckenProb2.asy
+
+# Manually created eps-files
+EPS = 
+
+# Implicit rule for converting gnuplot-graphics into eps-pictures
+%.eps : %.plt
+	gnuplot $<
+
+# Implicit rule for converting asymptote-graphics into eps-pictures
+%.eps : %.asy
+	asy $< 
 
 # Implicit rule for converting fig-graphics into eps-pictures
 %.eps : %.fig
@@ -15,37 +28,38 @@ SRC = graphex1.mp graphex2.mp graphex3.mp moebius.mp random.mp kclique.mp kcliqu
 
 # Implicit rule for converting metapost-graphics into eps-pictures
 %.eps : %.mp
-	mpost $<
-	mps2eps $(basename $<).1
-	mv $(basename $<).1.eps $(basename $<).eps
+	mpost $< $@
+	mv $(basename $<).1 $(basename $<).eps
 
 # Implicit rule for converting metapost-graphics into pdf-pictures
 %.pdf : %.mp
 	mpost $< $@
-	mptopdf < $< > $@
+	ps2pdf < $< > $@
+
+# Implicit rule for converting eps-graphics into pdf-pictures
+%.pdf : %.eps
+	ps2pdf  $<  $@
 
 # The generated eps-pictures a intermediate files. Don't delete them
 .PRECIOUS : %.eps
 
 # Do the job
-all: ps pdf mp compress
+all: ps pdf mp asy plt compress
 	@echo DONE
 
-# Substitute *.fig -> *.eps.Z and *.mp -> *.eps.Z , hence all source-files 
+# Substitute SRC -> *.eps.Z and *.mp -> *.eps.Z , hence all source-files 
 # are converted to .eps and .eps.Z
 ps: $(SRC:%.fig=%.eps.Z) 
-
-# Substitute *.mp -> *.eps.Z , hence all source-files are converted to .eps 
-# and .eps.Z
+plt: $(SRC:%.plt=%.eps.Z)
+asy: $(SRC:%.asy=%.eps.Z)
 mp: $(SRC:%.mp=%.eps.Z) 
 
-# Substitute *.fig -> *.pdf and *.mp -> *.eps.Z, hence all source-files 
+# Substitute SRC -> *.pdf and *.mp -> *.eps.Z, hence all source-files 
 # are converted to .pdf
 pdf: $(SRC:%.fig=%.pdf)
+mp:  $(SRC.%.mp=%.pdf)
+plt: $(SRC:%.plt=%.pdf)
+asy: $(SRC:%.asy=%.pdf)
 
 # Handle manually created eps-files
-compress: $(EPS:%.eps=%.eps.Z) $(EPS:%.eps=%.pdf)
-
-# Delete all generated files
-clean:
-	rm -rf $(SRC:%.fig=%.eps) $(SRC:%.fig=%.eps.Z) $(SRC:%.fig=%.pdf) $(EPS:%.eps=%.eps.Z) $(EPS:%.eps=%.pdf)
+compress: $(EPS:%.eps=%.eps.Z)
