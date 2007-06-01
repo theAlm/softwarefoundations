@@ -381,13 +381,11 @@ einzelnen Zusammenhangskomponenten auch mit unterschiedlichen
 \KwResult{\texttt{true} wenn es einen Weg von $u$ nach $v$
 gibt, \texttt{false} sonst}
 \BlankLine
-\dontprintsemicolon
 
 markiert = \texttt{true}\;
 markiere Startknoten $u \in V$\;
 
 \BlankLine
-\dontprintsemicolon
 
 \While{(markiert)}{
 
@@ -420,19 +418,18 @@ markiert = \texttt{true}\;
 \KwData{Ein Graph $G=(V,E)$}
 \KwResult{Anzahl der Zusammenhangskomponenten von $G$}
 \BlankLine
-\dontprintsemicolon
+\printsemicolon
 
 kFarb = 0\;
 
 \BlankLine
-\dontprintsemicolon
 
 \While{(es gibt einen unmarkierten Knoten $u \in V$)}{
 
 kFarb++\;
 markiere $u \in V$ mit kFarb\;
 \BlankLine
-\dontprintsemicolon
+\printsemicolon
 
 markiert=\texttt{true}\;
 
@@ -440,23 +437,17 @@ markiert=\texttt{true}\;
 
 markiert=\texttt{false}\;
 \BlankLine
-\dontprintsemicolon
+\printsemicolon
 
 \For{(alle mit kFarb markierten Knoten $v \in V$)}{
-
 \If{($v \in V$ ist adjazent zu einem unmarkierten Knoten $v' \in V$)}{
 markiere Knoten $v' \in V$ mit kFarb\;
 markiert=\texttt{true}\;
 }
-
 }
-
 }
-
 }
-
 \Return kFarb\;
-\printsemicolon
 \end{algorithm}
 
 \begin{definition}

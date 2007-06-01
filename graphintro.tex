@@ -19,31 +19,32 @@ zeigt:
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[scale=0.7]{BrueckenProb.eps}
+\includegraphics[scale=0.75]{BrueckenProb.eps}
 \end{center}
 \end{figure}
+
+\begin{wrapfigure}[14]{r}{8cm}
+\begin{center}
+\includegraphics[scale=1.0]{BrueckenProb2.eps}
+\end{center}
+\caption{Der formalisierte Stadtplan.}
+\label{BProb2}
+\end{wrapfigure}
 Die verschiedenen Stadtteile sind dabei mit A-D bezeichnet. Euler
 stellte sich nun die Frage, ob es möglich ist, einen Spaziergang in
 einem beliebigen Stadtteil zu beginnen, jede Brücke \emph{genau
 einmal} zu überqueren und den Spaziergang am Startpunkt zu
 beenden. Ein solcher Weg soll \emph{Euler-Spaziergang} heißen. Die
-Frage lässt sich leicht beantworten, wenn der Stadtplan wie folgt
-formalisiert wird:
+Frage lässt sich leicht beantworten, wenn der Stadtplan wie nebenstehend
+formalisiert wird.
 
-\begin{figure}[h]
-\begin{center}
-\includegraphics[scale=0.7]{BrueckenProb2.eps}
-\end{center}
-\caption{Der formalisierte Stadtplan von Königsberg.}
-\label{BProb2}
-\end{figure}
 Die Stadtteile sind bei der Formalisierung zu Knoten geworden und die
 Brücken werden durch Kanten zwischen den Knoten
 symbolisiert\footnote{Abbildung \ref{BProb2} nennt
 man \dindex{Multigraph}, denn hier starten mehrere Kanten von
 \emph{einem} Knoten und enden in \emph{einem} anderen Knoten.}.
 
-Angenommen es gäbe einen Euler-Spaziergang, dann müsste für jeden
+Angenommen es gäbe in Königsberg einen Euler-Spazier\-gang, dann müsste für jeden
 Knoten in Abbildung \ref{BProb2} die folgende Eigenschaft erfüllt
 sein: die Anzahl der Kanten die mit einem Knoten verbunden sind ist
 gerade, weil für jede Ankunft (über eine Brücke) in einem Stadtteil
