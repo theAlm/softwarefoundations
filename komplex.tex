@@ -786,17 +786,22 @@ $A$; d.h.: für alle Probleme $A$ aus $\NP$ gilt: $A \le C$.
 \begin{center}
 \restylealgo{ruled}
 \begin{algorithm}[H]
-\caption{Algorithmische Darstellung einer Reduktionsfunktion}
+\caption{Algorithmische Darstellung der Benutzung einer Reduktionsfunktion}
 \label{RedAlgo}
 %
 \KwData{Instanz $x$ für das Problem $A$}
-\KwResult{Instanz für das Problem $B$}
+\KwResult{$1$ wenn $x \in A$ und $0$ sonst}
 \BlankLine
 \Begin{
+\tcc*[f]{$T$ ist die Reduktionsfunktion (polynomialzeitberechenbar)}
+
 berechne $y = T(x)$\;
 \tcc*[f]{$y$ ist Instanz des Problems $B$}
 
 $z = U_B(y)$\;
+
+\tcc*[f]{$z$ ist $1$ genau dann, wenn $x \in A$ gilt}
+
 \Return $z$\;
 }
 \end{algorithm}
@@ -836,8 +841,11 @@ geeigneten Transformation $T$.
 
 Den zweiten Schritt kann man oft relativ leicht mit Hilfe von
 bekannten Sammlungen $\NP$-vollständiger Problemen erledigen. Das Buch
-von Garey und Johnson \cite{GaJo79} ist eine solche Sammlung, die mehr
-als $300$ $\NP$-vollständige Probleme enthält.
+von Garey und Johnson \cite{GaJo79} ist eine solche Sammlung (siehe
+auch die Abbildungen \ref{NPVollProbs1} und \ref{NPVollProbs2}), die
+mehr als $300$ $\NP$-vollständige Probleme enthält. Dazu wählt man ein
+möglichst ähnliches Problem aus und versucht dann eine geeignete
+Reduktionsfunktion für das zu untersuchende Problem zu finden.
 
 \ifpdf
 \special{pdf: out 4 << /Title 
@@ -847,8 +855,8 @@ als $300$ $\NP$-vollständige Probleme enthält.
 \subsubsection{Traveling Salesperson ist $\NP$-vollständig}
 
 Wie kann man zeigen, dass Traveling Salesperson $\NP$-vollständig ist?
-Dazu zuerst die Definition dieses Problems:
-%
+Dazu wird zuerst die genaue Definition dieses Problems benötigt:
+
 \dprob{TRAVELING SALESPERSON (TSP)}%
 {Eine Menge von Städten $C = \{c_1, \dots ,c_n \}$ und eine $n \times
   n$ Entfernungsmatrix $D$, wobei das Element $D[i,j]$ der Matrix $D$
@@ -914,7 +922,7 @@ Im Gegensatz dazu berechnet die Transformation hier aus dem Graphen
 $G'$ auf der linken eine Eingabe für das TSP-Problem auf der rechten
 Seite, die, wie man sich leicht überzeugt, keine Rundreise mit einer
 maximalen Gesamtlänge von $5$ hat. Dies liegt daran, dass der
-ursprüngliche Grpah $G'$ keinen Hamiltonschen Kreis hatte.
+ursprüngliche Graph $G'$ keinen Hamiltonschen Kreis hatte.
 \end{minipage}
 \begin{minipage}{0.46\textwidth}
 \centerline{\includegraphics[scale=0.40]{CG2.eps}}
@@ -927,7 +935,7 @@ ursprüngliche Grpah $G'$ keinen Hamiltonschen Kreis hatte.
 \end{figure}
 
 
-\begin{figure}
+\begin{figure}[t]
 \begin{center}
 \restylealgo{ruled}
 \begin{algorithm}[H]
