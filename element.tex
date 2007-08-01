@@ -103,11 +103,11 @@ aller Elemente $a$, die die Eigenschaft $E$ besitzen.
 \item Mengen, die durch eine Eigenschaft $E$ definiert sind:
 \begin{itemize}
 %
-\item $\set{n \colon n \in \N \text{ und $n$ ist durch $3$ teilbar}}$
+\item $\set{n \mid n \in \N \text{ und $n$ ist durch $3$ teilbar}}$
 %
-\item $\set{n \colon n \in \N \text{ und $n$ ist Primzahl und $n \le 40$}}$
+\item $\set{n \mid n \in \N \text{ und $n$ ist Primzahl und $n \le 40$}}$
 %
-\item $\emptyset \eqd \set{a \colon a \not= a}$ (die leere Menge)
+\item $\emptyset \eqd \set{a \mid a \not= a}$ (die leere Menge)
 %
 \end{itemize}
 \end{itemize}
@@ -128,19 +128,19 @@ $\emptyset$ Teilmenge jeder Menge ist.
 Seien $A$ und $B$ beliebige Mengen, dann ist
 \begin{itemize}
 %
-\item $A \cap B \eqd \set{a \colon a \in A \text{ und } a \in B}$
+\item $A \cap B \eqd \set{a \mid a \in A \text{ und } a \in B}$
 (Schnitt von $A$ und $B$)\index{$\cap$},
 %
-\item $A \cup B \eqd \set{a \colon a \in A \text{ oder } a \in B}$
+\item $A \cup B \eqd \set{a \mid a \in A \text{ oder } a \in B}$
 (Vereinigung von $A$ und $B$)\index{$\cup$},
 %
-\item $A \setminus B \eqd \set{a \colon a \in A \text{ und } a
+\item $A \setminus B \eqd \set{a \mid a \in A \text{ und } a
 \not\in B}$ (Differenz von $A$ und $B$)\index{$\setminus$},
 %
 \item $\overline{A} \eqd M \setminus A$ (Komplement von $A$ 
 bezüglich einer festen Grundmenge $M$)\index{$\overline{A}$} und
 %
-\item $\PowerSet{A} \eqd \set{B \colon B \subseteq A}$ (Potenzmenge von
+\item $\PowerSet{A} \eqd \set{B \mid B \subseteq A}$ (Potenzmenge von
 $A$)\index{$\PowerSet{A}$}.
 %
 \end{itemize}
@@ -152,7 +152,7 @@ Sei $A = \set{2, 3, 5, 7}$ und $B = \set{1, 2, 4 , 6}$, dann ist $A
 \cap B = \set{2}$, $A \cup B = \set{1, 2, 3, 4, 5, 6, \allowbreak 7}$ und $A
 \setminus B = \set{3, 5, 7}$. Wählen wir als Grundmenge die
 natürlichen Zahlen, also $M = \N$, dann ist $\overline{A} = \set{n
-\colon n
+\mid n
 \in \N \text{ und } a \not= 2 \text{ und } a \not= 3 \text{ und } a
 \not= 5 \text{ und } a \not= 7} = \set{1, 4, 6, 8, 9, 10, 11,
 \dots}$. 
@@ -214,14 +214,14 @@ Seien $A, A_1, \dots , A_n$ im folgenden Mengen, dann bezeichnet
   sprechen von einem $n$-Tupel.
   % 
   \item $A_1 \times A_2 \times \dots \times
-  A_n \eqd \set{(\enu{a}{1}{n}) \colon a_1 \in A_1, a_2 \in A_2, \dots
+  A_n \eqd \set{(\enu{a}{1}{n}) \mid a_1 \in A_1, a_2 \in A_2, \dots
   ,a_n \in A_n }$ (Kreuzprodukt der Mengen $A_1, A_2, \dots ,
   A_n$)\index{Kreuzprodukt}\index{$A_1, A_2, \dots , A_n$},
   %
   \item $A^n \eqd \underbrace{A \times A \times \dots \times
   A}_{n\text{-mal}}$ ($n$-faches Kreuzprodukt der Menge $A$)\index{$A^n$} und
   %
-  \item speziell gilt $A^1 = \set{(a) \colon a \in A}$.
+  \item speziell gilt $A^1 = \set{(a) \mid a \in A}$.
   %
 \end{itemize}
 Wir nennen $2$-Tupel auch Paare, $3$-Tupel auch Tripel, $4$-Tupel auch
@@ -318,7 +318,7 @@ symmetrisch ist.
 Die Teilmengenrelation "`$\subseteq$"' auf allen Teilmengen von $\Z$ ist
 eine Halbordnung, aber keine Ordnung. Wir schreiben $a \equiv b \mod
 n$, falls es eine ganze Zahl $q$ gibt, für die $a - b = q n$ gilt. Für $n \ge 2$
-ist die Relation $R_n(a,b) \eqd \set{(a,b) \colon a \equiv b \mod n} \subseteq
+ist die Relation $R_n(a,b) \eqd \set{(a,b) \mid a \equiv b \mod n} \subseteq
 \Z^2$ eine Äquivalenzrelation.
 \end{example}
 
@@ -365,7 +365,7 @@ aus $A_1 \times A_2 \times \dots \times A_n$ entweder zu $R$ gehört
 oder nicht, nennt man ($n$-stelliges) \dindex{Prädikat}.
 
 \begin{example}
-Sei $\mathbb{P} \eqd \set{n \in \N \colon \text{$n$ ist Primzahl}}$, dann
+Sei $\mathbb{P} \eqd \set{n \in \N \mid \text{$n$ ist Primzahl}}$, dann
 ist $\mathbb{P}$ eine $1$-stellige Relation über den natürlichen Zahlen. 
 Das Prädikat $P^1_{\mathbb{P}}(n)$ liefert für eine natürliche Zahl
 $n$ genau dann $1$, wenn $n$ eine Primzahl ist.
@@ -381,10 +381,10 @@ Für eine beliebige Funktion $f$ legen wir fest:
 \begin{itemize}
 %
 \item Der \dindex{Definitionsbereich} der Funktion $f$ ist $D_f \eqd
-\set{a \colon \text{es existiert ein $b$ mit $f(a) = b$}}$.
+\set{a \mid \text{es existiert ein $b$ mit $f(a) = b$}}$.
 %
 \item Der \dindex{Wertebereich} der Funktion $f$ ist $W_f \eqd
-\set{b \colon \text{es existiert ein $a$ mit $f(a) = b$}}$.
+\set{b \mid \text{es existiert ein $a$ mit $f(a) = b$}}$.
 %
 \item Die Funktion $f \colon A \rightarrow B$ ist \dindex{total} \iffd $D_f
 = A$.
