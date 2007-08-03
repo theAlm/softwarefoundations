@@ -7,7 +7,7 @@
 Die Theorie der Graphen ist heute zu einem unverzichtbaren Bestandteil
 der Informatik geworden. Viele Probleme, wie z.B.~das Verlegen von
 Leiterbahnen auf einer Platine, die Modellierung von Netzwerken oder
-die Lösung von Routingproblemen in Verkehrsnetzen, benutzen Graphen
+die Lösung von Routingproblemen in Verkehrsnetzen benutzen Graphen
 oder Algorithmen, die Graphen als Datenstruktur verwenden. Auch schon
 bekannte Datenstrukturen wie Listen und Bäume können als Graphen
 aufgefasst werden. All dies gibt einen Anhaltspunkt, dass die
@@ -44,7 +44,7 @@ Da wir eine Kante $(u,v)$ als Verbindung zwischen den Knoten $u$ und
 $v$ interpretieren können, bietet es sich an, Graphen durch Diagramme
 darzustellen. Dabei wird die Kante $(u,v)$ durch einen Pfeil von $u$
 nach $v$ dargestellt. Drei Beispiele für eine bildliche Darstellung
-von Graphen finden sich in Abbildung \ref{gGraphen}.
+von gerichteten Graphen finden sich in Abbildung \ref{gGraphen}.
 
 \ifpdf
 \special{pdf: out 3 << /Title 
@@ -64,7 +64,7 @@ Ein Graph $G = (V,E)$ heißt \dindex{bipartit}, wenn gilt:
 \begin{enumerate}
 %
 \item Es gibt zwei Teilmengen $V^l$ und $V^r$ von $V$ mit $V =
-V^l \cup V^r$ und $V^l \cap V^r = \emptyset$ und 
+V^l \cup V^r$, $V^l \cap V^r = \emptyset$ und 
 %
 \item für jede Kante $(u,v) \in E$ gilt $u \in V^l$ und $v \in V^r$.
 %
@@ -72,7 +72,7 @@ V^l \cup V^r$ und $V^l \cap V^r = \emptyset$ und
 \end{definition}
 
 Bipartite Graphen haben viele Anwendungen, weil man jede binäre
-Relation $R \subseteq A \times B$ natürlich als bipartiten Graph
+Relation $R \subseteq A \times B$ ganz natürlich als bipartiten Graph
 auffassen kann, dessen Kanten von Knoten aus $A$ zu Knoten aus $B$
 laufen.
 
@@ -264,7 +264,7 @@ Offensichtlich sind die Graphen in den
 Abbildungen \ref{gGraphen}(a), \ref{ugGraphen}(a), \ref{ugGraphen}(b)
 und \ref{ugGraphen}(d) zusammenhängend und haben genau eine
 Zusammenhangskomponente. Man kann sich sogar leicht überlegen, dass
-die Eigenschaft $u$ hängt mit $v$ zusammen
+die Eigenschaft "`$u$ hängt mit $v$"' zusammen
 eine \emph{Äquivalenzrelation} (siehe Abschnitt \ref{PropRel})
 darstellt.
 
@@ -324,7 +324,7 @@ heißt \dindex{Adjazenzmatrix} von $G$.
 Für den gerichteten Graphen aus Abbildung \ref{gGraphen}(a) ergibt sich die
 folgende Adjazenzmatrix:
 \begin{displaymath}
-A_{G_{1a}} =
+A_{G_5} =
 \left(
 \begin{array}{ccccc}
 0 & 1 & 0 & 0 & 0\\ 
@@ -340,9 +340,10 @@ sie spiegelsymmetrisch zu Diagonale von links oben nach rechts unten
 ist (die Kantenrelation\index{Kantenrelation} ist symmetrisch) und
 dass die Diagonale aus $0$-Einträgen besteht (der Graphen hat keine
 Schleifen). Für den vollständigen Graphen $K_{16}$ aus
-Abbildung \ref{ugGraphen}(a) ergibt sich offensichtlich die folgende Adjazenzmatrix:
+Abbildung \ref{ugGraphen}(a) ergibt sich offensichtlich die folgende
+Adjazenzmatrix:
 \begin{displaymath}
-A_{G_{1a}} =
+A_{K_{16}} =
 \left(
 \begin{array}{cccccccccccccccc}
 0 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 1\\ 
@@ -485,8 +486,8 @@ Gibt es eine verträgliche Färbung von $G$ mit $k$ Farben?
 }
 Dieses Problem gehört zu einer (sehr großen) Klasse von (praktisch
 relevanten) Problemen, für die bis heute keine effizienten Algorithmen
-bekannt sind (Stichwort: \NP-Vollständigkeit). Vielfältige Ergebnisse
-der Theoretischen Informatik zeigen sogar, dass man nicht hoffen darf,
-dass ein schneller Algorithmus zur Lösung des Färbbarkeitsproblems
-existiert.
+bekannt sind (Stichwort: \NP-Vollständigkeit, siehe
+Anhang \ref{KomplexSect}). Vielfältige Ergebnisse der Theoretischen
+Informatik zeigen sogar, dass man nicht hoffen darf, dass ein
+schneller Algorithmus zur Lösung des Färbbarkeitsproblems existiert.
 \fi
