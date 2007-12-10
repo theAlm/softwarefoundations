@@ -1,0 +1,76 @@
+\ifpdf
+\special{pdf: out 2 << /Title 
+(Einige Grundlagen der Logik) 
+/Dest [ @thispage /FitH @ypos ] >>}
+\fi
+\section{Einige Grundlagen der Logik}
+Aussagen sind entweder \dindex{wahr} ($\triangleq 1$) oder
+\dindex{falsch}($\triangleq 0$). So ist die Aussage 
+\begin{center}
+"`Wiesbaden liegt am Mittelmeer"'
+\end{center}
+sicherlich falsch, wogegen die Aussage
+\begin{center}
+"`Wiesbaden liegt in Hessen"'
+\end{center}
+sicherlich wahr ist. Aussagen werden meist durch
+\dindex{Aussagenvariablen} ausgedrückt, die nur die Werte $0$ oder $1$
+annehmen können. Um die Verknüpfung von Aussagen auch formal
+aufschreiben zu können, werden die folgenden logischen Operatoren
+verwendet
+
+\begin{center}
+\begin{tabular}{l|l|l}
+Symbol & umgangssprachlicher Name & Name in der Logik\\
+\hline
+\dindex{$\sand$} & und & Konjunktion\\
+\dindex{$\sor$} & oder & Disjunktion / Alternative\\
+\dindex{$\sneg$} & nicht & Negation \\
+\dindex{$\simpl$} & folgt & Implikation\\
+\dindex{$\sequi$} & genau dann wenn (gdw.) & Äquivalenz\\
+\end{tabular}
+\end{center}
+
+Zusätzlich werden noch die Quantoren $\exists$ ("`es existiert"') und
+$\forall$ ("`für alle"') verwendet, die z.B.~wie folgt gebraucht
+werden können
+\begin{description}
+%
+\item $\forall x \colon p(x)$ "`Für alle $x$ gilt die Aussage $p(x)$. 
+%
+\item $\exists x \colon p(x)$ "`Es existiert ein $x$, für das die Aussage
+  $p(x) gilt$.
+%
+\end{description}
+
+\begin{example}
+Die Aussage "`Jede gerade natürliche Zahl kann als Produkt von $2$ und einer
+anderen natürlichen Zahl geschrieben werden"' lässt sich dann wie
+folgt schreiben
+\begin{displaymath}
+(\forall n \in \N \colon n \text{ ist gerade }) \simpl (\exists m
+\in \N \colon n = 2 \cdot m) 
+\end{displaymath}
+
+Für die logischen Konnektoren sind die folgenden Wahrheitswertetafeln
+festgelegt:
+
+\begin{center}
+\begin{tabular}{c|c}
+$p$ & $\neg p$\\
+\hline
+$0$ & $1$\\
+$1$ & $0$
+\end{tabular}
+und
+\begin{tabular}{c|c|c|c|c|c}
+$p$ & $q$ & $p \wedge q$ & $p \vee q$ & $p \simpl q$ & $p \sequi q$\\
+\hline
+0 & 0 & 0 & 0 & 1 & 1\\   
+0 & 1 & 0 & 1 & 1 & 0\\
+1 & 0 & 0 & 1 & 0 & 0\\ 
+1 & 1 & 0 & 1 & 1 & 1
+\end{tabular}
+\end{center}
+
+\end{example}
