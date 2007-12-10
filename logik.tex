@@ -1,45 +1,52 @@
 \ifpdf
 \special{pdf: out 2 << /Title 
-(Einige Grundlagen der Logik) 
+(Einige (wenige) Grundlagen der elementaren Logik) 
 /Dest [ @thispage /FitH @ypos ] >>}
 \fi
-\section{Einige Grundlagen der Logik}
+\section{Einige (wenige) Grundlagen der elementaren Logik}
 Aussagen sind entweder \dindex{wahr} ($\triangleq 1$) oder
-\dindex{falsch}($\triangleq 0$). So ist die Aussage 
+\dindex{falsch}($\triangleq 0$). So sind die Aussagen 
 \begin{center}
-"`Wiesbaden liegt am Mittelmeer"'
+"`Wiesbaden liegt am Mittelmeer"' und "`$1 = 7$"'
 \end{center}
-sicherlich falsch, wogegen die Aussage
+sicherlich falsch, wogegen die Aussagen
 \begin{center}
-"`Wiesbaden liegt in Hessen"'
+"`Wiesbaden liegt in Hessen"' und "`$11 = 11$"'
 \end{center}
-sicherlich wahr ist. Aussagen werden meist durch
+sicherlich wahr sind. Aussagen werden meist durch
 \dindex{Aussagenvariablen} ausgedrückt, die nur die Werte $0$ oder $1$
-annehmen können. Um die Verknüpfung von Aussagen auch formal
-aufschreiben zu können, werden die folgenden logischen Operatoren
+annehmen können. Oft verwendet man auch eine oder mehrere Unbekannte,
+  um eine Aussage zu parametrisieren. So könnte "`$p(x)$"' etwa für
+"`Wiesbaden liegt im Bundesland $x$"' stehen,
+d.h.~"`$p(\text{Hessen})$"' wäre wahr, wogegen "`$p(\text{Bayern})$"'
+eine falsche Aussage ist. Solche Aussagen mit Parameter nennt man auch
+\dindex{Prädikat}.
+
+Um die Verknüpfung von Aussagen auch formal aufschreiben zu können,
+werden die folgenden logischen
+Operatoren\index{Operator!logisch}\index{logischer Operator} 
 verwendet
 
 \begin{center}
-\begin{tabular}{l|l|l}
+\begin{tabular}{c|l|l}
 Symbol & umgangssprachlicher Name & Name in der Logik\\
 \hline
 \dindex{$\sand$} & und & Konjunktion\\
 \dindex{$\sor$} & oder & Disjunktion / Alternative\\
 \dindex{$\sneg$} & nicht & Negation \\
 \dindex{$\simpl$} & folgt & Implikation\\
-\dindex{$\sequi$} & genau dann wenn (gdw.) & Äquivalenz\\
+\dindex{$\sequi$} & genau dann wenn (\dindex{\gdw}) & Äquivalenz\\
 \end{tabular}
 \end{center}
-
-Zusätzlich werden noch die Quantoren $\exists$ ("`es existiert"') und
-$\forall$ ("`für alle"') verwendet, die z.B.~wie folgt gebraucht
+Zusätzlich werden noch die Quantoren \dindex{$\exists$} ("`es existiert"') und
+\dindex{$\forall$} ("`für alle"') verwendet, die z.B.~wie folgt gebraucht
 werden können
 \begin{description}
 %
-\item $\forall x \colon p(x)$ "`Für alle $x$ gilt die Aussage $p(x)$. 
+\item $\forall x \colon p(x)$ bedeutet "`Für alle $x$ gilt die Aussage $p(x)$. 
 %
-\item $\exists x \colon p(x)$ "`Es existiert ein $x$, für das die Aussage
-  $p(x) gilt$.
+\item $\exists x \colon p(x)$ bedeutet "`Es existiert ein $x$, für das die Aussage
+  $p(x)$ gilt.
 %
 \end{description}
 
@@ -48,22 +55,29 @@ Die Aussage "`Jede gerade natürliche Zahl kann als Produkt von $2$ und einer
 anderen natürlichen Zahl geschrieben werden"' lässt sich dann wie
 folgt schreiben
 \begin{displaymath}
-(\forall n \in \N \colon n \text{ ist gerade }) \simpl (\exists m
-\in \N \colon n = 2 \cdot m) 
+\forall n \in \N \colon ((n \text{ ist gerade}) \simpl (\exists m
+\in \N \colon n = 2 \cdot m)) 
 \end{displaymath}
-
+Die folgende logische Formel wird wahr \gdw $n$ eine ungerade
+natürliche Zahl ist.
+\begin{displaymath}
+\exists m \in \N \colon (n = 2 \cdot m + 1)
+\end{displaymath}
+\end{example}
 Für die logischen Konnektoren sind die folgenden Wahrheitswertetafeln
 festgelegt:
 
 \begin{center}
-\begin{tabular}{c|c}
+\begin{tabular}{c||c}
 $p$ & $\neg p$\\
 \hline
 $0$ & $1$\\
 $1$ & $0$
 \end{tabular}
+\hspace*{5em}
 und
-\begin{tabular}{c|c|c|c|c|c}
+\hspace*{5em}
+\begin{tabular}{c|c||c|c|c|c}
 $p$ & $q$ & $p \wedge q$ & $p \vee q$ & $p \simpl q$ & $p \sequi q$\\
 \hline
 0 & 0 & 0 & 0 & 1 & 1\\   
@@ -72,5 +86,23 @@ $p$ & $q$ & $p \wedge q$ & $p \vee q$ & $p \simpl q$ & $p \sequi q$\\
 1 & 1 & 0 & 1 & 1 & 1
 \end{tabular}
 \end{center}
-
+Jetzt kann man Aussagen auch etwas komplexer verknüpfen:
+\begin{example}
+Nun wird der $\sand$-Operator verwendet werden. Dazu soll die Aussage 
+"`Für alle natürlichen Zahlen $n$ und $m$ gilt, wenn $n$ kleiner
+gleich $m$ und $m$ kleiner gleich $n$ gilt, dann ist $m$ gleich $n$"'y
+\begin{displaymath}
+\forall n,m \in \N \colon (((n \le m) \sand (m \le n)) \simpl (n = m))
+\end{displaymath}
+\end{example}
+Oft benutzt man noch den negierten Quantor \dindex{$\nexists$} ("`es existiert kein"'):
+\begin{example}["`Großer Satz von Fermat"']
+Die Richtigkeit dieser Aussage konnte erst $1994$ nach mehr als $350$
+Jahren von Andrew Wiles und Richard Taylor gezeigt werden:
+\begin{displaymath}
+\forall n\in\N\, \nexists a,b,c \in \N \colon ((n > 2) \simpl a^n + b^n
+= c^n)  
+\end{displaymath}
+Für den Fall $n=2$ hat die Gleichung $a^n + b^n
+= c^n$ ganzzahlige Lösungen (vgl.~Pythagoräische Zahlentripel) wie z.B.~$3^2+4^2=5^2$.
 \end{example}
