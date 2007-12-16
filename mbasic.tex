@@ -76,9 +76,6 @@
 %\renewcommand{\labelenumi}{(\theenumi)}
 
 % Definitionen für Titelseite
-\newcommand{\quotename}{\textit}
-\newcommand{\emphasize}{\emph}
-
 \newcommand{\docutyp}{Skript}
 \newcommand{\lecture}{Elementare mathematische Begriffe, Probleme und Schreibweisen}
 \newcommand{\docudate}{Wintersemester 2007/2008}
@@ -102,37 +99,36 @@
 \begin{titlepage}
         \ifpdf
         \special{pdf: out 1 << /Title 
-        (Einige elementare mathematische Begriffe und Schreibweisen in
-          der Informatik) 
+        (Elementare mathematische Begriffe, Probleme und Schreibweisen)
         /Dest [ @thispage /FitH @ypos ] >>}
         \fi	
         \vspace{60pt}
 	\begin{center}
 		\vspace{20pt}
-		\textbf{\Large {\docutyp}} \\
+		\textbf{\Large {\docutyp}}
 			
 		\vspace{20pt}
-		\textbf{\huge {\lecture}} \\
+		\textbf{\Huge \lecture}
 			
 		\vspace{20pt}
-		\textbf{\docudate} \\
+		\textbf{\docudate}
 
 		\vspace{20pt}
-		\textbf{\lecturer} \\
+		\textbf{\lecturer}\\
 		\textbf{\lectureremail}
-		\\
+		
 		\vspace{120pt}
-		{\institution} \\
+		{\institution}\\
 		
 		\vfill			
 		\vspace{20pt}
 		\begin{tabular}[t]{rl}
-			Erstellt von: & {\writer} \\
-                        Zuletzt überarbeitet von: & {\reviser} \\
+			Erstellt von: & {\writer}\\
+                        Zuletzt überarbeitet von: & {\reviser}\\
 			Email: & {\email}\\
-			Erste Version vollendet: & {\writtendate} \\
-			Version: & {\svnInfoRevision} \\
-			Date: & {\svnInfoDate} \\
+			Erste Version vollendet: & {\writtendate}\\
+			Version: & {\svnInfoRevision}\\
+			Date: & {\svnInfoDate}\\
 		\end{tabular}
 	\end{center}
 	\newpage
