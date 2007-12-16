@@ -1,7 +1,7 @@
 # Specify all source-files
 SRC = graphex1.mp graphex2.mp graphex3.mp moebius.mp random.mp kclique.mp \
       kclique2.mp kclique3.mp CG1.fig CG2.fig niko.fig tree.fig tree2.fig \
-      BrueckenProb.fig BrueckenProb2.asy
+      BrueckenProb.fig BrueckenProb2.asy wald.mp
 
 # Manually created eps-files
 EPS = 
