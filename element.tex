@@ -123,6 +123,7 @@ $\emptyset$ Teilmenge jeder Menge ist.
 /Dest [ @thispage /FitH @ypos ] >>}
 \fi
 \subsubsection{Operationen auf Mengen}
+\label{OpSetSect}
 
 \begin{definition}
 \label{OpSet}
@@ -177,6 +178,13 @@ ungeraden natürlichen Zahlen disjunkt.
 /Dest [ @thispage /FitH @ypos ] >>}
 \fi
 \subsubsection{Gesetze für Mengenoperationen}
+\label{SetOpSect}
+Seien $A$ und $B$ zwei beliebige Mengen und "`$\odot$"' eine beliebige
+Verküpfung zwischen den Elementen dieser Mengen. Dann definieren wir
+\begin{displaymath}
+A \odot B \eqd \set{a \odot b \mid a \in A \text{ und } b \in A}.
+\end{displaymath}
+Für die klassischen Mengenoperationen gelten die folgenden Beziehungen:
 \begin{displaymath}
 \begin{array}{rcll}
 A \cap B &=& B \cap A & \text{Kommutativgesetz für den Schnitt}\\
@@ -330,15 +338,10 @@ ist die Relation $R_n(a,b) \eqd \set{(a,b) \mid a \equiv b \mod n} \subseteq
 /Dest [ @thispage /FitH @ypos ] >>}
 \fi
 \subsubsection{Eigenschaften von Funktionen}
-
 Seien $A$ und $B$ beliebige Mengen. $f$ ist eine \dindex{Funktion} von $A$ nach
 $B$ (Schreibweise: $f \colon A \rightarrow B$) \iffd \ $f \subseteq A \times
 B$ und für jedes $a \in A$ gibt es \emph{höchstens} ein $b \in B$ mit
-$(a, b) \in f$.
- 
-\medskip
-
-\noindent Ist $(a,b) \in f$, so schreibt man $f(a) = b$.
+$(a, b) \in f$. Ist also $(a,b) \in f$, so schreibt man $f(a) = b$.
 
 \begin{remark}
 Unsere Definition von Funktion umfasst auch mehrstellige
@@ -347,6 +350,19 @@ Kreuzprodukt von $C$. Die Funktion $f \colon A \rightarrow B$ ist dann
 eine $n$-stellige Funktion, denn sie bildet $n$-Tupel aus $C^n$ auf Elemente
 aus $B$ ab.
 \end{remark}
+
+\begin{definition}
+Sei $f$ eine $n$-stellige Funktion. Möchte man die Funktion $f$
+benutzen, aber keine Namen für die Argumente vergeben, so
+schreibt man auch 
+\begin{displaymath}
+f(\underbrace{\cdot, \cdot, \ldots , \cdot}_{\text{$n$-mal}})
+\end{displaymath}
+Ist also der Namen des Arguments einer einstelligen Funktion $g(x)$
+für eine Betrachtung unwichtig, so kann man
+$g(\cdot)$ \index{$f(\cdot)$} schreiben, um anzudeuten, dass $g$
+einstellig ist, ohne dies weiter zu erwähnen.
+\end{definition}
 
 Sei nun $R \subseteq A_1 \times A_2 \times \dots \times A_n$ eine
 $n$-stellige Relation, dann definieren wir $P^n_R \colon A_1 \times

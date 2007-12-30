@@ -656,15 +656,15 @@ man benötigt für einen Graphen mit $n$ Knoten mindestens $n$ Bits um
 ihn zu speichern (kodieren), und der Algorithmus braucht im
 schlechtesten Fall $O(n)$ (Ratephase) und $O(n^2)$
 (Überprüfungsphase), also insgesamt $O(n^2)$ Takte Zeit.  Damit ist
-gezeigt, dass $3\mathrm{COL}$ in der Klasse $\NP$ enthalten ist, denn es wurde
-ein nichtdeterministischer Polynomialzeitalgorithmus gefunden, der
-$3\mathrm{COL}$ löst. Ebenso einfach könnte man nun einen
-nichtdeterministischen Polynomialzeitalgorithmus entwickeln, der das
-Problem HAMILTON löst: Der Algorithmus wird in einer ersten Phase eine
-Knotenfolge raten und dann in einer zweiten Phase überprüfen, dass die
-Bedingungen, die an einen Hamiltonschen Kreis gestellt werden, bei der
-geratenen Folge erfüllt sind. Dies zeigt, dass auch HAMILTON in der
-Klasse $\NP$ liegt.
+gezeigt, dass $3\mathrm{COL}$ in der Klasse $\NP$ enthalten ist, denn
+es wurde ein nichtdeterministischer Polynomialzeitalgorithmus
+gefunden, der $3\mathrm{COL}$ löst. Ebenso einfach könnte man nun
+einen nichtdeterministischen Polynomialzeitalgorithmus entwickeln, der
+das Problem \textsf{HAMILTON} löst: Der Algorithmus wird in einer
+ersten Phase eine Knotenfolge raten und dann in einer zweiten Phase
+überprüfen, dass die Bedingungen, die an einen Hamiltonschen Kreis
+gestellt werden, bei der geratenen Folge erfüllt sind. Dies zeigt,
+dass auch \textsf{HAMILTON} in der Klasse $\NP$ liegt.
 
 Dass eine nichtdeterministische Maschine nicht gebaut werden kann,
 spielt hier keine Rolle. Nichtdeterministische Berechnungen sollen
@@ -866,22 +866,22 @@ Dazu wird zuerst die genaue Definition dieses Problems benötigt:
   andererseits eine Gesamtlänge von höchstens $k$ hat?}
 
 Nun zum ersten Schritt des Nachweises der $\NP$-Vollständigkeit von
-TSP: Offensichtlich gehört auch das Traveling Salesperson Problem zur
+\textsf{TSP}: Offensichtlich gehört auch das Traveling Salesperson Problem zur
 Klasse $\NP$, denn man kann nichtdeterministisch eine Folge von $n$
 Städten raten (eine potenzielle Rundreise) und dann leicht überprüfen,
 ob diese potenzielle Tour durch alle Städte verläuft und ob die
 zurückzulegende Entfernung maximal $k$ beträgt.  Damit ist der erste
-Schritt zum Nachweis der $\NP$-Vollständigkeit von TSP getan und Punkt
+Schritt zum Nachweis der $\NP$-Vollständigkeit von \textsf{TSP} getan und Punkt
 (1) des "`Kochrezepts"' abgehandelt.
 
 Als nächstes (Punkt (2)) soll von einem anderen $\NP$-vollständigen
-Problem gezeigt werden, dass es effizient in TSP transformiert werden
-kann. Geeignet dazu ist das im Text betrachtete Hamitonkreis-Problem,
-das bekanntermaßen $\NP$-vollständig ist.  Es ist also zu zeigen:
-HAMILTON $\le$ TSP.
+Problem gezeigt werden, dass es effizient in \textsf{TSP}
+transformiert werden kann. Geeignet dazu ist das im Text betrachtete
+Hamitonkreis-Problem, das bekanntermaßen $\NP$-vollständig ist.  Es
+ist also zu zeigen: \textsf{HAMILTON} $\le$ \textsf{TSP}.
 
 Folgende Idee führt zum Ziel: Gegeben ist eine Instanz $G=(V,E)$ von
-HAMILTON. Transformiere $G$ in folgende Instanz von TSP: Als
+\textsf{HAMILTON}. Transformiere $G$ in folgende Instanz von \textsf{TSP}: Als
 Städtemenge $C$ wählen wir die Knoten $V$ des Graphen $G$. Die
 Entfernungen zwischen den Städten sind definiert wie folgt:
 $D[i,j]=1$, falls es in $E$ eine Kante von Knoten $i$ zu Knoten $j$
@@ -906,7 +906,7 @@ berechnet wird.
 \begin{minipage}{0.95\textwidth}
 \begin{minipage}{0.46\textwidth}
 Aus dem Graphen $G$ links berechnet die Transformation die rechte
-Eingabe für das TSP-Problem. Die dick gezeichneten Verbindungen deuten
+Eingabe für das \textsf{TSP}. Die dick gezeichneten Verbindungen deuten
 eine Entfernung von $1$ an, wogegen dünne Linien eine Entfernung
 von $6$ symbolisieren. Weil $G$ den Hamiltonkreis $1,2,3,4,5,1$ hat,
 gibt es rechts eine Rundreise $1,2,3,4,5,1$ mit Gesamtlänge $5$.
@@ -919,7 +919,7 @@ gibt es rechts eine Rundreise $1,2,3,4,5,1$ mit Gesamtlänge $5$.
 
 \begin{minipage}{0.46\textwidth}
 Im Gegensatz dazu berechnet die Transformation hier aus dem Graphen
-$G'$ auf der linken eine Eingabe für das TSP-Problem auf der rechten
+$G'$ auf der linken eine Eingabe für das \textsf{TSP} auf der rechten
 Seite, die, wie man sich leicht überzeugt, keine Rundreise mit einer
 maximalen Gesamtlänge von $5$ hat. Dies liegt daran, dass der
 ursprüngliche Graph $G'$ keinen Hamiltonschen Kreis hatte.
@@ -1271,7 +1271,7 @@ Die zweite Möglichkeit sind sogenannte
 \dindex{Approximationsalgorithmen} (siehe \cite{ACGJNO99}). Die Idee
 hier ist es, nicht die optimalen Lösungen zu suchen, sondern sich mit
 einem kleinen garantierten Fehler zufrieden zu geben.  Dazu folgendes
-Beispiel. Es ist bekannt, dass das TSP-Problem auch dann noch
+Beispiel. Es ist bekannt, dass das \textsf{TSP} auch dann noch
 $\NP$-vollständig ist, wenn man annimmt, dass die Städte in der
 Euklidischen Ebene lokalisiert sind, d.h.~man kann die Städte in einer
 fiktiven Landkarte einzeichnen, sodass die Entfernungen zwischen den
@@ -1279,12 +1279,12 @@ Städten proportional zu den Abständen auf der Landkarte sind.  Das ist
 sicherlich in der Praxis keine einschränkende Abschwächung des
 Problems und zeigt, dass die oben erwähnte Methode nicht immer zum
 Erfolg führen muss: Hier bleibt auch das eingeschränkte Problem
-$\NP$-vollständig. Aber für diese eingeschränkte TSP-Variante ist ein
-Polynomialzeitalgorithmus bekannt, der immer eine Rundreise berechnet,
-die höchstens um einen beliebig wählbaren Faktor schlechter ist, als
-die optimale Lösung. Ein Chip-Hersteller, der bei der Bestückung
-seiner Platinen die Wege der Roboterköpfe minimieren möchte, kann also
-beschließen, sich mit einer Tour zufrieden zu geben, die um 5 \%
-schlechter ist als die optimale. Für dieses Problem existiert ein
-effizienter Algorithmus!  Dieser ist für die Praxis völlig
-ausreichend.
+$\NP$-vollständig. Aber für diese eingeschränkte \textsf{TSP}-Variante
+ist ein Polynomialzeitalgorithmus bekannt, der immer eine Rundreise
+berechnet, die höchstens um einen beliebig wählbaren Faktor schlechter
+ist, als die optimale Lösung. Ein Chip-Hersteller, der bei der
+Bestückung seiner Platinen die Wege der Roboterköpfe minimieren
+möchte, kann also beschließen, sich mit einer Tour zufrieden zu geben,
+die um 5 \% schlechter ist als die optimale. Für dieses Problem
+existiert ein effizienter Algorithmus!  Dieser ist für die Praxis
+völlig ausreichend.
