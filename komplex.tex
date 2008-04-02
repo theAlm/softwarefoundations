@@ -314,7 +314,7 @@ ist, bezeichnet man mit $\P$ ("`$\P$"' steht dabei für
 "`\textbf{P}olyno\-mi\-al\-zeit"'). Auch dabei wird die Rechenzeit in
 der Länge der Eingabe gemessen, d.h. in der Anzahl der Bits, die
 benötigt werden, um die Eingabe zu speichern (zu kodieren). Die Klasse
-$\P$\index{$\P$} wird auch als Klasse der \emph{effizient lösbaren
+$\P$\index{P=$\P$} wird auch als Klasse der \emph{effizient lösbaren
 Probleme} bezeichnet. Dies ist natürlich wieder eine idealisierte
 Auffassung: Einen Algorithmus mit einer Laufzeit $n^{57}$, wobei $n$
 die Länge der Eingabe bezeichnet, kann man schwer als effizient
@@ -424,7 +424,7 @@ Problem nun mit unendlich vielen anderen Problemen zu vergleichen
 ist. Es zeigt sich aber, dass diese Aufgabe nicht aussichtslos
 ist. Bevor diese Idee weiter ausgeführt wird, soll zunächst die Klasse
 von Problemen untersucht werden, die für diesen Vergleich herangezogen
-werden sollen, nämlich die Klasse $\NP$\index{$\NP$}.
+werden sollen, nämlich die Klasse $\NP$\index{NP=$\NP$}.
 
 \ifpdf
 \special{pdf: out 3 << /Title 
@@ -577,9 +577,9 @@ der darüberliegenden Verzweigung. Jeder Pfad in diesem sogenannten
 Farbzuordnungen an die Knoten, d.h.~einer potenziellen Färbung. Der
 Graph ist $3$-färbbar, falls sich auf mindestens einem Pfad eine
 korrekte Färbung ergibt, falls also auf mindestens einem Pfad die
-Überprüfungsphase erfolgreich ist; der Beispielgraph besitzt 6
-korrekte $3$-Färbungen, ist also eine positive Instanz des
-$3\mathrm{COL}$-Problems.
+Überprüfungsphase\index{Uberprüfungsphase=Überprüfungsphase} 
+erfolgreich ist; der Beispielgraph besitzt sechs korrekte $3$-Färbungen, 
+ist also eine positive Instanz des $3\mathrm{COL}$-Problems.
 
 Eine weitere, vielleicht intuitivere Vorstellung für die Arbeitsweise
 dieser $\NP$-Maschine ist die, dass bei jedem Ratevorgang $3$
@@ -616,10 +616,10 @@ Mit Hilfe eines nichtdeterministischen Algorithmus kann das
 $3\mathrm{COL}$-Problem in Polynomialzeit gelöst werden (siehe
 Algorithmus \ref{3COLAlgo}). Die zweite Phase von
 Algorithmus \ref{3COLAlgo}, die
-\dindex{Überprüfungsphase}, entspricht dabei genau dem oben
-angegebenen Algorithmus zum effizienten Überprüfen von möglichen
-Lösungen des $3\mathrm{COL}$-Problems
-(vgl.~Algorithmus \ref{TestCOL}).
+\emph{Überprüfungsphase}\index{Uberprüfungsphase=Überprüfungsphase}, 
+entspricht dabei genau dem oben angegebenen Algorithmus zum
+effizienten Überprüfen von möglichen Lösungen des
+$3\mathrm{COL}$-Problems (vgl.~Algorithmus \ref{TestCOL}).
 
 \begin{figure}
 \begin{center}
@@ -810,7 +810,7 @@ $z = U_B(y)$\;
 \end{figure}
 
 Solche schwierigsten Probleme in $\NP$ sind unter der Bezeichnung
-\emph{$\NP$-vollständige Probleme}\index{$\NP$-vollständig}
+\emph{$\NP$-vollständige Probleme}\index{vollständig}
 bekannt. Nun sieht die Aufgabe, von einem Problem zu zeigen, dass es
 $\NP$-vollständig ist, ziemlich hoffnungslos aus. Immerhin ist zu
 zeigen, dass für alle Probleme aus $\NP$ -- und damit unendlich viele
@@ -828,8 +828,8 @@ $\NP$, wenn es ein anderes schwierigstes Problem $B$ gibt, sodass $C$
 nicht leichter als $B$ ist.  Das führt zu folgendem "`Kochrezept"':
 \medskip
 
-\noindent{\sffamily\bfseries Nachweis der $\NP$-Vollständigkeit eines
-Problems $C$:}
+\noindent{\sffamily\bfseries Nachweis der $\NP$-Vollständigkeit 
+eines Problems $C$:}
 \begin{enumerate}[{\sffamily(1)}]
 \item Zeige, dass $C$ in $\NP$ enthalten ist, indem dafür ein
 geeigneter nichtdeterministischer Polynomialzeitalgorithmus
