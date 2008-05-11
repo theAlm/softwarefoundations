@@ -11,8 +11,9 @@ a^b \eqd \underbrace{a \cdot a
 \end{displaymath}
 und wird als \dindex{Potenzierung} bezeichnet. Dabei wird $a$ als
 \dindex{Basis}, $b$ als \dindex{Exponent} und $a^b$ als $b$-te
-\dindex{Potenz} von $a$ bezeichnet.  Seien nun $r,s,t \in \R$ und $r,t
-\ge 0$ durch die folgende Gleichung verbunden:
+\dindex{Potenz} von $a$ bezeichnet. \index{Logarithmus} Seien nun 
+$r,s,t \in \R$ und $r,t \ge 0$ durch die folgende Gleichung verbunden:
+
 \begin{displaymath}
 r^s = t.
 \end{displaymath}
@@ -29,9 +30,9 @@ $\mathbf{s = \log_r t}$ & $\mathbf{t = r^s}$ &
 \begin{minipage}[t]{0.38\textwidth}
 \begin{enumerate}[i)]
 %
-\item $\log_r (\frac{t_1}{t_2}) = \log_r t_1 - \log_r t_2$
+\item $\log_r (\frac{u}{v}) = \log_r u - \log_r v$
 %
-\item $\log_r ({t_1} \cdot {t_2}) = \log_r t_1 + \log_r t_2$
+\item $\log_r ({u} \cdot {v}) = \log_r u + \log_r v$
 %
 \item $\log_r (t^u) = u \cdot \log_r t$
 %
@@ -45,15 +46,15 @@ $\mathbf{s = \log_r t}$ & $\mathbf{t = r^s}$ &
 \begin{minipage}[t]{0.25\textwidth}
 \begin{enumerate}[i)]
 %
-\item $r^{s_1} \cdot r^{s_2} = r^{s_1 + s_2}$
+\item $r^{u} \cdot r^{v} = r^{u + v}$
 %
-\item $\frac{r^{s_1}}{r^{s_2}} = r^{s_1 - s_2}$
+\item $\frac{r^{u}}{r^{v}} = r^{u - v}$
 %
-\item $r_1^{s} \cdot r_2^{s} = (r_1 \cdot r_2)^{s}$
+\item $u^{s} \cdot v^{s} = (u \cdot v)^{s}$
 %
-\item $\frac{r_1^{s}}{r_2^{s}} = \left(\frac{r_1}{r_2}\right)^{s}$
+\item $\frac{u^{s}}{v^{s}} = \left(\frac{u}{u}\right)^{s}$
 %
-\item $(r^{s_1})^{s_2} = r^{s_1 \cdot s_2}$ 
+\item $(r^{u})^{v} = r^{u \cdot v}$ 
 %
 \end{enumerate}
 \end{minipage}
@@ -62,12 +63,12 @@ $\mathbf{s = \log_r t}$ & $\mathbf{t = r^s}$ &
 %
 \begin{enumerate}[i)]
 %
-\item $\sqrt[\leftroot{1} s]{t_1} \cdot \sqrt[s]{t_2} = \sqrt[s]{t_1 \cdot t_2}$
+\item $\sqrt[\leftroot{1} s]{u} \cdot \sqrt[s]{v} = \sqrt[s]{u \cdot v}$
 %
-\item $\frac{\sqrt[s]{t_1}}{\sqrt[s]{t_2}} = \sqrt[s]{\left(\frac{t_1}{t_2}\right)}$
+\item $\frac{\sqrt[s]{u}}{\sqrt[s]{v}} = \sqrt[s]{\left(\frac{u}{v}\right)}$
 %
-\item $\sqrt[\uproot{3} s_1]{\sqrt[\uproot{3} s_2]{t}} =
-  \sqrt[\uproot{3} s_1 \cdot s_2]{t}$
+\item $\sqrt[u]{\sqrt[v]{t}} =
+  \sqrt[u \cdot v]{t}$
 %
 \end{enumerate}
 \end{minipage}\\
@@ -80,6 +81,5 @@ Da $\sqrt[s]{t} = t^{\left(\frac{1}{s}\right)}$ gilt, können die
 Gesetze für das Radizieren leicht aus den Potenzierungsgesetzen
 abgeleitet werden.  Weiterhin legen wir spezielle Schreibweisen für
 die Logarithmen zur Basis $10$, $e$ (Eulersche Zahl) und $2$ fest:
-$\lg t \eqd \log_{10} t$, $\ln t \eqd \log_{e} t$ und $\mathrm{lb}\, t \eqd \log_{2} t$. 
- 
-
+$\lg t \eqd \log_{10} t$, $\ln t \eqd \log_{e} t$ und $\mathrm{lb}\,
+t \eqd \log_{2} t$.
