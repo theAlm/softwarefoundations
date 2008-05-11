@@ -1,9 +1,9 @@
 \ifpdf
 \special{pdf: out 2 << /Title 
-(Elementare Begriffe und Schreibweisen) 
+(Grundlagen und Schreibweisen) 
 /Dest [ @thispage /FitH @ypos ] >>}
 \fi
-\section{Elementare Begriffe und Schreibweisen}
+\section{Grundlagen und Schreibweisen}
 
 \ifpdf
 \special{pdf: out 3 << /Title 
@@ -183,11 +183,6 @@ ungeraden natürlichen Zahlen disjunkt.
 \fi
 \subsubsection{Gesetze für Mengenoperationen}
 \label{SetOpSect}
-Seien $A$ und $B$ zwei beliebige Mengen und "`$\odot$"' eine beliebige
-Verküpfung zwischen den Elementen dieser Mengen. Dann definieren wir
-\begin{displaymath}
-A \odot B \eqd \set{a \odot b \mid a \in A \text{ und } b \in A}.
-\end{displaymath}
 Für die klassischen Mengenoperationen gelten die folgenden Beziehungen:
 \begin{displaymath}
 \begin{array}{rcll}
@@ -210,6 +205,22 @@ A \cup (A \cap B) &=& A & \text{Absorptionsgesetz}\\
 \overline{\overline{A}} &=& A & \text{Gesetz des doppelten Komplements}
 \end{array}
 \end{displaymath}
+Die "`de-Morganschen Regeln"' wurden nach ihrem Erfinder \textsc{Augustus De
+Morgan}\footnote{*$1806$ in Madurai, Tamil Nadu, Indien - $\dag$$1871$
+in London, England} benannt.
+
+\goodbreak
+
+Oft benötigt man eine Verknüpfung von zwei Mengen, eine solche
+Verknüpfung wird allgemein wie folgt definiert:
+
+\begin{definition}["`Verknüpfung von Mengen"']
+Seien $A$ und $B$ zwei beliebige Mengen und "`$\odot$"' eine beliebige
+Verküpfung zwischen den Elementen dieser Mengen, dann definieren wir
+\begin{displaymath}
+A \odot B \eqd \set{a \odot b \mid a \in A \text{ und } b \in A}.
+\end{displaymath}
+\end{definition}
 
 \ifpdf
 \special{pdf: out 4 << /Title
