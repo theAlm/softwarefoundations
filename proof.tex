@@ -11,13 +11,17 @@ haben und bezeichnen solches Wissen als "`in der Praxis irrelevantes
 Zeug, das nur von und für seltsame Wissenschaftler erfunden
 wurde"'. Oft stellen sie sich auf den Standpunkt, dass die Korrektheit
 von Programmen und Algorithmen durch "'Lassen wir es doch mal laufen
-und probieren es aus!"' ($\triangleq$ Testen) belegt werden könne.
+und probieren es aus!"' ($\triangleq$ Testen) belegt werden
+könne. Diese Einstellung zeigt sich oft auch darin, dass Programme mit
+Hilfe einer IDE schnell "'testweise"' übersetzt werden, in der
+Hoffnung oder (schlimmer) in der Überzeugung, dass ein übersetzbares
+Programm immer auch semantisch korrekt sei.
 
 Theoretiker, die sich mit den Grundlagen der Informatik beschäftigen,
 vertreten oft den Standpunkt, dass die Korrektheit \emph{jedes}
-Programms bewiesen werden muss. Wahrscheinlich ist die Position
-zwischen diesen beiden Extremen richtig, denn zum einen ist der
-formale Beweis von (großen) Programmen oft nicht praktikabel (oder
+Programms rigoros \emph{bewiesen} werden muss. Wahrscheinlich ist die
+Position zwischen diesen beiden Extremen richtig, denn zum einen ist
+der formale Beweis von (großen) Programmen oft nicht praktikabel (oder
 möglich) und zum anderen kann das Testen mit einer (relativ kleinen)
 Menge von Eingaben sicherlich nicht belegen, dass ein Programm
 vollständig den Spezifikationen entspricht. Im praktischen Einsatz ist
@@ -27,25 +31,28 @@ eindrucksvoll durch viele Softwarepakete und verbreitete
 Betriebssysteme im PC-Umfeld belegt.} lassen. Bei einfacher
 Anwendersoftware sind solche Fehler ärgerlich, aber oft zu
 verschmerzen. Bei sicherheitskritischer Software (z.B.~bei der
-Regelung von Atomkraftwerken, Airbags und Bremssystemen in Autos oder
-bei der Steuerung von Raumsonden) gefährden solche Fehler menschliches
-Leben oder führen zu extrem hohen finanziellen Verlusten und müssen
-deswegen unbedingt vermieden werden.
+Regelung von Atomkraftwerken, Airbags und Bremssystemen in Autos, in
+der Medizintechnik oder bei der Steuerung von Raumsonden) gefährden
+solche Fehler menschliches Leben oder führen zu extrem hohen
+finanziellen Verlusten und müssen deswegen unbedingt vermieden werden.
 
 Für den Praktiker bringen Kenntnisse über formale Beweise aber noch
-andere Vorteile.  Einige Beweistechniken beschreiben direkt den zur
-Lösung benötigten Algorithmus, d.h.~eigentlich wird die Richtigkeit
-einer Aussage durch die (implizite) Angabe eines Algorithmus
-gezeigt. Aber es gibt noch einen anderen Vorteil. Ist der umzusetzende
-Algorithmus komplex (z.B.~aufgrund einer komplizierten
-Schleifenstruktur oder einer verschachtelten Rekursion), so ist es
-unwahrscheinlich, eine korrekte Implementation an den Kunden liefern
-zu können, ohne die Hintergründe ($\triangleq$ Beweis) verstanden zu
-haben. All dies zeigt, dass auch ein praktischer Informatiker
-Einblicke in Beweistechniken haben solle. Interessanterweise zeigt die
-Erfahrung im praktischen Umfeld auch, dass solches (theoretisches)
-Wissen über die Hintergründe oft zu klarer strukturierten und
-effizienteren Programmen führt.
+andere Vorteile. Viele Beweise beschreiben direkt den zur Lösung
+benötigten Algorithmus, d.h.~eigentlich wird die Richtigkeit einer
+Aussage durch die (implizite) Angabe eines Algorithmus gezeigt. Aber
+es gibt noch einen anderen Vorteil. Ist der umzusetzende Algorithmus
+komplex (z.B.~aufgrund einer komplizierten Schleifenstruktur oder
+einer verschachtelten Rekursion), so ist es unwahrscheinlich, eine
+korrekte Implementation an den Kunden liefern zu können, ohne die
+Hintergründe ($\triangleq$ Beweis) verstanden zu haben. All dies
+zeigt, dass auch ein praktischer Informatiker Einblicke in
+Beweistechniken haben solle. Interessanterweise zeigt die Erfahrung im
+praktischen Umfeld auch, dass solches (theoretisches) Wissen über die
+Hintergründe oft zu klarer strukturierten und effizienteren Programmen
+führt.
+
+Aus diesen Gründen sollen in diesem Abschnitt einige grundlegende
+Beweistechniken mit Hilfe von Beispielen vorgestellt werden.
 
 \ifpdf
 \special{pdf: out 3 << /Title 
@@ -88,27 +95,34 @@ muss die linke Seite der Ungleichung immer größer als die rechte Seite
 sein.\qed
 \end{proof}
 
-\bigskip
+Dieser Beweis war wenig formal, aber sehr ausführlich und wurde durch
+das Symbol "`$\#$"' beendet. Im Laufe der Zeit hat es sich eingebürgert, 
+das Ende eines Beweises mit einem besonderen Marker abzuschließen. 
+Besonders bekannt ist hier "`$\mathrm{qed}$"'\index{$\mathrm{qed}$}, 
+eine Abkürzung für die lateinische Floskel "`quod erat demonstrandum"', 
+die mit "`was zu beweisen war"' übersetzt werden kann. In neuerer Zeit 
+werden statt "`$\mathrm{qed}$"' mit der gleichen Bedeutung meist die 
+Symbole "`$\Box$"' oder "`$\#$"' verwendet.
 
-Dieser Beweis war wenig formal und sehr ausführlich. D.h.~es stellt
-sich die Frage: "`Wie formal und ausführlich muss ein Beweis sein?"'
-Diese Frage kann so einfach nicht beantwortet werden, denn das hängt
-u.a.~davon ab, welche Lesergruppe durch den Beweis von der Richtigkeit
-einer Aussage überzeugt werden soll und wer den Beweis
-schreibt. D.h.~ein Beweis für ein Übungsblatt sollte auch auf
-Kleinigkeiten Rücksicht nehmen, wogegen ein solcher Stil für eine
-wissenschaftliche Zeitschrift vielleicht nicht angebracht wäre. Nun
-noch eine Bemerkung zum Thema "`Formalismus"': Die menschliche Sprache
-ist unpräzise, mehrdeutig und Aussagen können oft auf verschiedene
-Weise interpretiert werden. Diese Defizite sollen
-Formalismen\footnote{In diesem Zusammenhang sind Programmiersprachen
-auch Formalismen, die eine präzise Beschreibung von Algorithmen
-erzwingen und die durch einen Compiler verarbeitet werden können.}
-ausgleichen, d.h.~die Antwort muss lauten: "`So viele Formalismen wie
-notwendig und so wenige wie möglich!"'. Durch Übung und Praxis lernt
-man die Balance zwischen diesen Anforderungen zu halten und es zeigt
-sich bald, dass "`Geübte"' die formale Beschreibung sogar wesentlich
-leichter verstehen.
+Nun stellt sich die Frage: "`Wie formal und ausführlich muss ein
+Beweis sein?"'  Diese Frage kann so einfach nicht beantwortet werden,
+denn das hängt u.a.~davon ab, welche Lesergruppe durch den Beweis von
+der Richtigkeit einer Aussage überzeugt werden soll und wer den Beweis
+schreibt. Ein Beweis für ein Übungsblatt sollte auch auf Kleinigkeiten
+Rücksicht nehmen, wogegen ein solcher Stil für eine wissenschaftliche
+Zeitschrift vielleicht nicht angebracht wäre, da die die potentielle
+Leserschaft über ganz andere Erfahrungen und viel mehr
+Hintergrundwissen verfügt. Nun noch eine Bemerkung zum Thema
+"`Formalismus"': Die menschliche Sprache ist unpräzise, mehrdeutig und
+Aussagen können oft auf verschiedene Weise interpretiert werden. Diese
+Defizite sollen Formalismen\footnote{In diesem Zusammenhang sind
+Programmiersprachen auch Formalismen, die eine präzise Beschreibung
+von Algorithmen erzwingen und die durch einen Compiler verarbeitet
+werden können.}  ausgleichen, d.h.~die Antwort muss lauten: "`So viele
+Formalismen wie notwendig und so wenige wie möglich!"'. Durch Übung
+und Praxis lernt man die Balance zwischen diesen Anforderungen zu
+halten und es zeigt sich bald, dass "`Geübte"' die formale
+Beschreibung sogar wesentlich leichter verstehen.
 
 \bigskip
 
