@@ -1,8 +1,6 @@
-\ifpdf
 \special{pdf: out 2 << /Title 
 (Einige formale Grundlagen von Beweistechniken) 
 /Dest [ @thispage /FitH @ypos ] >>}
-\fi
 \section{Einige formale Grundlagen von Beweistechniken}
 Praktisch arbeitende Informatiker glauben oft völlig ohne (formale)
 Beweistechniken auskommen zu können. Dabei meinen sie sogar, dass
@@ -54,11 +52,9 @@ führt.
 Aus diesen Gründen sollen in diesem Abschnitt einige grundlegende
 Beweistechniken mit Hilfe von Beispielen vorgestellt werden.
 
-\ifpdf
 \special{pdf: out 3 << /Title 
 (Direkte Beweise)
 /Dest [ @thispage /FitH @ypos ] >>}
-\fi
 \subsection{Direkte Beweise}
 Um einen direkten Beweis zu führen, müssen wir, beginnend von einer
 initialen Aussage ($\triangleq$ Hypothese), durch Angabe einer Folge
@@ -143,11 +139,9 @@ sein. Die Aussage folgt direkt aus Satz \ref{ExpoGTSquare}.
 \qed
 \end{proof}
 
-\ifpdf
 \special{pdf: out 4 << /Title 
 (Die Kontraposition)
 /Dest [ @thispage /FitH @ypos ] >>}
-\fi
 \subsubsection{Die Kontraposition}
 \label{KontraPos}
 Mit Hilfe von direkten Beweisen haben wir Zusammenhänge der Form
@@ -163,11 +157,9 @@ entspricht der Aussage: "`Wenn $2^n < n^2$, dann gilt $n < 4$."', was
 offensichtlich zu der ursprünglichen Aussage von
 Satz \ref{ExpoGTSquare} gleichwertig ist.
 
-\ifpdf
 \special{pdf: out 3 << /Title 
 (Widerspruchsbeweise)
 /Dest [ @thispage /FitH @ypos ] >>}
-\fi
 \subsection{Widerspruchsbeweise}
 \label{IndirektBeweis}
 Obwohl die Technik der Widerspruchsbeweise auf den ersten Blick sehr
@@ -205,11 +197,9 @@ Menge. Dies ist ein Widerspruch zu unserer Hypothese! Also war die
 Annahme "`$T$ ist endlich"' falsch. \qed
 \end{proof}
 
-\ifpdf
 \special{pdf: out 3 << /Title 
 (Der Schubfachschluss)
 /Dest [ @thispage /FitH @ypos ] >>}
-\fi
 \subsection{Der Schubfachschluss}
 \label{Schubfachschluss}
 Der Schubfachschluss ist auch als \dindex{Dirichlets
@@ -227,11 +217,9 @@ $\lceil \frac{8}{7} \rceil =2$ Personen aus dieser Gruppe Geburtstag
 haben.
 \end{example}
 
-\ifpdf
 \special{pdf: out 3 << /Title 
 (Gegenbeispiele)
 /Dest [ @thispage /FitH @ypos ] >>}
-\fi
 \subsection{Gegenbeispiele}
 Im wirklichen Leben wissen wir nicht, ob eine Aussage richtig oder
 falsch ist. Oft sind wir dann mit einer Aussage konfrontiert, die auf
@@ -262,42 +250,36 @@ Es gibt keine Zahlen $a,b \in \N$, sodass $a \textrm{ mod } b = b
 Für $a = b = 2$ gilt $a \textrm{ mod } b = b \textrm{ mod } a = 0$. \qed
 \end{counterexample}
 
-\ifpdf
 \special{pdf: out 3 << /Title 
 (Induktionsbeweise und das Induktionsprinzip)
 /Dest [ @thispage /FitH @ypos ] >>}
-\fi
 \subsection{Induktionsbeweise und das Induktionsprinzip}
 Eine der wichtigsten Beweismethoden der Informatik ist das
 Induktionsprinzip. Wir wollen jetzt nachweisen, dass für jedes $n \in
 \N$ eine bestimmte Eigenschaft $E$ gilt. Wir schreiben kurz $E(n)$ für
-die Aussage "`$n$ besitzt die Eigenschaft $E$"'.
+die Aussage "`$n$ besitzt die Eigenschaft $E$"'. Mit der
+Schreibweise $E(0)$ drücken\footnote{Mit $E$ wird also ein Prädikat bezeichnet (siehe
+Abschnitt \ref{MengenDef})} wir also aus, dass die
+erste natürliche Zahl $0$ die Eigenschaft $E$ besitzt.
 
-\bigskip
-
-\noindent\textbf{Induktionsprinzip:} 
-
-\noindent Es gelten 
+\noindent\textbf{Induktionsprinzip:} Es gelten 
 \indudef%
-{$E(0)$}%
-{Für $n \ge 0$ gilt, wenn $E(k)$ für $k \le n$ korrekt ist, dann ist auch $E(n+1)$ richtig.}
+{$E(0)$}% 
+{Für $n \ge 0$ gilt, wenn $E(k)$ für $k \le n$ korrekt ist,
+dann ist auch $E(n+1)$ richtig.}
 
 Dabei ist \textbf{\textsf{IA}} die Abkürzung für
 \dindex{Induktionsanfang} und \textbf{\textsf{IS}} ist die Kurzform von
 \dindex{Induktionsschritt}. Die Voraussetzung ($\triangleq$ Hypothese)
 $E(k)$ ist korrekt für $k \le n$ und wird im Induktionsschritt
 als \dindex{Induktionsvoraussetzung} benutzt
-(kurz \textbf{\textsf{IV}}).
+(kurz \textbf{\textsf{IV}}). Es gibt verschiedene Versionen von
+Induktionsbeweisen. Die bekannteste Version ist die vollständige
+Induktion, bei der Aussagen über natürliche Zahlen gezeigt werden.
 
-Es gibt verschiedene Versionen von Induktionsbeweisen. Die bekannteste
-Version ist die vollständige Induktion, bei der Aussagen über
-natürliche Zahlen gezeigt werden.
-
-\ifpdf
 \special{pdf: out 4 << /Title 
 (Die vollständige Induktion)
 /Dest [ @thispage /FitH @ypos ] >>}
-\fi
 \subsubsection{Die vollständige Induktion}
 
 Wie in Piratenfilmen üblich, seien Kanonenkugeln in einer Pyramide mit
@@ -345,11 +327,9 @@ Die Zeile $\star$ (bzw.~$\star\star$) ergibt sich, indem man $2n^3 +
 \noindent Solche Induktionsbeweise treten z.B.~bei der Analyse von Programmen
 immer wieder auf.
 
-\ifpdf
 \special{pdf: out 4 << /Title 
 (Induktive Definitionen)
 /Dest [ @thispage /FitH @ypos ] >>}
-\fi
 \subsubsection{Induktive Definitionen}
 
 Das Induktionsprinzip kann aber auch dazu verwendet werden,
@@ -364,7 +344,7 @@ Technik ist als \dindex{induktive Definition} bekannt.
 \indudef{Ein einzelner Knoten $w$ ist ein \emph{Baum} und $w$ ist die
   \emph{Wurzel} dieses Baums.}{Seien $T_1, T_2, \dots, T_n$ Bäume mit den
   Wurzeln $\enu{k}{1}{n}$ und $w$ ein einzelner neuer Knoten. Verbinden wir
-$w$ mit allen Wurzeln $\enu{k}{1}{n}$, dann entsteht ein neuer Baum
+  $w$ mit allen Wurzeln $\enu{k}{1}{n}$, dann entsteht ein neuer Baum
   mit der Wurzel $w$.} 
 \end{example}
 
@@ -386,12 +366,9 @@ leisten. Induktive Definitionen haben noch einen weiteren Vorteil,
 denn man kann leicht Induktionsbeweise konstruieren, die Aussagen über
 induktiv definierte Objekte belegen.
 
-
-\ifpdf
 \special{pdf: out 4 << /Title 
 (Die strukturelle Induktion)
 /Dest [ @thispage /FitH @ypos ] >>}
-\fi
 \subsubsection{Die strukturelle Induktion}
 
 \begin{theorem}

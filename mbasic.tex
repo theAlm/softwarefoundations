@@ -25,6 +25,7 @@
             pdfauthor={Steffen Reith},
             pdfcreator={Steffen Reith}
            ]{hyperref}
+\usepackage{ifpdf}
 \usepackage[nofancy]{svninfo}
 \usepackage{wrapfig}
 \usepackage{subfigure}
@@ -39,6 +40,9 @@
 \SetKwInput{KwData}{Eingabe}
 \SetKwInput{KwResult}{Ergebnis}
 \renewcommand{\listalgorithmcfname}{Algorithmenverzeichnis}%
+
+% Baue einen Index
+\makeindex
 
 % Include global settings
 \input{settings.tex}
@@ -98,11 +102,11 @@
 \pagestyle{empty}
 
 \begin{titlepage}
-        \ifpdf
+
         \special{pdf: out 1 << /Title 
         (Elementare mathematische Begriffe, Probleme und Schreibweisen)
         /Dest [ @thispage /FitH @ypos ] >>}
-        \fi	
+
         \vspace{60pt}
 	\begin{center}
 		\vspace{20pt}
@@ -208,11 +212,9 @@ $\star \star \star$ \textsc{Ende} $\star \star \star$
 
 % Index 
 \cleardoublepage
-\ifpdf
 \special{pdf: out 2 << /Title 
 (Stichwortverzeichnis) 
 /Dest [ @thispage /FitH @ypos ] >>}
-\fi
 \addcontentsline{toc}{section}{Stichwortverzeichnis}
 \def\indexname{Stichwortverzeichnis}
 \makeatletter
@@ -221,11 +223,9 @@ $\star \star \star$ \textsc{Ende} $\star \star \star$
 
 % Literatur
 \cleardoublepage
-\ifpdf
 \special{pdf: out 2 << /Title 
 (Literatur) 
 /Dest [ @thispage /FitH @ypos ] >>}
-\fi
 \def\bibname{Literatur}
 \addcontentsline{toc}{section}{Literatur}
 \bibliography{mbasic}

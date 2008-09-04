@@ -1,7 +1,7 @@
 LATEX 	  = latex
 PDFLATEX  = pdflatex
 DVIPS	  = dvips -e0
-DVIPDFM   = dvipdfm
+DVIPDFM   = dvipdfmx
 PPOWER4   = ppower4
 MPOST     = mpost
 CP        = cp -a
@@ -9,12 +9,9 @@ PREVIEW   = open
 MAKEINDEX = makeindex
 
 all:
-	$(LATEX) mbasic_pdf.tex
-	$(DVIPDFM) -o mbasic.pdf mbasic_pdf.dvi
-ps:
-	$(LATEX) mbasic_ps.tex
-	$(DVIPS) -o mbasic.ps mbasic_ps.dvi
+	$(LATEX) mbasic.tex
+	$(DVIPDFM) -o mbasic.pdf mbasic.dvi
 
 idx:
-	$(MAKEINDEX) -s own_index.ist -g mbasic_pdf
+	$(MAKEINDEX) -s own_index.ist -g mbasic
 
