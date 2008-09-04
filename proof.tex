@@ -273,9 +273,13 @@ Dabei ist \textbf{\textsf{IA}} die Abkürzung für
 \dindex{Induktionsschritt}. Die Voraussetzung ($\triangleq$ Hypothese)
 $E(k)$ ist korrekt für $k \le n$ und wird im Induktionsschritt
 als \dindex{Induktionsvoraussetzung} benutzt
-(kurz \textbf{\textsf{IV}}). Es gibt verschiedene Versionen von
-Induktionsbeweisen. Die bekannteste Version ist die vollständige
-Induktion, bei der Aussagen über natürliche Zahlen gezeigt werden.
+(kurz \textbf{\textsf{IV}}). Hat man also den Induktionsanfang und den
+Induktionsschritt gezeigt, dann ist es anschaulich, dass jede natürliche Zahl die
+Eigenschaft $E$ haben muss.
+
+Es gibt verschiedene Versionen von Induktionsbeweisen. Die bekannteste
+Version ist die vollständige Induktion, bei der Aussagen über
+natürliche Zahlen gezeigt werden.
 
 \special{pdf: out 4 << /Title 
 (Die vollständige Induktion)
@@ -341,19 +345,27 @@ Technik ist als \dindex{induktive Definition} bekannt.
 
 \begin{example}
 \noindent Ein Baum ist wie folgt definiert:
+
+\medskip
+
 \indudef{Ein einzelner Knoten $w$ ist ein \emph{Baum} und $w$ ist die
   \emph{Wurzel} dieses Baums.}{Seien $T_1, T_2, \dots, T_n$ Bäume mit den
   Wurzeln $\enu{k}{1}{n}$ und $w$ ein einzelner neuer Knoten. Verbinden wir
-  $w$ mit allen Wurzeln $\enu{k}{1}{n}$, dann entsteht ein neuer Baum
+  den Knoten $w$ mit allen Wurzeln $\enu{k}{1}{n}$, dann entsteht ein neuer Baum
   mit der Wurzel $w$.} 
 \end{example}
 
 \begin{example}
 \label{induexp}
 \noindent Ein arithmetischer Ausdruck ist wie folgt definiert:
+
+\medskip
+
 \indudef{Jeder Buchstabe und jede Zahl ist ein arithmetischer
 Ausdruck.}{Seien $E$ und $F$ Ausdrücke, so sind auch $E + F$, $E * F$
 und $[E]$ Ausdrücke.}
+
+\medskip
 
 \noindent D.h.~$x$, $x+y$, $[2*x + z]$ sind arithmetische Ausdrücke,
 aber beispielsweise sind $x + $, $yy$, $][x+y$ sowie $x +* z$ keine
@@ -376,6 +388,12 @@ induktiv definierte Objekte belegen.
 Die Anzahl der öffnenden Klammern eines arithmetischen Ausdrucks stimmt
 mit der Anzahl der schließenden Klammern überein.
 \end{theorem}
+
+Es ist offensichtlich, dass diese Aussage richtig ist, denn in
+Ausdrücken wie $(x + y) / 2$ oder $x + ((y/2) * z)$ muss ja zu jeder
+öffnenden Klammer eine schließende Klammer existieren. Der nächste
+Beweis verwendet diese Idee zum die Aussage von Satz \ref{CntBrack}
+mit Hilfe einer strukturellen Induktion zu zeigen.
 
 \begin{proof}
 Wir bezeichnen die Anzahl der öffnenden Klammern eines Ausdrucks $E$
