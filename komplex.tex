@@ -137,7 +137,6 @@ kann das Problem verallgemeinert werden, wenn man sich nicht auf drei
 Farben/Frequenzen festlegt; dann aber ergeben sich genau die oben
 definierten Probleme $k\mathrm{COL}$ für beliebige Zahlen $k$.
 
-
 Als nächstes ist zu klären, was unter einem "`Algorithmus"' zu
 verstehen ist. Ein Algorithmus ist eine endliche, formale Beschreibung
 einer Methode, die ein Problem löst (z.B.~ein Programm in einer
@@ -184,11 +183,11 @@ befindet.
 (Das Problem der 2-Färbbarkeit) 
 /Dest [ @thispage /FitH @ypos ] >>}
 \subsubsection{Das Problem der 2-Färbbarkeit}
+Das Problem der 2-Färbbarkeit ist wie folgt definiert:
 
 \prob{$2\mathrm{COL}$}
 {Ein Graph $G=(V,E)$}
 {Hat $G$ eine Knotenfärbung mit höchstens $2$ Farben?}
-
 Es ist bekannt, dass dieses Problem mit einem sogenannten
 \dindex{Greedy-Algorithmus} gelöst werden kann: Beginne mit einem
 beliebigen Knoten in $G$ (z.B.~$v_1$) und färbe ihn mit Farbe 1. Färbe
@@ -199,8 +198,27 @@ für jede Komponente wiederholt werden. $G$ ist schließlich 2-färbbar,
 wenn bei obiger Prozedur keine inkorrekte Färbung entsteht. Diese Idee
 führt zu Algorithmus \ref{TColAlgo}.
 
-\begin{figure}
-\begin{center}
+Die Laufzeit von Algorithmus \ref{TColAlgo} kann wie folgt abgeschätzt
+werden: Die erste \textbf{for}-Schleife benötigt $n$ Schritte.  In der
+\textbf{while}-Schleife wird entweder mindestens ein Knoten gefärbt
+und die Schleife dann erneut ausgeführt, oder es wird kein Knoten
+gefärbt und die Schleife dann verlassen; also wird diese Schleife
+höchstens $n$-mal ausgeführt. Innerhalb der \textbf{while}-Schleife
+finden sich drei ineinander verschachtelte \textbf{for}-Schleifen, die
+alle jeweils $n$-mal durchlaufen werden, und eine
+\textbf{while}-Schleife, die maximal $n$-mal durchlaufen wird.
+
+Damit ergibt sich also eine Gesamtlaufzeit der Größenordnung $n^4$,
+wobei $n$ die Anzahl der Knoten des Eingabe-Graphen $G$ ist. Wie groß
+ist nun die Eingabelänge, also die Anzahl der benötigten Bits zur
+Speicherung von $G$?  Sicherlich muss jeder Knoten in dieser
+Speicherung vertreten sein, d.h.~also, dass mindestens $n$ Bits zur
+Speicherung von $G$ benötigt werden. Die Eingabelänge ist also
+mindestens $n$. Daraus folgt, dass die Laufzeit des Algorithmus also
+höchstens von der Größenordnung $N^4$ ist, wenn $N$ die Eingabelänge
+bezeichnet.
+
+\goodbreak
 \restylealgo{ruled}
 \begin{algorithm}[H]
 \caption{Ein Algorithmus zur Berechnung einer $2$-Färbung eines Graphen}
@@ -210,8 +228,6 @@ führt zu Algorithmus \ref{TColAlgo}.
 \KwResult{$1$ wenn es eine $2$-Färbung für $G$ gibt, $0$ sonst}
 \BlankLine
 \Begin{
-\tcc*[f]{Array für die Färbung initialisieren}
-
 \For{$($$i = 1$ to $n$$)$}{
 $\mathrm{Farbe}[i] = 0$\;
 }
@@ -271,30 +287,7 @@ $\mathrm{Farbe}[1] = 1$\;
 
 \Return $1$\;
 }
-
 \end{algorithm}
-\end{center}
-\end{figure}
-
-Die Laufzeit von Algorithmus \ref{TColAlgo} kann wie folgt abgeschätzt
-werden: Die erste \textbf{for}-Schleife benötigt $n$ Schritte.  In der
-\textbf{while}-Schleife wird entweder mindestens ein Knoten gefärbt
-und die Schleife dann erneut ausgeführt, oder es wird kein Knoten
-gefärbt und die Schleife dann verlassen; also wird diese Schleife
-höchstens $n$-mal ausgeführt. Innerhalb der \textbf{while}-Schleife
-finden sich drei ineinander verschachtelte \textbf{for}-Schleifen, die
-alle jeweils $n$-mal durchlaufen werden, und eine
-\textbf{while}-Schleife, die maximal $n$-mal durchlaufen wird.
-
-Damit ergibt sich also eine Gesamtlaufzeit der Größenordnung $n^4$,
-wobei $n$ die Anzahl der Knoten des Eingabe-Graphen $G$ ist. Wie groß
-ist nun die Eingabelänge, also die Anzahl der benötigten Bits zur
-Speicherung von $G$?  Sicherlich muss jeder Knoten in dieser
-Speicherung vertreten sein, d.h.~also, dass mindestens $n$ Bits zur
-Speicherung von $G$ benötigt werden. Die Eingabelänge ist also
-mindestens $n$. Daraus folgt, dass die Laufzeit des Algorithmus also
-höchstens von der Größenordnung $N^4$ ist, wenn $N$ die Eingabelänge
-bezeichnet.
 
 Tatsächlich sind (bei Verwendung geeigneter Datenstrukturen wie Listen
 oder Queues) wesentlich effizientere Verfahren für $2\mathrm{COL}$ möglich.
@@ -435,11 +428,9 @@ Graph $G$ eine $3$-Färbung hat (d.h., ob der fiktive Mobilfunkprovider
 mit $3$ Funkfrequenzen auskommt). Hat man aber aus irgendwelchen
 Gründen eine \emph{potenzielle} Knotenfärbung vorliegen, dann ist es
 leicht, diese potenzielle Knotenfärbung zu überprüfen und
-festzustellen, ob sie eine
-\emph{korrekte} Färbung des Graphen ist, wie Algorithmus \ref{TestCOL} zeigt.
+festzustellen, ob sie eine \emph{korrekte} Färbung des Graphen ist, 
+wie Algorithmus \ref{TestCOL} zeigt.
 
-\begin{figure}
-\begin{center}
 \restylealgo{ruled}
 \begin{algorithm}[H]
 \caption{Ein Algorithmus zur Überprüfung einer potentiellen Färbung}
@@ -448,8 +439,12 @@ festzustellen, ob sie eine
 \KwResult{$1$ wenn die Färbung korrekt, $0$ sonst}
 \BlankLine
 \Begin{
+   \tcc*[f]{Teste systematisch alle Kanten}
+    
     \For{$(i = 1$ $\mathrm{to}$ $n)$}{
       \For{$(j = 1$ $\mathrm{to}$ $n)$}{
+       \tcc*[f]{Test auf Verletzung der Knotenfärbung}
+    
         \If{$(((v_i,v_j) \in E)$ $\mathrm{und}$ $(v_i \text{ und }
             v_j \text{ sind gleich gefärbt}))$}{
           \Return $1$\;
@@ -459,11 +454,9 @@ festzustellen, ob sie eine
   }
   \Return $0$\;
 \end{algorithm}
-\end{center}
-\end{figure}
 
-Das Problem $3\mathrm{COL}$ hat also die Eigenschaft, dass eine potenzielle
-Lösung leicht daraufhin überprüft werden kann, ob sie eine
+Das Problem $3\mathrm{COL}$ hat also die Eigenschaft, dass eine
+potenzielle Lösung leicht daraufhin überprüft werden kann, ob sie eine
 tatsächliche, d.h.~korrekte, Lösung ist.  Viele andere praktisch
 relevante Probleme, für die kein effizienter Algorithmus bekannt ist,
 besitzen ebenfalls diese Eigenschaft. Dies soll noch an einem weiteren
@@ -480,7 +473,7 @@ beschrieben, wobei gelten soll, dass alle Knoten
 $v_{i_1},\dots,v_{i_n}$ verschieden sind und die Kanten $(v_{i_1},
 v_{i_2}),\allowbreak (v_{i_2}, v_{i_3}),\allowbreak \dots
 ,(v_{i_{n-1}}, v_{i_{n}})$ und $(v_{i_{n}}, v_{i_1})$ in $G$
-vorkommen.  Eine solche Folge von Kanten wird als \dindex{Hamiltonscher
+vorkommen. Eine solche Folge von Kanten wird als \dindex{Hamiltonscher
 Kreis} bezeichnet. Ein Hamiltonscher Kreis in einem Graphen $G$ ist
 also ein Kreis, der jeden Knoten des Graphen genau einmal besucht.
 Das Problem, einen Hamiltonschen Kreis in einem Graphen zu finden,
@@ -612,8 +605,6 @@ entspricht dabei genau dem oben angegebenen Algorithmus zum
 effizienten Überprüfen von möglichen Lösungen des
 $3\mathrm{COL}$-Problems (vgl.~Algorithmus \ref{TestCOL}).
 
-\begin{figure}
-\begin{center}
 \restylealgo{ruled}
 \begin{algorithm}[H]
 \caption{Ein nichtdeterministischer Algorithmus für $3\mathrm{COL}$}
@@ -640,8 +631,6 @@ $3\mathrm{COL}$-Problems (vgl.~Algorithmus \ref{TestCOL}).
   }
   \Return $1$\;
 \end{algorithm}
-\end{center}
-\end{figure}
 
 Dieser nichtdeterministische Algorithmus läuft in Polynomialzeit, denn
 man benötigt für einen Graphen mit $n$ Knoten mindestens $n$ Bits um
@@ -772,8 +761,6 @@ zwei Eigenschaften von $C$ nachzuweisen:
 $A$; d.h.: für alle Probleme $A$ aus $\NP$ gilt: $A \le C$.
 \end{enumerate}
 
-\begin{figure}
-\begin{center}
 \restylealgo{ruled}
 \begin{algorithm}[H]
 \caption{Algorithmische Darstellung der Benutzung einer Reduktionsfunktion}
@@ -795,8 +782,6 @@ $z = U_B(y)$\;
 \Return $z$\;
 }
 \end{algorithm}
-\end{center}
-\end{figure}
 
 Solche schwierigsten Probleme in $\NP$ sind unter der Bezeichnung
 \emph{$\NP$-vollständige Probleme}\index{vollständig}
@@ -837,11 +822,11 @@ mehr als $300$ $\NP$-vollständige Probleme enthält. Dazu wählt man ein
 möglichst ähnliches Problem aus und versucht dann eine geeignete
 Reduktionsfunktion für das zu untersuchende Problem zu finden.
 
+\goodbreak
 \special{pdf: out 4 << /Title 
 (Traveling Salesperson ist NP-vollständig) 
 /Dest [ @thispage /FitH @ypos ] >>}
 \subsubsection{Traveling Salesperson ist $\NP$-vollständig}
-
 Wie kann man zeigen, dass Traveling Salesperson $\NP$-vollständig ist?
 Dazu wird zuerst die genaue Definition dieses Problems benötigt:
 
@@ -858,14 +843,16 @@ Nun zum ersten Schritt des Nachweises der $\NP$-Vollständigkeit von
 Klasse $\NP$, denn man kann nichtdeterministisch eine Folge von $n$
 Städten raten (eine potenzielle Rundreise) und dann leicht überprüfen,
 ob diese potenzielle Tour durch alle Städte verläuft und ob die
-zurückzulegende Entfernung maximal $k$ beträgt.  Damit ist der erste
-Schritt zum Nachweis der $\NP$-Vollständigkeit von \textsf{TSP} getan und Punkt
-(1) des "`Kochrezepts"' abgehandelt.
+zurückzulegende Entfernung maximal $k$ beträgt. Ein entsprechender
+nichtdeterministischer Polynomialzeitalgorithmus ist leicht zu
+erstellen. Damit ist der erste Schritt zum Nachweis der
+$\NP$-Vollständigkeit von \textsf{TSP} getan und Punkt (1) des
+"`Kochrezepts"' abgehandelt.
 
 Als nächstes (Punkt (2)) soll von einem anderen $\NP$-vollständigen
 Problem gezeigt werden, dass es effizient in \textsf{TSP}
 transformiert werden kann. Geeignet dazu ist das im Text betrachtete
-Hamitonkreis-Problem, das bekanntermaßen $\NP$-vollständig ist.  Es
+Hamitonkreis-Problem, das bekanntermaßen $\NP$-vollständig ist. Es
 ist also zu zeigen: \textsf{HAMILTON} $\le$ \textsf{TSP}.
 
 Folgende Idee führt zum Ziel: Gegeben ist eine Instanz $G=(V,E)$ von
@@ -921,11 +908,8 @@ ursprüngliche Graph $G'$ keinen Hamiltonschen Kreis hatte.
 \label{TSPRedExample}
 \end{figure}
 
-
-\begin{figure}[t]
-\begin{center}
 \restylealgo{ruled}
-\begin{algorithm}[H]
+\begin{algorithm}
 \caption{Ein Algorithmus für die Reduktion von \textsf{HAMILTON} auf \textsf{TSP}}
 \label{TSPRed}
 \KwData{Graph $G=(V, E)$, wobei $V = \set{\range{1}{n}}$}
@@ -960,8 +944,6 @@ ursprüngliche Graph $G'$ keinen Hamiltonschen Kreis hatte.
       \Return $(C,D,k)$\;
 }
 \end{algorithm}
-\end{center}
-\end{figure}
 
 \special{pdf: out 3 << /Title 
 (Die Auswirkungen der NP-Vollständigkeit) 
@@ -980,11 +962,8 @@ von $C$ ist. Damit löst Algorithmus \ref{PolyAlgoNP} das Problem $A$
 in Polynomialzeit. Es gilt also: Ist irgendein $\NP$-vollständiges
 Problem effizient lösbar, dann ist $\P=\NP$.
 
-
-\begin{figure}
-\begin{center}
 \restylealgo{ruled}
-\begin{algorithm}[H]
+\begin{algorithm}
 \caption{Ein fiktiver Algorithmus für Problem $A$}
 \label{PolyAlgoNP}
 \KwData{Instanz $x$ für das Problem $A$}
@@ -999,8 +978,6 @@ Problem effizient lösbar, dann ist $\P=\NP$.
    \Return $z$\;
 }
 \end{algorithm}
-\end{center}
-\end{figure}
 
 Sei nun angenommen, dass jemand $\P \not= \NP$ gezeigt hat. In diesem
 Fall ist aber auch klar, dass dann für kein $\NP$-vollständiges
