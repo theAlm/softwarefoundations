@@ -1,4 +1,4 @@
-LATEX 	  = latex
+LATEX 	  = latex -synctex=1
 PDFLATEX  = pdflatex
 DVIPS	  = dvips -e0
 DVIPDFM   = dvipdfmx
