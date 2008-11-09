@@ -391,7 +391,7 @@ Laufzeit) für das Problem PARITY (und einige wenige weitere, ebenfalls
 sehr einfach-geartete Probleme) sehr nahe zusammen liegen. Das
 bedeutet also, dass nur noch unwesentliche Verbesserungen der
 Algorithmen für des PARITY-Problem erwartet werden können. Beim
-Problem $3\mathrm{COL}$ ist das ganz anderes: Die bekannten unteren
+Problem $3\mathrm{COL}$ ist das ganz anders: Die bekannten unteren
 und oberen Schranken liegen extrem weit auseinander. Deshalb ist nicht
 klar, ob nicht doch (extrem) bessere Algorithmen als heute bekannt im
 Bereich des Möglichen liegen. Aber wie untersucht man solch eine
@@ -447,12 +447,12 @@ wie Algorithmus \ref{TestCOL} zeigt.
     
         \If{$(((v_i,v_j) \in E)$ $\mathrm{und}$ $(v_i \text{ und }
             v_j \text{ sind gleich gefärbt}))$}{
-          \Return $1$\;
+          \Return $0$\;
         }
       }
     }
   }
-  \Return $0$\;
+  \Return $1$\;
 \end{algorithm}
 
 Das Problem $3\mathrm{COL}$ hat also die Eigenschaft, dass eine
@@ -628,8 +628,8 @@ $3\mathrm{COL}$-Problems (vgl.~Algorithmus \ref{TestCOL}).
         }
       }
     }
-  }
   \Return $1$\;
+  }
 \end{algorithm}
 
 Dieser nichtdeterministische Algorithmus läuft in Polynomialzeit, denn
