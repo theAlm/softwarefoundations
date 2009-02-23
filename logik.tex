@@ -48,6 +48,8 @@ werden können
   $P(x)$ gilt.
 %
 \end{description}
+Oft läßt man sogar den Doppelpunkt weg und schreibt statt $\forall
+x \colon P(x)$ vereinfachend $\forall x P(x)$.
 
 \begin{example}
 Die Aussage "`Jede gerade natürliche Zahl kann als Produkt von $2$ und einer
@@ -99,9 +101,10 @@ Oft benutzt man noch den negierten Quantor \dindex{$\nexists$} ("`es existiert k
 Die Richtigkeit dieser Aussage konnte erst $1994$ nach mehr als $350$
 Jahren von Andrew Wiles und Richard Taylor gezeigt werden:
 \begin{displaymath}
-\forall n\in\N\, \nexists a,b,c \in \N \colon ((n > 2) \simpl a^n + b^n
+\forall n\in\N\, \nexists a,b,c \in \N \colon (((n > 2) \wedge
+(a \cdot b \cdot c \not= 0)) \simpl a^n + b^n
 = c^n)  
 \end{displaymath}
 Für den Fall $n=2$ hat die Gleichung $a^n + b^n
-= c^n$ ganzzahlige Lösungen (vgl.~Pythagoräische Zahlentripel) wie z.B.~$3^2+4^2=5^2$.
+= c^n$ ganzzahlige Lösungen (so genannte Pythagoräische Zahlentripel) wie z.B.~$3^2+4^2=5^2$.
 \end{example}
