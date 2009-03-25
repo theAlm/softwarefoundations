@@ -6,8 +6,7 @@
 \special{pdf: out 3 << /Title 
 (Mengen) 
 /Dest [ @thispage /FitH @ypos ] >>}
-\subsection{Mengen}
-Es ist sehr schwer den fundamentalen Begriff der Menge mathematisch exakt
+\subsection{Mengen}Es ist sehr schwer den fundamentalen Begriff der Menge mathematisch exakt
 zu definieren. Aus diesem Grund soll uns hier die von Cantor 1895 gegebene
 Erklärung genügen, da sie für unsere Zwecke völlig ausreichend ist:
 
@@ -377,7 +376,21 @@ $n$ genau dann $1$, wenn $n$ eine Primzahl ist.
 Ist für ein Prädikat $P^n_R$ sowohl die Relation $R$ als auch die
 Stelligkeit $n$ aus dem Kontext klar, dann schreibt man auch kurz $P$
 oder verwendet das Relationensymbol $R$ als Notation für das Prädikat
-$P^n_R$.
+$P^n_R$. Nun legen wir zwei spezielle Funktionen fest, die oft sehr
+hilfreich sind:
+\begin{definition}
+\label{floorceil}
+Sei $\alpha \in \R$ eine beliebige reelle Zahl, dann gilt
+\begin{itemize}
+%
+\item $\lceil x \rceil \eqd \text{die kleinste ganze Zahl, die größer
+oder gleich $\alpha$ ist}$ ($\triangleq$ "`Aufrunden"') \index{$\lceil \cdot \rceil$}
+%
+\item $\lfloor x \rfloor \eqd \text{die größte ganze Zahl, die kleiner
+oder gleich $\alpha$ ist}$ ($\triangleq$ "`Abrunden"') \index{$\lfloor \cdot \rfloor$}
+%
+\end{itemize}
+\end{definition}
 
 \begin{definition}
 Für eine beliebige Funktion $f$ legen wir fest:
@@ -394,8 +407,10 @@ Für eine beliebige Funktion $f$ legen wir fest:
 % 
 \item Die Funktion $f \colon A \rightarrow B$ heißt \dindex{surjektiv} \gdw $W_f = B$.
 %
-\item Die Funktion $f$ heißt \dindex{injektiv} (oder eineindeutig) \gdw
-\ immer wenn $f(a_1) = f(a_2)$ gilt auch $a_1 = a_2$.
+\item Die Funktion $f$ heißt \dindex{injektiv} (oder
+eineindeutig\footnote{Achtung: Dieser Begriff wird manchmal
+unterschiedlich, je nach Autor, in den Bedeutungen "`bijektiv"' oder
+"`injektiv"' verwendet.}) \gdw\ immer wenn $f(a_1) = f(a_2)$ gilt auch $a_1 = a_2$.
 %
 \item Die Funktion $f$ heißt \dindex{bijektiv} \gdw $f$ ist injektiv und surjektiv.
 \end{itemize}
@@ -403,22 +418,15 @@ Für eine beliebige Funktion $f$ legen wir fest:
 
 \begin{example}
 Sei die Funktion $f \colon \N \rightarrow \Z$ durch $f(n) = (-1)^n
-\lceil \frac{n}{2} \rceil$ gegeben, wobei
-%
-\begin{displaymath}
-\lceil x \rceil \eqd \text{die kleinste
-ganze  Zahl, die größer oder gleich $x$ ist}\ (\triangleq
-\text{"`Aufrunden"'}).
-\end{displaymath}
+\lceil \frac{n}{2} \rceil$ gegeben. Die Funktion $f$ ist surjektiv,
+denn $f(0) = 0, f(1) = -1, f(2) = 1, f(3) = -2, f(4) = 2, \dots$, d.h.~die 
+ungeraden natürlichen Zahlen werden auf die negativen ganzen Zahlen 
+abgebildet, die geraden Zahlen aus $\N$ werden auf die positiven
+ganzen Zahlen abgebildet und deshalb ist $W_f = \Z$.
 
-Die Funktion $f$ ist surjektiv, denn $f(0) = 0, f(1) = -1, f(2) = 1,
-f(3) = -2, f(4) = 2, \dots$, d.h.~die ungeraden natürlichen Zahlen
-werden auf die negativen ganzen Zahlen abgebildet, die geraden Zahlen
-aus $\N$ werden auf die positiven ganzen Zahlen abgebildet und deshalb
-ist $W_f = \Z$.
-
-Weiterhin ist $f$ auch injektiv, denn aus $(-1)^{a_1}
-\lceil \frac{a_1}{2} \rceil = (-1)^{a_2}
+Weiterhin ist $f$ auch injektiv, denn aus\footnote{Für die Definition
+der Funktion $\lceil \cdot \rceil$ siehe Definition \ref{floorceil}.}
+$(-1)^{a_1} \lceil \frac{a_1}{2} \rceil = (-1)^{a_2}
 \lceil \frac{a_2}{2} \rceil$ folgt, dass entweder $a_1$ und $a_2$
 gerade oder $a_1$ und $a_2$ ungerade, denn sonst würden auf der linken
 und rechten Seite der Gleichung unterschiedliche Vorzeichen
