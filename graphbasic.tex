@@ -112,17 +112,16 @@ Käufern und Anbietern.
 \begin{figure}
 \centering
 \subfloat[Ein gerichteter Graph mit $5$
-Knoten]{\includegraphics[scale=1.2]{graphex1.eps}}
+Knoten]{\includegraphics[scale=1.1]{graphex1.eps}}
 \hspace*{2em}
 \subfloat[Ein planarer gerichteter
-Graph mit $5$ Knoten]{\includegraphics[scale=1.2]{graphex3.eps}}
+Graph mit $5$ Knoten]{\includegraphics[scale=1.1]{graphex3.eps}}
 \hspace*{2em}
 \subfloat[Ein gerichteter bipartiter 
-Graph]{\includegraphics[scale=1.2]{graphex2.eps}}
+Graph]{\includegraphics[scale=1.1]{graphex2.eps}}
 \caption{Beispiele für gerichtete Graphen}
 \label{gGraphen}
 \end{figure}
-
 Oft beschränken wir uns auch auf eine Unterklasse von Graphen, bei
 denen die Kanten keine "`Richtung"' haben (siehe
 Abbildung \ref{ugGraphen}) und einfach durch eine Verbindungslinie
@@ -161,13 +160,13 @@ auch analog auf gerichtete Graphen übertragen.
 \begin{figure}
 \centering
 \subfloat[Vollständiger ungerichteter Graph 
-$K_{16}$]{\includegraphics[scale=0.6]{kclique.eps}}
+$K_{16}$]{\includegraphics[scale=0.55]{kclique.eps}}
 \hfill
 \subfloat[Vollständiger ungerichteter Graph
-$K_{20}$]{\includegraphics[scale=0.6]{kclique3.eps}}
-\subfloat[Zufälliger Graph mit $32$ Knoten]{\includegraphics[scale=0.6]{random.eps}}
+$K_{20}$]{\includegraphics[scale=0.55]{kclique3.eps}}
+\subfloat[Zufälliger Graph mit $32$ Knoten]{\includegraphics[scale=0.55]{random.eps}}
 \hfill
-\subfloat[Regulärer Graph mit Grad $3$]{\includegraphics[scale=0.6]{moebius.eps}}
+\subfloat[Regulärer Graph mit Grad $3$]{\includegraphics[scale=0.55]{moebius.eps}}
 \caption{Beispiele für ungerichtete Graphen}
 \label{ugGraphen}
 \end{figure}
@@ -226,6 +225,7 @@ Auswirkungen.
 \subsection{Wege, Kreise, Wälder und Bäume}
 
 \begin{definition}
+\label{GraphWeg}
 Sei $G=(V,E)$ ein Graph und $u,v \in V$. Eine Folge von Knoten
 $\enu{u}{0}{l} \in V$ mit $u = u_0$, $v = u_l$ und $(u_i,u_{i+1}) \in
 E$ für $0 \le i \le l - 1$ heißt \emph{Weg von $u$ nach $v$ der Länge
@@ -238,8 +238,8 @@ heißt \dindex{geschlossener Weg}\index{Weg!geschlossen}. Ein
 geschlossener Weg, bei dem kein Knoten außer dem Startknoten mehrfach
 enthalten ist, wird \dindex{Kreis} genannt.
 \end{definition}
-Mit dieser Definition wird klar, dass der Graph in
-Abbildung \ref{gGraphen}(a) den Kreis $1,2,3,\dots,5,1$ mit
+Mit Definition \ref{GraphWeg} wird klar, dass der Graph in
+Abbildung \ref{gGraphen}(a) den Kreis $1,2,3,\dots,\allowbreak 5,1$ mit
 Startknoten $1$ hat.
 
 \begin{definition}
@@ -281,7 +281,7 @@ d.h.~wenn er nur genau eine Zusammenhangskomponente hat.
 
 \begin{figure}
 \begin{center}
-\includegraphics[scale=0.55]{wald.eps}
+\includegraphics[scale=0.5]{wald.eps}
 \end{center}
 \caption{Ein Wald mit zwei Bäumen}
 \label{wald}
@@ -452,8 +452,8 @@ markiert=\texttt{true}\;
 \end{algorithm}
 
 \begin{definition}
-Sei $G = (V,E)$ ein ungerichteter Graph. Eine Funktion $f \colon
-V \rightarrow \set{\range{1}{k}}$
+Sei $G = (V,E)$ ein ungerichteter Graph. Eine Funktion der Form
+$f \colon V \rightarrow \set{\range{1}{k}}$
 heißt \dindex{$k$-Färbung}\index{Färbung} des Graphen $G$. Anschaulich
 ordnet die Funktion $f$ jedem Knoten eine von $k$ verschiedenen Farben
 zu, die hier durch die Zahlen $\range{1}{k}$ symbolisiert werden. Eine

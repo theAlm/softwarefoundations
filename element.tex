@@ -147,12 +147,13 @@ natürlichen Zahlen, also $M = \N$, dann ist $\overline{A} = \set{n
 \not= 5 \text{ und } a \not= 7} = \set{1, 4, 6, 8, 9, 10, 11,
 \dots}$. 
 
-Als Potenzmenge der Menge $A$ ergibt sich die Menge von Mengen
-$\PowerSet{A} = \set{\emptyset,\allowbreak \set{2},\allowbreak \set{3},
+Als Potenzmenge der Menge $A$ ergibt sich die folgende Menge von Mengen
+von natürlichen Zahlen $\PowerSet{A}
+= \set{\emptyset,\allowbreak \set{2},\allowbreak \set{3},
 \allowbreak \set{5},\allowbreak \set{7}, \allowbreak \set{2,3},
-\set{2,5}, \allowbreak \set{2,7}, \allowbreak \set{3,5}, \allowbreak \set{3,7},
-\allowbreak \set{5,7}, \set{2,3,5},
-\set{2,3,7},\set{2,5,7}, \allowbreak \set{3,5,7},\set{2,3,5,7}}$. 
+\set{2,5}, \allowbreak \set{2,7}, \allowbreak \set{3,5}, \allowbreak\set{3,7},
+\allowbreak \set{5,7},\allowbreak \set{2,\allowbreak 3,5},\allowbreak
+\set{2,3,7},\allowbreak \set{2,5,\allowbreak 7}, \allowbreak \set{3,\allowbreak 5,\allowbreak 7},\set{2,3,5,7}}$. 
 
 Offensichtlich sind die Menge $\set{0,2,4,6,8, \dots }$ der geraden
 natürlichen Zahlen und die Menge $\set{1,3,5,7,9, \dots }$ der
@@ -187,9 +188,10 @@ A \cup (A \cap B) &=& A & \text{Absorptionsgesetz}\\
 \overline{\overline{A}} &=& A & \text{Gesetz des doppelten Komplements}
 \end{array}
 \end{displaymath}
-Die "`de-Morganschen Regeln"' wurden nach ihrem Erfinder \textsc{Augustus De
-Morgan}\footnote{*$1806$ in Madurai, Tamil Nadu, Indien - $\dag$$1871$
-in London, England} benannt.
+Die "`de-Morganschen Regeln"' wurden nach dem englischen
+Mathematiker \textsc{Augustus De Morgan}\footnote{\textborn $1806$ in
+Madurai, Tamil Nadu, Indien - \textdied $1871$ in London, England}
+benannt.
 
 \goodbreak
 
@@ -236,7 +238,7 @@ im Allgemeinen $(a,b) \not= (b,a)$.
 \begin{example}
 Sei $A = \set{1, 2, 3}$ und $B = \set{a, b, c}$, dann bezeichnet das
 Kreuzprodukt von $A$ und $B$ die Menge von Paaren $A \times B =
-\set{(1,a), (1,b), (1,c), (2,a), (2,b), (2,c), (3,a), (3,b), (3,c)}$.
+\set{(1,a), (1,b), (1,c), (2,a), (2,b), (2,c),\allowbreak (3,\allowbreak a), (3,b), (3,c)}$.
 \end{example}
 
 \special{pdf: out 4 << /Title 
@@ -396,11 +398,11 @@ oder gleich $\alpha$ ist}$ ($\triangleq$ "`Abrunden"') \index{$\lfloor \cdot \rf
 Für eine beliebige Funktion $f$ legen wir fest:
 \begin{itemize}
 %
-\item Der \dindex{Definitionsbereich} der Funktion $f$ ist $D_f \eqd
-\set{a \mid \text{es existiert ein $b$ mit $f(a) = b$}}$.
+\item Der \dindex{Definitionsbereich} von $f$ ist $D_f \eqd
+\set{a \mid \text{es gibt ein $b$ mit $f(a) = b$}}$.
 %
-\item Der \dindex{Wertebereich} der Funktion $f$ ist $W_f \eqd
-\set{b \mid \text{es existiert ein $a$ mit $f(a) = b$}}$.
+\item Der \dindex{Wertebereich} von $f$ ist $W_f \eqd
+\set{b \mid \text{es gibt ein $a$ mit $f(a) = b$}}$.
 %
 \item Die Funktion $f \colon A \rightarrow B$ ist \dindex{total} \gdw $D_f
 = A$.
@@ -410,7 +412,8 @@ Für eine beliebige Funktion $f$ legen wir fest:
 \item Die Funktion $f$ heißt \dindex{injektiv} (oder
 eineindeutig\footnote{Achtung: Dieser Begriff wird manchmal
 unterschiedlich, je nach Autor, in den Bedeutungen "`bijektiv"' oder
-"`injektiv"' verwendet.}) \gdw\ immer wenn $f(a_1) = f(a_2)$ gilt auch $a_1 = a_2$.
+"`injektiv"' verwendet.}) \gdw\ immer wenn $f(a_1)\allowbreak =
+f(a_2)$ gilt auch $a_1 = a_2$.
 %
 \item Die Funktion $f$ heißt \dindex{bijektiv} \gdw $f$ ist injektiv und surjektiv.
 \end{itemize}

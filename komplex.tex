@@ -81,8 +81,8 @@ des Problems MULT ist die folgende:
 Offensichtlich sind die Probleme MULT und MULT$\rm_D$ gleich schwierig (oder
 leicht) zu lösen.
 
-\begin{wrapfigure}[12]{r}{5cm}
-\centerline{\includegraphics[scale=0.6]{niko.eps}}
+\begin{wrapfigure}[14]{r}{5cm}
+\centerline{\includegraphics[scale=0.7]{niko.eps}}
 \caption{Der Graph $G_N$}
 \label{nikolaus} 
 \end{wrapfigure}
@@ -220,8 +220,8 @@ bezeichnet.
 
 \goodbreak
 \restylealgo{ruled}
-\begin{algorithm}[H]
-\caption{Ein Algorithmus zur Berechnung einer $2$-Färbung eines Graphen}
+\begin{algorithm}
+\caption{Algorithmus zur Berechnung einer $2$-Färbung eines Graphen}
 \label{TColAlgo}
 %
 \KwData{Graph $G = (\{v_1, \dots v_n\}, E)$;}
@@ -335,9 +335,9 @@ schnelleren Rechnern.
 \footnotesize
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|c|c|} \hline\hline
-\multicolumn{1}{|c}{Anzahl ben"otigter} 
+\multicolumn{1}{|c}{Anzahl der} 
 & \multicolumn{6}{c|}{Eingabel"ange $n$}\\ \cline{2-7}
-Instruktionen & 10 & 20 & 30 & 40 & 50 & 60 \\ 
+Takte & 10 & 20 & 30 & 40 & 50 & 60 \\ 
 \hline\hline
  & 0,00001 & 0,00002 & 0,00003 & 0,00004 & 0,00005 & 0,00006 \\
 \raisebox{1.5ex}[-1.5ex]{$n$} 
@@ -550,7 +550,7 @@ die Berechnung durch einen Baum mit $3$-fachen Verzweigungen
 darstellen (vgl.~Abbildung \ref{Tree3COL}).
 %
 \begin{figure}
-\centerline{\includegraphics[scale=0.6]{tree2.eps}}
+\centerline{\includegraphics[scale=0.55]{tree2.eps}}
 \caption{Ein Berechnungsbaum für das $3\mathrm{COL}$-Problem}
 \label{Tree3COL}
 \end{figure}
@@ -566,7 +566,7 @@ erfolgreich ist; der Beispielgraph besitzt sechs korrekte $3$-Färbungen,
 ist also eine positive Instanz des $3\mathrm{COL}$-Problems.
 
 Eine weitere, vielleicht intuitivere Vorstellung für die Arbeitsweise
-dieser $\NP$-Maschine ist die, dass bei jedem Ratevorgang $3$
+dieser $\NP$-Ma\-schi\-ne ist die, dass bei jedem Ratevorgang $3$
 verschiedene unabhängige Prozesse gestartet werden, die aber nicht
 miteinander kommunizieren dürfen. In diesem Sinne hat man es hier mit
 einem eingeschränkten Parallelrechner zu tun: Beliebige Aufspaltung
@@ -762,7 +762,7 @@ $A$; d.h.: für alle Probleme $A$ aus $\NP$ gilt: $A \le C$.
 \end{enumerate}
 
 \restylealgo{ruled}
-\begin{algorithm}[H]
+\begin{algorithm}
 \caption{Algorithmische Darstellung der Benutzung einer Reduktionsfunktion}
 \label{RedAlgo}
 %
@@ -877,7 +877,7 @@ durch Algorithmus \ref{TSPRed} in Polynomialzeit berechnet wird.
 \begin{figure}
 \begin{center}
 \fbox{
-\begin{minipage}{0.95\textwidth}
+\begin{minipage}{0.93\textwidth}
 \begin{minipage}{0.46\textwidth}
 Aus dem Graphen $G$ links berechnet die Transformation die rechte
 Eingabe für das \textsf{TSP}. Die dick gezeichneten Verbindungen deuten
@@ -886,7 +886,7 @@ von $6$ symbolisieren. Weil $G$ den Hamiltonkreis $1,2,3,4,5,1$ hat,
 gibt es rechts eine Rundreise $1,2,3,4,5,1$ mit Gesamtlänge $5$.
 \end{minipage}
 \begin{minipage}{0.46\textwidth}
-\centerline{\includegraphics[scale=0.40]{CG1.eps}}
+\centerline{\hspace*{3em}\includegraphics[scale=0.40]{CG1.eps}}
 \end{minipage}
 
 \bigskip
@@ -899,7 +899,7 @@ maximalen Gesamtlänge von $5$ hat. Dies liegt daran, dass der
 ursprüngliche Graph $G'$ keinen Hamiltonschen Kreis hatte.
 \end{minipage}
 \begin{minipage}{0.46\textwidth}
-\centerline{\includegraphics[scale=0.40]{CG2.eps}}
+\centerline{\hspace*{3em}\includegraphics[scale=0.40]{CG2.eps}}
 \end{minipage}
 \end{minipage}
 }
@@ -909,7 +909,7 @@ ursprüngliche Graph $G'$ keinen Hamiltonschen Kreis hatte.
 \end{figure}
 
 \restylealgo{ruled}
-\begin{algorithm}
+\begin{algorithm}[F]
 \caption{Ein Algorithmus für die Reduktion von \textsf{HAMILTON} auf \textsf{TSP}}
 \label{TSPRed}
 \KwData{Graph $G=(V, E)$, wobei $V = \set{\range{1}{n}}$}
@@ -1046,13 +1046,13 @@ Garey und Johnson \cite{GaJo79}.
 {Gibt es eine Menge von mindestens $K$ Knoten, die paarweise miteinander
 verbunden sind?}
 %
-\dprob{NETZWERK-AUFTEILUNG \textrm{[ND16]}}
+\dprob{NETZ-AUFTEILUNG \textrm{[ND16]}}
 {Netzwerk $G=(V,E)$, Kapazität für jede Kante in $E$, positive
 Integerzahl $K$}
 {Kann man das Netzwerk so in zwei Teile zerlegen, dass die Gesamtkapazität
 aller Verbindungen zwischen den beiden Teilen mindestens $K$ beträgt?}
 %
-\dprob{NETZWERK-REDUNDANZ \textrm{[ND18]}}
+\dprob{NETZ-REDUNDANZ \textrm{[ND18]}}
 {Netzwerk $G=(V,E)$, Kosten für Verbindungen zwischen je zwei Knoten aus 
 $V$, Budget $B$}
 {Kann $G$ so um Verbindungen erweitert werden, dass zwischen je zwei Knoten
@@ -1060,29 +1060,29 @@ mindestens zwei Pfade existieren und die Gesamtkosten für die Erweiterung
 höchstens $B$ betragen?}
 %
 \dprob{OBJEKTE SPEICHERN \textrm{[SR1]}}
-{eine Menge $U$ von Objekten mit Speicherbedarf $s(u)$ für jedes $u \in U$;
+{Eine Menge $U$ von Objekten mit Speicherbedarf $s(u)$ für jedes $u \in U$;
 Kachelgröße $S$, positive Integerzahl $K$}
 {Können die Objekte in $U$ auf $K$ Kacheln verteilt werden?}
 %
 \dprob{DATENKOMPRESSION \textrm{[SR8]}}
-{endliche Menge $R$ von Strings über festgelegtem Alphabet, positive
+{Endliche Menge $R$ von Strings über festgelegtem Alphabet, positive
 Integerzahl $K$}
 {Gibt es einen String $S$ der Länge höchstens $K$, sodass jeder String aus $R$
 als Teilfolge von $S$ vorkommt?}
 %
-\dprob{KLEINSTER SCHLÜSSEL \textrm{[SR26]}}
+\dprob{$K$-SCHLÜSSEL \textrm{[SR26]}}
 {Relationales Datenbankschema, gegeben durch Attributmenge $A$ und
 funktionale Abhängigkeiten auf $A$, positive Integerzahl $K$}
 {Gibt es einen Schlüssel mit höchstens $K$ Attributen?}
 %
 \goodbreak
 %
-\dprob{VERLETZUNG DER BCNF \textrm{[SR29]}}
+\dprob{BCNF \textrm{[SR29]}}
 {Relationales Datenbankschema, gegeben durch Attributmenge $A$ und
 funktionale Abhängigkeiten auf $A$, Teilmenge $A' \subseteq A$}
 {Verletzt die Menge $A'$ die Boyce-Codd-Normalform?}
 %
-\dprob{MULTIPROZ-SCHEDULE \textrm{[SS8]}}
+\dprob{MP-SCHEDULE \textrm{[SS8]}}
 {Menge $T$ von Tasks, Länge für jede Task, Anzahl $m$ von Prozessoren, 
 Positive Integerzahl $D$ ("`Deadline"')}
 {Gibt es ein $m$-Prozessor-Schedule für $T$ mit Ausführungszeit höchstens
@@ -1096,18 +1096,18 @@ Tasks, Anzahl $m$ von Prozessoren, Positive Integerzahl $D$
 Präzedenzrelationen berücksichtigt und Ausführungszeit höchstens $D$
 hat?}
 %
-\dprob{DEADLOCK-VERMEIDUNG \textrm{[SS22]}}
+\dprob{DEADLOCK \textrm{[SS22]}}
 {Menge von Prozessen, Menge von Ressourcen, aktuelle Zustände der 
 Prozesse und aktuell allokierte Ressourcen}
 {Gibt es einen Kontrollfluss, der zum Deadlock führt?}
 %
-\dprob{SCHLEIFENVARIABLEN \textrm{[PO3]}}
+\dprob{$K$-REGISTER \textrm{[PO3]}}
 {Menge $V$ von Variablen, die in einer Schleife benutzt werden, für jede
 Variable einen Gültigkeitsbereich, positive Integerzahl $K$}
 {Können die Schleifenvariablen mit höch\-stens $K$ Registern gespeichert werden?}
 %
-\dprob{FORMALE REKURSION \textrm{[PO20]}}
-{Menge $A$ von Prozedur-Identifiern, Pascal-Programmfragment mit
+\dprob{REKURSION \textrm{[PO20]}}
+{Menge $A$ von Prozedur-Identifiern, Pascal-Programm\-fragment mit
 Deklarationen und Aufrufen der Prozeduren aus $A$}
 {Ist eine der Prozeduren aus $A$ formal rekursiv?}
 \end{multicols}
@@ -1126,19 +1126,19 @@ Garey und Johnson \cite{GaJo79}.
 \begin{multicols}{2}
 \dprob{LR($K$)-GRAMMATIK \textrm{[AL15]}}
 {Kontextfreie Grammatik $G$, positive Integerzahl $K$ (unär)}
-{Ist $G$ keine LR($K$)-Grammatik?}
+{Ist die Grammatik $G$ nicht LR($K$)?}
 %
 \dprob{Zwangsbedingungen \textrm{[LO5]}}
 {Menge von Booleschen Constraints, positive Integerzahl $K$}
 {Können mindestens $K$ der Constraints gleichzeitig erfüllt werden?}
 %
-\dprob{INTEGER PROGRAMMING  \textrm{[MP1]}}
+\dprob{INTEGER PROGRAM \textrm{[MP1]}}
 {Lineares Programm}
 {Hat das Programm eine Lösung, die nur ganzzahlige Werte enthält?}
 %
 \dprob{KREUZWORTRÄTSEL \textrm{[GP15]}}%
 {Menge $W$ von Wörtern, Gitter mit schwarzen und weißen Feldern}
-{Können die weißen Felder des Gitters mit Wörtern aus $W$? gefüllt werden}%
+{Können die weißen Felder des Gitters mit Wörtern aus $W$ gefüllt werden?}%
 \end{multicols}
 \caption{Eine kleine Sammlung $\NP$-vollständiger Probleme (Teil 2)}
 \label{NPVollProbs2}
@@ -1228,7 +1228,7 @@ ohne die praktische Aufgabenstellung zu verfälschen. Gerade diese
 Einschränkungen können dann effiziente Algorithmen ermöglichen.
 
 Die zweite Möglichkeit sind sogenannte
-\dindex{Approximationsalgorithmen} (siehe \cite{ACGJNO99}). Die Idee
+\dindex{Approximationsalgorithmen} (vgl.~\cite{ACGJNO99}). Die Idee
 hier ist es, nicht die optimalen Lösungen zu suchen, sondern sich mit
 einem kleinen garantierten Fehler zufrieden zu geben.  Dazu folgendes
 Beispiel. Es ist bekannt, dass das \textsf{TSP} auch dann noch

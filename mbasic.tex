@@ -31,6 +31,7 @@
 \usepackage{wrapfig}
 \usepackage{subfig}
 \usepackage{bibgerm}
+\usepackage{textcomp}
 
 % Algorithmen in C-Style
 \SetKwIF{If}{ElseIf}{Else}{if}{\{}{\}\\else if }{\}\\else\{}{\}}%
@@ -59,9 +60,9 @@
 \bibliographystyle{geralpha}
 
 % Seitenaufteilung
-\geometry{top=2.5cm, left=2.5cm, right=2.5cm, bottom=3.0cm}
+\geometry{top=2.5cm, left=3.25cm, right=3.25cm, bottom=3.0cm}
 
-% Suchpfad für Graphiken
+% Suchpfad fr Graphiken
 \graphicspath{{pics/}}
 
 \renewcommand{\sectionmark}[1]{\markboth{\bf\boldmath\thesection\ #1}{}}
@@ -78,13 +79,13 @@
     \renewcommand{\headrulewidth}{0pt}
 }
 
-% Aufzählung mit (i), (ii), (iii), (iv) usw.
+% Aufzhlung mit (i), (ii), (iii), (iv) usw.
 %\renewcommand{\theenumi}{\roman{enumi}}
 %\renewcommand{\labelenumi}{(\theenumi)}
 
-% Definitionen für Titelseite
+% Definitionen fr Titelseite
 \newcommand{\docutyp}{Skript}
-\newcommand{\lecture}{Elementare mathematische Begriffe, Probleme und Schreibweisen}
+\newcommand{\lecture}{Elementare mathematische\\ Begriffe, Probleme und\\[0.5\bigskipamount] Schreibweisen}
 \newcommand{\docudate}{Sommersemester 2009}
 
 \newcommand{\institution}{{\Large Fachhochschule Wiesbaden}\\
@@ -133,7 +134,7 @@
 		\vspace{20pt}
 		\begin{tabular}[t]{rl}
 			Erstellt von: & {\writer}\\
-                        Zuletzt überarbeitet von: & {\reviser}\\
+                        Zuletzt berarbeitet von: & {\reviser}\\
 			Email: & {\email}\\
 			Erste Version vollendet: & {\writtendate}\\
 			Version: & {\svnInfoRevision}\\
@@ -159,7 +160,7 @@ wie kompliziert das Leben ist.\\[\medskipamount]
 \begin{raggedleft}
 Wenn es eine gute Idee ist, dann mach es\\ 
 einfach. Es ist viel einfacher sich hinterher zu\\
-entschuldigen, als vorher dafür eine\\
+entschuldigen, als vorher dafr eine\\
 Genehmigung zu bekommen.\\[\medskipamount]
 \hfill \textsc{Grace Hopper}%
 \end{raggedleft}
@@ -168,10 +169,10 @@ Genehmigung zu bekommen.\\[\medskipamount]
 
 Dieses Skript ist aus den Fragen und Bemerkungen von Studenten
 des Diplom, Bachelor und Master-Studiengangs Informatik an der 
-Fachhochschule Wiesbaden hervorgegangen. Ich danke allen meinen Studenten für
-konstruktive Anmerkungen und Verbesserungen. Naturgemäß ist ein Skript
-nie fehlerfrei (ganz im Gegenteil!) und es ändert (mit Sicherheit!)
-sich im Laufe der Zeit. Deshalb bin ich auf weitere Verbesserungvorschläge 
+Fachhochschule Wiesbaden hervorgegangen. Ich danke allen meinen Studenten fr
+konstruktive Anmerkungen und Verbesserungen. Naturgem ist ein Skript
+nie fehlerfrei (ganz im Gegenteil!) und es ndert (mit Sicherheit!)
+sich im Laufe der Zeit. Deshalb bin ich auf weitere Verbesserungvorschlge 
 angewiesen.
 
 \cleardoublepage
@@ -183,7 +184,7 @@ angewiesen.
 
 \cleardoublepage
 
-% Seitenstil (Fuß- und Kopfzeilen)
+% Seitenstil (Fu- und Kopfzeilen)
 \pagestyle{headings}
 \pagestyle{fancy}
 \pagenumbering{arabic}
@@ -199,7 +200,7 @@ angewiesen.
 % Graphentheorie
 \include{graph}
 
-% Grundlagen der Komplexitätstheorie
+% Grundlagen der Komplexittstheorie
 \include{komplex}
 
 % Einige grundlegende Beweistechniken
