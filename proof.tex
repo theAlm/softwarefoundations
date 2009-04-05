@@ -56,15 +56,16 @@ Beweistechniken mit Hilfe von Beispielen vorgestellt werden.
 (Direkte Beweise)
 /Dest [ @thispage /FitH @ypos ] >>}
 \subsection{Direkte Beweise}
-Um einen direkten Beweis zu führen, müssen wir, beginnend von einer
-initialen Aussage ($\triangleq$ Hypothese), durch Angabe einer Folge
-von (richtigen) Zwischenschritten zu der zu beweisenden Aussage
-($\triangleq$ Folgerung) gelangen. Jeder Zwischenschritt ist dabei
-entweder unmittelbar klar oder muss wieder durch einen weiteren
-(kleinen) Beweis belegt werden. Dabei müssen nicht alle Schritt völlig
-formal beschrieben werden, sondern es kommt darauf an, dass sich dem
-Leser die eigentliche Strategie erschließt.
+Um einen \dindex{direkten Beweis}\index{Beweis!direkt} zu führen,
+müssen wir, beginnend von einer initialen Aussage ($\triangleq$
+Hypothese), durch Angabe einer Folge von (richtigen) Zwischenschritten
+zu der zu beweisenden Aussage ($\triangleq$ Folgerung) gelangen. Jeder
+Zwischenschritt ist dabei entweder unmittelbar klar oder muss wieder
+durch einen weiteren (kleinen) Beweis belegt werden. Dabei müssen
+nicht alle Schritt völlig formal beschrieben werden, sondern es kommt
+darauf an, dass sich dem Leser die eigentliche Strategie erschließt.
 
+\goodbreak
 \begin{theorem}
 \label{ExpoGTSquare}
 Sei $n \in \N$. Falls $n \ge 4$, dann ist $2^n \ge n^2$.
@@ -126,6 +127,7 @@ Beschreibung sogar wesentlich leichter verstehen.
 Oft kann man andere, schon bekannte, Aussagen dazu verwenden, die
 Richtigkeit einer Aussage zu belegen.
 
+\goodbreak
 \begin{theorem}
 \label{ExpoGTSquare2}
 Sei $n \in \N$ die Summe von $4$ Quadratzahlen, die größer als $0$
@@ -152,24 +154,126 @@ Zusammenhang zu finden. Völlig gleichwertig ist die Behauptung "`Wenn
 die Aussage $C$ falsch ist, dann ist die Aussage $H$ falsch"' und oft
 ist eine solche Aussage leichter zu zeigen.
 
-Die Kontraposition von Satz \ref{ExpoGTSquare} ist also die folgende
-Aussage: "`Wenn nicht $2^n \ge n^2$, dann gilt nicht $n \ge 4$."'. Das
-entspricht der Aussage: "`Wenn $2^n < n^2$, dann gilt $n < 4$."', was
-offensichtlich zu der ursprünglichen Aussage von
+Die \dindex{Kontraposition} von Satz \ref{ExpoGTSquare} ist also die
+folgende Aussage: "`Wenn nicht $2^n \ge n^2$, dann gilt nicht $n \ge
+4$."'. Das entspricht der Aussage: "`Wenn $2^n < n^2$, dann gilt $n <
+4$."', was offensichtlich zu der ursprünglichen Aussage von
 Satz \ref{ExpoGTSquare} gleichwertig ist.
+
+Diese Technik ist oft besonders hilfreich, wenn man die Richtigkeit
+einer Aussage zeigen soll, die aus zwei Teilaussagen zusammengesetzt
+und die durch ein "`genau dann wenn"'\footnote{Oft wird "`genau dann
+wenn"' durch \dindex{\gdw} abgekürzt.} verknüpft sind. In diesem Fall
+sind zwei Teilbeweise zu führen, denn zum einen muss gezeigt werden,
+dass aus der ersten Aussage die zweite folgt und umgekehrt muss
+gezeigt werden, dass aus der zweiten Aussage die erste folgt.
+
+\begin{theorem}
+Eine natürliche Zahl $n$ ist durch drei teilbar genau dann, wenn die
+Quersumme ihrer Dezimaldarstellung durch drei teilbar ist.
+\end{theorem}
+
+\begin{proof}
+Für die Dezimaldarstellung von $n$ gilt
+\begin{displaymath}
+n = \sum_{i=0}^k a_i \cdot 10^i, \text{wobei $a_i \in \set{0,1, \ldots
+,9}$ und $0 \le i \le k$}.
+\end{displaymath}
+
+\noindent "`$\Rightarrow$"': Wenn $n$ durch $3$ teilbar ist und $\sum_{i=0}^k
+a_i \cdot 10^i= n$, dann müssen alle Koeffizienten $a_i$ durch $3$
+teilbar sein, denn $10^i$ ist kein Vielfaches von $3$. Dann ist aber die
+Quersumme $\sum_{i=0}^k a_i$ der Dezimaldarstellung von $n$ sicherlich
+durch $3$ teilbar.
+
+\medskip
+
+\noindent "`$\Leftarrow$"': Dieser Fall soll durch Kontraposition gezeigt
+werden. Sei nun $n$ nicht durch $3$ teilbar, dann muss es in der
+Dezimaldarstellung von $n$ mindestens ein Koeffizienten $a_i$ geben,
+der auch nicht durch $3$ teilbar ist. Damit kann die Quersumme
+$\sum_{i=0}^k a_i$ von $n$ aber kein Vielfaches von $3$ sein, was
+zeigt, dass $3$ kein Teiler der Quersumme ist.\qed
+\end{proof}
+
+\special{pdf: out 3 << /Title 
+(Der Ringschluss) /Dest [ @thispage /FitH @ypos ] >>}
+\subsection{Der Ringschluss}
+\label{RingSchluss}
+Oft findet man mehrere Aussagen, die zueinander äquivalent sind. Ein
+Beispiel dafür ist Satz \ref{SetProof}. Um die Äquivalenz dieser
+Aussagen zu beweisen, müssten jeweils zwei "`genau dann wenn"'
+Beziehungen untersucht werden, d.h.~es werden vier Teilbeweise
+notwendig. Dies kann mit Hilfe eines so
+genannten \emph{Ringschlusses}\index{Ringschluss} abgekürzt werden,
+denn es reicht zu zeigen, dass aus der ersten Aussage die zweite
+folgt, aus der zweiten Aussage die dritte und dass schließlich aus der
+dritten Aussage wieder die erste folgt. Im Beweis zu
+Satz \ref{SetProof} haben wir deshalb nur drei anstatt vier
+Teilbeweise zu führen, was zu einer Arbeitsersparnis führt. Diese
+Arbeitsersparnis wird um so größer, je mehr äquivalente Aussagen zu
+untersuchen sind. Dabei ist die Reihenfolge der Teilbeweise nicht
+wichtig, solange die einzelnen Teile zusammen einen Ring bilden.
+
+\begin{theorem}
+\label{SetProof}
+Seien $A$ und $B$ zwei beliebige Mengen, dann sind die folgenden drei
+Aussagen äquivalent:
+\begin{enumerate}[i)]
+%
+\item\label{SetProof1} $A \subseteq B$
+%
+\item\label{SetProof2} $A \cup B = B$
+%
+\item\label{SetProof3} $A \cap B = A$
+%
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Im folgenden soll ein Ringschluss verwendet werden, um die Äquivalenz
+der drei Aussagen zu zeigen:
+
+\noindent "`\ref{SetProof1}) $\Rightarrow$ \ref{SetProof2})"': Da nach
+Voraussetzung $A \subseteq B$ ist, gilt für jedes Element $a \in A$
+auch $a \in B$, d.h.~in der Vereinigung $A \cup B$ sind alle Elemente
+nur aus $B$, was $A \cup B = B$ zeigt.
+
+\medskip
+
+\noindent "`\ref{SetProof2}) $\Rightarrow$ \ref{SetProof3})"': Wenn
+$A \cup B = B$ gilt, dann ergibt sich durch Einsetzen und mit den
+Regeln aus Abschnitt \ref{SetOpSect} (Absorbtionsgesetz) direkt
+$A \cap B = A \cap (A \cup B) = A$.
+
+\medskip
+
+\noindent "`\ref{SetProof3}) $\Rightarrow$ \ref{SetProof1})"': Sei
+nun $A \cap B = A$, dann gibt es kein Element $a \in A$ für das
+$a \not\in B$ gilt. Dies ist aber gleichwertig zu der Aussage
+$A \subseteq B$. 
+
+Damit hat sich ein Ring von Aussagen "`\ref{SetProof1})
+$\Rightarrow$ \ref{SetProof2})"', "`\ref{SetProof2})
+$\Rightarrow$ \ref{SetProof3})"' und "`\ref{SetProof3})
+$\Rightarrow$ \ref{SetProof1})"' gebildet, was die Äquivalenz der
+Aussagen zeigt.\qed
+\end{proof}
 
 \special{pdf: out 3 << /Title 
 (Widerspruchsbeweise)
 /Dest [ @thispage /FitH @ypos ] >>}
 \subsection{Widerspruchsbeweise}
 \label{IndirektBeweis}
-Obwohl die Technik der Widerspruchsbeweise auf den ersten Blick sehr
-kompliziert erscheint, ist sie oft einfach anzuwenden, extrem mächtig und
-liefert oft sehr kurze Beweise. Angenommen wir sollen die Richtigkeit
-einer Aussage "`aus der Hypothese $H$ folgt $C$"' zeigen. Dazu
-beweisen wir, dass sich ein Widerspruch ergibt, wenn wir, von $H$ und
-der Annahme, dass $C$ falsch ist, ausgehen. Also war die Annahme
-falsch, und die Aussage $C$ muss richtig sein.
+Obwohl die Technik der
+Widerspruchsbeweise\index{Widerspruchsbeweis}\index{Beweis!Widerspruch}
+auf den ersten Blick sehr kompliziert erscheint, ist sie oft einfach
+anzuwenden, extrem mächtig und liefert oft sehr kurze
+Beweise. Angenommen wir sollen die Richtigkeit einer Aussage "`aus der
+Hypothese $H$ folgt $C$"' zeigen. Dazu beweisen wir, dass sich ein
+Widerspruch ergibt, wenn wir, von $H$ und der Annahme, dass $C$ falsch
+ist, ausgehen. Also war die Annahme falsch, und die Aussage $C$ muss
+richtig sein.
 
 Anschaulicher wird diese Beweistechnik durch folgendes Beispiel:
 Nehmen wir einmal an, dass Alice eine bürgerliche Frau ist und deshalb
@@ -203,7 +307,7 @@ Annahme "`$T$ ist endlich"' falsch. \qed
 /Dest [ @thispage /FitH @ypos ] >>}
 \subsection{Der Schubfachschluss}
 \label{Schubfachschluss}
-Der Schubfachschluss ist auch als \dindex{Dirichlets
+Der \dindex{Schubfachschluss} ist auch als \dindex{Dirichlets
 Taubenschlagprinzip}\index{Taubenschlagprinzip} bekannt. 
 Werden $n > k$ Tauben auf $k$ Boxen
 verteilt, so gibt es mindestens eine Box in der sich wenigstens zwei
@@ -226,10 +330,10 @@ Im wirklichen Leben wissen wir nicht, ob eine Aussage richtig oder
 falsch ist. Oft sind wir dann mit einer Aussage konfrontiert, die auf
 den ersten Blick richtig ist und sollen dazu ein Programm
 entwickeln. Wir müssen also entscheiden, ob diese Aussage wirklich
-richtig ist, denn sonst ist evtl.~alle Arbeit umsonst und hat hohe
-Kosten verursacht. In solchen Fällen kann man versuchen, ein einziges
+richtig ist, denn sonst ist evtl.~alle Arbeit umsonst und hat hohen
+Aufwand verursacht. In solchen Fällen kann man versuchen, ein einziges
 Beispiel dafür zu finden, dass die Aussage falsch ist, um so unnötige
-Arbeit zu sparen.
+Arbeit zu sparen.\index{Gegenbeispiel}
 
 \bigskip
 
@@ -256,12 +360,12 @@ Für $a = b = 2$ gilt $a \textrm{ mod } b = b \textrm{ mod } a = 0$. \qed
 /Dest [ @thispage /FitH @ypos ] >>}
 \subsection{Induktionsbeweise und das Induktionsprinzip}
 Eine der wichtigsten Beweismethoden der Informatik ist das
-Induktionsprinzip. Wir wollen jetzt nachweisen, dass für jedes $n \in
+\dindex{Induktionsprinzip}. Wir wollen jetzt nachweisen, dass für jedes $n \in
 \N$ eine bestimmte Eigenschaft $E$ gilt. Wir schreiben kurz $E(n)$ für
-die Aussage "`$n$ besitzt die Eigenschaft $E$"'. Mit der
-Schreibweise $E(0)$ drücken\footnote{Mit $E$ wird also ein Prädikat bezeichnet (siehe
-Abschnitt \ref{MengenDef})} wir also aus, dass die
-erste natürliche Zahl $0$ die Eigenschaft $E$ besitzt.
+die Aussage "`$n$ besitzt die Eigenschaft $E$"'. Mit der Schreibweise
+$E(0)$ drücken\footnote{Mit $E$ wird also ein Prädikat bezeichnet
+(siehe Abschnitt \ref{MengenDef})} wir also aus, dass die erste
+natürliche Zahl $0$ die Eigenschaft $E$ besitzt.
 
 \noindent\textbf{Induktionsprinzip:} Es gelten 
 \indudef%
@@ -290,7 +394,7 @@ natürliche Zahlen gezeigt werden.
 Wie in Piratenfilmen üblich, seien Kanonenkugeln in einer Pyramide mit
 quadratischer Grundfläche gestapelt. Wir stellen uns die Frage,
 wieviele Kugeln (in Abhängigkeit von der Höhe) in einer solchen
-Pyramide gestapelt sind.
+Pyramide gestapelt sind.\index{vollständige Induktion}\index{Induktion!vollständige}
 
 \begin{theorem}
 \label{Pyramid}
@@ -394,7 +498,8 @@ Es ist offensichtlich, dass diese Aussage richtig ist, denn in
 Ausdrücken wie $(x + y) / 2$ oder $x + ((y/2) * z)$ muss ja zu jeder
 öffnenden Klammer eine schließende Klammer existieren. Der nächste
 Beweis verwendet diese Idee zum die Aussage von Satz \ref{CntBrack}
-mit Hilfe einer strukturellen Induktion zu zeigen.
+mit Hilfe einer \dindex{strukturellen Induktion}\index{Induktion!strukturelle} 
+zu zeigen.
 
 \begin{proof}
 Wir bezeichnen die Anzahl der öffnenden Klammern eines Ausdrucks $E$
