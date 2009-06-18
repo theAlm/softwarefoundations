@@ -16,7 +16,7 @@ Mit Hilfe dieser Definition ergeben sich auf elementare Weise die
 folgenden Rechenregeln:
 \begin{itemize}
 %
-\item Sei $a_i = a$ für $1 \le k \le n$, dann gilt $\sum\limits_{i=1}^n a_i =
+\item Sei $a_i = a$ für $1 \le i \le n$, dann gilt $\sum\limits_{i=1}^n a_i =
   n \cdot a$ (Summe gleicher Summanden).
 %
 \item $\sum\limits_{i=1}^n a_i = \sum\limits_{i=1}^m a_i +
@@ -24,10 +24,11 @@ folgenden Rechenregeln:
 %
 \item $\sum\limits_{i=1}^n (a_i + b_i + c_i + \dots) =
   \sum\limits_{i=1}^n a_i + \sum\limits_{i=1}^n b_i +
-  \sum\limits_{i=1}^n c_i + \dots$ (Addition von Summen gleicher Länge).
+  \sum\limits_{i=1}^n c_i + \dots$ (Addition von Summen).
 %
-\item $\sum\limits_{i=1}^n a_i = \sum\limits_{i=m}^{n+m - 1} a_{i-m+1}$
-  und $\sum\limits_{i=1}^n a_i = \sum\limits_{i=l}^{n-m+l} a_{k+m-l}$
+\item $\prod\limits_{i=1}^n a_i = \prod\limits_{i=l}^{n + l - 1} a_{i-l+1}$
+  und $\prod\limits_{i=l}^n a_i = \prod\limits_{i=1}^{n - l + 1} a_{i + l
+  - 1}$
   (Umnumerierung von Summen).
 %
 \item $\sum\limits_{i=1}^n \sum\limits_{j=1}^m a_{i,j} =
@@ -49,7 +50,7 @@ Mit Hilfe dieser Definition ergeben sich auf elementare Weise die
 folgenden Rechenregeln:
 \begin{itemize}
 %
-\item Sei $a_i = a$ für $1 \le k \le n$, dann gilt $\prod\limits_{i=1}^n a_i =
+\item Sei $a_i = a$ für $1 \le i \le n$, dann gilt $\prod\limits_{i=1}^n a_i =
   a^n$ (Produkt gleicher Faktoren).
 %
 \item  $\prod\limits_{i=1}^n (c a_i) = c^n \prod\limits_{i=1}^n a_i$
@@ -62,8 +63,9 @@ folgenden Rechenregeln:
   \prod\limits_{i=1}^n a_i \cdot \prod\limits_{i=1}^n b_i \cdot
   \prod\limits_{i=1}^n c_i \cdot \dots$ (Das Produkt von Produkten).
 %
-\item $\prod\limits_{i=m}^n a_i = \prod\limits_{i=l}^{n} a_{i+m-l}$
-  und $\prod\limits_{i=1}^n a_i = \prod\limits_{i=l}^{n-m+l} a_{k+m-l}$
+\item $\prod\limits_{i=1}^n a_i = \prod\limits_{i=l}^{n + l - 1} a_{i-l+1}$
+  und $\prod\limits_{i=l}^n a_i = \prod\limits_{i=1}^{n - l + 1} a_{i + l
+  - 1}$
   (Umnumerierung von Produkten).
 %
 \item $\prod\limits_{i=1}^n \prod\limits_{j=1}^m a_{i,j} =

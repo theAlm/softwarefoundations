@@ -7,6 +7,7 @@ MPOST     = mpost
 CP        = cp -a
 PREVIEW   = open
 MAKEINDEX = makeindex
+BIBTEX    = bibtex 
 
 all:
 	$(LATEX) mbasic.tex
@@ -14,4 +15,7 @@ all:
 
 idx:
 	$(MAKEINDEX) -s own_index.ist -g mbasic
+
+bib:
+	$(BIBTEX) mbasic
 
