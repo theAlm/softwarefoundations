@@ -1,7 +1,7 @@
 LATEX 	  = latex -synctex=1
 PDFLATEX  = pdflatex
 DVIPS	  = dvips -e0
-DVIPDFM   = dvipdfmx
+DVIPDFM   = dvipdfmx -V 5
 PPOWER4   = ppower4
 MPOST     = mpost
 CP        = cp -a
