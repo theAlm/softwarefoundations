@@ -269,7 +269,7 @@ FUNCTION {format.names}
               if$
               t "others" =
                 { " \btxetalshort{.}" * }
-                { " \btxandshort{.}\ " * t smallcaps * }
+                { " \btxandlong{}\ " * t smallcaps * }
               if$
             }
           if$
@@ -577,15 +577,15 @@ FUNCTION {format.article.crossref}
 }
 
 FUNCTION {format.crossref.editor}
-{ editor #1 "{ll}{, jj}{, ff}{~vv}" format.name$ smallcaps
+{ editor #1 "{ll}{, jj}{, f.}{~vv}" format.name$ smallcaps
   editor num.names$ duplicate$
   #2 >
     { pop$ " \btxetalshort{.}" * }
     { #2 <
         'skip$
-        { editor #2 "{ff }{vv }{ll}{ jj}" format.name$ "others" =
+        { editor #2 "{f. }{vv }{ll}{ jj}" format.name$ "others" =
             { " \btxetalshort{.}" * }
-            { " \btxandlong{}\ " * editor #2 "{ff}{~vv}{~ll}{, jj}" format.name$ smallcaps * }
+            { " \btxandlong{}\ " * editor #2 "{f.}{~vv}{~ll}{, jj}" format.name$ smallcaps * }
           if$
         }
       if$
@@ -1054,7 +1054,7 @@ FUNCTION {format.lab.names}
       ""
   { namesleft #0 > }
   { nameptr numnames =
-      { s nameptr "{ff }{vv }{ll}{ jj}" format.name$ "others" =
+      { s nameptr "{f }{vv }{ll}{ jj}" format.name$ "others" =
     { "{\etalchar{+}}" *
       #1 'et.al.char.used :=
     }
@@ -1174,7 +1174,7 @@ FUNCTION {sort.format.names}
   { "   " * }
   'skip$
       if$
-      s nameptr "{vv{ } }{ll{ }}{  ff{ }}{  jj{ }}" format.name$ 't :=
+      s nameptr "{vv{ } }{ll{ }}{  f{ }}{  jj{ }}" format.name$ 't :=
       nameptr numnames = t "others" = and
   { "et al" * }
   { t sortify * }
