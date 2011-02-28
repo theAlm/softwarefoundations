@@ -185,23 +185,28 @@ Quersumme ihrer Dezimaldarstellung durch drei teilbar ist.
 Für die Dezimaldarstellung von $n$ gilt
 \begin{displaymath}
 n = \sum_{i=0}^k a_i \cdot 10^i, \text{wobei $a_i \in \set{0,1, \ldots
-,9}$ und $0 \le i \le k$}.
+,9}$ ("`Ziffern"') und $0 \le i \le k$}.
 \end{displaymath}
+Mit $\mathrm{QS}(n)$ wird die Quersumme von $n$ bezeichnet,
+d.h.~$\mathrm{QS}(n) = \sum_{i=0}^{k} a_i$. Mit Hilfe einer einfachen vollständigen
+Induktion kann man zeigen, dass für jedes $i \ge 0$ ein $b \in \N$
+existiert, sodass $10^i = 9 b + 1$. Damit gilt $n = \sum_{i=0}^k
+a_i \cdot 10^i = \sum_{i=0}^k a_i (9 b_i + 1) = \mathrm{QS}(n) +
+9 \sum_{i=0}^k a_i b_i$, d.h.~es existiert ein $c \in \N$, so dass $n
+= \mathrm{QS}(n) + 9c$.
 
-\noindent "`$\Rightarrow$"': Wenn $n$ durch $3$ teilbar ist und $\sum_{i=0}^k
-a_i \cdot 10^i= n$, dann müssen alle Koeffizienten $a_i$ durch $3$
-teilbar sein, denn $10^i$ ist kein Vielfaches von $3$. Dann ist aber die
-Quersumme $\sum_{i=0}^k a_i$ der Dezimaldarstellung von $n$ sicherlich
-durch $3$ teilbar.
+\bigskip
+
+\noindent "`$\Rightarrow$"': Wenn $n$ durch $3$ teilbar ist, dann muss auch $\mathrm{QS}(n) + 9c$ durch $3$
+teilbar sein. Da $9c$ sicherlich durch $3$ teilbar ist, muss auch
+$\mathrm{QS}(n) = n - 9c$ durch $3$ teilbar sein.
 
 \medskip
 
 \noindent "`$\Leftarrow$"': Dieser Fall soll durch Kontraposition gezeigt
-werden. Sei nun $n$ nicht durch $3$ teilbar, dann muss es in der
-Dezimaldarstellung von $n$ mindestens ein Koeffizienten $a_i$ geben,
-der auch nicht durch $3$ teilbar ist. Damit kann die Quersumme
-$\sum_{i=0}^k a_i$ von $n$ aber kein Vielfaches von $3$ sein, was
-zeigt, dass $3$ kein Teiler der Quersumme ist.\qed
+werden. Sei nun $n$ nicht durch $3$ teilbar, dann darf
+$\mathrm{QS}(n)$ nicht durch $3$ teilbar sein, denn sonst wäre $n = 9c
++ \mathrm{QS}(n)$ durch $3$ teilbar.\qed
 \end{proof}
 
 \special{pdf: out 3 << /Title 
