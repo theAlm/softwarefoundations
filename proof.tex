@@ -372,19 +372,21 @@ Für $a = b = 2$ gilt $a \textrm{ mod } b = b \textrm{ mod } a = 0$. \qed
 (Induktionsbeweise und das Induktionsprinzip)
 /Dest [ @thispage /FitH @ypos ] >>}
 \subsection{Induktionsbeweise und das Induktionsprinzip}
-Eine der wichtigsten Beweismethoden der Informatik ist das
-\dindex{Induktionsprinzip}. Wir wollen jetzt nachweisen, dass für jedes $n \in
-\N$ eine bestimmte Eigenschaft $E$ gilt. Wir schreiben kurz $E(n)$ für
-die Aussage "`$n$ besitzt die Eigenschaft $E$"'. Mit der Schreibweise
-$E(0)$ drücken\footnote{Mit $E$ wird also ein Prädikat bezeichnet
-(siehe Abschnitt \ref{MengenDef})} wir also aus, dass die erste
-natürliche Zahl $0$ die Eigenschaft $E$ besitzt.
+Eine der wichtigsten und nützlichsten Beweismethoden in der Informatik bzw.~Mathematik
+ist das \dindex{Induktionsprinzip}. Wir wollen jetzt nachweisen, dass
+für jedes $n \in \N$ eine bestimmte Eigenschaft $E$ gilt. Wir
+schreiben kurz $E(n)$ für die Aussage "`$n$ besitzt die Eigenschaft
+$E$"'. Mit der Schreibweise $E(0)$ drücken\footnote{Mit $E$ wird also
+ein Prädikat bezeichnet (siehe Abschnitt \ref{MengenDef})} wir also
+aus, dass die erste natürliche Zahl $0$ die Eigenschaft $E$ besitzt.
 
-\noindent\textbf{Induktionsprinzip:} Es gelten 
+\noindent\textbf{Induktionsprinzip:} Es gelten
+\index{Induktion!Prinzip}
 \indudef%
 {$E(0)$}% 
 {Für $n \ge 0$ gilt, wenn $E(k)$ für $k \le n$ korrekt ist,
 dann ist auch $E(n+1)$ richtig.}
+\medskip
 
 Dabei ist \textbf{\textsf{IA}} die Abkürzung für
 \dindex{Induktionsanfang} und \textbf{\textsf{IS}} ist die Kurzform von
@@ -445,6 +447,54 @@ Die Zeile $\star$ (bzw.~$\star\star$) ergibt sich, indem man $2n^3 +
 9n^2+13n + 6$ durch $n+1$ teilt (bzw.~$2n^2+7n+6$ durch $n+2$). \qed
 }
 \end{proof}
+
+Das Induktionsprinzip kann man auch variieren. Dazu soll nun gezeigt
+werden, dass die Eigenschaft $E$ für alle Zahlen $k \le n$ erfüllt
+ist.
+
+\noindent\textbf{Verallgemeinertes Induktionsprinzip:} Es gelten 
+\index{Induktion!Prinzip!verallgemeinert}
+\indudef%
+{$E(0)$}% 
+{Wenn für alle $0 \le k \le n$ die Eigenschaft $E(k)$ gilt, dann ist 
+auch $E(n+1)$ richtig.}
+\medskip
+
+Damit ist das verallgemeinerte Induktionsprinzip eine
+Verallgemeinerung des oben vorgestellten Induktionsprinzips, wie das
+folgende Beispiel veranschaulicht:
+
+\begin{theorem}
+Jede natürliche Zahl $n \ge 2$ läßt sich als Produkt von Primzahlen 
+schreiben.
+\end{theorem}
+\begin{proof}
+Das verallgemeinerte Induktionsprinzip wird wie folgt verwendet:
+\induproof{%
+Offensichtlich ist $2$ das Produkt von einer Primzahl.
+}{%
+Jede natürliche Zahl $m$ mit $2 \le m \le n$ kann als Produkt von
+Primzahlen geschrieben werden.
+}{
+Nun wird eine Fallunterscheidung durchgeführt:
+\begin{enumerate}[i)]
+%
+\item Sei $n+1$ wieder eine Primzahl, dann ist nichts zu zeigen, da
+$n+1$ direkt ein Produkt von Primzahlen ist. 
+%
+\item Sei $n+1$ keine Primzahl, dann existieren mindestens zwei Zahlen
+$p$ und $q$ mit $2 \le p,q < n+1$ und $p \cdot q = n + 1$. Nach
+Induktionsvoraussetzung sind dann $p$ und $q$ wieder als Produkt von
+Primzahlen darstellbar. Etwa $p = p_1 \cdot p_2 \cdot \ldots \cdot p_s$
+und $q = q_1 \cdot q_2 \cdot \ldots \cdot q_t$. Damit ist aber $n + 1 =
+p \cdot q = p_1 \cdot p_2 \cdot \ldots \cdot p_s \cdot q_1 \cdot
+q_2 \cdot \ldots \cdot q_t$ ein Produkt von Primzahlen.\qed
+}
+%
+\end{enumerate}
+
+\end{proof}
+
 
 \noindent Solche Induktionsbeweise treten z.B.~bei der Analyse von Programmen
 immer wieder auf.
