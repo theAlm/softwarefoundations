@@ -28,12 +28,12 @@ EPS =
 
 # Implicit rule for converting metapost-graphics into eps-pictures
 %.eps : %.mp
-	mpost $< $@
+	mpost -mem=metafun $< $@
 	mv $(basename $<).1 $(basename $<).eps
 
 # Implicit rule for converting metapost-graphics into pdf-pictures
 %.pdf : %.mp
-	mpost $< $@
+	mpost -mem=metafun $< $@
 	ps2pdf < $< > $@
 
 # Implicit rule for converting eps-graphics into pdf-pictures

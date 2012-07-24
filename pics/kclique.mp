@@ -1,5 +1,4 @@
 input metafun;
-input mp-tool;
 
 numeric i;
 numeric j;
