@@ -1,4 +1,4 @@
-\documentclass[11pt, a4paper, twoside]{scrartcl}
+\documentclass[11pt, a4paper, twoside, bibtotoc]{scrartcl}
 
 % 20120904001 Change
 
@@ -158,24 +158,24 @@
 \begin{raggedleft}
 Wenn Leute nicht glauben, dass Mathematik\\
 einfach ist, dann nur deshalb, weil sie nicht begreifen,\\
-wie kompliziert das Leben ist.\\[\medskipamount]
+wie kompliziert das Leben ist.\\[\smallskipamount]
 \hfill \textsc{John von Neumann}%
 \end{raggedleft}
 
-\vspace*{1cm}
+\vspace*{1.5cm}
 
 \begin{raggedleft}
 Wenn es eine gute Idee ist, dann mach es\\ 
 einfach. Es ist viel einfacher sich hinterher zu\\
 entschuldigen, als vorher dafür eine\\
-Genehmigung zu bekommen.\\[\medskipamount]
+Genehmigung zu bekommen.\\[\smallskipamount]
 \hfill \textsc{Grace Hopper}%
 \end{raggedleft}
 
-\vspace*{1cm}
+\vspace*{1.5cm}
 
 \begin{raggedleft}
-Wake up! Time to die!\\[\medskipamount]
+Wake up! Time to die!\\[\smallskipamount]
 \hfill \textsc{Leon} in Blade Runner%
 \end{raggedleft}
 
@@ -259,13 +259,7 @@ $\star \star \star$ \textsc{Ende} $\star \star \star$
 \printindex
 \makeatother
 
-% Literatur
 \cleardoublepage
-\special{pdf: out 2 << /Title 
-(Literatur) 
-/Dest [ @thispage /FitH @ypos ] >>}
-\def\bibname{Literatur}
-\addcontentsline{toc}{section}{Literatur}
 \bibliography{mbasic}
 
 \end{document}
