@@ -1,10 +1,15 @@
 # Specify all source-files
 SRC = graphex1.mp graphex2.mp graphex3.mp moebius.mp random.mp kclique.mp \
       kclique2.mp kclique3.mp CG1.fig CG2.fig niko.fig tree.fig tree2.fig \
-      BrueckenProb.fig BrueckenProb2.asy wald.fig
+      BrueckenProb.fig BrueckenProb2.asy wald.fig lehre.qr
 
 # Manually created eps-files
 EPS = 
+
+# Implicit rule for converting qr-codes into eps-pictures
+%.eps : %.qr
+	qrencode -s 8 -o $(basename $<).png < $<
+	convert $(basename $<).png $(basename $<).eps 
 
 # Implicit rule for converting gnuplot-graphics into eps-pictures
 %.eps : %.plt
@@ -44,7 +49,7 @@ EPS =
 .PRECIOUS : %.eps
 
 # Do the job
-all: ps pdf mp asy plt compress
+all: ps pdf mp asy plt qr compress
 	@echo DONE
 
 # Substitute SRC -> *.eps.Z and *.mp -> *.eps.Z , hence all source-files 
@@ -52,7 +57,8 @@ all: ps pdf mp asy plt compress
 ps: $(SRC:%.fig=%.eps.Z) 
 plt: $(SRC:%.plt=%.eps.Z)
 asy: $(SRC:%.asy=%.eps.Z)
-mp: $(SRC:%.mp=%.eps.Z) 
+mp: $(SRC:%.mp=%.eps.Z)
+qr: $(SRC:%.qr=%.eps.Z)
 
 # Substitute SRC -> *.pdf and *.mp -> *.eps.Z, hence all source-files 
 # are converted to .pdf
@@ -60,6 +66,8 @@ pdf: $(SRC:%.fig=%.pdf)
 mp:  $(SRC.%.mp=%.pdf)
 plt: $(SRC:%.plt=%.pdf)
 asy: $(SRC:%.asy=%.pdf)
+qr:  $(SRC:%.qr=%.pdf)
 
 # Handle manually created eps-files
 compress: $(EPS:%.eps=%.eps.Z)
+
