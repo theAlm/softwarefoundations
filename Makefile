@@ -10,8 +10,8 @@ MAKEINDEX = makeindex
 BIBTEX    = bibtex 
 
 all:
-	$(PDFLATEX) mbasic.tex
-#	$(DVIPDFM) -o mbasic.pdf mbasic.dvi
+	$(LATEX) mbasic.tex
+	$(DVIPDFM) -o mbasic.pdf mbasic.dvi
 
 idx:
 	$(MAKEINDEX) -s own_index.ist -g mbasic
