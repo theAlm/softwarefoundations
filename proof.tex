@@ -163,11 +163,11 @@ Zusammenhang zu finden. Völlig gleichwertig ist die Behauptung "`Wenn
 die Aussage $C$ falsch ist, dann ist die Aussage $H$ falsch"' und oft
 ist eine solche Aussage leichter zu zeigen.
 
-Die \dindex{Kontraposition} von Satz \ref{ExpoGTSquare} ist also die
-folgende Aussage: "`Wenn nicht $2^n \ge n^2$, dann gilt nicht $n \ge
-4$."'. Das entspricht der Aussage: "`Wenn $2^n < n^2$, dann gilt $n <
-4$."', was offensichtlich zu der ursprünglichen Aussage von
-Satz \ref{ExpoGTSquare} gleichwertig ist.
+Die \dindex{Kontraposition}\index{Beweis!Kontraposition} von 
+Satz \ref{ExpoGTSquare} ist also die folgende Aussage: "`Wenn nicht 
+$2^n \ge n^2$, dann gilt nicht $n \ge 4$."'. Das entspricht der 
+Aussage: "`Wenn $2^n < n^2$, dann gilt $n < 4$."', was offensichtlich 
+zu der ursprünglichen Aussage von Satz \ref{ExpoGTSquare} gleichwertig ist.
 
 Diese Technik ist oft besonders hilfreich, wenn man die Richtigkeit
 einer Aussage zeigen soll, die aus zwei Teilaussagen zusammengesetzt
@@ -322,13 +322,13 @@ Annahme "`$T$ ist endlich"' falsch. \qed
 /Dest [ @thispage /FitH @ypos ] >>}
 \subsection{Der Schubfachschluss}
 \label{Schubfachschluss}
-Der \dindex{Schubfachschluss} ist auch als \dindex{Dirichlets
-Taubenschlagprinzip}\index{Taubenschlagprinzip} bekannt.  Werden $n >
-k$ Tauben auf $k$ Boxen verteilt, so gibt es mindestens eine Box in
-der sich wenigstens zwei Tauben aufhalten. Allgemeiner formuliert sagt
-das Taubenschlagprinzip, dass wenn $n$ Objekte auf $k$ Behälter
-aufgeteilt werden, dann gibt es mindestens eine Box die mindestens
-$\lceil \frac{n}{k} \rceil$ Objekte enthält.
+Der \dindex{Schubfachschluss}\index{Beweis!Schubfach} ist auch 
+als \dindex{Dirichlets Taubenschlagprinzip}\index{Taubenschlagprinzip} 
+bekannt. Werden $n > k$ Tauben auf $k$ Boxen verteilt, so gibt es 
+mindestens eine Box in der sich wenigstens zwei Tauben aufhalten. 
+Allgemeiner formuliert sagt das Taubenschlagprinzip, dass wenn $n$ 
+Objekte auf $k$ Behälter aufgeteilt werden, dann gibt es mindestens 
+eine Box die mindestens $\lceil \frac{n}{k} \rceil$ Objekte enthält.
 
 \begin{example}
 Auf einer Party unterhalten sich $8$ Personen ($\triangleq$ Objekte),
@@ -348,7 +348,7 @@ entwickeln. Wir müssen also entscheiden, ob diese Aussage wirklich
 richtig ist, denn sonst ist evtl.~alle Arbeit umsonst und hat hohen
 Aufwand verursacht. In solchen Fällen kann man versuchen, ein einziges
 Beispiel dafür zu finden, dass die Aussage falsch ist, um so unnötige
-Arbeit zu sparen.\index{Gegenbeispiel}
+Arbeit zu sparen.\index{Gegenbeispiel}\index{Beweis!Gegenbeispiel}
 
 \bigskip
 
@@ -411,7 +411,7 @@ natürliche Zahlen gezeigt werden.
 Wie in Piratenfilmen üblich, seien Kanonenkugeln in einer Pyramide mit
 quadratischer Grundfläche gestapelt. Wir stellen uns die Frage,
 wieviele Kugeln (in Abhängigkeit von der Höhe) in einer solchen
-Pyramide gestapelt sind.\index{vollständige Induktion}\index{Induktion!vollständige}
+Pyramide gestapelt sind.\index{vollständige Induktion}\index{Induktion!vollständige}\index{Beweis!Induktion!vollständig}
 
 \begin{theorem}
 \label{Pyramid}
@@ -514,7 +514,7 @@ zusammengesetzten Objekte ($\triangleq$ Induktionsschritt). Diese
 Technik ist als \dindex{induktive Definition} bekannt.
 
 \begin{example}
-\noindent Ein Baum ist wie folgt definiert:
+\noindent Die Menge der binären Bäume ist wie folgt definiert:
 
 \medskip
 
@@ -522,18 +522,18 @@ Technik ist als \dindex{induktive Definition} bekannt.
   \emph{Wurzel} dieses Baums.}{Seien $T_1, T_2, \dots, T_n$ Bäume mit den
   Wurzeln $\enu{k}{1}{n}$ und $w$ ein einzelner neuer Knoten. Verbinden wir
   den Knoten $w$ mit allen Wurzeln $\enu{k}{1}{n}$, dann entsteht ein neuer Baum
-  mit der Wurzel $w$.} 
+  mit der Wurzel $w$. Nichts sonst ist ein Baum.} 
 \end{example}
 
 \begin{example}
 \label{induexp}
-\noindent Ein arithmetischer Ausdruck ist wie folgt definiert:
+\noindent Die Menge der arithmetischen Ausdrücke ist wie folgt definiert:
 
 \medskip
 
 \indudef{Jeder Buchstabe und jede Zahl ist ein arithmetischer
 Ausdruck.}{Seien $E$ und $F$ Ausdrücke, so sind auch $E + F$, $E * F$
-und $[E]$ Ausdrücke.}
+und $[E]$ Ausdrücke. Nichts sonst ist ein Ausdruck.}
 
 \medskip
 
@@ -542,11 +542,24 @@ aber beispielsweise sind $x + $, $yy$, $][x+y$ sowie $x +* z$ keine
 Ausdrücke im Sinn dieser Definition.
 \end{example}
 
-Bei diesem Beispiel ahnt man schon, dass solche Techniken zur präzisen
-Definition von Programmiersprachen und Dateiformaten gute Dienste
-leisten. Induktive Definitionen haben noch einen weiteren Vorteil,
-denn man kann leicht Induktionsbeweise konstruieren, die Aussagen über
-induktiv definierte Objekte belegen.
+\begin{example}
+\label{indubool}
+\noindent Die Menge der aussagenlogischen Formeln ist wie folgt definiert:
+
+\medskip
+
+\indudef{Jede aussagenlogische Variable $x_1, x_2, x_3, \dots $ ist
+eine aussagenlogische Formel.}{Seien $H_1$ und $H_2$ aussagenlogische
+Formeln, so sind auch $(H_1 \wedge H_2)$, $(H_1 \vee H_2)$, $\neg H_1$,
+$(H_1 \leftrightarrow H_2)$, $(H_1 \rightarrow H_2)$ und $(H_1 \oplus H_2)$
+aussagenlogische Formeln. Nichts sonst ist eine Formel.}
+\end{example}
+
+Bei diesen Beispielen ahnt man schon, dass solche Techniken zur
+präzisen Definition von Programmiersprachen und Dateiformaten gute
+Dienste leisten. Induktive Definitionen haben noch einen weiteren
+Vorteil, denn man oft relativ leicht Induktionsbeweise konstruieren
+kann, die Aussagen über induktiv definierte Objekte belegen.
 
 \special{pdf: out 4 << /Title 
 (Die strukturelle Induktion)
@@ -563,7 +576,8 @@ Es ist offensichtlich, dass diese Aussage richtig ist, denn in
 Ausdrücken wie $(x + y) / 2$ oder $x + ((y/2) * z)$ muss ja zu jeder
 öffnenden Klammer eine schließende Klammer existieren. Der nächste
 Beweis verwendet diese Idee zum die Aussage von Satz \ref{CntBrack}
-mit Hilfe einer \dindex{strukturellen Induktion}\index{Induktion!strukturelle} 
+mit Hilfe einer 
+\dindex{strukturellen Induktion}\index{Induktion!strukturelle}\index{Beweis!Induktion!strukturell} 
 zu zeigen.
 
 \begin{proof}
@@ -600,3 +614,8 @@ Ausdrücken überprüft wird. Definiert man eine vollständige
 Programmiersprache induktiv, dann werden ganz ähnliche
 Induktionsbeweise möglich, d.h.~man kann die Techniken aus diesem
 Beispiel relativ leicht auf die Praxis der Informatik übertragen.
+
+Man überlegt sich leicht, dass die natürlichen Zahlen auch induktiv
+definiert werden können. Damit zeigt sich, dass die vollständige
+Induktion eigentlich nur ein Spezialfall der strukturellen Induktion
+ist.
