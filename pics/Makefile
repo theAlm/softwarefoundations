@@ -17,7 +17,8 @@ EPS =
 
 # Implicit rule for converting asymptote-graphics into eps-pictures
 %.eps : %.asy
-	asy $< 
+	asy -f pdf $<
+	pdf2ps $(basename $<).pdf $(basename $<).eps
 
 # Implicit rule for converting fig-graphics into eps-pictures
 %.eps : %.fig
