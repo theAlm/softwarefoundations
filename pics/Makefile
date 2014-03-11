@@ -36,10 +36,10 @@ EPS =
 	mpost -mem=metafun $< $@
 	mv $(basename $<).1 $(basename $<).eps
 
-# Implicit rule for converting metapost-graphics into pdf-pictures
+# Implicit rule for converting metapost-graphics into eps-pictures
 %.pdf : %.mp
-	mpost -mem=metafun $< $@
-	ps2pdf < $< > $@
+	mptopdf --latex --rawmp --metafun $< 
+	mv $(basename $<)-1.pdf $(basename $<).pdf
 
 # Implicit rule for converting eps-graphics into pdf-pictures
 %.pdf : %.eps
