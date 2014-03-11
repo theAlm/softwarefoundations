@@ -63,7 +63,7 @@ qr: $(SRC:%.qr=%.eps.Z)
 # Substitute SRC -> *.pdf and *.mp -> *.eps.Z, hence all source-files 
 # are converted to .pdf
 pdf: $(SRC:%.fig=%.pdf)
-mp:  $(SRC.%.mp=%.pdf)
+mp:  $(SRC:%.mp=%.pdf)
 plt: $(SRC:%.plt=%.pdf)
 asy: $(SRC:%.asy=%.pdf)
 qr:  $(SRC:%.qr=%.pdf)
