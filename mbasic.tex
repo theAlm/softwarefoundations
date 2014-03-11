@@ -1,13 +1,14 @@
 \documentclass[11pt, a4paper, twoside, bibliography=totoc]{scrartcl}
 
-% 20140208001 Change
+% 20140311001 Change
 
-\usepackage[T1]{fontenc}
 \usepackage{german}
-\usepackage{ae}
-\usepackage{aecompl}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\setmainlanguage[babelshorthands=true]{german}
+
 \usepackage[german]{algorithm2e}
-\usepackage[latin1]{inputenc}
+
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{amsmath}
@@ -27,7 +28,7 @@
 \usepackage{subfig}
 \usepackage{bibgerm}
 \usepackage{textcomp}
-\usepackage[dvipdfm,
+\usepackage[xetex,
             bookmarksopen=true,
             hyperfootnotes=false,
             breaklinks=true,
@@ -90,7 +91,7 @@
 %\renewcommand{\theenumi}{\roman{enumi}}
 %\renewcommand{\labelenumi}{(\theenumi)}
 
-% Definitionen für die Titelseite
+% Definitionen fÃ¼r die Titelseite
 \newcommand{\docutyp}{Skript}
 \newcommand{\lecture}{Elementare mathematische\\ Begriffe, Probleme und\\[0.5\bigskipamount] Schreibweisen}
 \newcommand{\docudate}{Wintersemester 2013/2014}
@@ -122,8 +123,9 @@
         /Dest [ @thispage /FitH @ypos ] >>}
         \vspace{40pt}
 	\begin{center}
+
+                \marginpar{\includegraphics[scale=0.20]{lehre}}
 		\vspace{20pt}
-                \marginpar{\includegraphics[scale=0.2]{lehre}}
 		\textbf{\Large {\docutyp}}
 			
 		\vspace{20pt}
@@ -147,7 +149,7 @@
 			Email: & {\email}\\
 			Erste Version vollendet: & {\writtendate}\\
 			Version: & {\svnInfoRevision}\\
-			Letzte Änderung: & {\svnInfoDate}\\
+			Letzte Ã„nderung: & {\svnInfoDate}\\
 		\end{tabular}
 	\end{center}
 	\newpage
@@ -169,7 +171,7 @@ wie kompliziert das Leben ist.\\[\smallskipamount]
 \begin{raggedleft}
 Wenn es eine gute Idee ist, dann mach es\\ 
 einfach. Es ist viel einfacher sich hinterher zu\\
-entschuldigen, als vorher dafür eine\\
+entschuldigen, als vorher dafÃ¼r eine\\
 Genehmigung zu bekommen.\\[\smallskipamount]
 \hfill \textsc{Grace Hopper}%
 \end{raggedleft}
@@ -186,16 +188,16 @@ Wake up! Time to die!\\[\smallskipamount]
 Dieses Skript ist aus den Fragen und Bemerkungen von Studenten des
 Diplom, Bachelor und Master-Studiengangs Informatik an der Hochschule
 RheinMain (ehemals Fachhochschule Wiesbaden) hervorgegangen. Ich danke
-allen meinen Studenten für konstruktive Anmerkungen und
-Verbesserungen. Dabei möchte ich besonders Frau Carola Henzel nennen,
+allen meinen Studenten fÃ¼r konstruktive Anmerkungen und
+Verbesserungen. Dabei mÃ¶chte ich besonders Frau Carola Henzel nennen,
 die sehr viele Tippfehler (Mengen, Summen und Beweistechniken)
 berichtigte. Herr Kim Stebel hat die Bemerkungen zu bipartiten Graphen
-verbessert. Herr Norbert Wesp berichtete über sprachliche Fehler in
+verbessert. Herr Norbert Wesp berichtete Ã¼ber sprachliche Fehler in
 Abschnitt \ref{sec:proof} und Tippfehler in der Einleitung. 
 
-Naturgemäß ist ein Skript nie fehlerfrei (ganz im Gegenteil!) und es
-ändert (mit Sicherheit!) sich im Laufe der Zeit. Deshalb bin ich auf
-weitere Verbesserungsvorschläge angewiesen.
+NaturgemÃ¤ÃŸ ist ein Skript nie fehlerfrei (ganz im Gegenteil!) und es
+Ã¤ndert (mit Sicherheit!) sich im Laufe der Zeit. Deshalb bin ich auf
+weitere VerbesserungsvorschlÃ¤ge angewiesen.
 
 \cleardoublepage
 

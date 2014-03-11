@@ -1,5 +1,6 @@
 // Bildgroesse setzen
-size(0,4.5cm);
+size(6cm,4.5cm);
+unitsize(1cm);
 
 // Abstaende fuer die Labels
 real dx=0.35;

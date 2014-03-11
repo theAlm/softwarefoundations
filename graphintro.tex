@@ -1,42 +1,41 @@
 \special{pdf: out 3 << /Title 
-(Einführung) 
+(EinfÃ¼hrung) 
 /Dest [ @thispage /FitH @ypos ] >>}
-\subsection{Einführung}
+\subsection{EinfÃ¼hrung}
 Sehr viele Probleme lassen sich durch Objekte und Verbindungen oder
-Beziehungen zwischen diesen Objekten beschreiben. Ein schönes Beispiel
-hierfür ist das 
-\dindex{Königsberger Brückenproblem}\index{Brückenproblem}, das $1736$ 
+Beziehungen zwischen diesen Objekten beschreiben. Ein schÃ¶nes Beispiel
+hierfÃ¼r ist das 
+\dindex{KÃ¶nigsberger BrÃ¼ckenproblem}\index{BrÃ¼ckenproblem}, das $1736$ 
 von Leonhard Euler\footnote{Der Schweizer Mathematiker Leonhard Euler 
 wurde $1707$ in Basel geboren und starb $1783$ in St.~Petersburg.}  
-formuliert und gelöst wurde. Zu dieser Zeit hatte 
-Königsberg\footnote{Königsberg heißt heute Kaliningrad.} genau sieben 
-Brücken, wie die sehr grobe Karte in Abbildung \ref{BProb2} zeigt.
+formuliert und gelÃ¶st wurde. Zu dieser Zeit hatte 
+KÃ¶nigsberg\footnote{KÃ¶nigsberg heiÃŸt heute Kaliningrad.} genau sieben 
+BrÃ¼cken, wie die sehr grobe Karte in Abbildung \ref{BProb2} zeigt.
 
 Die verschiedenen Stadtteile sind dabei mit A-D bezeichnet. Euler
-stellte sich nun die Frage, ob es möglich ist, einen Spaziergang in
-einem beliebigen Stadtteil zu beginnen, jede Brücke \emph{genau
-einmal} zu überqueren und den Spaziergang am Startpunkt zu
-beenden. Ein solcher Weg soll \emph{Euler-Spaziergang} heißen. Die
-Frage lässt sich leicht beantworten, wenn der Stadtplan wie nebenstehend
+stellte sich nun die Frage, ob es mÃ¶glich ist, einen Spaziergang in
+einem beliebigen Stadtteil zu beginnen, jede BrÃ¼cke \emph{genau
+einmal} zu Ã¼berqueren und den Spaziergang am Startpunkt zu
+beenden. Ein solcher Weg soll \emph{Euler-Spaziergang} heiÃŸen. Die
+Frage lÃ¤sst sich leicht beantworten, wenn der Stadtplan wie nebenstehend
 formalisiert wird.
 
 Die Stadtteile sind bei der Formalisierung zu Knoten geworden und die
-Brücken werden durch Kanten zwischen den Knoten
+BrÃ¼cken werden durch Kanten zwischen den Knoten
 symbolisiert\footnote{Abbildung \ref{BProb2} nennt
 man \dindex{Multigraph}, denn hier starten mehrere Kanten von
 \emph{einem} Knoten und enden in \emph{einem} anderen Knoten.}.
-Angenommen es gäbe in Königsberg einen Euler-Spazier\-gang, dann müsste für jeden
-Knoten in Abbildung \ref{BProb2} die folgende Eigenschaft erfüllt
+Angenommen es gÃ¤be in KÃ¶nigsberg einen Euler-Spazier\-gang, dann mÃ¼sste fÃ¼r jeden
+Knoten in Abbildung \ref{BProb2} die folgende Eigenschaft erfÃ¼llt
 sein: die Anzahl der Kanten die mit einem Knoten verbunden sind ist
-gerade, weil für jede Ankunft (über eine Brücke) in einem Stadtteil
-ein Verlassen eines Stadtteil (über eine Brücke) notwendig ist.
-
-\begin{figure}[h]
+gerade, weil fÃ¼r jede Ankunft (Ã¼ber eine BrÃ¼cke) in einem Stadtteil
+ein Verlassen eines Stadtteil (Ã¼ber eine BrÃ¼cke) notwendig ist.
+\begin{figure}
 \centering
 \subfloat[grober Stadtplan]{\includegraphics[scale=0.5]{BrueckenProb}}
-\qquad
+\hfill
 \subfloat[formalisierter Stadtplan]{\includegraphics[scale=0.8]{BrueckenProb2}}
-\caption{Das Königsberger-Brückenproblem}
+\caption{Das KÃ¶nigsberger-BrÃ¼ckenproblem}
 \label{BProb2}
 \end{figure}
 

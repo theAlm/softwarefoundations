@@ -8,7 +8,7 @@
 /Dest [ @thispage /FitH @ypos ] >>}
 \subsection{Mengen}Es ist sehr schwer den fundamentalen Begriff der Menge mathematisch exakt
 zu definieren. Aus diesem Grund soll uns hier die von Cantor 1895 gegebene
-Erklärung genügen, da sie für unsere Zwecke völlig ausreichend ist:
+ErklÃ¤rung genÃ¼gen, da sie fÃ¼r unsere Zwecke vÃ¶llig ausreichend ist:
 
 \begin{explain}[Georg Cantor (\cite{Ca85})]
 Unter einer ,\dindex{Menge}' verstehen wir jede Zusammenfassung $M$ von 
@@ -18,8 +18,8 @@ einem Ganzen\footnote{Diese Zitat entspricht der originalen
 Schreibweise von Cantor.}. 
 \end{explain}
 
-\noindent Für die Formulierung "`genau dann wenn"' verwenden wir im Folgenden
-die Abkürzung \gdw\index{gdw=gdw.} um Schreibarbeit zu sparen.
+\noindent FÃ¼r die Formulierung "`genau dann wenn"' verwenden wir im Folgenden
+die AbkÃ¼rzung \gdw\index{gdw=gdw.} um Schreibarbeit zu sparen.
 
 \special{pdf: out 4 << /Title 
 (Elementbeziehung und Enthaltenseinsrelation) 
@@ -48,7 +48,7 @@ echte Teilmenge von $N$)\index{$\subset$}.
 %
 \end{itemize}
 Statt $a \in M$ schreibt man auch $M \ni a$\index{$\ni$}, was in
-einigen Fällen zu einer deutlichen Vereinfachung der Notation führt.
+einigen FÃ¤llen zu einer deutlichen Vereinfachung der Notation fÃ¼hrt.
 \end{definition}
 
 \special{pdf: out 4 << /Title 
@@ -56,7 +56,7 @@ einigen Fällen zu einer deutlichen Vereinfachung der Notation führt.
 /Dest [ @thispage /FitH @ypos ] >>}
 \subsubsection{Definition spezieller Mengen}
 \label{MengenDef}
-Spezielle Mengen können auf verschiedene Art und Weise definiert
+Spezielle Mengen kÃ¶nnen auf verschiedene Art und Weise definiert
 werden, wie z.B.
 \begin{itemize}
 %
@@ -65,7 +65,7 @@ die aus den Elementen $\enu{a}{1}{n}$ besteht, oder
 %
 \item durch eine Eigenschaft $E$:\ Dabei ist $\set{a \mid E(a)}$ die Menge
 aller Elemente $a$, die die Eigenschaft\footnote{Die Eigenschaft $E$
-kann man dann auch als \dindex{Prädikat} bezeichnen.} $E$ besitzen.
+kann man dann auch als \dindex{PrÃ¤dikat} bezeichnen.} $E$ besitzen.
 %
 \end{itemize}
 Alternativ zu der Schreibweise $\set{a \mid E(a)}$ wird auch oft 
@@ -83,7 +83,7 @@ $\set{a \colon E(a)}$ verwendet.
   \item $\mathbb{B} \eqd \set{0,1}$
   %  
   \item $\N \eqd \set{0, 1, 2, 3, 4, 5, 6, 7, 8, \dots}$ (Menge der
-  natürlichen Zahlen)\index{$\N$}
+  natÃ¼rlichen Zahlen)\index{$\N$}
   %
   \item $\Z \eqd \set{\dots, -4, -3, -2, -1, 0, 1, 2, 3, 4, \dots}$
   (Menge der ganzen Zahlen)\index{$\Z$}
@@ -110,7 +110,7 @@ $\set{a \colon E(a)}$ verwendet.
 Aus Definition \ref{InclSet} ergibt sich, dass die leere Menge
 $\emptyset$ Teilmenge jeder Menge ist. Dabei ist zu beachten, dass 
 $\set{\emptyset} \not= \emptyset$\index{$\set{\emptyset}$} gilt, denn $\set{\emptyset}$ 
-enthält \emph{ein} Element (die leere Menge) und $\emptyset$ enthält \emph{kein} Element.
+enthÃ¤lt \emph{ein} Element (die leere Menge) und $\emptyset$ enthÃ¤lt \emph{kein} Element.
 \end{example}
 
 \special{pdf: out 4 << /Title 
@@ -134,7 +134,7 @@ Seien $A$ und $B$ beliebige Mengen, dann ist
 \not\in B}$ (Differenz von $A$ und $B$)\index{$\setminus$},
 %
 \item $\overline{A} \eqd M \setminus A$ (Komplement von $A$ 
-bezüglich einer festen Grundmenge $M$)\index{$\overline{A}$} und
+bezÃ¼glich einer festen Grundmenge $M$)\index{$\overline{A}$} und
 %
 \item $\PowerSet{A} \eqd \set{B \mid B \subseteq A}$ (Potenzmenge von
 $A$)\index{$\PowerSet{A}$}.
@@ -146,14 +146,14 @@ man \dindex{disjunkt}.
 \begin{example}
 Sei $A = \set{2, 3, 5, 7}$ und $B = \set{1, 2, 4 , 6}$, dann ist $A
 \cap B = \set{2}$, $A \cup B = \set{1, 2, 3, 4, 5, 6, \allowbreak 7}$ und $A
-\setminus B = \set{3, 5, 7}$. Wählen wir als Grundmenge die
-natürlichen Zahlen, also $M = \N$, dann ist $\overline{A} = \set{n \in \N
+\setminus B = \set{3, 5, 7}$. WÃ¤hlen wir als Grundmenge die
+natÃ¼rlichen Zahlen, also $M = \N$, dann ist $\overline{A} = \set{n \in \N
 \mid n \not= 2 \text{ und } n \not= 3 \text{ und } n
 \not= 5 \text{ und } n \not= 7} = \set{1, 4, 6, 8, 9, 10, 11,
 \dots}$. 
 
 Als Potenzmenge der Menge $A$ ergibt sich die folgende Menge von Mengen
-von natürlichen Zahlen $\PowerSet{A}
+von natÃ¼rlichen Zahlen $\PowerSet{A}
 = \set{\emptyset,\allowbreak \set{2},\allowbreak \set{3},
 \allowbreak \set{5},\allowbreak \set{7}, \allowbreak \set{2,3},
 \set{2,5}, \allowbreak \set{2,7}, \allowbreak \set{3,5}, \allowbreak\set{3,7},
@@ -161,29 +161,29 @@ von natürlichen Zahlen $\PowerSet{A}
 \set{2,3,7},\allowbreak \set{2,5,\allowbreak 7}, \allowbreak \set{3,\allowbreak 5,\allowbreak 7},\set{2,3,5,7}}$. 
 
 Offensichtlich sind die Menge $\set{0,2,4,6,8, \dots }$ der geraden
-natürlichen Zahlen und die Menge $\set{1,3,5,7,9, \dots }$ der
-ungeraden natürlichen Zahlen disjunkt.
+natÃ¼rlichen Zahlen und die Menge $\set{1,3,5,7,9, \dots }$ der
+ungeraden natÃ¼rlichen Zahlen disjunkt.
 \end{example}
 \end{definition}
 
 \special{pdf: out 4 << /Title 
-(Gesetze für Mengenoperationen) 
+(Gesetze fÃ¼r Mengenoperationen) 
 /Dest [ @thispage /FitH @ypos ] >>}
-\subsubsection{Gesetze für Mengenoperationen}
+\subsubsection{Gesetze fÃ¼r Mengenoperationen}
 \label{SetOpSect}
-Für die klassischen Mengenoperationen gelten die folgenden Beziehungen:
+FÃ¼r die klassischen Mengenoperationen gelten die folgenden Beziehungen:
 \begin{displaymath}
 \begin{array}{rcll}
-A \cap B &=& B \cap A & \text{Kommutativgesetz für den Schnitt}\\
-A \cup B &=& B \cup A & \text{Kommutativgesetz für die Vereinigung}\\
-A \cap (B \cap C) &=& (A \cap B) \cap C & \text{Assoziativgesetz für
+A \cap B &=& B \cap A & \text{Kommutativgesetz fÃ¼r den Schnitt}\\
+A \cup B &=& B \cup A & \text{Kommutativgesetz fÃ¼r die Vereinigung}\\
+A \cap (B \cap C) &=& (A \cap B) \cap C & \text{Assoziativgesetz fÃ¼r
 den Schnitt}\\
-A \cup (B \cup C) &=& (A \cup B) \cup C & \text{Assoziativgesetz für
+A \cup (B \cup C) &=& (A \cup B) \cup C & \text{Assoziativgesetz fÃ¼r
 die Vereinigung}\\
 A \cap (B \cup C) &=& (A \cap B) \cup (A \cap C) & \text{Distributivgesetz}\\
 A \cup (B \cap C) &=& (A \cup B) \cap (A \cup C) & \text{Distributivgesetz}\\
-A \cap A &=& A & \text{Duplizitätsgesetz für den Schnitt}\\
-A \cup A &=& A & \text{Duplizitätsgesetz für die Vereinigung}\\
+A \cap A &=& A & \text{DuplizitÃ¤tsgesetz fÃ¼r den Schnitt}\\
+A \cup A &=& A & \text{DuplizitÃ¤tsgesetz fÃ¼r die Vereinigung}\\
 A \cap (A \cup B) &=& A & \text{Absorptionsgesetz}\\
 A \cup (A \cap B) &=& A & \text{Absorptionsgesetz}\\
 \overline{A \cap B} &=& (\overline{A} \cup \overline{B}) &
@@ -198,33 +198,33 @@ Mathematiker \textsc{Augustus De Morgan}\footnote{\textborn $1806$ in
 Madurai, Tamil Nadu, Indien - \textdied $1871$ in London, England}
 benannt.
 
-Als Abkürzung schreibt man statt $X_1 \cup X_2 \cup \dots \cup X_n$
+Als AbkÃ¼rzung schreibt man statt $X_1 \cup X_2 \cup \dots \cup X_n$
 (bzw.~$X_1 \cap X_2 \cap \dots \cap X_n$) einfach $\bigcup\limits_{i=1}^n X_i$
-(bzw.~$\bigcap\limits_{i=1}^n X_i$). Möchte man alle Mengen $X_i$ mit
+(bzw.~$\bigcap\limits_{i=1}^n X_i$). MÃ¶chte man alle Mengen $X_i$ mit
 $i \in \N$ schneiden (bzw.~vereinigen), so schreibt man kurz
 $\bigcap\limits_{i \in \N} X_i$ (bzw.~$\bigcup\limits_{i \in \N} X_i$).
 
 \goodbreak
 
-Oft benötigt man eine Verknüpfung von zwei Mengen, eine solche
-Verknüpfung wird allgemein wie folgt definiert:
+Oft benÃ¶tigt man eine VerknÃ¼pfung von zwei Mengen, eine solche
+VerknÃ¼pfung wird allgemein wie folgt definiert:
 
-\begin{definition}["`Verknüpfung von Mengen"']
+\begin{definition}["`VerknÃ¼pfung von Mengen"']
 Seien $A$ und $B$ zwei beliebige Mengen und "`$\odot$"' eine beliebige
-Verknüpfung zwischen den Elementen dieser Mengen, dann definieren wir
+VerknÃ¼pfung zwischen den Elementen dieser Mengen, dann definieren wir
 \begin{displaymath}
 A \odot B \eqd \set{a \odot b \mid a \in A \text{ und } b \in B}.
 \end{displaymath}
 \end{definition}
 
 \begin{example}
-Die Menge $3\Z = \set{0, \pm 3, \pm 6, \pm 9, \dots}$ enthält alle
-Vielfachen\footnote{Eigentlich müsste man statt $3\Z$ die Notation
-$\set{3}\Z$ verwenden. Dies ist allerdings unüblich.} von $3$, damit
+Die Menge $3\Z = \set{0, \pm 3, \pm 6, \pm 9, \dots}$ enthÃ¤lt alle
+Vielfachen\footnote{Eigentlich mÃ¼sste man statt $3\Z$ die Notation
+$\set{3}\Z$ verwenden. Dies ist allerdings unÃ¼blich.} von $3$, damit
 ist $3\Z + \set{1} = \set{1,\allowbreak 4,\allowbreak -2,\allowbreak
 7,\allowbreak -5, 10, -8, \dots}$. Die Menge $3\Z + \set{1}$ schreibt
 man kurz oft auch als $3\Z + 1$, wenn klar ist, was mit dieser
-Abkürzung gemeint ist.
+AbkÃ¼rzung gemeint ist.
 \end{example}
 
 \special{pdf: out 4 << /Title
@@ -269,7 +269,7 @@ Kreuzprodukt von $A$ und $B$ die Menge von Paaren $A \times B =
 \label{cntSet}
 Sei $A$ eine Menge, die endlich viele Elemente\footnote{Solche Mengen
 werden als \dindex{endliche Mengen}\index{Menge!endlich} bezeichnet.}
-enthält, dann ist
+enthÃ¤lt, dann ist
 \begin{displaymath}
 \cnt A \eqd \text{Anzahl der Elemente in der Menge $A$}.
 \end{displaymath}
@@ -301,16 +301,16 @@ enthält, dann ist
 Seien $\enu{A}{1}{n}$ beliebige Mengen, dann ist $R$ eine
 \emph{$n$-stellige Relation}\index{Relation} \gdw 
 \ $R \subseteq A_1 \times A_2 \times \dots \times A_n$. Eine
-zweistellige Relation nennt man auch \dindex{binäre
-Relation}\index{Relation!binär}. Oft werden auch Relationen
+zweistellige Relation nennt man auch \dindex{binÃ¤re
+Relation}\index{Relation!binÃ¤r}. Oft werden auch Relationen
 $R \subseteq A^n$ betrachtet, diese bezeichnet man dann als
-$n$-stellige Relation über der Menge $A$.
+$n$-stellige Relation Ã¼ber der Menge $A$.
 
 \begin{definition}
-Sei $R$ eine zweistellige Relation über $A$, dann ist $R$
+Sei $R$ eine zweistellige Relation Ã¼ber $A$, dann ist $R$
 \begin{itemize}
 %
-\item \dindex{reflexiv} \gdw \ $(a,a) \in R$ für alle $a \in A$,
+\item \dindex{reflexiv} \gdw \ $(a,a) \in R$ fÃ¼r alle $a \in A$,
 %
 \item \dindex{symmetrisch} \gdw \ aus $(a,b) \in R$ folgt $(b,a) \in R$,
 %
@@ -327,7 +327,7 @@ antisymmetrisch und transitiv,
 %
 \item eine \dindex{Ordnung} \gdw $R$ ist eine lineare Halbordnung und
 %
-\item eine \emph{Äquivalenzrelation}\index{Aquivalenzrelation=Äquivalenzrelation} 
+\item eine \emph{Ã„quivalenzrelation}\index{Aquivalenzrelation=Ã„quivalenzrelation} 
 \gdw $R$ reflexiv, transitiv und symmetrisch ist.
 %
 \end{itemize}
@@ -336,9 +336,9 @@ antisymmetrisch und transitiv,
 \begin{example}
 Die Teilmengenrelation "`$\subseteq$"' auf allen Teilmengen von $\Z$ ist
 eine Halbordnung, aber keine Ordnung. Wir schreiben $a \equiv b \mod
-n$, falls es eine ganze Zahl $q$ gibt, für die $a - b = q n$ gilt. Für $n \ge 2$
+n$, falls es eine ganze Zahl $q$ gibt, fÃ¼r die $a - b = q n$ gilt. FÃ¼r $n \ge 2$
 ist die Relation $R_n(a,b) \eqd \set{(a,b) \mid a \equiv b \mod n} \subseteq
-\Z^2$ eine Äquivalenzrelation.
+\Z^2$ eine Ã„quivalenzrelation.
 \end{example}
 
 \special{pdf: out 4 << /Title 
@@ -348,9 +348,9 @@ ist die Relation $R_n(a,b) \eqd \set{(a,b) \mid a \equiv b \mod n} \subseteq
 \label{PropFunc}
 Seien $A$ und $B$ beliebige Mengen. $f$ ist eine \dindex{Funktion} von $A$ nach
 $B$ (Schreibweise: $f \colon A \rightarrow B$) \gdw \ $f \subseteq A \times
-B$ und für jedes $a \in A$ gibt es \emph{höchstens} ein $b \in B$ mit
+B$ und fÃ¼r jedes $a \in A$ gibt es \emph{hÃ¶chstens} ein $b \in B$ mit
 $(a, b) \in f$. Ist also $(a,b) \in f$, so schreibt man $f(a) =
-b$. Ebenfalls gebrächlich ist die Notation $a \mapsto b$.
+b$. Ebenfalls gebrÃ¤chlich ist die Notation $a \mapsto b$.
 
 \begin{remark}
 Unsere Definition von Funktion umfasst auch mehrstellige
@@ -361,16 +361,16 @@ aus $B$ ab.
 \end{remark}
 
 \begin{definition}
-Sei $f$ eine $n$-stellige Funktion. Möchte man die Funktion $f$
-benutzen, aber keine Namen für die Argumente vergeben, so
+Sei $f$ eine $n$-stellige Funktion. MÃ¶chte man die Funktion $f$
+benutzen, aber keine Namen fÃ¼r die Argumente vergeben, so
 schreibt man auch 
 \begin{displaymath}
 f(\underbrace{\cdot, \cdot, \ldots , \cdot}_{\text{$n$-mal}})
 \end{displaymath}
 Ist also der Namen des Arguments einer einstelligen Funktion $g(x)$
-für eine Betrachtung unwichtig, so kann man
+fÃ¼r eine Betrachtung unwichtig, so kann man
 $g(\cdot)$ \index{$f(\cdot)$} schreiben, um anzudeuten, dass $g$
-einstellig ist, ohne dies weiter zu erwähnen.
+einstellig ist, ohne dies weiter zu erwÃ¤hnen.
 \end{definition}
 
 Sei nun $R \subseteq A_1 \times A_2 \times \dots \times A_n$ eine
@@ -387,19 +387,19 @@ P^n_R(\enu{x}{1}{n}) \eqd
 \right.
 \end{displaymath}
 Eine solche ($n$-stellige) Funktion, die "`anzeigt"', ob ein Element 
-aus $A_1 \times A_2 \times \dots \times A_n$ entweder zu $R$ gehört 
-oder nicht, nennt man ($n$-stelliges) \dindex{Prädikat}.
+aus $A_1 \times A_2 \times \dots \times A_n$ entweder zu $R$ gehÃ¶rt 
+oder nicht, nennt man ($n$-stelliges) \dindex{PrÃ¤dikat}.
 
 \begin{example}
 Sei $\mathbb{P} \eqd \set{n \in \N \mid \text{$n$ ist Primzahl}}$, dann
-ist $\mathbb{P}$ eine $1$-stellige Relation über den natürlichen Zahlen. 
-Das Prädikat $P^1_{\mathbb{P}}(n)$ liefert für eine natürliche Zahl
+ist $\mathbb{P}$ eine $1$-stellige Relation Ã¼ber den natÃ¼rlichen Zahlen. 
+Das PrÃ¤dikat $P^1_{\mathbb{P}}(n)$ liefert fÃ¼r eine natÃ¼rliche Zahl
 $n$ genau dann $1$, wenn $n$ eine Primzahl ist.
 \end{example}
 
-Ist für ein Prädikat $P^n_R$ sowohl die Relation $R$ als auch die
+Ist fÃ¼r ein PrÃ¤dikat $P^n_R$ sowohl die Relation $R$ als auch die
 Stelligkeit $n$ aus dem Kontext klar, dann schreibt man auch kurz $P$
-oder verwendet das Relationensymbol $R$ als Notation für das Prädikat
+oder verwendet das Relationensymbol $R$ als Notation fÃ¼r das PrÃ¤dikat
 $P^n_R$. 
 
 \bigskip
@@ -411,17 +411,17 @@ hilfreich sind:
 Sei $\alpha \in \R$ eine beliebige reelle Zahl, dann gilt
 \begin{itemize}
 %
-\item $\lceil x \rceil \eqd \text{die kleinste ganze Zahl, die größer
+\item $\lceil x \rceil \eqd \text{die kleinste ganze Zahl, die grÃ¶ÃŸer
 oder gleich $\alpha$ ist}$ ($\triangleq$ "`Aufrunden"') \index{$\lceil \cdot \rceil$}
 %
-\item $\lfloor x \rfloor \eqd \text{die größte ganze Zahl, die kleiner
+\item $\lfloor x \rfloor \eqd \text{die grÃ¶ÃŸte ganze Zahl, die kleiner
 oder gleich $\alpha$ ist}$ ($\triangleq$ "`Abrunden"') \index{$\lfloor \cdot \rfloor$}
 %
 \end{itemize}
 \end{definition}
 
 \begin{definition}
-Für eine beliebige Funktion $f$ legen wir fest:
+FÃ¼r eine beliebige Funktion $f$ legen wir fest:
 \begin{itemize}
 %
 \item Der \dindex{Definitionsbereich} von $f$ ist $D_f \eqd
@@ -433,34 +433,34 @@ Für eine beliebige Funktion $f$ legen wir fest:
 \item Die Funktion $f \colon A \rightarrow B$ ist \dindex{total} \gdw $D_f
 = A$.
 % 
-\item Die Funktion $f \colon A \rightarrow B$ heißt \dindex{surjektiv} \gdw $W_f = B$.
+\item Die Funktion $f \colon A \rightarrow B$ heiÃŸt \dindex{surjektiv} \gdw $W_f = B$.
 %
-\item Die Funktion $f$ heißt \dindex{injektiv} (oder
+\item Die Funktion $f$ heiÃŸt \dindex{injektiv} (oder
 eineindeutig\footnote{Achtung: Dieser Begriff wird manchmal
 unterschiedlich, je nach Autor, in den Bedeutungen "`bijektiv"' oder
 "`injektiv"' verwendet.}) \gdw\ immer wenn $f(a_1)\allowbreak =
 f(a_2)$ gilt auch $a_1 = a_2$.
 %
-\item Die Funktion $f$ heißt \dindex{bijektiv} \gdw $f$ ist injektiv und surjektiv.
+\item Die Funktion $f$ heiÃŸt \dindex{bijektiv} \gdw $f$ ist injektiv und surjektiv.
 \end{itemize}
 \end{definition}
 Mit Hilfe der Kontraposition (siehe Abschnitt \ref{KontraPos}) kann
-man für die Injektivität alternativ auch zeigen, dass immer wenn
+man fÃ¼r die InjektivitÃ¤t alternativ auch zeigen, dass immer wenn
 $a_1 \not= a_2$, dann muss auch $f(a_1) \not= f(a_2)$ gelten.
 
 \begin{example}
 Sei die Funktion $f \colon \N \rightarrow \Z$ durch $f(n) = (-1)^n
 \lceil \frac{n}{2} \rceil$ gegeben. Die Funktion $f$ ist surjektiv,
 denn $f(0) = 0, f(1) = -1, f(2) = 1, f(3) = -2, f(4) = 2, \dots$, d.h.~die 
-ungeraden natürlichen Zahlen werden auf die negativen ganzen Zahlen 
+ungeraden natÃ¼rlichen Zahlen werden auf die negativen ganzen Zahlen 
 abgebildet, die geraden Zahlen aus $\N$ werden auf die positiven
 ganzen Zahlen abgebildet und deshalb ist $W_f = \Z$.
 
-Weiterhin ist $f$ auch injektiv, denn aus\footnote{Für die Definition
+Weiterhin ist $f$ auch injektiv, denn aus\footnote{FÃ¼r die Definition
 der Funktion $\lceil \cdot \rceil$ siehe Definition \ref{floorceil}.}
 $(-1)^{a_1} \lceil \frac{a_1}{2} \rceil = (-1)^{a_2}
 \lceil \frac{a_2}{2} \rceil$ folgt, dass entweder $a_1$ und $a_2$
-gerade oder $a_1$ und $a_2$ ungerade, denn sonst würden auf der linken
+gerade oder $a_1$ und $a_2$ ungerade, denn sonst wÃ¼rden auf der linken
 und rechten Seite der Gleichung unterschiedliche Vorzeichen
 auftreten. Ist $a_1$ gerade und $a_2$ gerade, dann gilt
 $\lceil \frac{a_1}{2} \rceil = \lceil \frac{a_2}{2} \rceil$ und auch
@@ -484,12 +484,12 @@ d.h.~$D_f = \N$.
 \subsubsection{Permutationen}
 \label{Permutationen}
 Eine bijektive Funktion $\pi \colon S \rightarrow S$
-heißt \dindex{Permutation}\index{$\pi$}. Das bedeutet, dass die
+heiÃŸt \dindex{Permutation}\index{$\pi$}. Das bedeutet, dass die
 Funktion $\pi$ Elemente aus $S$ wieder auf Elemente aus $S$ abbildet,
-wobei für jedes $b \in S$ ein $a \in S$ mit $f(a) = b$ existiert
-(Surjektivität) und falls $f(a_1) = f(a_2)$ gilt, dann ist $a_1 = a_2$
-(Injektivität). Besonders häufig werden in der
-Informatik \emph{Permutationen von endlichen Mengen} benötigt.
+wobei fÃ¼r jedes $b \in S$ ein $a \in S$ mit $f(a) = b$ existiert
+(SurjektivitÃ¤t) und falls $f(a_1) = f(a_2)$ gilt, dann ist $a_1 = a_2$
+(InjektivitÃ¤t). Besonders hÃ¤ufig werden in der
+Informatik \emph{Permutationen von endlichen Mengen} benÃ¶tigt.
 
 Sei nun $S = \set{\range{1}{n}}$ eine endliche Menge und
 $\pi \colon \set{\range{1}{n}} \rightarrow \set{\range{1}{n}}$ eine
@@ -506,10 +506,10 @@ Hilfe einer Matrix aufschreiben:
 \end{displaymath}
 Durch diese Notation wird klar, dass das Element $1$ der Menge $S$
 durch das Element $\pi(1)$ ersetzt wird, das Element $2$ wird mit
-$\pi(2)$ vertauscht und allgemein das Element $i$ durch $\pi(i)$ für
+$\pi(2)$ vertauscht und allgemein das Element $i$ durch $\pi(i)$ fÃ¼r
 $1 \le i \le n$. In der zweiten Zeile dieser Matrixnotation findet
-sich also \emph{jedes} (Surjektivität) Element der Menge $S$
-genau \emph{einmal} (Injektivität).
+sich also \emph{jedes} (SurjektivitÃ¤t) Element der Menge $S$
+genau \emph{einmal} (InjektivitÃ¤t).
 
 \begin{example}
 Sei $S = \set{\range{1}{3}}$ eine Menge mit drei Elementen. Dann gibt
@@ -564,7 +564,7 @@ es, wie man ausprobieren kann, genau $6$ Permutationen von $S$:
 
 \begin{theorem}
 Sei $S$ eine endliche Menge mit $n = |S|$, dann gibt es genau $n!$
-(Fakultät) verschiedene Permutationen von $S$.
+(FakultÃ¤t) verschiedene Permutationen von $S$.
 \end{theorem}
 
 \begin{proof}
@@ -582,16 +582,16 @@ aufgeschrieben werden. Damit ergibt sich die Anzahl der Permutationen
 von $S$ durch die Anzahl der verschiedenen zweiten Zeilen solcher
 Matrizen. In jeder solchen Zeile muss jedes der $n$ Elemente von $S$
 genau einmal vorkommen, da $\pi$ eine bijektive Abbildung ist,
-d.h.~wir haben für die erste Position der zweiten Zeile der
-Matrixdarstellung genau $n$ verschiedene Möglichkeiten, für die zweite
-Position noch $n - 1$ und für die dritte noch $n-2$. Für die $n$-te
-Position bleibt nur noch $1$ mögliches Element aus $S$
-übrig\footnote{Dies kann man sich auch als die Anzahl der
-verschiedenen Möglichkeiten vorstellen, die bestehen, wenn man aus
+d.h.~wir haben fÃ¼r die erste Position der zweiten Zeile der
+Matrixdarstellung genau $n$ verschiedene MÃ¶glichkeiten, fÃ¼r die zweite
+Position noch $n - 1$ und fÃ¼r die dritte noch $n-2$. FÃ¼r die $n$-te
+Position bleibt nur noch $1$ mÃ¶gliches Element aus $S$
+Ã¼brig\footnote{Dies kann man sich auch als die Anzahl der
+verschiedenen MÃ¶glichkeiten vorstellen, die bestehen, wenn man aus
 einer Urne mit $n$ numerierten Kugeln alle Kugeln \emph{ohne}
-Zurücklegen nacheinander zieht.}. Zusammengenommen haben wir also
+ZurÃ¼cklegen nacheinander zieht.}. Zusammengenommen haben wir also
 $n \cdot (n - 1) \cdot (n - 2) \cdot (n - 3) \multdots 2 \cdot
-1 = n!$ verschiedene mögliche Permutationen der Menge $S$.
+1 = n!$ verschiedene mÃ¶gliche Permutationen der Menge $S$.
 \qed
 \end{proof}
 
