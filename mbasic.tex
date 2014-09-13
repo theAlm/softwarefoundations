@@ -2,6 +2,8 @@
 
 % 20140311001 Change
 
+\usepackage{palatino,eulervm}
+
 \usepackage{german}
 \usepackage{fontspec}
 \usepackage{polyglossia}
@@ -15,7 +17,7 @@
 \usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage[dvipdfm]{geometry}
-\usepackage{fancyhdr}
+\usepackage{scrlayer-scrpage}
 \usepackage{script}
 \usepackage{multicol}
 \usepackage{color}
@@ -70,26 +72,17 @@
 % Seitenaufteilung
 \geometry{top=2.5cm, left=3.25cm, right=3.25cm, bottom=3.0cm}
 
-% Suchpfad fr Graphiken
+% Suchpfad fuer Graphiken
 \graphicspath{{pics/}}
 
-\renewcommand{\sectionmark}[1]{\markboth{\bf\boldmath\thesection\ #1}{}}
-\renewcommand{\subsectionmark}[1]{\markright{\thesubsection\ #1}}
-\lhead[\fancyplain{}{\thepage}]{\fancyplain{}{\rightmark}}
-\chead[\fancyplain{}{}]{\fancyplain{}{}}
-\rhead[\fancyplain{}{\leftmark}]{\fancyplain{}{\thepage}}
-\lfoot[\fancyplain{}{}]{\fancyplain{}{}}
-\cfoot[\fancyplain{}{}]{\fancyplain{}{}}
-\rfoot[\fancyplain{}{}]{\fancyplain{}{}}
-
-\fancypagestyle{plain}{
-    \fancyhead{}
-    \renewcommand{\headrulewidth}{0pt}
-}
-
-% Aufzhlung mit (i), (ii), (iii), (iv) usw.
-%\renewcommand{\theenumi}{\roman{enumi}}
-%\renewcommand{\labelenumi}{(\theenumi)}
+%scrlayer-scrpage
+\automark[subsection]{section}
+\lofoot[]{}
+\cofoot[]{\pagemark}
+\rofoot[]{}
+\refoot[]{}
+\cefoot[]{\pagemark}
+\lefoot[]{}
 
 % Definitionen für die Titelseite
 \newcommand{\docutyp}{Skript}
@@ -108,13 +101,9 @@
 \newcommand{\email}{Steffen.Reith@hs-rm.de}
 \newcommand{\writtendate}{August 2006}
 
-%\linenumbers
-
-%
-
 \begin{document}
 
-\pagestyle{empty}
+\pagestyle{scrplain}
 
 \begin{titlepage}
 
@@ -157,7 +146,6 @@
 
 \cleardoublepage
 
-\thispagestyle{empty}
 \vspace{0.3\textheight} 
 \begin{raggedleft}
 Wenn Leute nicht glauben, dass Mathematik\\
@@ -209,8 +197,8 @@ weitere Verbesserungsvorschläge angewiesen.
 \cleardoublepage
 
 % Seitenstil (Fuss- und Kopfzeilen)
-\pagestyle{headings}
-\pagestyle{fancy}
+\pagestyle{scrheadings}
+
 \pagenumbering{arabic}
 	
 %%%%%%%%%%%%%%%%%%%%%%%%% Sektion 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
