@@ -426,18 +426,18 @@ Einfacher formuliert: wir sollen zeigen, dass $\sum\limits_{i=1}^n i^2 =
 \frac{n(n+1)(2n+1)}{6}$.
 \induproof%
 {Eine Pyramide der Höhe $n = 1$ enthält $\frac{1 \cdot 2 \cdot 3}{6} =
-  1$ Kugel. D.h.~wir haben die Eigenschaft für $n = 1$ verifiziert.}%
+  1$ Kugel, d.h.~wir haben die Eigenschaft für $n = 1$ verifiziert.}%
 {Für $k \le n$ gilt $\sum\limits_{i=1}^k i^2 = \frac{k(k+1)(2k+1)}{6}$.}%
 {%
 Wir müssen nun zeigen, dass $\sum\limits_{i=1}^{n+1} i^2 =
 \frac{(n+1)((n+1)+1)(2(n+1)+1)}{6}$ gilt und dabei muss die
 Induktionsvoraussetzung $\sum\limits_{i=1}^n i^2 = \frac{n(n+1)(2n+1)}{6}$
-benutzt werden.  
+benutzt werden. Es ergeben sich die folgenden Schritte: 
 
 \begin{displaymath}
 \begin{array}{rcl}
 \sum\limits_{i=1}^{n+1}i^2 &=& \sum\limits_{i=1}^{n}i^2 + (n + 1)^2\\
-&\stackrel{\text{\textbf{\textsf{IV}}}}{=}& \frac{n(n+1)(2n+1)}{6} +
+&\stackrel{\text{\textbf{\textsf{(IV)}}}}{=}& \frac{n(n+1)(2n+1)}{6} +
 (n^2 + 2n + 1)\\
 &=& \frac{2n^3 + 3n^2+n}{6} + (n^2 + 2n + 1)\\
 &=& \frac{2n^3 + 9n^2+13n + 6}{6}\\
@@ -507,8 +507,9 @@ immer wieder auf.
 /Dest [ @thispage /FitH @ypos ] >>}
 \subsubsection{Induktive Definitionen}
 
-Das Induktionsprinzip kann aber auch dazu verwendet werden,
-(Daten-)Strukturen formal zu spezifizieren. Dazu werden in einem
+Das Induktionsprinzip kann man aber auch dazu verwenden,
+(Daten-)Strukturen formal zu spezifizieren. Diese macht diese Technik für Anwendungen
+in der Informatik besonders interessant. Dazu werden in einem
 ersten Schritt ($\triangleq$ Induktionsanfang) die "`atomaren"'
 Objekte definiert und dann in einem zweiten Schritt die
 zusammengesetzten Objekte ($\triangleq$ Induktionsschritt). Diese
