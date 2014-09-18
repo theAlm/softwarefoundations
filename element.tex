@@ -25,7 +25,10 @@ die Abkürzung \gdw\index{gdw=gdw.} um Schreibarbeit zu sparen.
 (Elementbeziehung und Enthaltenseinsrelation) 
 /Dest [ @thispage /FitH @ypos ] >>}
 \subsubsection{Die Elementbeziehung und die Enthaltenseinsrelation}
-
+Sehr oft werden einfache große lateinische Buchstaben wie $N$, $M$, $A$, $B$ oder $C$ 
+als Symbole für Mengen verwendet und kleine Buchstaben für die Elemente einer Menge.
+Mengen von Mengen notiert man gerne mit kalligraphischen Buchstaben wie $\mathcal{A}$, 
+$\mathcal{B}$ oder $\mathcal{M}$.
 \begin{definition}
 \label{InclSet}
 Sei $M$ eine beliebige Menge, dann ist
@@ -37,7 +40,7 @@ $M$\index{$\in$},
 \item $a \not\in M$ \gdw\ $a$ ist kein Element der Menge $M$\index{$\not\in$},
 %
 \item $M \subseteq N$ \gdw\ aus $a \in M$ folgt $a \in N$ ($M$ ist
-Teilmenge von $N$)\index{$\subseteq$},
+\dindex{Teilmenge}\index{Menge!Teil-} von $N$)\index{$\subseteq$},
 %
 \item $M \not\subseteq N$ \gdw\ es gilt nicht $M \subseteq
 N$. Gleichwertig: es gibt ein $a \in M$ mit $a \not\in N$ ($M$ ist
@@ -83,16 +86,16 @@ $\set{a \colon E(a)}$ verwendet.
   \item $\mathbb{B} \eqd \set{0,1}$
   %  
   \item $\N \eqd \set{0, 1, 2, 3, 4, 5, 6, 7, 8, \dots}$ (Menge der
-  natürlichen Zahlen)\index{$\N$}
+  \dindex{natürlichen Zahlen}\index{Zahlen!natürlich})\index{$\N$}
   %
   \item $\Z \eqd \set{\dots, -4, -3, -2, -1, 0, 1, 2, 3, 4, \dots}$
-  (Menge der ganzen Zahlen)\index{$\Z$}
+  (Menge der \dindex{ganzen Zahlen}\index{Zahlen!ganz})\index{$\Z$}
   %
   \item $2\Z \eqd \set{0, \pm 2, \pm 4, \pm 6, \pm 8, \dots}$
   (Menge der geraden ganzen Zahlen)\index{$2\Z$}
   %
   \item $\PRIM \eqd \set{2, 3, 5, 7, 11, 13, 17, 19, \dots}$
-  (Menge der Primzahlen)\index{$\PRIM$}
+  (Menge der \dindex{Primzahlen})\index{$\PRIM$}
   %
 \end{itemize}
 %
@@ -125,19 +128,19 @@ Seien $A$ und $B$ beliebige Mengen, dann ist
 \begin{itemize}
 %
 \item $A \cap B \eqd \set{a \mid a \in A \text{ und } a \in B}$
-(Schnitt von $A$ und $B$)\index{$\cap$},
+(\dindex{Schnitt}\index{Menge!Schnitt-} von $A$ und $B$)\index{$\cap$},
 %
 \item $A \cup B \eqd \set{a \mid a \in A \text{ oder } a \in B}$
-(Vereinigung von $A$ und $B$)\index{$\cup$},
+(\dindex{Vereinigung}\index{Menge!Vereinigung-} von $A$ und $B$)\index{$\cup$},
 %
 \item $A \setminus B \eqd \set{a \mid a \in A \text{ und } a
-\not\in B}$ (Differenz von $A$ und $B$)\index{$\setminus$},
+\not\in B}$ (\dindex{Differenz}\index{Menge!Differenz-} von $A$ und $B$)\index{$\setminus$},
 %
-\item $\overline{A} \eqd M \setminus A$ (Komplement von $A$ 
+\item $\overline{A} \eqd M \setminus A$ (\dindex{Komplement}\index{Menge!Komplement-} von $A$ 
 bezüglich einer festen Grundmenge $M$)\index{$\overline{A}$} und
 %
-\item $\PowerSet{A} \eqd \set{B \mid B \subseteq A}$ (Potenzmenge von
-$A$)\index{$\PowerSet{A}$}.
+\item $\PowerSet{A} \eqd \set{B \mid B \subseteq A}$ 
+(\dindex{Potenzmenge}\index{Menge!Potenz-} von $A$)\index{$\PowerSet{A}$}.
 %
 \end{itemize}
 Zwei Mengen $A$ und $B$ mit $A \cap B = \emptyset$ nennt
@@ -210,7 +213,7 @@ Oft benötigt man eine Verknüpfung von zwei Mengen, eine solche
 Verknüpfung wird allgemein wie folgt definiert:
 
 \begin{definition}["`Verknüpfung von Mengen"']
-Seien $A$ und $B$ zwei beliebige Mengen und "`$\odot$"' eine beliebige
+Seien $A$ und $B$ zwei Mengen und "`$\odot$"' eine beliebige
 Verknüpfung zwischen den Elementen dieser Mengen, dann definieren wir
 \begin{displaymath}
 A \odot B \eqd \set{a \odot b \mid a \in A \text{ und } b \in B}.
@@ -268,7 +271,7 @@ Kreuzprodukt von $A$ und $B$ die Menge von Paaren $A \times B =
 \subsubsection{Die Anzahl von Elementen in Mengen}
 \label{cntSet}
 Sei $A$ eine Menge, die endlich viele Elemente\footnote{Solche Mengen
-werden als \dindex{endliche Mengen}\index{Menge!endlich} bezeichnet.}
+werden als \dindex{endliche Mengen}\index{Menge!endliche} bezeichnet.}
 enthält, dann ist
 \begin{displaymath}
 \cnt A \eqd \text{Anzahl der Elemente in der Menge $A$}.

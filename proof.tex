@@ -108,7 +108,7 @@ Marker abzuschließen.  Besonders bekannt ist hier
 lateinische Floskel "`quod erat demonstrandum"', die mit "`was zu
 beweisen war"' übersetzt werden kann. In neuerer Zeit werden statt
 "`$\mathrm{qed}$"' mit der gleichen Bedeutung meist die Symbole
-"`$\Box$"' oder "`$\#$"' \index{$\#$}\index{$\Box$}\index{qed}
+"`$\Box$"' oder "`$\#$"' \index{$\#$}\index{$\Box$}
 verwendet.
 
 Nun stellt sich die Frage: "`Wie formal und ausführlich muss ein
@@ -516,7 +516,7 @@ zusammengesetzten Objekte ($\triangleq$ Induktionsschritt). Diese
 Technik ist als \dindex{induktive Definition} bekannt.
 
 \begin{example}
-\noindent Die Menge der binären Bäume ist wie folgt definiert:
+\noindent Die Menge der \emph{binären Bäume} ist wie folgt definiert:
 
 \medskip
 
@@ -529,7 +529,7 @@ Technik ist als \dindex{induktive Definition} bekannt.
 
 \begin{example}
 \label{induexp}
-\noindent Die Menge der arithmetischen Ausdrücke ist wie folgt definiert:
+\noindent Die Menge der \emph{arithmetischen Ausdrücke} ist wie folgt definiert:
 
 \medskip
 
@@ -541,12 +541,12 @@ und $[E]$ Ausdrücke. Nichts sonst ist ein Ausdruck.}
 
 \noindent D.h.~$x$, $x+y$, $[2*x + z]$ sind arithmetische Ausdrücke,
 aber beispielsweise sind $x + $, $yy$, $][x+y$ sowie $x +* z$ keine
-Ausdrücke im Sinn dieser Definition.
+arithmetischen Ausdrücke im Sinn dieser Definition.
 \end{example}
 
 \begin{example}
 \label{indubool}
-\noindent Die Menge der aussagenlogischen Formeln ist wie folgt definiert:
+\noindent Die Menge der \emph{aussagenlogischen Formeln} ist wie folgt definiert:
 
 \medskip
 
@@ -558,9 +558,10 @@ aussagenlogische Formeln. Nichts sonst ist eine Formel.}
 \end{example}
 
 Bei diesen Beispielen ahnt man schon, dass solche Techniken zur
-präzisen Definition von Programmiersprachen und Dateiformaten gute
-Dienste leisten. Induktive Definitionen haben noch einen weiteren
-Vorteil, denn man kann oft relativ leicht Induktionsbeweise konstruieren, die 
+präzisen und eleganten Definition von Programmiersprachen und Dateiformaten gute
+Dienste leisten. Es zeigt sich, dass die im Compilerbau verwendeten Chomsky-Grammatiken 
+eine andere Art von induktiven Definitionen darstellen.  Darüber hinaus bieten induktive Definitionen  
+noch weitere Vorteile, denn man kann oft relativ leicht Induktionsbeweise konstruieren, die  
 Aussagen über induktiv definierte Objekte belegen / beweisen.
 
 \special{pdf: out 4 << /Title 
