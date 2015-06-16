@@ -486,15 +486,18 @@ d.h.~$D_f = \N$.
 /Dest [ @thispage /FitH @ypos ] >>}
 \subsubsection{Permutationen}
 \label{Permutationen}
-Sein $S$ eine beliebige endliche Menge, dann heißt eine bijektive Funktion $\pi$ der Form 
+Sei $S$ eine beliebige endliche Menge, dann heißt eine bijektive Funktion $\pi$ der Form 
 $\pi \colon S \rightarrow S$ \dindex{Permutation}\index{$\pi$}. Das bedeutet, dass die
 Funktion $\pi$ Elemente aus $S$ wieder auf Elemente aus $S$ abbildet,
 wobei für jedes $b \in S$ ein $a \in S$ mit $f(a) = b$ existiert
 (Surjektivität) und falls $f(a_1) = f(a_2)$ gilt, dann ist $a_1 = a_2$
-(Injektivität). Besonders häufig werden in der
-Informatik \emph{Permutationen von endlichen Mengen} benötigt.
+(Injektivität).
 
-Sei nun $S = \set{\range{1}{n}}$ eine endliche Menge und
+\begin{remark}
+ Man kann den Permutationsbegriff auch auf unendliche Mengen erweitern, aber besonders häufig werden in der Informatik \emph{Permutationen von endlichen Mengen} benötigt. Aus diesem Grund sollen hier nur endliche Mengen $S$ betrachtet werden.
+\end{remark}
+
+Sei nun $S = \set{\range{1}{n}}$ (eine endliche Menge) und
 $\pi \colon \set{\range{1}{n}} \rightarrow \set{\range{1}{n}}$ eine
 Permutation. Permutationen dieser Art kann man sehr anschaulich mit
 Hilfe einer Matrix aufschreiben:
