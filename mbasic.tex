@@ -24,7 +24,7 @@
 \usepackage{enumerate}
 %\usepackage{lineno}
 %\usepackage{ifpdf}
-\usepackage[nofancy]{svninfo}
+\usepackage{gitinfo}
 \usepackage{wrapfig}
 \usepackage{subfig}
 \usepackage{bibgerm}
@@ -95,8 +95,6 @@
 \newcommand{\lecturer}{Prof.~Dr.~Steffen Reith}
 \newcommand{\lectureremail}{\href{mailto:Steffen.Reith@hs-rm.de}{Steffen.Reith@hs-rm.de}}
 
-\svnInfo $Id$
-
 \newcommand{\writer}{Steffen Reith}
 \newcommand{\reviser}{Steffen Reith}
 \newcommand{\email}{Steffen.Reith@hs-rm.de}
@@ -134,12 +132,12 @@
 		\vfill			
 		\vspace{20pt}
 		\begin{tabular}[t]{rl}
-			Erstellt von: & {\writer}\\
-                        Zuletzt bearbeitet von: & {\reviser}\\
-			Email: & {\email}\\
+			Erstellt von: & {\gitAuthor}\\
+                        Zuletzt bearbeitet von: & {\gitCommiter}\\
+			Email: & {\gitAuthorEMail}\\
 			Erste Version vollendet: & {\writtendate}\\
-			Version: & {\svnInfoRevision}\\
-			Letzte Änderung: & {\svnInfoDate}\\
+			Version: & {\gitAbbrevHash}\\
+			Letzte Änderung: & {\gitAuthorIsoData}\\
 		\end{tabular}
 	\end{center}
 	\newpage
