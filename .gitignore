@@ -1,0 +1,11 @@
+*.aux
+mbasic.bbl
+mbasic.blg
+mbasic.idx
+mbasic.ilg
+mbasic.ind
+mbasic.log
+mbasic.pdf
+mbasic.thm
+mbasic.toc
+
