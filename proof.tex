@@ -1,9 +1,7 @@
-\special{pdf: out 2 << /Title 
-(Einige formale Grundlagen von Beweistechniken) 
-/Dest [ @thispage /FitH @ypos ] >>}
-\section{Einige formale Grundlagen von Beweistechniken}
-\label{sec:proof}
-Praktisch arbeitende Informatiker glauben oft völlig ohne (formale)
+\special{pdf: out 2 << /Title (Einige formale Grundlagen von
+Beweistechniken) /Dest [ @thispage /FitH @ypos ] >>} \section{Einige
+formale Grundlagen von Beweistechniken} \label{sec:proof} Praktisch
+arbeitende Informatiker glauben oft völlig ohne (formale)
 Beweistechniken auskommen zu können. Dabei meinen sie sogar, dass
 formale Beweise keinerlei Berechtigung in der Praxis der Informatik
 haben und bezeichnen solches Wissen als "`in der Praxis irrelevantes
@@ -11,13 +9,19 @@ Zeug, das nur von und für seltsame Wissenschaftler erfunden
 wurde"'. Studenten in den ersten Semestern unterstellen sogar oft,
 dass mathematische Grundlagen und Beweistechniken nur als "`Filter"'
 dienen, um die Anzahl der Studenten zu reduzieren. Oft stellen sich
-beide Gruppen auf den Standpunkt, dass die Korrektheit von
-Programmen und Algorithmen durch "`Lassen wir es doch mal laufen und
-probieren es aus!"' ($\triangleq$ Testen) belegt werden könne. Diese
-Einstellung zeigt sich oft auch darin, dass Programme mit Hilfe einer
-IDE schnell "`testweise"' übersetzt werden, in der Hoffnung oder
-(schlimmer) in der Überzeugung, dass ein übersetzbares Programm immer
-auch semantisch korrekt sei.
+beide Gruppen auf den Standpunkt, dass die Korrektheit von Programmen
+und Algorithmen durch "`Lassen wir es doch mal laufen und probieren es
+aus!"' ($\triangleq$ Testen) belegt werden könne\footnote{Diese
+Bemerkung ist natürlich etwas polemisch, da Testen natürlich die
+Qualität einer Software verbessert. Weiterhin werden solche Test
+systematisch durchgeführt und haben eine ganz andere Qualität als
+"`herumprobieren"'.}. Diese Einstellung zeigt sich oft auch darin,
+dass Programme mit Hilfe einer IDE schnell "`testweise"' übersetzt
+werden, in der Hoffnung oder (wesentlich schlimmer) in der
+Überzeugung, dass jedes übersetzbare Programm ($\triangleq$
+syntaktisch korrekt) automatisch auch semantisch korrekt ist. Das
+diese Einstellung völlig falsch ist zeigen Myriaden in der Praxis
+auftretende Softwarefehler eindrücklich.
 
 Theoretiker, die sich mit den Grundlagen der Informatik beschäftigen,
 vertreten oft den Standpunkt, dass die Korrektheit \emph{jedes}
@@ -49,10 +53,10 @@ einer verschachtelten Rekursion), so ist es unwahrscheinlich, eine
 korrekte Implementation an den Kunden liefern zu können, ohne die
 Hintergründe ($\triangleq$ Beweis) verstanden zu haben. All dies
 zeigt, dass auch ein praktischer Informatiker Einblicke in
-Beweistechniken haben sollte. Interessanterweise zeigt die persönliche Erfahrung im
-praktischen Umfeld auch, dass solches (theoretisches) Wissen über die
-Hintergründe oft zu klarer strukturierten und effizienteren Programmen
-führt.
+Beweistechniken haben sollte. Interessanterweise zeigt die persönliche
+Erfahrung im praktischen Umfeld auch, dass solches (theoretisches)
+Wissen über die Hintergründe oft zu klarer strukturierten und
+effizienteren Programmen führt.
 
 Aus diesen Gründen sollen in den folgenden Abschnitten einige
 grundlegende Beweistechniken mit Hilfe von Beispielen (unvollständig)
