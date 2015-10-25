@@ -379,26 +379,52 @@ Für $a = b = 2$ gilt $a \textrm{ mod } b = b \textrm{ mod } a = 0$. \qed
 (Induktionsbeweise und das Induktionsprinzip)
 /Dest [ @thispage /FitH @ypos ] >>}
 \subsection{Induktionsbeweise und das Induktionsprinzip}
-Eine der wichtigsten und nützlichsten Beweismethoden in der Informatik bzw.~Mathematik
-ist das \dindex{Induktionsprinzip}. Wir wollen jetzt nachweisen, dass
-für jedes $n \in \N$ eine bestimmte Eigenschaft $E$ gilt. Wir
-schreiben kurz $E(n)$ für die Aussage "`$n$ besitzt die Eigenschaft
-$E$"'. Mit der Schreibweise $E(0)$ drücken\footnote{Mit $E$ wird also
-ein Prädikat bezeichnet (siehe Abschnitt \ref{MengenDef})} wir also
-aus, dass die erste natürliche Zahl $0$ die Eigenschaft $E$ besitzt.
+
+Sei nun eine Menge von natürlichen Zahlen $X$ mit den folgenden zwei Eigenschaften
+gegeben:
+
+\medskip
+
+\indudef{$0 \in X$}{Ist eine beliebige natürliche Zahl $n$ ein Element von $X$, so ist auch 
+die Zahl $n+1$ ein Element von $X$.}
+
+\medskip
+
+Man kann sich nun leicht überlegen, dass dann $X$ alle natürlichen Zahlen enthält, d.h.~es 
+gilt $X = \N$. Mit Hilfe dieser Beobachtung konstruieren wir eine der nützlichsten 
+Beweismethoden in der Informatik bzw.~Mathematik: Das \dindex{Induktionsprinzip} 
+bzw.~die Methode des \dindex{Induktionsbeweises}. Die Idee funktioniert mit folgender
+Beobachtung:
+
+
+\begin{quote}
+Angenommen man kann nachweisen, dass $0$ die Eigenschaft 
+$E$ hat\footnote{Mit $E$ wird also ein Prädikat oder Aussagenform bezeichnet (siehe Abschnitt 
+\ref{MengenDef})} (kurz: $E(0)$) und weiterhin, dass wenn $n$ die Eigenschaft $E$ hat, dann gilt auch 
+$E(n+1)$. Ist dies der Fall, so muss jede natürliche Zahl die Eigenschaft $E$ haben. 
+\end{quote}
+
+Im Folgenden wollen wir nachweisen, dass für jedes $n \in \N$ eine bestimmte Eigenschaft $E$ gilt. Wir
+schreiben also abkürzend $E(n)$ für die Aussage "`$n$ besitzt die Eigenschaft
+$E$"', d.h.~der Schreibweise $E(0)$ drücken wir also
+aus, dass die erste natürliche Zahl $0$ die Eigenschaft $E$ besitzt, dann 
+erhalten wir die folgende Vorgehensweise:
+
+\medskip
 
 \noindent\textbf{Induktionsprinzip:} Es gelten
 \index{Induktion!Prinzip}
 \indudef%
 {$E(0)$}% 
-{Für $n \ge 0$ gilt, wenn $E(k)$ für $k \le n$ korrekt ist,
+{Für $n \ge 0$ gilt, wenn $E(n)$ korrekt ist,
 dann ist auch $E(n+1)$ richtig.}
 \medskip
 
+Sind diese beiden Aussagen erfüllt, so hat jeden natürliche Zahl die Eigenschaft $E$. 
 Dabei ist \textbf{\textsf{IA}} die Abkürzung für
 \dindex{Induktionsanfang} und \textbf{\textsf{IS}} ist die Kurzform von
 \dindex{Induktionsschritt}. Die Voraussetzung ($\triangleq$ Hypothese)
-$E(k)$ ist korrekt für $k \le n$ und wird im Induktionsschritt
+$E(n)$ ist korrekt für $n$ und wird im Induktionsschritt
 als \dindex{Induktionsvoraussetzung} benutzt
 (kurz \textbf{\textsf{IV}}). Hat man also den Induktionsanfang und den
 Induktionsschritt gezeigt, dann ist es anschaulich, dass jede natürliche Zahl die
@@ -456,20 +482,27 @@ Die Zeile $\star$ (bzw.~$\star\star$) ergibt sich, indem man $2n^3 +
 \end{proof}
 \smallskip
 
-\noindent Das Induktionsprinzip kann man auch variieren. Dazu soll nun gezeigt
-werden, dass die Eigenschaft $E$ für alle Zahlen $k \le n$ erfüllt
-ist.
+\noindent Das Induktionsprinzip kann man auch variieren. Dazu geht man davon 
+aus (Induktionsvoraussetzung) , dass die Eigenschaft $E$ für alle Zahlen $k \le n$ 
+erfüllt ist. Obwohl dies auf den ersten Blick wesentlich 
+komplizierter erscheint, vereinfacht dieser Ansatz oft den Beweis:
 
-\noindent\textbf{Verallgemeinertes Induktionsprinzip:} Es gelten 
-\index{Induktion!Prinzip!verallgemeinert}
+\medskip
+
+\goodbreak
+\noindent\textbf{Verallgemeinertes Induktionsprinzip:} Wenn die zwei
+Aussagen\index{Induktion!Prinzip!verallgemeinert} (also Induktionsanfang
+und Induktionsschritt)
+
 \indudef%
 {$E(0)$}% 
 {Wenn für alle $0 \le k \le n$ die Eigenschaft $E(k)$ gilt, dann ist 
-auch $E(n+1)$ richtig.}
+auch $E(n+1)$ richtig,}
 \medskip
 
+gelten, dann haben alle natürliche Zahlen die Eigenschaft $E$.
 Damit ist das verallgemeinerte Induktionsprinzip eine
-Verallgemeinerung des oben vorgestellten Induktionsprinzips, wie das
+Verallgemeinerung des weiter oben vorgestellten Induktionsprinzips, wie das
 folgende Beispiel veranschaulicht:
 
 \begin{theorem}
