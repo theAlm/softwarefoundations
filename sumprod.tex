@@ -35,6 +35,12 @@ folgenden Rechenregeln:
   \sum\limits_{j=1}^m \sum\limits_{i=1}^n a_{i,j}$ (Vertauschen der Summationsfolge).
 %
 \end{itemize}
+Manchmal verwendet man keine Laufindizes an ein Summenzeichen, sondern man beschreibt 
+(durch ein Prädikat) welche Zahlen aufsummiert werden sollen. So kann man eine Funktion definieren,
+die die Summe aller Teiler einer natürlichen Zahl liefert:
+\begin{displaymath}
+\sigma(n) \eqd \sum\limits_{\scriptsize\begin{array}{c}t \le n\\t \text{ teilt } n\end{array}} t
+\end{displaymath}
 
 \special{pdf: out 4 << /Title 
 (Produkte) 
@@ -73,6 +79,12 @@ folgenden Rechenregeln:
   Reihenfolge bei Doppelprodukten).
 %
 \end{itemize}
+Ähnlich wie bei Summen kann man bei Produkten auch ohne Laufindex arbeiten. So ist z.B.~die
+\dindex{Eulersche $\phi$-Funktion} wie folgt definiert:
+\begin{displaymath}
+\phi(n) \eqd n \prod_{p \mid n} (1 - \frac{1}{p})
+\end{displaymath}
+In das Produkt gehen also alle Primteiler $p$ von $n$ mit dem Faktor $1 - 1/p$ ein.
 
 Oft werden Summen- oder Produktsymbole verwendet bei denen der Startindex 
 größer als der Stopindex ist. Solche Summen bzw.~Produkte sind "`leer"', 
