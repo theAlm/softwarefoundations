@@ -18,8 +18,8 @@ sie effiziente Algorithmen besitzen (vgl.~die Abbildungen
 mit der seit über dreißig Jahren offenen $\P\stackrel{?}{=}\NP$-Frage
 zusammen, wahrscheinlich gegenwärtig das wichtigste ungelöste Problem
 der theoretischen Informatik. Es wurde sogar kürzlich auf Platz 1 der
-Liste der so genannten \emph{Millenium Prize Problems} des Clay
-Mathematics Institute gesetzt\footnote{siehe http://www.claymath.org/millennium}.  
+Liste der so genannten \emph{Millennium Prize Problems} des Clay
+Mathematics Institute gesetzt\footnote{siehe \url{http://www.claymath.org/millennium-problems}}.  
 Diese Liste umfasst sieben offene Probleme aus der gesamten
 Mathematik. Das Clay Institute zahlt jedem, der eines dieser Probleme 
 löst, eine Million US-Dollar.
@@ -43,7 +43,7 @@ löst? Um diese Frage beantworten zu können, muss man sich zunächst
 einige Gedanken über die verwendeten Begriffe, nämlich "`Problem"',
 "`Algorithmus"', "`Zeitbedarf"' und "`effizient"', machen.
 
-Was ist ein "`Problem?"' Jedem Programmierer ist diese Frage intuitiv
+Was ist ein "`Problem"'? Jedem Programmierer ist diese Frage intuitiv
 klar: Man bekommt geeignete Eingaben, und das Programm soll die
 gewünschten Ausgaben ermitteln. Ein einfaches Beispiel ist das Problem
 MULT. (Jedes Problem soll mit einem eindeutigen Namen versehen und
@@ -172,7 +172,7 @@ können. Offensichtlich ist die \emph{Eingabe} der Parameter, von dem
 die Rechenzeit für einen festen Algorithmus abhängt. In den
 vergangenen Jahrzehnten, in denen das Gebiet der Analyse von
 Algorithmen entstand, hat die Erfahrung gezeigt, dass die Länge der
-Eingabe, also die Anzahl der Bits die benötigt werden, um die Eingabe
+Eingabe, also die Anzahl der Bits, die benötigt werden um die Eingabe
 zu speichern, ein geeignetes und robustes Maß ist, in der die
 Rechenzeit gemessen werden kann. Auch der Aufwand, die Eingabe selbst
 festzulegen (zu konstruieren), hängt schließlich von ihrer Länge ab,
@@ -237,7 +237,7 @@ $\mathrm{Farbe}[1] = 1$\;
   aktKompoBearbeiten = \texttt{false}\;
   \For{$($$i = 1$ $\mathrm{to}$ $n$$)$}{
     \For{$($$j = 1$ $\mathrm{to}$ $n $$)$}{
-      \tcc*[f]{Kante bei der ein Knoten noch nicht gefärbt?}
+      \tcc*[f]{Kante mit noch ungefärbten Knoten?}
 
       \If{$(($$(v_i,v_j) \in E$$)$ und $(\mathrm{Farbe}[i] \not= 0$$)$ und 
           $(\mathrm{Farbe}[j] = 0$$))$}{
@@ -260,7 +260,7 @@ $\mathrm{Farbe}[1] = 1$\;
       }
     }
   }
-  \tcc*[f]{Ist die aktuelle Zusammenhangkomponente völlig gefärbt?}
+  \tcc*[f]{Ist die aktuelle Zusammenhangskomponente völlig gefärbt?}
 
   \If{$(\mathrm{not(aktKompoBearbeiten)})$}{
     $i = 1$\;
@@ -532,7 +532,7 @@ Probleme, die wahrscheinlich nicht im obigen Sinne effizient
 (effizient) gelöst werden könnten. In der Praxis würde uns ein
 derartiger paralleler Algorithmus auch nichts nützen, da man einen
 Rechner mit exponentiell vielen Prozessoren, also enormem
-Hardwareaufwand, zu konstruieren hätten. Also muss auch dieses
+Hardwareaufwand, zu konstruieren hätte. Also muss auch dieses
 Berechnungsmodell wieder etwas schwächer gemacht werden.
 
 Eine Abschwächung der gerade untersuchten Idee des Parallelrechners
@@ -633,7 +633,7 @@ $3\mathrm{COL}$-Problems (vgl.~Algorithmus \ref{TestCOL}).
 \end{algorithm}
 
 Dieser nichtdeterministische Algorithmus läuft in Polynomialzeit, denn
-man benötigt für einen Graphen mit $n$ Knoten mindestens $n$ Bits um
+man benötigt für einen Graphen mit $n$ Knoten mindestens $n$ Bits, um
 ihn zu speichern (kodieren), und der Algorithmus braucht im
 schlechtesten Fall $O(n)$ (Ratephase) und $O(n^2)$
 (Überprüfungsphase), also insgesamt $O(n^2)$ Takte Zeit.  Damit ist
@@ -751,7 +751,7 @@ relevant.
 Nachdem nun ein Vergleichsbegriff für die Schwierigkeit von Problemen
 aus $\NP$ gefunden wurde, kann auch definiert werden, was unter einem
 "`schwierigsten"' Problem in $\NP$ zu verstehen ist. Ein Problem $C$
-ist ein schwierigstes Problem $\NP$, wenn alle anderen Probleme in
+ist ein schwierigstes Problem in $\NP$, wenn alle anderen Probleme in
 $\NP$ höchstens so schwer wie $C$ sind. Formaler ausgedrückt sind dazu
 zwei Eigenschaften von $C$ nachzuweisen:
 
@@ -791,7 +791,7 @@ zeigen, dass für alle Probleme aus $\NP$ -- und damit unendlich viele
 -- gilt, dass sie höchstens so schwer sind wie das zu untersuchende
 Problem, und damit scheint man der Schwierigkeit beim Nachweis unterer
 Schranken nicht entgangen zu sein. Dennoch konnten der russische
-Mathematiker Leonid Levin und der amerikanische Mathematiker Stephan
+Mathematiker Leonid Levin und der amerikanische Mathematiker Stephen
 Cook Anfang der siebziger Jahre des letzten Jahrhunderts unabhängig
 voneinander die Existenz von solchen $\NP$-vollständigen Problemen
 zeigen. Hat man nun erst einmal \emph{ein} solches Problem
@@ -1084,13 +1084,13 @@ funktionale Abhängigkeiten auf $A$, Teilmenge $A' \subseteq A$}
 %
 \dprob{MP-SCHEDULE \textrm{[SS8]}}
 {Menge $T$ von Tasks, Länge für jede Task, Anzahl $m$ von Prozessoren, 
-Positive Integerzahl $D$ ("`Deadline"')}
+positive Integerzahl $D$ ("`Deadline"')}
 {Gibt es ein $m$-Prozessor-Schedule für $T$ mit Ausführungszeit höchstens
 $D$?}
 %
 \dprob{PREEMPT-SCHEDULE \textrm{[SS12]}}
 {Menge $T$ von Tasks, Länge für jede Task, Präzedenzrelation auf den
-Tasks, Anzahl $m$ von Prozessoren, Positive Integerzahl $D$
+Tasks, Anzahl $m$ von Prozessoren, positive Integerzahl $D$
 ("`Deadline"')}
 {Gibt es ein $m$-Prozessor-Schedule für $T$, das die
 Präzedenzrelationen berücksichtigt und Ausführungszeit höchstens $D$
@@ -1128,7 +1128,7 @@ Garey und Johnson \cite{GaJo79}.
 {Kontextfreie Grammatik $G$, positive Integerzahl $K$ (unär)}
 {Ist die Grammatik $G$ nicht LR($K$)?}
 %
-\dprob{Zwangsbedingungen \textrm{[LO5]}}
+\dprob{ZWANGSBEDINGUNG \textrm{[LO5]}}
 {Menge von Booleschen Constraints, positive Integerzahl $K$}
 {Können mindestens $K$ der Constraints gleichzeitig erfüllt werden?}
 %

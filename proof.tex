@@ -145,7 +145,7 @@ Richtigkeit einer neuen (evtl.~kompliziert wirkenden) Aussage zu belegen.
 \begin{theorem}
 \label{ExpoGTSquare2}
 Sei $n \in \N$ die Summe von $4$ Quadratzahlen, die größer als $0$
-sind, dann ist $2^n \ge n^2$.
+sind, dann muss $2^n \ge n^2$ sein.
 \end{theorem}
 
 \begin{proof}
@@ -163,7 +163,7 @@ sein. Die Aussage folgt direkt aus Satz \ref{ExpoGTSquare}.
 \label{KontraPos}
 Mit Hilfe von direkten Beweisen haben wir Zusammenhänge der Form
 "`Wenn Aussage $H$ richtig ist, dann folgt daraus die Aussage $C$"'
-untersucht. Manchmal ist es schwierig einen Beweis für eine solchen
+untersucht. Manchmal ist es schwierig, einen Beweis für eine solchen
 Zusammenhang zu finden. Völlig gleichwertig ist die Behauptung "`Wenn
 die Aussage $C$ falsch ist, dann ist die Aussage $H$ falsch"' und oft
 ist eine solche Aussage leichter zu zeigen.
@@ -177,7 +177,7 @@ zu der ursprünglichen Aussage von Satz \ref{ExpoGTSquare} gleichwertig ist.
 Diese Technik ist oft besonders hilfreich, wenn man die Richtigkeit
 einer Aussage zeigen soll, die aus zwei Teilaussagen zusammengesetzt
 und die durch ein "`genau dann wenn"'\footnote{Oft wird "`genau dann
-wenn"' durch \emph{\gdw}\index{gdw=\gdw} abgekürzt.} verknüpft sind. In diesem Fall
+wenn"' durch \emph{\gdw}\index{gdw=gdw.} abgekürzt.} verknüpft sind. In diesem Fall
 sind zwei Teilbeweise zu führen, denn zum einen muss gezeigt werden,
 dass aus der ersten Aussage die zweite folgt und umgekehrt muss
 gezeigt werden, dass aus der zweiten Aussage die erste folgt.
@@ -420,13 +420,13 @@ erhalten wir die folgende Vorgehensweise:
 dann ist auch $E(n+1)$ richtig.}
 \medskip
 
-Sind diese beiden Aussagen erfüllt, so hat jeden natürliche Zahl die Eigenschaft $E$. 
+Sind diese beiden Aussagen erfüllt, so hat jede natürliche Zahl die Eigenschaft $E$. 
 Dabei ist \textbf{\textsf{IA}} die Abkürzung für
 \dindex{Induktionsanfang} und \textbf{\textsf{IS}} ist die Kurzform von
 \dindex{Induktionsschritt}. Die Voraussetzung ($\triangleq$ Hypothese)
 $E(n)$ ist korrekt für $n$ und wird im Induktionsschritt
 als \dindex{Induktionsvoraussetzung} benutzt
-(kurz \textbf{\textsf{IV}}). Hat man also den Induktionsanfang und den
+(kurz: \textbf{\textsf{IV}}). Hat man also den Induktionsanfang und den
 Induktionsschritt gezeigt, dann ist es anschaulich, dass jede natürliche Zahl die
 Eigenschaft $E$ haben muss.
 
@@ -483,8 +483,8 @@ Die Zeile $\star$ (bzw.~$\star\star$) ergibt sich, indem man $2n^3 +
 \smallskip
 
 \noindent Das Induktionsprinzip kann man auch variieren. Dazu geht man davon 
-aus (Induktionsvoraussetzung) , dass die Eigenschaft $E$ für alle Zahlen $k \le n$ 
-erfüllt ist. Obwohl dies auf den ersten Blick wesentlich 
+aus, dass die Eigenschaft $E$ für alle Zahlen $k \le n$ 
+erfüllt ist (Induktionsvoraussetzung). Obwohl dies auf den ersten Blick wesentlich 
 komplizierter erscheint, vereinfacht dieser Ansatz oft den Beweis:
 
 \medskip
@@ -546,7 +546,7 @@ wichtige Rolle.
 \subsubsection{Induktive Definitionen}
 
 Das Induktionsprinzip kann man aber auch dazu verwenden,
-(Daten-)Strukturen formal zu spezifizieren. Diese macht diese Technik für Anwendungen
+(Daten-)Strukturen formal zu spezifizieren. Dies macht diese Technik für Anwendungen
 in der Informatik besonders interessant. Dazu werden in einem
 ersten Schritt ($\triangleq$ Induktionsanfang) die "`atomaren"'
 Objekte definiert und dann in einem zweiten Schritt die
