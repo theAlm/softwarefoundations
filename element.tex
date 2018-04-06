@@ -475,6 +475,31 @@ Damit ist die Funktion $f$ bijektiv. Weiterhin ist $f$ auch total,
 d.h.~$D_f = \N$.
 \end{example}
 
+\begin{definition}
+Unter einem $n$-stelligen \dindex{Operator} $f$ (auf der Menge $Y$) versteht man in der Mathematik eine Funktion der Form $f \colon Y^n \rightarrow Y$.  Einfache Beispiele für zweistellige Operatoren sind der Additions- oder Multiplikationsoperator.
+\end{definition}
+
+\special{pdf: out 4 << /Title 
+	(Permutationen) 
+	/Dest [ @thispage /FitH @ypos ] >>}
+\subsubsection{Hüllenoperatoren}
+
+\begin{definition}
+Sei $X$ eine Menge. Ein einstelliger Operator $\Psi \colon \PowerSet{X} \rightarrow \PowerSet{X}$ heißt \dindex{Hüllenoperator}\index{Operator!Hüllen}, wenn er die folgenden drei Eigenschaften erfüllt:
+
+\begin{description}
+%
+\item[Einbettung:] für alle $A \in \PowerSet{X}$ gilt $A \subseteq \Psi(A))$
+%
+\item[Monotonie:] für alle $A,B \in \PowerSet{X}$ mit $A \subseteq B$ folgt $\Psi(A) \subseteq \Psi(B)$
+%
+\item[Abgeschlossenheit:] für alle $A \in \PowerSet{X}$ gilt $\Psi(\Psi(A)) = \Psi(A)$
+%
+\end{description}
+\end{definition}
+
+Aufgrund der Monotonieeigenschaft eines Hüllenoperators kann man bei der Abgeschlossenheit die Eigenschaft $\Psi(\Psi(A)) = \Psi(A)$ auch durch $\Psi(\Psi(A)) \subseteq \Psi(A)$ ersetzen. In der Informatik spielen Hüllenoperatoren eine große Rolle. Gute Beispiele hierfür sind z.B.~die \dindex{transitive Hülle} (vgl.~Computergraphik) oder die Kleene-Hülle (vgl.~Formale Sprachen). 
+
 \ifdiscretemath
 %
 % Remove the subsubsection
