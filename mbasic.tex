@@ -19,7 +19,6 @@
 \usepackage{makeidx}
 \usepackage{enumerate}
 %\usepackage{lineno}
-%\usepackage{ifpdf}
 \usepackage{gitinfo}
 \usepackage{wrapfig}
 \usepackage{subfig}
@@ -37,6 +36,7 @@
            ]{hyperref}
 \hypersetup{colorlinks=true,citecolor=blue,linkcolor=blue,urlcolor=blue}
 \usepackage{hypcap}
+\usepackage[numbered]{bookmark}
 \usepackage{script}
 
 % Algorithmen in C-Style
@@ -102,9 +102,6 @@
 
 \begin{titlepage}
 
-        \special{pdf: out 1 << /Title 
-        (Elementare mathematische Begriffe, Probleme und Schreibweisen)
-        /Dest [ @thispage /FitH @ypos ] >>}
         \vspace{40pt}
 	\begin{center}
 
@@ -188,9 +185,6 @@ wurden. Finden Sie diese Fehler und verbessern Sie mich!
 
 \cleardoublepage
 
-\special{pdf: out 2 << /Title 
-(Inhaltsverzeichnis) 
-/Dest [ @thispage /FitH @ypos ] >>}
 \tableofcontents
 
 \cleardoublepage
@@ -242,9 +236,6 @@ $\star \star \star$ \textsc{Ende} $\star \star \star$
 
 % Index 
 \cleardoublepage
-\special{pdf: out 2 << /Title 
-(Stichwortverzeichnis) 
-/Dest [ @thispage /FitH @ypos ] >>}
 \addcontentsline{toc}{section}{Stichwortverzeichnis}
 \def\indexname{Stichwortverzeichnis}
 \makeatletter
