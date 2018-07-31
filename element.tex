@@ -289,16 +289,24 @@ b$,
 %
 \item \dindex{linear} \gdw \ es gilt immer $(a,b) \in R$ oder $(b, a) \in R$.
 %
-\item Wir nennen $R$ eine \dindex{Halbordnung} \gdw $R$ ist reflexiv,
+\end{itemize}
+\end{definition}
+
+\begin{definition}
+Sei $R$ eine zweistellige Relation, dann
+\begin{itemize}
+%
+\item heißt $R$ \dindex{Halbordnung} \gdw $R$ ist reflexiv,
 antisymmetrisch und transitiv,
 %
-\item eine \dindex{Ordnung} \gdw $R$ ist eine lineare Halbordnung und
+\item \dindex{Ordnung} \gdw $R$ ist eine lineare Halbordnung und
 %
-\item eine \emph{Äquivalenzrelation}\index{Aquivalenzrelation=Äquivalenzrelation} 
+\item \emph{Äquivalenzrelation}\index{Aquivalenzrelation=Äquivalenzrelation} 
 \gdw $R$ reflexiv, transitiv und symmetrisch ist.
 %
 \end{itemize}
 \end{definition}
+\goodbreak
 
 \begin{example}
 Die Teilmengenrelation "`$\subseteq$"' auf allen Teilmengen von $\Z$ ist
@@ -307,10 +315,7 @@ eine Halbordnung, aber keine Ordnung.
 \goodbreak
 
 \begin{example}
-Wir schreiben $a \equiv b \mod
-n$, falls es eine ganze Zahl $q$ gibt, für die $a - b = q n$ gilt. Für $n \ge 2$
-ist die Relation $R_n(a,b) \eqd \set{(a,b) \mid a \equiv b \mod n} \subseteq
-\Z^2$ eine Äquivalenzrelation.
+	Wir schreiben $a \equiv b \mod n$\index{$\equiv$}, falls es eine ganze Zahl $q$ gibt, für die $a - b = q n$ gilt. Für $n \ge 2$ ist die Relation $R_n(a,b) \eqd \set{(a,b) \mid a \equiv b \mod n} \subseteq \Z^2$ eine Äquivalenzrelation.
 \end{example}
 
 \subsubsection{Eigenschaften von Funktionen}
@@ -342,8 +347,10 @@ $g(\cdot)$ \index{$f(\cdot)$} schreiben, um anzudeuten, dass $g$
 einstellig ist, ohne dies weiter zu erwähnen.
 \end{definition}
 
+\begin{definition}
+\label{def:praedikat}
 Sei nun $R \subseteq A_1 \times A_2 \times \dots \times A_n$ eine
-$n$-stellige Relation, dann definieren wir $P^n_R \colon A_1 \times
+$n$-stellige Relation, dann definieren wir eine Funktion $P^n_R \colon A_1 \times
 A_2 \times \dots \times A_n \rightarrow \set{0,1}$ wie folgt:
 
 \begin{displaymath}
@@ -355,9 +362,10 @@ P^n_R(\enu{x}{1}{n}) \eqd
 \end{array}
 \right.
 \end{displaymath}
-Eine solche ($n$-stellige) Funktion, die "`anzeigt"', ob ein Element 
+Eine solche $n$-stellige Funktion, die "`anzeigt"', ob ein Element 
 aus $A_1 \times A_2 \times \dots \times A_n$ entweder zu $R$ gehört 
 oder nicht, nennt man ($n$-stelliges) \dindex{Prädikat}.
+\end{definition}
 
 \begin{example}
 Sei $\mathbb{P} \eqd \set{n \in \N \mid \text{$n$ ist Primzahl}}$, dann
@@ -452,7 +460,7 @@ Sei $X$ eine Menge. Ein einstelliger Operator $\Psi \colon \PowerSet{X} \rightar
 
 \begin{description}
 %
-\item[Einbettung:] für alle $A \in \PowerSet{X}$ gilt $A \subseteq \Psi(A))$
+\item[Einbettung:] für alle $A \in \PowerSet{X}$ gilt $A \subseteq \Psi(A)$
 %
 \item[Monotonie:] für alle $A,B \in \PowerSet{X}$ mit $A \subseteq B$ folgt $\Psi(A) \subseteq \Psi(B)$
 %
@@ -461,7 +469,7 @@ Sei $X$ eine Menge. Ein einstelliger Operator $\Psi \colon \PowerSet{X} \rightar
 \end{description}
 \end{definition}
 
-Aufgrund der Monotonieeigenschaft eines Hüllenoperators kann man bei der Abgeschlossenheit die Eigenschaft $\Psi(\Psi(A)) = \Psi(A)$ auch durch $\Psi(\Psi(A)) \subseteq \Psi(A)$ ersetzen. In der Informatik spielen Hüllenoperatoren eine große Rolle. Gute Beispiele hierfür sind z.B.~die \dindex{transitive Hülle} (vgl.~Computergraphik) oder die Kleene-Hülle (vgl.~Formale Sprachen). 
+Aufgrund der Monotonieeigenschaft eines Hüllenoperators kann man bei der Abgeschlossenheit die Eigenschaft $\Psi(\Psi(A)) = \Psi(A)$ auch durch $\Psi(\Psi(A)) \subseteq \Psi(A)$ ersetzen. In der Informatik spielen Hüllenoperatoren eine große Rolle. Gute Beispiele hierfür sind z.B.~die \dindex{transitive Hülle} (vgl.~Computergraphik), die Kleene-Hülle (vgl.~Formale Sprachen) oder der Abschluss einer Komplexitätsklasse unter Schnitt oder Vereinigung. 
 
 \ifdiscretemath
 %
