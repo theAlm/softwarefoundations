@@ -75,6 +75,8 @@ des Problems MULT ist die folgende:
 Offensichtlich sind die Probleme MULT und MULT$_\mathrm{D}$ gleich schwierig (oder
 leicht) zu lösen.
 
+
+
 \begin{wrapfigure}[14]{r}{5cm}
 \centerline{\includegraphics[scale=0.7]{niko.eps}}
 \caption{Der Graph $G_N$}
@@ -210,7 +212,7 @@ höchstens von der Größenordnung $N^4$ ist, wenn $N$ die Eingabelänge
 bezeichnet.
 
 \goodbreak
-\restylealgo{ruled}
+\RestyleAlgo{ruled}
 \begin{algorithm}
 \caption{Algorithmus zur Berechnung einer $2$-Färbung eines Graphen}
 \label{TColAlgo}
@@ -419,7 +421,7 @@ leicht, diese potenzielle Knotenfärbung zu überprüfen und
 festzustellen, ob sie eine \emph{korrekte} Färbung des Graphen ist, 
 wie Algorithmus \ref{TestCOL} zeigt.
 
-\restylealgo{ruled}
+\RestyleAlgo{ruled}
 \begin{algorithm}
 \caption{Ein Algorithmus zur Überprüfung einer potentiellen Färbung}
 \label{TestCOL}
@@ -593,7 +595,7 @@ entspricht dabei genau dem oben angegebenen Algorithmus zum
 effizienten Überprüfen von möglichen Lösungen des
 $3\mathrm{COL}$-Problems (vgl.~Algorithmus \ref{TestCOL}).
 
-\restylealgo{ruled}
+\RestyleAlgo{ruled}
 \begin{algorithm}
 \caption{Ein nichtdeterministischer Algorithmus für $3\mathrm{COL}$}
 \label{3COLAlgo}
@@ -746,7 +748,7 @@ zwei Eigenschaften von $C$ nachzuweisen:
 $A$; d.h.: für alle Probleme $A$ aus $\NP$ gilt: $A \le C$.
 \end{enumerate}
 
-\restylealgo{ruled}
+\RestyleAlgo{ruled}
 \begin{algorithm}
 \caption{Algorithmische Darstellung der Benutzung einer Reduktionsfunktion}
 \label{RedAlgo}
@@ -890,7 +892,7 @@ ursprüngliche Graph $G'$ keinen Hamiltonschen Kreis hatte.
 \label{TSPRedExample}
 \end{figure}
 
-\restylealgo{ruled}
+\RestyleAlgo{ruled}
 \begin{algorithm}
 \caption{Ein Algorithmus für die Reduktion von \textsf{HAMILTON} auf \textsf{TSP}}
 \label{TSPRed}
@@ -941,7 +943,7 @@ von $C$ ist. Damit löst Algorithmus \ref{PolyAlgoNP} das Problem $A$
 in Polynomialzeit. Es gilt also: Ist irgendein $\NP$-vollstän\-diges
 Problem effizient lösbar, dann ist $\P=\NP$.
 
-\restylealgo{ruled}
+\RestyleAlgo{ruled}
 \begin{algorithm}
 \caption{Ein fiktiver Algorithmus für Problem $A$}
 \label{PolyAlgoNP}
