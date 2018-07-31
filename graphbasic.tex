@@ -362,7 +362,7 @@ Algorithmus \ref{Kompo}). Dieser Algorithmus markiert die Knoten der
 einzelnen Zusammenhangskomponenten auch mit unterschiedlichen
 "`Farben"', die hier durch Zahlen repräsentiert werden.
 
-\restylealgo{ruled}
+\RestyleAlgo{ruled}
 \begin{algorithm}
 \caption{Erreichbarkeit in Graphen}
 \label{Reach}
@@ -397,17 +397,17 @@ markiert = \texttt{true}\;
 \Return \texttt{false}\;
 }
 
-\printsemicolon
+\PrintSemicolon
 \end{algorithm}
 
-\restylealgo{ruled}
+\RestyleAlgo{ruled}
 \begin{algorithm}
 \caption{Zusammenhangskomponenten}
 \label{Kompo}
 \KwData{Ein Graph $G=(V,E)$}
 \KwResult{Anzahl der Zusammenhangskomponenten von $G$}
 \BlankLine
-\printsemicolon
+\PrintSemicolon
 
 kFarb = 0\;
 
@@ -418,7 +418,7 @@ kFarb = 0\;
 kFarb++\;
 markiere $u \in V$ mit kFarb\;
 \BlankLine
-\printsemicolon
+\PrintSemicolon
 
 markiert=\texttt{true}\;
 
@@ -426,7 +426,7 @@ markiert=\texttt{true}\;
 
 markiert=\texttt{false}\;
 \BlankLine
-\printsemicolon
+\PrintSemicolon
 
 \For{(alle mit kFarb markierten Knoten $v \in V$)}{
 \If{($v \in V$ ist adjazent zu einem unmarkierten Knoten $v' \in V$)}{
