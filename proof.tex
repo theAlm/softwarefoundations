@@ -11,12 +11,12 @@ dienen, um die Anzahl der Studenten zu reduzieren. Oft stellen sich
 beide Gruppen auf den Standpunkt, dass die Korrektheit von Programmen
 und Algorithmen durch "`Lassen wir es doch mal laufen und probieren es
 aus!"' ($\triangleq$ Testen) belegt werden könne\footnote{Diese
-Bemerkung ist natürlich etwas polemisch, da Testen natürlich die
-Qualität einer Software verbessert. Weiterhin werden solche Tests
-systematisch durchgeführt und haben somit eine ganz andere Qualität als
-"`herumprobieren"'.}. Diese Einstellung zeigt sich oft auch darin,
-dass Programme mit Hilfe einer IDE schnell "`testweise"' übersetzt
-werden, in der Hoffnung oder (wesentlich schlimmer) in der
+Bemerkung ist natürlich etwas polemisch, da \emph{richtiges} Testen 
+natürlich die Qualität einer Software verbessert. Weiterhin werden 
+solche Tests systematisch durchgeführt und haben somit eine ganz andere 
+Qualität als "`herumprobieren"'.}. Diese Einstellung zeigt sich oft 
+auch darin, dass Programme mit Hilfe einer IDE schnell "`testweise"' 
+übersetzt werden, in der Hoffnung oder (wesentlich schlimmer) in der
 Überzeugung, dass jedes übersetzbare Programm ($\triangleq$
 syntaktisch korrekt) automatisch auch semantisch korrekt ist. Das
 diese Einstellung völlig falsch ist zeigen Myriaden in der Praxis
@@ -26,15 +26,15 @@ Theoretiker, die sich mit den Grundlagen der Informatik beschäftigen,
 vertreten oft den Standpunkt, dass die Korrektheit \emph{jedes}
 Programms rigoros \emph{bewiesen} werden muss. Wahrscheinlich ist die
 Position zwischen diesen beiden Extremen richtig, denn zum einen ist
-der formale Beweis von (großen) Programmen oft nicht praktikabel (oder
-möglich) und zum anderen kann das Testen mit einer (relativ kleinen)
-Menge von Eingaben sicherlich nicht belegen, dass ein Programm
-vollständig den Spezifikationen entspricht. Im praktischen Einsatz ist
-es dann oft mit Eingaben konfrontiert, die zu einer fehlerhaften
-Reaktion führen oder es sogar abstürzen\footnote{Dies wird
-eindrucksvoll durch viele Softwarepakete und verbreitete
-Betriebssysteme im PC-Umfeld belegt.} lassen. Bei einfacher
-Anwendersoftware sind solche Fehler ärgerlich, aber oft zu
+der formale Beweis von (großen) Programmen oft nicht praktikabel oder
+aufgrund der enormen Komplexität nicht möglich und zum anderen kann das 
+Testen mit einer (relativ kleinen) Menge von Eingaben sicherlich nicht 
+belegen, dass ein Programm vollständig den Spezifikationen entspricht. 
+Im praktischen Einsatz ist es dann oft mit Eingaben konfrontiert, die 
+zu einer fehlerhaften Reaktion führen oder es sogar 
+abstürzen\footnote{Dies wird eindrucksvoll durch viele Softwarepakete 
+und verbreitete Betriebssysteme im PC-Umfeld belegt.} lassen. Bei 
+einfacher Anwendersoftware sind solche Fehler ärgerlich, aber oft zu
 verschmerzen. Bei sicherheitskritischer Software (z.B.~bei der
 Regelung von Atomkraftwerken, Airbags und Bremssystemen in Autos, in
 der Medizintechnik, bei Finanztransaktionssystemen oder bei der 
@@ -91,9 +91,9 @@ der linken Seite der Ungleichung von $2^n$ auf $2 \cdot 2^n =
 2^{n+1}$. Für die rechte Seite ergibt sich ein Verhältnis von
 $(\frac{n+1}{n})^2$. Je größer $n$ wird, desto kleiner wird der Wert
 $\frac{n+1}{n}$, d.h.~der maximale Wert ist bei $n = 4$ mit $1.25$
-erreicht. Wir wissen $1.25^2 = 1.5625$. D.h.~immer wenn wir $n$ um
+erreicht. Wir wissen $1.25^2 = 1.5625$, d.h.~immer wenn wir $n$ um
 eins erhöhen, verdoppelt sich der Wert der linken Seite, wogegen sich
-der Wert der rechten Seite um maximal das $1.5625$ fache erhöht. Damit
+der Wert der rechten Seite um maximal das $1.5625$-fache erhöht. Damit
 muss die linke Seite der Ungleichung immer größer als die rechte Seite
 sein.\qed
 \end{proof}
@@ -119,11 +119,12 @@ schreibt. Ein Beweis für ein Übungsblatt sollte auch auf Kleinigkeiten
 Rücksicht nehmen, wogegen ein solcher Stil für eine wissenschaftliche
 Zeitschrift vielleicht nicht angebracht wäre, da die potentielle
 Leserschaft über ganz andere Erfahrungen und viel mehr
-Hintergrundwissen verfügt. Nun noch eine Bemerkung zum Thema
-"`Formalismus"': Die menschliche Sprache ist unpräzise, mehrdeutig und
+Hintergrundwissen verfügt. 
+
+Nun noch eine Bemerkung zum Thema
+"`Formalismus"'. Die menschliche Sprache ist unpräzise, mehrdeutig und
 Aussagen können oft auf verschiedene Weise interpretiert werden, wie das
-tägliche Zusammenleben der Geschlechter eindrucksvoll demonstriert. Diese
-Defizite sollen Formalismen\footnote{In diesem Zusammenhang sind
+tägliche Zusammenleben der Menschen und die "`Juristerei"' eindrucksvoll demonstriert. Diese Defizite sollen Formalismen\footnote{In diesem Zusammenhang sind
 Programmiersprachen auch Formalismen, die eine präzise Beschreibung
 von Algorithmen erzwingen und die durch einen Compiler verarbeitet
 werden können.} ausgleichen, d.h.~die Antwort muss lauten: "`So viele
@@ -133,6 +134,7 @@ halten und es zeigt sich bald, dass "`Geübte"' die formale
 Beschreibung sogar wesentlich leichter verstehen.
 
 \bigskip
+\goodbreak
 
 Oft kann man andere, schon bekannte, Aussagen dazu verwenden, die
 Richtigkeit einer neuen (evtl.~kompliziert wirkenden) Aussage zu belegen.
@@ -291,6 +293,7 @@ nehmen wir an, dass Alice eine Königin ist, d.h.~Alice trägt eine
 Krone. Dies ist ein Widerspruch! Also war unsere Annahme falsch, und
 wir haben gezeigt, dass Alice keine Königin sein kann.
 
+\bigskip
 \goodbreak
 \noindent Der Beweis zu folgendem Satz verwendet diese Technik:
 \begin{theorem}
@@ -390,6 +393,7 @@ aus, dass die erste natürliche Zahl $0$ die Eigenschaft $E$ besitzt, dann
 erhalten wir die folgende Vorgehensweise:
 
 \medskip
+\goodbreak
 
 \noindent\textbf{Induktionsprinzip:} Es gelten
 \index{Induktion!Prinzip}
@@ -627,6 +631,6 @@ Induktionsbeweise möglich, d.h.~man kann die Techniken aus diesem
 Beispiel relativ leicht auf die Praxis der Informatik übertragen.
 
 Man überlegt sich leicht, dass die natürlichen Zahlen auch induktiv
-definiert werden können. Damit zeigt sich, dass die vollständige
+definiert werden können (vgl.~Peano-Axiome). Damit zeigt sich, dass die vollständige
 Induktion eigentlich nur ein Spezialfall der strukturellen Induktion
 ist.
