@@ -1,0 +1,435 @@
+%-*-LaTeX-*-
+%% 
+%% This is script.sty for typesetting scripts
+%% (C) by Steffen Reith (EMail: streit@streit.cc)
+%% Version 0.5
+%%
+
+%% Identification
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{script}[2006/03/02 v0.5]
+
+%% Initial Code
+%\RequirePackage{framed}
+\RequirePackage[hyperref,framed]{ntheorem}
+\RequirePackage{amsfonts}
+\RequirePackage{amsmath}
+\RequirePackage{xspace}
+\RequirePackage{pifont}
+\RequirePackage{color}
+%% Declaration of options
+
+%% Execution of options
+
+%% Package loading
+
+%% Main Code
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Helpers
+\newcommand{\rework}[1]{\footnote{\textsf{Warnung:} #1}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Operators
+
+%%%% Common Operators
+\newcommand{\eqd}{\ensuremath{=_{\mathrm{\scriptscriptstyle def}}}}
+\newcommand{\iffd}{\ensuremath{\Leftrightarrow_{\mathrm{\scriptscriptstyle def}}}}
+\newcommand{\set}[1]{\ensuremath{\{#1\}}}
+\newcommand{\rset}{\ensuremath{\}}}
+\newcommand{\lset}{\ensuremath{\{}}
+\newcommand{\rarrange}{\ensuremath{\rangle}}
+\newcommand{\larrange}{\ensuremath{\langle}}
+\newcommand{\arrange}[1]{\ensuremath{\larrange {#1} \rarrange}}
+\newcommand{\restrict}[1]{\ensuremath{_{{\textstyle |}#1}}}
+\newcommand{\isom}{\ensuremath{\cong}}
+\newcommand{\subseteqisom}{\ensuremath{\precapprox}}
+
+%\newcommand{\derive}{\ensuremath{\Rightarrow}}
+%\newcommand{\deriveS}{\ensuremath{\stackrel{*}{\derive}}}
+%\newcommand{\deriveT}[1]{\ensuremath{\stackrel{#1}{\derive}}}
+
+\newcommand{\derive}{\ensuremath{
+\unitlength1ex
+\begin{picture}(2.2,1.0)
+\put(0.2,0.6){\line(1,0){1.8}}
+\put(0.2,0.2){\line(0,1){0.8}}
+\end{picture}
+}\allowbreak}
+
+\newcommand{\deriveS}{\ensuremath{
+\unitlength1ex
+\begin{picture}(2.2,1.0)
+\put(0.2,0.6){\line(1,0){1.8}}
+\put(0.2,0.2){\line(0,1){0.8}}
+\put(0.75,0.4){\scriptsize *}
+\end{picture}
+}\allowbreak}
+
+\newcommand{\deriveT}[1]{\deriveC{#1}}
+
+\newcommand{\deriveC}[1]{\ensuremath{
+\unitlength1ex
+\begin{picture}(2.2,1.0)
+\put(0.2,0.6){\line(1,0){1.8}}
+\put(0.2,0.2){\line(0,1){0.8}}
+\put(0.0,0.75){\makebox(2.2,1.0)[b]{\scriptsize #1}}
+\end{picture}
+}\allowbreak}
+
+\newcommand{\deriveStack}[2]{\deriveD{#1}{#2}}
+
+\newcommand{\deriveD}[2]{\ensuremath{
+\unitlength1ex
+\begin{picture}(2.2,1.0)
+\put(0.2,0.6){\line(1,0){1.8}}
+\put(0.2,0.2){\line(0,1){0.8}}
+\put(0.0,0.75){\makebox(2.2,1.0)[b]{\scriptsize #1}}
+\put(0.0,-0.5){\makebox(2.2,1.0)[b]{\tiny #2}}
+\end{picture}
+}\allowbreak}
+
+%%%% Operators for Enumeration
+\newcommand{\enu}[3]{\ensuremath{{#1_{#2}}, \allowbreak \dots , \allowbreak{#1_{#3}}}}
+\newcommand{\enui}[3]{\ensuremath{#1_{#2}, \allowbreak #1_{#3}, \allowbreak \dots }}
+\newcommand{\range}[2]{\ensuremath{#1, \dots ,#2}}
+\newcommand{\concat}[3]{\ensuremath{#1_{#2} \allowbreak \dots #1_{#3}}}
+\newcommand{\multdots}{\ensuremath{\cdot \ldots \cdot}}
+
+
+%%%% Operators for logic
+% Spezielle Macros
+\newcommand{\ldeduce}{\ensuremath{\models}\allowbreak}
+\newcommand{\lderive}{\ensuremath{\vdash}\allowbreak}
+
+%%%% Operators for languages
+\newcommand{\co}{\ensuremath{\mathbf{co}}}
+\newcommand{\ndet}{\ensuremath{\mathbf{N}}}
+\newcommand{\opt}{\ensuremath{\mathbf{Opt}}}
+\newcommand{\probability}{\ensuremath{\mathbf{THR}}}
+\newcommand{\thr}{\ensuremath{\probability}}
+\newcommand{\cmin}{\ensuremath{\mathbf{Min}}}
+\newcommand{\cmax}{\ensuremath{\mathbf{Max}}}
+\newcommand{\cnt}{\ensuremath{\#}}
+\newcommand{\parity}{\ensuremath{\oplus}}
+%\newcommand{\f}{\ensuremath{\mathbf{F}}}
+
+%%%% Some operators for combinatorics
+\newcommand{\vari}[2]{\ensuremath{%
+\begin{bmatrix}
+{#1}\\{#2}%
+\end{bmatrix}%
+}}
+\newcommand{\bino}[2]{\ensuremath{%
+{{#1}\choose{#2}}%
+}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Generic class
+\newcommand{\DSPACE}[1]{\ensuremath{\mathbf{DSPACE}(#1)}\xspace}
+\newcommand{\NSPACE}[1]{\ensuremath{\mathbf{NSPACE}(#1)}\xspace}
+\newcommand{\DTIME}[1]{\ensuremath{\mathbf{DTIME}(#1)}\xspace}
+\newcommand{\NTIME}[1]{\ensuremath{\mathbf{NTIME}(#1)}\xspace}
+
+%%% Oracle classes
+\newcommand{\OClass}[2]{\ensuremath{{#1}^{#2}}\xspace}
+\newcommand{\OPClass}[2]{\ensuremath{{#1}_{\parallel}^{#2}}\xspace}
+\newcommand{\ROClass}[3]{\ensuremath{{#1}^{#2}[{#3}]}\xspace}
+\newcommand{\RPOClass}[3]{\ensuremath{{#1}_{\parallel}^{#2}[{#3}]}\xspace}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Sepecial complexity classes
+\renewcommand{\P}{\ensuremath{\mathbf{P}}\xspace}
+\renewcommand{\L}{\ensuremath{\mathbf{L}}\xspace}
+\newcommand{\PSPACE}{\ensuremath{\mathbf{PSPACE}}\xspace}
+\newcommand{\PP}{\ensuremath{\mathbf{P}\P}\xspace}
+\newcommand{\NP}{\ensuremath{\ndet\P}\xspace}
+\newcommand{\CNP}{\ensuremath{\co\NP}\xspace}
+\newcommand{\NL}{\ensuremath{\ndet\L}\xspace}
+\newcommand{\ParP}{\ensuremath{\parity\P}\xspace}
+\newcommand{\ParL}{\ensuremath{\parity\L}\xspace}
+\newcommand{\BQP}{\ensuremath{\mathbf{BQP}}\xspace}
+%%% Special function classes
+\newcommand{\FP}{\ensuremath{\f\P}\xspace}
+\newcommand{\FL}{\ensuremath{\f\L}\xspace}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%% Polynomial time hierarchy
+\newcommand{\PH}{\ensuremath{\mathbf{PH}}\xspace}
+\newcommand{\Thp}[1]{\ensuremath{\mathbf{\Theta^{p}_{#1}}}\xspace}
+\newcommand{\Dep}[1]{\ensuremath{\mathbf{\Delta^{p}_{#1}}}\xspace}
+\newcommand{\Sip}[1]{\ensuremath{\mathbf{\Sigma^{p}_{#1}}}\xspace}
+\newcommand{\Pip}[1]{\ensuremath{\mathbf{\Pi^{p}_{#1}}}\xspace}
+
+%%%% Boolean hierarchy
+\newcommand{\BH}{\ensuremath{BH}\xspace}
+\newcommand{\NPK}[1]{\ensuremath{\mathrm{\NP(#1)}}\xspace}
+\newcommand{\CNPK}[1]{\ensuremath{\co\NPK{#1}}\xspace}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Well known languages
+\newcommand{\SAT}{\ensuremath{\mathrm{SAT}}\xspace}
+\newcommand{\TSAT}{\ensuremath{3\,\text{-}\SAT}\xspace}
+\newcommand{\TAUT}{\ensuremath{\mathrm{TAUT}}\xspace}
+\newcommand{\TTAUT}{\ensuremath{3\,\text{-}\TAUT}\xspace}
+\newcommand{\WSAT}{\ensuremath{2\,\text{-}\SAT}\xspace}
+\newcommand{\CSAT}{\ensuremath{\overline{\mathrm{SAT}}}\xspace}
+\newcommand{\CVAL}{\ensuremath{\mathrm{VAL_{C}}}\xspace}
+\newcommand{\FVAL}{\ensuremath{\mathrm{VAL_{F}}}\xspace}
+\newcommand{\PLSAT}{\ensuremath{\mathrm{PL1\text{-}SAT}}\xspace}
+\newcommand{\PLTAUT}{\ensuremath{\mathrm{PL1\text{-}TAUT}}\xspace}
+\newcommand{\PCP}{\ensuremath{\mathrm{PCP}}\xspace}
+\newcommand{\PRIM}{\ensuremath{\mathbb{P}}\xspace}
+\newcommand{\langproplog}{\ensuremath{L_{\mathrm{AL}}}\xspace}
+
+%%% Reductions
+\newcommand{\reduction}[2]{\ensuremath{\le_{#1}^{#2}}}
+\newcommand{\redeq}[2]{\ensuremath{\equiv_{#1}^{#2}}}
+\newcommand{\redp}{\ensuremath{\reduction{\mathrm{m}}{\mathrm{p}}}}
+\newcommand{\redm}{\ensuremath{\reduction{\mathrm{m}}{\phantom{\mathrm{p}}}}}
+\newcommand{\redpeq}{\ensuremath{\redeq{\mathrm{m}}{\mathrm{p}}}}
+\newcommand{\redl}{\ensuremath{\reduction{\mathrm{m}}{\mathrm{log}}}}
+\newcommand{\redleq}{\ensuremath{\redeq{\mathrm{m}}{\mathrm{log}}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Mathematical stuff
+\newcommand{\ggT}{\ensuremath{\mathrm{ggT}}\xspace}
+\newcommand{\kgV}{\ensuremath{\mathrm{kgV}}\xspace}
+\renewcommand{\mod}{\ensuremath{\mathrm{\,mod\,}}}
+\renewcommand{\div}{\ensuremath{\mathrm{\,div\,}}}
+\newcommand{\generate}[1]{\ensuremath{\langle #1 \rangle}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%% Environments
+
+%%%% Problems
+\newlength\problength
+\settowidth{\problength}{\textsc{Problem: }}
+
+\newcommand\prob[3]{%
+\begin{list}{}{\labelwidth\problength \labelsep.5em \rightmargin0em
+\leftmargin\problength \advance\leftmargin by2.3em
+\parsep0ex \itemsep.2ex plus.1ex}
+\item[{\textsc{Problem:} \hfill}] {\textrm{\textsf{#1}}}
+\item[{\textsc{Eingabe:} \hfill}] {\textrm{#2}}
+\item[{\textsc{Ausgabe:} \hfill}] {\textrm{#3}}
+\end{list}
+}
+
+\newlength\dproblength
+\settowidth{\dproblength}{\textsc{Question: }}
+
+\newcommand\dprob[3]{%
+\begin{list}{}{\labelwidth\dproblength \labelsep.5em \rightmargin0em
+\leftmargin\dproblength \advance\leftmargin by2.3em
+\parsep0ex \itemsep.2ex plus.1ex}
+\item[{\textsc{Problem:} \hfill}] {\textrm{\textsf{#1}}}
+\item[{\textsc{Eingabe:} \hfill}] {\textrm{#2}}
+\item[{\textsc{Frage:} \hfill}] {\textrm{#3}}
+\end{list}
+}
+
+%%%% Inductive proof and definitions
+\newcommand{\indulabelbegin}{{\textbf{\textsf{(IA)}}}}
+\newcommand{\indulabelassumption}{{\textbf{\textsf{(IV)}}}}
+\newcommand{\indulabelstep}{{\textbf{\textsf{(IS)}}}}
+
+\newcommand{\indudef}[2]{%
+
+ \noindent\indulabelbegin\ {#1}%
+
+ \goodbreak
+
+ \noindent\indulabelstep\ {#2}%
+
+}
+
+%\newcommand{\indudef}[2]{%
+%\begin{description}%
+% %
+% \item [\indulabelbegin] %{#1}%
+% %
+% \goodbreak
+% %
+% \item [\indulabelstep] %{#2}%
+% %
+%\end{description}%
+%}
+
+%% \newcommand{\induproof}[3]{%
+%% \begin{itemize}%
+%%  %
+%%  \item [{\bf\textsf{(IA)}}] {#1}%
+%%  %
+%%  \goodbreak
+%%  %
+%%  \item [{\bf\textsf{(IV)}}] {#2}%
+%%  %
+%%  \goodbreak
+%%  %
+%%  \item [{\bf\textsf{(IS)}}] {#3}%
+%%  %
+%% \end{itemize}%
+%% }
+
+\newcommand{\induproof}[3]{%
+
+ \noindent\indulabelbegin\ #1
+ \goodbreak
+
+ \noindent\indulabelassumption\ #2
+ \goodbreak
+
+ \noindent\indulabelstep\ #3
+
+}
+
+\newcommand{\shortinduproof}[2]{%
+
+ \noindent\indulabelbegin\ #1
+ \goodbreak
+
+ \noindent\indulabelstep\ #2
+
+}
+
+\newcommand{\Idee}{\noindent\textsf{\textbf{Idee: }}}
+\newcommand{\Frage}{\noindent\textsf{\textbf{Frage: }}}
+
+%%%% Lemmas, Theorems, ....
+
+\def\theoremframecommand{\colorbox{gray}}
+\theoremseparator{:}
+
+\newtheorem{theorem}{Satz}
+\newtheorem{case}[theorem]{Fall}
+\newtheorem{conjecture}[theorem]{Vermutung}
+\newtheorem{corollary}[theorem]{Folgerung}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Beispiel}
+\newtheorem{exercise}[theorem]{Übung}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{note}[theorem]{Note}
+\newtheorem{property}[theorem]{Eigenschaft}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{question}[theorem]{Frage}
+\newtheorem{solution}[theorem]{Lösung}
+\newtheorem{remark}[theorem]{Bemerkung}
+\newtheorem{analysis}[theorem]{Analyse}
+\newtheorem{explain}[theorem]{Erklärung}
+\newtheorem{observation}[theorem]{Beobachtung}
+\newtheorem{thesis}[theorem]{These}
+\newtheorem{application}[theorem]{Anwendung}
+
+%%%% Special environments
+\newenvironment{proof}{\noindent Beweis:}{}                                    
+\newenvironment{proofsketch}{\noindent Beweisskizze:}{}
+\newenvironment{proofidea}{\noindent Beweisidee:}{}
+\newenvironment{counterexample}{\noindent Gegenbeispiel:}{}
+
+%%%% Boxed remarks
+%\definecolor{boxedremarkgbcol}{rgb}{0.85,0.85,0.85}
+%\newsavebox{\boxedremarkbox}
+%\newlength{\boxedremarklength}
+%\newlength{\boxedremarksaverule}
+%\newlength{\boxedremarksavesep}
+%\newenvironment{boxedremark}{%
+%\begin{table}
+%\setlength{\boxedremarksaverule}{\fboxrule}%
+%\setlength{\boxedremarksavesep}{\fboxsep}%
+%\setlength{\fboxrule}{1.5pt}%
+%\setlength{\fboxsep}{1ex}%
+%\begin{lrbox}{\boxedremarkbox}%
+%\setlength{\boxedremarklength}{\textwidth-2\fboxsep-2\fboxrule}%
+%\begin{minipage}{\boxedremarklength}%
+%}{%
+%\end{minipage}%
+%\end{lrbox}%
+%%\noindent\fbox{\usebox{\boxedremarkbox}}%
+%\noindent\fcolorbox{black}{boxedremarkgbcol}{\usebox{\boxedremarkbox}}%
+%\setlength{\fboxrule}{\boxedremarksaverule}%
+%\setlength{\fboxsep}{\boxedremarksavesep}%
+%\end{table}%
+%}
+
+\newcommand{\qed}{\hfill \#}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Logic
+\newcommand{\sand}{\ensuremath{\wedge}\xspace}
+\newcommand{\sor}{\ensuremath{\vee}\xspace}
+\newcommand{\snot}{\ensuremath{\neg}\xspace}
+\newcommand{\sneg}{\ensuremath{\snot}\xspace}
+\newcommand{\simpl}{\ensuremath{\rightarrow}\xspace}
+\newcommand{\sequi}{\ensuremath{\leftrightarrow}\xspace}
+\newcommand{\sxor}{\ensuremath{\oplus}\xspace}
+
+\newcommand{\band}{\ensuremath{\mathrm{and}}\xspace}
+\newcommand{\bor}{\ensuremath{\mathrm{or}}\xspace}
+\newcommand{\bnot}{\ensuremath{\mathrm{not}}\xspace}
+\newcommand{\bimpl}{\ensuremath{\mathrm{imp}}\xspace}
+\newcommand{\bequi}{\ensuremath{\mathrm{aeq}}\xspace}
+\newcommand{\bxor}{\ensuremath{\mathrm{xor}}\xspace}
+
+\newcommand{\Reso}[1]{\ensuremath{\mathrm{Res}(#1)}\xspace}
+\newcommand{\ResoK}[2]{\ensuremath{\mathrm{Res}_{#2}(#1)}\xspace}
+\newcommand{\ResoS}[1]{\ensuremath{\mathrm{Res}_{*}(#1)}\xspace}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Misc
+\newcommand{\Al}{\ensuremath{\Sigma}}
+\newcommand{\AlS}{\ensuremath{\Sigma^{*}}}
+\newcommand{\AlP}{\ensuremath{\Sigma^{+}}}
+\newcommand{\Aln}[1]{\ensuremath{\Sigma^{#1}}}
+\newcommand{\Alln}[1]{\ensuremath{\Sigma^{\le #1}}}
+\newcommand{\Alb}{\ensuremath{\set{0,1}}}
+\newcommand{\AlbS}{\ensuremath{\set{0,1}^{*}}}
+\newcommand{\CStar}[1]{\ensuremath{\set{#1}^{*}}}
+\newcommand{\CPlus}[1]{\ensuremath{\set{#1}^{+}}}
+\newcommand{\CEqN}[2]{\ensuremath{\set{#1}^{#2}}}
+\newcommand{\CLeN}[2]{\ensuremath{\set{#1}^{\le #2}}}
+\newcommand{\ang}[1]{\ensuremath{\langle #1 \rangle}}
+\newcommand{\gdw}{\ensuremath{\text{gdw.}}\xspace}
+\newcommand{\oBdA}{\ensuremath{\text{o.B.d.A.}}\xspace}
+\newcommand{\OBdA}{\ensuremath{\text{O.B.d.A.}}\xspace}
+\newcommand{\kary}[1]{\ensuremath{#1\mbox{-ary}}}
+\newcommand{\todo}{\hfill\ding{45}}
+\newcommand{\queryeq}{\ensuremath{\overset{?}{=}}\xspace}
+\newcommand{\PowerSet}[1]{\ensuremath{\mathcal{P}(#1)}\xspace}
+\newcommand{\hex}[1]{\ensuremath{\mathrm{0}\mathrm{x}\mathrm{#1}}}
+\newcommand{\GF}{\text{GF}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Sets of numbers
+\newcommand{\N}{\ensuremath{\mathbb N}}
+\newcommand{\Z}{\ensuremath{\mathbb Z}}
+\newcommand{\Q}{\ensuremath{\mathbb Q}}
+\newcommand{\R}{\ensuremath{\mathbb R}}
+
+\ifdefined\C
+\renewcommand{\C}{\ensuremath{\mathbb C}}
+\else
+\newcommand{\C}{\ensuremath{\mathbb C}}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%% Special makros for index entries
+
+%%%% Index-Generation
+\newcommand{\sindex}[1]{#1\index{#1}}
+\newcommand{\dindex}[1]{\emph{#1}\index{#1}}
