@@ -10,3 +10,7 @@ mbasic.thm
 mbasic.toc
 gitHeadInfo.gin
 *.synctex.gz
+
+mbasic\.fdb_latexmk
+
+mbasic\.fls
