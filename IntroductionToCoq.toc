@@ -1,0 +1,6 @@
+\select@language {german}
+\select@language {german}
+\contentsline {section}{\numberline {1}Dummy Chapter}{1}{section.1}
+\contentsline {section}{\numberline {2}Basic Functional Programming in Coq}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}Data and Functions}{3}{subsection.2.1}
+\contentsline {paragraph}{\nonumberline Enumerated Typ}{3}{section*.2}

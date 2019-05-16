@@ -1,17 +1,11 @@
 *.aux
 *.log
-mbasic.bbl
-mbasic.blg
-mbasic.idx
-mbasic.ilg
-mbasic.ind
-mbasic.log
-mbasic.pdf
-mbasic.thm
-mbasic.toc
-gitHeadInfo.gin
 *.synctex.gz
+*.pdf
+*.IntroductionToCoq.thm
+*.IntroductionToCoq.toc
+
+gitHeadInfo.gin
 
 mbasic\.fdb_latexmk
-
 mbasic\.fls
