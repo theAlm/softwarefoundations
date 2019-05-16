@@ -31,7 +31,7 @@
             breaklinks=true,
             bookmarks=false,
             pdfpagemode=UseOutlines,
-            pdftitle={Elementare mathematische Begriffe, Probleme und Schreibweisen, Grundlagen der Logik, Einführung in die Komplexitätstheorie}, % TODO: 
+            pdftitle={An Introduction To Coq}, % TODO: 
             pdfauthor={Tanja Almerothh},
             pdfcreator={Steffen Reith}
            ]{hyperref}
@@ -39,6 +39,35 @@
 \usepackage{hypcap}
 \usepackage[numbered]{bookmark}
 \usepackage{script}
+
+\usepackage{listings}
+\usepackage{lstcoq}
+\lstset{
+	language=coq, % Coq
+	tabsize=4, % Tabulatorbreite
+	linewidth=\linewidth, % Width of a line
+	breaklines=true, % Break long lines
+	breakatwhitespace=true, % Only break at whitespaces
+	basicstyle=\scriptsize\ttfamily, % Schriftart/-größe
+	numbers=left, % Linenumbers left
+	numberfirstline=false, % Not: Always number 1. line
+	numberstyle=\scriptsize, % Größe der Zeilennummern
+	stepnumber=1, % Jede 2. Zeilennummer anzeigen
+	numbersep=5pt, % Abstand Nr - Quellcode
+	showspaces=false, % Spaces nicht anzeigen
+	showtabs=false, % Tabs nicht anzeigen
+	showstringspaces=false, % Don't show tabs in strings
+	showlines=false, % Leerzeilen am Sourceende weglassen
+	extendedchars=true, % ASCII-Zeichnen > 127 zulassen
+	identifierstyle=\bfseries, % Identifier
+	keywordstyle=\bfseries, % Keywords
+	commentstyle=\itshape, % Style of comments
+	stringstyle=\ttfamily, % Strings (!= Keywords)
+	flexiblecolumns=false, % Use fixed width for fonts
+	fontadjust=true, % "Base width" nicht jede Zeile anpassen
+	frame=trbl, % Frame; trBL
+	captionpos=b, % Position of the caption
+	aboveskip=25pt, % Space between text and the top of the listing}
 
 
 % Algorithmen in C-Style
