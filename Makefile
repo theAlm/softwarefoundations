@@ -11,7 +11,7 @@ MAKEINDEX = makeindex
 BIBTEX    = bibtex 
 
 all:
-	$(XELATEX) mbasic.tex
+	$(XELATEX) IntroductionToCoq.tex 
 
 idx:
 	$(MAKEINDEX) -s own_index.ist -g mbasic
