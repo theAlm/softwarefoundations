@@ -38,31 +38,30 @@ TODO: Explain what Gallina is.
   \end{lstlisting}
   \end{example}
 
-  Coq can do type interference when the type is not defined explicitly.
+  Coq can do type interference if the type is not defined explicitly.
   But for readability, we include types in the following.
    
-  For testing the above definition and function we have three possibilities:
-   
-%   \begin{enumerate}
-%   \item compute a compound compressions including the function:\\
-%   \lstinline! compute (next_weekday friday).! or 
-%   \lstinline! compute (next_weekday (next_weekday saturday)).!
-%   \item record anit: \lstinline! test_next_weekday:(next_weekday (next_weekday saturday)).! 
-%   \item make an assertion: The second weekday after Saturday is Tuesday. And verify the assertion. 
-%   \begin{lstlisting}
-%   		Example. test_next_weekday: (next_weekday (next_weeekday(saturday)) = tuesday 
-%   		proof. simpl. reflexivity. Qed.
-%   \end{lstlisting}
-%   \end{enumerate}   
+  For testing the above definition and function we have three possibilities:   
+   \begin{enumerate}
+   \item compute a compound compressions including the function:\\
+   \lstinline! compute (next_weekday friday).! or 
+   \lstinline! compute (next_weekday (next_weekday saturday)).!
+   \item record an expected bahavior: \lstinline! test_next_weekday:(next_weekday (next_weekday saturday)).! 
+   \item make an assertion: {\itshape The second weekday after Saturday is Tuesday.} And verify the assertion. 
+   \begin{lstlisting}
+   		Example. test_next_weekday: (next_weekday (next_weeekday(saturday)) = tuesday 
+   		proof. simpl. reflexivity. Qed.
+   \end{lstlisting}
+   \end{enumerate}   
 
-    Moreover, Coq can be asked to \lstlisting!extract! a program in a programming language, which is more conventional being equipped with a high performance compiler.
+    Moreover, Coq can be asked to \lstinline!extract! a program in a programming language, which is more conventional, being equipped with a high performance compiler.
     In particular this is one of the main uses of Coq. 
     It provides a method to transfer correct proven algorithms in Gallina to efficient machine code.
-    (Assuming the correctness of the $\delta$caml/ Haskell/ Scheme Compliler). %TODO: rewrite this sentence
+    (Assuming the correctness of the corresponding high performance compile e.g.the Ocaml, Haskell or Scheme compiler. 
     
     \subsection{Booleans}
-    Of course, Coq provides an default implementation of booleans. (See the Coq.Init.Datatypes). %TODO: add link.
-    In the following we are going to be consistent with the Coq library documentation according the standart library. We are going to introduce coinciding selfdefined datatypes.
+    Of course, Coq provides an default implementation of booleans. (See the \href{https://www.cs.princeton.edu/courses/archive/fall07/cos595/stdlib/html/Coq.Init.Datatypes.html}{Coq.Init.Datatypes Library}). %TODO: add link.
+    In the following we are going to be consistent with the Coq library documentation according to the standart library. We are going to introduce coinciding selfdefined datatypes.
     Booleans can be defined as follows:
     
     \label{Def:booleans}
@@ -90,17 +89,17 @@ TODO: Explain what Gallina is.
      \subsection{Notation}
     \begin{enumerate}
      \item In \texttt{.v-files} comments are annotated by \lstinline!(* some comment *)!. 
-     \item Within these comments Coq-cod is denoted by \lstinline![ Exmaple].! 
+     \item Within these comments Coq-cod is denoted by \lstinline![example].! 
      \item And we write \lstinline! Admitted.! at the end of an incomplete proof.    
      \end{enumerate}
      
      \subsection{Types}
      Every expression has a type.
      \begin{enumerate}
-     \item  \lstinline! Check true.! Gives the type of the method \lstinline! boolean!.
-     \item \lstinline! Check negb.!. returns \lstinline! bool -> bool" !( read \glqq bool arrow bool\grqq).
-      It is the functions input data type and the output data type given input data of that type.
-      \item \lstinline! andb! returns \lstinline!bool->bool->bool! this function produces an output of type bool given two bools.
+     \item  \lstinline! Check true.! gives the type of the method \lstinline! boolean!.
+     \item \lstinline! Check negb.! returns \lstinline! bool -> bool!( read \glqq bool arrow bool\grqq).
+      It is the functions input data type and the output data type, given input data of that type.
+      \item \lstinline! andb! returns \lstinline!bool->bool->bool!. This function produces an output of type bool given two bools.
      \end{enumerate}
      
      
