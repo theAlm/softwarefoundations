@@ -54,10 +54,12 @@ Moreover, {\itshape tactics}, that can be applied to prove properties of Coq pro
    \lstinline! compute (next_weekday (next_weekday saturday)).!
    \item record an expected bahavior: \lstinline! test_next_weekday:(next_weekday (next_weekday saturday)).! 
    \item make an assertion: {\itshape The second weekday after Saturday is Tuesday.} And verify the assertion. 
+   
    \begin{lstlisting}
    		Example. test_next_weekday: (next_weekday (next_weeekday(saturday)) = tuesday 
    		proof. simpl. reflexivity. Qed.
    \end{lstlisting}
+   
    \end{enumerate}   
 
     Moreover, Coq can be asked to \lstinline!extract! a program in a programming language, which is more conventional, being equipped with a high performance compiler.
@@ -135,6 +137,72 @@ Moreover, {\itshape tactics}, that can be applied to prove properties of Coq pro
 	 The expressions in the set color are \lstinline!black, white! and \lstinline!primary!.
 	 Note that, expressions formed in these ways (as above) are the only ones belonging to the sets \lstinline!rgb! and \lstinline!color!.
 	 
-     
-     
-     
+
+\subsection{Tuples}
+
+    A single constructor with multiple parameters is of type \lstinline! tuple!.
+	\begin{example}[A nybble: half a byte]
+ 	 	\begin{lstlisting}
+ 	 		(*a bit*)    Inductive bit: Type := 
+ 	 						|B0
+ 	 						|B1.
+ 		    (*a nybble*) Inductive nybble: Type := 
+ 		   				 	|bits( b0 b1 b2 b3: bit).
+ 		   				 	
+ 		   	check( bits B1 B0 B1 B0)
+ 		\end{lstlisting}
+ 		Hence, a tuple of four bits as a nybble.
+ 		
+ 		Assume we want to test a nybble to see if all its bits are 0. We unwrapp the nybble by patternmatching.
+ 		\begin{lstlisting}
+ 		Definition all_zero(nb: nybble): bool :=
+ 		  match nb with
+ 		  |(bits B0 B0 B0 B0) -> true
+ 		  |(bits _ _ _ _) -> false ( * This wildcard pattern got included to advoid inventing variable names that will not be used. *) 
+ 		  end.
+ 		 \end{lstlisting}
+ 	\end{example}
+ 	
+
+\subsection{Modules}
+	Coq provides a module system (organizing large development) in this course we won't need most of it.
+	\begin{lstlisting}
+	Module X 
+	...
+	End X.
+	\end{lstlisting}
+
+\subsection{Numbers}
+ \begin{itemize}
+ \item[]Note that the types day, bool, bits and tuples have a finite set of values, 
+ \item[] while the set of natural numbers $\mathbb{N}$ is an infinite set.
+ \end{itemize}
+  Hence, we need to construct $\mathbb{N}$ using a datatype with a final number of constructors. 
+  Recall that many representations exits (e.g. hexadecimal with base 16, octa with base 8, binary with base 2).
+  The most familiar is the decimal representation.
+  However, each representation of $\mathbb{N}$ is useful under different circumstances. 
+  he binary representation is well available in computer hardware, since it presents a simple circuitry.
+  Here we would like to make proofs simple using the unary (base 1) representation.
+  
+  \begin{lstlisting}
+  Inductive nat: Type :=
+  | 0
+  | S (n:nat).
+  \end{lstlisting}
+  
+  One might picture this representation by scratches on a wall in prison. It uses two constructors: 
+  \begin{itemize}
+  \item the letter \lstinline!0! represents zero 
+  \item the letter \lstinline!S! represents a natural number $n\in\mathbb{N}_{\setminus 0}$.  
+  \end{itemize}
+  We can convert this represntaion into decimal represented number as in the following.
+  \begin{example}
+  \begin{align*}
+  \texttt{unitary}				& \texttt{decimal}	\\
+  \texttt{\lstinline!0!} 		&: 0 				\\
+  \texttt{\lstinline! S 0!}  	&: 1				\\
+  \texttt{\lstinline! S(S0)!}	&: 2				\\
+  \end{align*}
+  \end{example}
+  Moreover, it is easy to see that if $n$ is in the set \lstinline! nat! is in the set it follows \lstinline! S n ! is an expression belonging to the set \lstinline! nat !.
+  And Expressions formed by these two ways (i.e. \lstinline! 0 ! / \lstinline! Sn! are the only ones belonging the the set \lstinline! nat!. 
