@@ -1,18 +1,18 @@
-
-
-TODO: Explain what Gallina is.
-
-
 \section{Basic Functional Programming in Coq}
+
+
+
 
 \subsection{Introduction}
 
 In this chapter we are going to introduce the most essential elemets of Coq's functional programming language called {\itshape  Gallina}. 
-In the following basic {\itshape tactics}, that can be applied to prove properties of Coq programs are introduced.
+Moreover, {\itshape tactics}, that can be applied to prove properties of Coq programs are introduced.
 
 
 \subsection{Data and Functions}
+
  \paragraph{Enumerated Type}
+ 
   The built-in features set is extremely small in Coq. It is a powerful mechanism for defining data types from scratch.
   Current Coq distributions are preloaded with an extensive standard library.
   Boolean numbers may come data structure lists and hash readable. 
@@ -64,8 +64,10 @@ In the following basic {\itshape tactics}, that can be applied to prove properti
     In particular this is one of the main uses of Coq. 
     It provides a method to transfer correct proven algorithms in Gallina to efficient machine code.
     (Assuming the correctness of the corresponding high performance compile e.g.the Ocaml, Haskell or Scheme compiler. 
-    
-    \subsection{Booleans}
+
+
+\subsection{Booleans}
+
     Of course, Coq provides an default implementation of booleans. (See the \href{https://www.cs.princeton.edu/courses/archive/fall07/cos595/stdlib/html/Coq.Init.Datatypes.html}{Coq.Init.Datatypes Library}). %TODO: add link.
     In the following we are going to be consistent with the Coq library documentation according to the standart library. We are going to introduce coinciding selfdefined datatypes.
     Booleans can be defined as follows:
@@ -91,15 +93,19 @@ In the following basic {\itshape tactics}, that can be applied to prove properti
     Notation "x && y" := (andb x y).
     Notation "x||y" := (orb x y).
     \end{lstlisting}
+    
      
-     \subsection{Notation}
+\subsection{Notation}
+     
     \begin{enumerate}
      \item In \texttt{.v-files} comments are annotated by \lstinline!(* some comment *)!. 
      \item Within these comments Coq-cod is denoted by \lstinline![example].! 
      \item And we write \lstinline! Admitted.! at the end of an incomplete proof.    
      \end{enumerate}
      
-     \subsection{Types}
+     
+\subsection{Types}
+
      Every expression has a type.
      \begin{enumerate}
      \item  \lstinline! Check true.! gives the type of the method \lstinline! boolean!.
