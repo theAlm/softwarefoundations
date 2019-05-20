@@ -114,5 +114,22 @@ Moreover, {\itshape tactics}, that can be applied to prove properties of Coq pro
       \item \lstinline! andb! returns \lstinline!bool->bool->bool!. This function produces an output of type bool given two bools.
      \end{enumerate}
      
+\subsection{New Types from Old}
+	
+	Consturctor takes an argument.
+	\begin{lstlisting}
+	 Inductive rgb: Type:=
+	 | red 
+	 | green
+	 | blue.
+	 
+	 Inductive color: Type := 
+	 | black
+	 | white
+	 | primary (p:rgb).
+	 
+	 \end{lstlisting}
+	 
+     
      
      
