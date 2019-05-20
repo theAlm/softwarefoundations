@@ -79,7 +79,7 @@ Moreover, {\itshape tactics}, that can be applied to prove properties of Coq pro
     | false.
     \end{lstlisting}
     
-    A function with multiple input argumens is implemented as in the following:
+    A function with multiple input arguments is implemented as in the following:
     \begin{lstlisting}
     Definition orb (b1: bool) (b2: bool) : bool :=
     match b1 with
@@ -99,7 +99,7 @@ Moreover, {\itshape tactics}, that can be applied to prove properties of Coq pro
      
     \begin{enumerate}
      \item In \texttt{.v-files} comments are annotated by \lstinline!(* some comment *)!. 
-     \item Within these comments Coq-cod is denoted by \lstinline![example].! 
+     \item Within these comments Coq-code is denoted by \lstinline![example].! 
      \item And we write \lstinline! Admitted.! at the end of an incomplete proof.    
      \end{enumerate}
      
@@ -114,21 +114,26 @@ Moreover, {\itshape tactics}, that can be applied to prove properties of Coq pro
       \item \lstinline! andb! returns \lstinline!bool->bool->bool!. This function produces an output of type bool given two bools.
      \end{enumerate}
      
-\subsection{New Types from Old}
-	
-	Consturctor takes an argument.
+\subsection{New Types from old}
+
+	 Let's define a data type \lstinline!rgb!. And a data type, whose constructor takes that type as an argument.
 	\begin{lstlisting}
 	 Inductive rgb: Type:=
-	 | red 
-	 | green
-	 | blue.
+	 | red     (* These are *)
+	 | green   (* the expressions *)
+	 | blue.   (* in the set [rgb]. *)
+	 \end{lstlisting}
+	 The constructors of the type \lstinline!rgb! are  \lstinline!red, green! and \lstinline!blue!. 
 	 
+	 \begin{lstlisting}
 	 Inductive color: Type := 
 	 | black
 	 | white
-	 | primary (p:rgb).
-	 
+	 | primary (p:rgb). (* If [p] is in the set [rgb] then the constructor  [primary] applied to the argument [p] is an expression in the set color.*) 
 	 \end{lstlisting}
+	 
+	 The expressions in the set color are \lstinline!black, white! and \lstinline!primary!.
+	 Note that, expressions formed in these ways (as above) are the only ones belonging to the sets \lstinline!rgb! and \lstinline!color!.
 	 
      
      
