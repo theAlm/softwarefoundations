@@ -2,8 +2,14 @@
 *.log
 *.synctex.gz
 *.pdf
-*.IntroductionToCoq.thm
-*.IntroductionToCoq.toc
+IntroductionToCoq.thm
+IntroductionToCoq.toc
+IntroductionToCoq.bbl
+IntroductionToCoq.blg
+IntroductionToCoq.idx
+IntroductionToCoq.tex.new
+IntroductionToCoq.thm
+IntroductionToCoq.toc
 
 gitHeadInfo.gin
 
