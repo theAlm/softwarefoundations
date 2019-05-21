@@ -5,61 +5,66 @@
 
 \subsection{Introduction}
 
-In this chapter we are going to introduce the most essential elemets of Coq's functional programming language called {\itshape  Gallina}. 
-Moreover, {\itshape tactics}, that can be applied to prove properties of Coq programs are introduced.
+In this chapter we are going to introduce the most essential elements of Coq's functional programming language called {\itshape  Gallina}. 
+Moreover, {\itshape tactics}, which can be applied to prove properties of Coq programs are introduced.
 
 
 \subsection{Data and Functions}
 
  \paragraph{Enumerated Type}
  
-  The built-in features set is extremely small in Coq. It is a powerful mechanism for defining data types from scratch.
-  Current Coq distributions are preloaded with an extensive standard library.
-  Boolean numbers may come data structure lists and hash readable. 
+  The built-in features set in Coq is extremely small. In particular Coq, is a powerful mechanism for defining data types from scratch.
+  Current Coq distributions come preloaded with an extensive standard library.
+  Bools, numbers, data struts like lists and hash tables.\\
+  In this course we are going to explicitly recapitulate the definitions used.
+   
   
   \begin{example}
-  We are defining a type 
+  We are defining a type called \lstinline!day!.
   \begin{lstlisting}
     Inductive day: Type :=
-  | monday
-  | tuesday
-  | wednesday
-  | thursday
-  | friday.
-  | saturday.
-  | sunday.
-  \end{lstlisting} 
-  And a function on it: 
+	  | monday
+	  | tuesday
+	  | wednesday
+	  | thursday
+	  | friday.
+	  | saturday.
+	  | sunday.
+	  \end{lstlisting} 
+  
+  The type members are called \lstinline!monday!, \lstinline!tuesday! , \ldots \lstinline!sunday!.\\
+  
+  And define a function operating on it: 
   \begin{lstlisting}
   Definition next_weekday(d:day) day:=
-  match d with 
-	  monday -> tuesday
-	  tuesday -> wednesday
-	  wednesday -> thursday
-	  thursday -> friday
-	  friday -> monday
-	  saturday -> monday
-	  sunday -> sunday.
-  end.  
+    match d with 
+	  | monday => tuesday
+	  | tuesday => wednesday
+	  | wednesday => thursday
+	  | thursday => friday
+	  | friday => monday
+	  | saturday => monday
+	  | sunday => monday.
+    end.  
   \end{lstlisting}
   \end{example}
 
-  Coq can do type interference if the type is not defined explicitly.
-  But for readability, we include types in the following.
+  Coq is able of type {\itshape interference}, whenever the type is not defined explicitly.
+  But for readability, we are including types in the following.
    
   For testing the above definition and function we have three possibilities:   
    \begin{enumerate}
-   \item compute a compound compressions including the function:\\
+   \item Compute a compound expression including the function:\\
    \lstinline! compute (next_weekday friday).! or 
    \lstinline! compute (next_weekday (next_weekday saturday)).!
-   \item record an expected bahavior: \lstinline! test_next_weekday:(next_weekday (next_weekday saturday)).! 
-   \item make an assertion: {\itshape The second weekday after Saturday is Tuesday.} And verify the assertion. 
+   \item Record an expected behaviour as a Coq-\lstinline!Example! and verify the assertion: 
+         E.g.: {\itshape The second weekday after Saturday is Tuesday.}  
    
-   \begin{lstlisting}
-   		Example. test_next_weekday: (next_weekday (next_weeekday(saturday)) = tuesday 
-   		proof. simpl. reflexivity. Qed.
-   \end{lstlisting}
-   
+		   \begin{lstlisting}
+		   		Example. test_next_weekday: (next_weekday (next_weeekday(saturday)) = tuesday 
+		   		proof. simpl. reflexivity. Qed.
+		   \end{lstlisting}
+   			The details of the implementation are not important here. We are going to come back to them later.
    \end{enumerate}   
 
     Moreover, Coq can be asked to \lstinline!extract! a program in a programming language, which is more conventional, being equipped with a high performance compiler.
