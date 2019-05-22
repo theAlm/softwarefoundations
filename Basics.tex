@@ -55,8 +55,8 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
   For testing the above definition and function we have three possibilities:   
    \begin{enumerate}
    \item Compute a compound expression including the function:\\
-   \lstinline! compute (next_weekday friday).! or 
-   \lstinline! compute (next_weekday (next_weekday saturday)).!
+ 		 \lstinline! compute (next_weekday friday).! or 
+   		 \lstinline! compute (next_weekday (next_weekday saturday)).!
    \item Record an expected behaviour as a Coq-\lstinline!Example! and verify the assertion: 
          E.g.: {\itshape The second weekday after Saturday is Tuesday.}  
    
@@ -114,13 +114,13 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 \subsection{Types}
 
      Every expression has a type.
-     \begin{enumerate}
-     \item  \lstinline! Check true.! gives the type of the method \lstinline! boolean!.
-     \item \lstinline! Check negb.! returns \lstinline! bool -> bool!( read \glqq bool arrow bool\grqq).
-      It is the functions input data type and the output data type, given input data of that type.
-      \item \lstinline! andb! returns \lstinline!bool->bool->bool!. This function produces an output of type bool given two bools.
-     \end{enumerate}
-     
+%     \begin{enumerate}
+%      \item  \lstinline* Check true.* gives the type of the method \lstinline! boolean!.
+%      \item \lstinline! Check negb.! returns \lstinline! bool -> bool!( read \glqq bool arrow bool\grqq).
+%             It is the functions input data type and the output data type, given input data of that type.
+%       \item \lstinline! andb! returns \lstinline!bool->bool->bool!. This function produces an output of type bool given two bools.
+%     \end{enumerate}
+   
 \subsection{New Types from old}
 
 	 Let's define a data type \lstinline!rgb!. And a data type, whose constructor takes that type as an argument.
