@@ -8,6 +8,7 @@
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{amsmath}
+
 \usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage[xetex]{geometry}
@@ -15,7 +16,6 @@
 \usepackage{multicol}
 \usepackage{color}
 \usepackage{makeidx}
-%\usepackage{enumerate}
 %\usepackage{lineno}
 \usepackage{gitinfo}
 \usepackage{wrapfig}
@@ -39,32 +39,31 @@
 
 \usepackage{listings}
 \usepackage{lstcoq}
-\lstset{
-	language=coq, % Coq
-	tabsize=4, % Tabulatorbreite
-	linewidth=\linewidth, % Width of a line
-	breaklines=true, % Break long lines
-	breakatwhitespace=true, % Only break at whitespaces
-	basicstyle=\scriptsize\ttfamily, % Schriftart/-größe
-	numbers=left, % Linenumbers left
-	numberfirstline=false, % Not: Always number 1. line
-	numberstyle=\scriptsize, % Größe der Zeilennummern
-	stepnumber=1, % Jede 2. Zeilennummer anzeigen
-	numbersep=5pt, % Abstand Nr - Quellcode
-	showspaces=false, % Spaces nicht anzeigen
-	showtabs=false, % Tabs nicht anzeigen
-	showstringspaces=false, % Don't show tabs in strings
-	showlines=false, % Leerzeilen am Sourceende weglassen
-	extendedchars=true, % ASCII-Zeichnen > 127 zulassen
-	identifierstyle=\bfseries, % Identifier
-	keywordstyle=\bfseries, % Keywords
-	commentstyle=\itshape, % Style of comments
-	stringstyle=\ttfamily, % Strings (!= Keywords)
-	flexiblecolumns=false, % Use fixed width for fonts
-	fontadjust=true, % "Base width" nicht jede Zeile anpassen
-	frame=trbl, % Frame; trBL
-	captionpos=b, % Position of the caption
-	aboveskip=25pt}% Space between text and the top of the listing
+\lstset{language=coq, % Coq
+		tabsize=4, % Tabulatorbreite
+		linewidth=\linewidth, % Width of a line
+		breaklines=true, % Break long lines
+		breakatwhitespace=true, % Only break at whitespaces
+		basicstyle=\scriptsize\ttfamily, % Schriftart/-größe
+		numbers=left, % Linenumbers left
+		numberfirstline=false, % Not: Always number 1. line
+		numberstyle=\scriptsize, % Größe der Zeilennummern
+		stepnumber=1, % Jede 2. Zeilennummer anzeigen
+		numbersep=5pt, % Abstand Nr - Quellcode
+		showspaces=false, % Spaces nicht anzeigen
+		showtabs=false, % Tabs nicht anzeigen
+		showstringspaces=false, % Don't show tabs in strings
+		showlines=false, % Leerzeilen am Sourceende weglassen
+		extendedchars=true, % ASCII-Zeichnen > 127 zulassen
+		identifierstyle=\bfseries, % Identifier
+		keywordstyle=\bfseries, % Keywords
+		commentstyle=\itshape, % Style of comments
+		stringstyle=\ttfamily, % Strings (!= Keywords)
+		flexiblecolumns=false, % Use fixed width for fonts
+		fontadjust=true, % "Base width" nicht jede Zeile anpassen
+		frame=trbl, % Frame; trBL
+		captionpos=b, % Position of the caption
+		aboveskip=25pt}% Space between text and the top of the listing
 
 
 % Algorithmen in C-Style
@@ -116,8 +115,8 @@
 
 \newcommand{\institution}{{\Large Hochschule RheinMain}\\
                           Fachbereich Design Informatik Medien}
-\newcommand{\lecturer}{Somebody }
-\newcommand{\lectureremail}{\href{mailto:Somebody.Anybody@hs-rm.de}{somebody.Anybody@hs-rm.de}}
+\newcommand{\lecturer}{Tanja Almeroth}
+\newcommand{\lectureremail}{\href{mailto:tanja.almeroth@hs-rm.de}{tanja.almeroth@hs-rm.de}}
 
 \newcommand{\writer}{Tanja Almeroth}
 \newcommand{\reviser}{xxx xxx}
@@ -152,7 +151,7 @@
 		
 		\vfill			
 		\vspace{20pt}
-		\begin{tabular}[t]{rl}
+		\begin{tabular}[t]{rl}  : %TODO: make a gitHeadInfo.gin-file see gitinfo documentation
 			Erstellt von: & {\gitAuthorName}\\
                         Zuletzt bearbeitet von: & {\gitCommitterName}\\
 			Email: & {\gitAuthorEmail}\\
@@ -222,7 +221,7 @@
 
 \pagenumbering{arabic}
 	
-%%%%%%%%%%%%%%%%%%%%%%%%% Sektion 1 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%% content begin %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Eine kurze Einleitung
 \include{dummyKapitel1}
@@ -235,6 +234,7 @@
 \cleardoublepage
 \include{Basics}
 
+%%%%%%%%%%%%%%%%%%%%% content end %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{center}
 \mbox{}
