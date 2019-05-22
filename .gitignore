@@ -2,6 +2,8 @@
 *.log
 *.synctex.gz
 *.pdf
+*.bbl
+*.blg
 IntroductionToCoq.thm
 IntroductionToCoq.toc
 IntroductionToCoq.bbl
