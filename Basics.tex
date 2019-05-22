@@ -199,6 +199,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
   Here we are aiming to make proofs simple using the unary (base 1) representation.
   
   \begin{lstlisting}
+  Module NatPlayground
   Inductive nat: Type :=
     | 0
     | S (n:nat).
@@ -223,5 +224,43 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 		    
 	  \end{tabular}
   \end{example}
-  Moreover, it is easy to see if $n$ is in the set \lstinline! nat!, it follows \lstinline! S n ! is an expression belonging to the set \lstinline! nat !.
-  And expressions belong the set \lstinline! nat! if and only if they are  formed by either of those methods (i.e. \lstinline! 0 ! or  \lstinline! S n!). 
+  Moreover, it is easy to see that 
+  \begin{itemize}
+  \item \lstinline! 0! belongs to the set \lstinline! nat!
+  \item  If \lstinline! n ! is in the set \lstinline! nat!, it follows \lstinline! S n ! is an expression belonging to the set \lstinline! nat !.
+  \item And expressions belong the set \lstinline! nat! if and only if they are  formed by either of those methods (i.e. \lstinline! 0 ! or  \lstinline! S n!). 
+  \end{itemize}
+  
+  
+  Note that the same results apply to the definitions of \lstinline! day!, \lstinline! bool! and \lstinline! color!.
+  These conditions are a precise force of the \lstinline! Inductive! declaration. Expressions like \lstinline!true!. \lstinline! false!, \lstinline! S( false( 0 ( 0 S )))! do not belong to this set.  
+  But on the other hand \lstinline! 0! and \lstinline! S! are arbitrary symbols chosen in the defined representation. The interpretation of these marks is given by their usage in computing.
+  To realize this functions, which ``pattern match'' a represnation of natural numbers are written.
+  
+  We are following the idea:  If n has the form \lstinline! Sn'! for some \lstinline! n'!, then return  \lstinline! n'!.
+  \begin{example}[predecessor function]
+   \begin{lstlisting}
+   Definition pred (n:nat): nat :=
+   	match n with 
+   	  | 0 => 0
+   	  | S n' => n'
+   	  end.
+   	  
+   	  Check 
+   	  
+   	  End NatPlayground
+   	  check( S(S(S(S(0)))). (* = 4: nat *)
+   \end{lstlisting}
+  \end{example}
+  Because natural numbers are such a pervasive form of data, Coq always prints out a natural number. ( It uses a `` bulid-in magic'' for paring and printing.)
+ 
+  \begin{lstlisting}
+  Definition minustwo( n: nat) : nat :=
+    match n with
+      | 0 => 0
+      | S 0 => 0
+      | S ( S n') = > n'
+     end.
+     
+     compute( minustwo(4)) (* = 2: nat *)
+  \end{lstlisting}  
