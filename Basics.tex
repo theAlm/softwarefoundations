@@ -34,7 +34,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
   
   The type members are called \lstinline!monday!, \lstinline!tuesday! , \lstinline!wednesday! \ldots{} and \lstinline!sunday!.\\
   
-  And define a function operating on it: 
+  We are defining a function operating on \lstinline!day!: 
   \begin{lstlisting}
   Definition next_weekday(d:day) day:=
     match d with 
@@ -49,14 +49,15 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
   \end{lstlisting}
   \end{example}
 
-  Coq is able of type {\itshape interference}, whenever the type is not defined explicitly.
+  Coq is able of {\itshape type  interference}, whenever the type is not defined explicitly.
   But for readability, we are including types in the following.
    
-  For testing the above definition and function we have three possibilities:   
+  For testing the above definition and function we have three possibilities in Coq:
+     
    \begin{enumerate}
    \item Compute a compound expression including the function:\\
- 		 \lstinline! compute (next_weekday friday).! or 
-   		 \lstinline! compute (next_weekday (next_weekday saturday)).!
+ 		 \lstinline! compute (next_weekday friday).  (* = monday : day *)! or \\
+   		 \lstinline! compute (next_weekday (next_weekday saturday)). (* = tuesday : day *)!
    \item Record an expected behaviour as a Coq-\lstinline!Example! and verify the assertion: 
          E.g.: {\itshape The second weekday after Saturday is Tuesday.}  
    
@@ -64,38 +65,42 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 		   		Example. test_next_weekday: (next_weekday (next_weeekday(saturday)) = tuesday 
 		   		proof. simpl. reflexivity. Qed.
 		   \end{lstlisting}
-   			The details of the implementation are not important here. We are going to come back to them later.
+   			The details of the implementation are not important right now. We are going to come back to them later.
    \end{enumerate}   
 
-    Moreover, Coq can be asked to \lstinline!extract! a program in a programming language, which is more conventional, being equipped with a high performance compiler.
+    Moreover, Coq can be asked to \lstinline!extract! a program from our \lstinline! Definition! in a programming language, which is more conventional, being equipped with a high performance compiler.
     In particular this is one of the main uses of Coq. 
-    It provides a method to transfer correct proven algorithms in Gallina to efficient machine code.
-    (Assuming the correctness of the corresponding high performance compile e.g.the Ocaml, Haskell or Scheme compiler. 
+    It provides a method to transfer proved-correct algorithms in Gallina to efficient machine code.
+    (Assuming the correctness of the corresponding high performance compile e.g. the Ocaml, Haskell or Scheme compiler. 
 
 
 \subsection{Booleans}
 
-    Of course, Coq provides an default implementation of booleans. (See the \href{https://www.cs.princeton.edu/courses/archive/fall07/cos595/stdlib/html/Coq.Init.Datatypes.html}{Coq.Init.Datatypes Library}). %TODO: add link.
-    In the following we are going to be consistent with the Coq library documentation according to the standart library. We are going to introduce coinciding selfdefined datatypes.
+    Of course, Coq provides an default implementation of booleans.
+    (See the \href{https://www.cs.princeton.edu/courses/archive/fall07/cos595/stdlib/html/Coq.Init.Datatypes.html}{Coq.Init.Datatypes in the Coq-Library documentation}).  
+    In the following we are going to be consistent with the Coq library documentation according to the standard library.
+    We are going to introduce coinciding selfdefined data types whenever possible.
     Booleans can be defined as follows:
     
     \label{Def:booleans}
     \begin{lstlisting}    
     Inductive bool: Type :=
-    | true
-    | false.
+      | true
+      | false.
     \end{lstlisting}
     
-    A function with multiple input arguments is implemented as in the following:
+    A function with multiple input arguments is implemented by
     \begin{lstlisting}
     Definition orb (b1: bool) (b2: bool) : bool :=
     match b1 with
-    | true -> true
-    | false -> b2
+	  | true -> true
+	  | false -> b2
     end.
     \end{lstlisting}
+    
+    The functions \lstinline!negb! and \lstinline!andb! corresponding to the boolean functions {\emph negation} and {\emph and} are implemented in a similar manner.
      
-    And its new symbolic notation like this:
+    And a new symbolic notations is implemented as follows
     \begin{lstlisting}
     Notation "x && y" := (andb x y).
     Notation "x||y" := (orb x y).
@@ -103,6 +108,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
     
      
 \subsection{Notation}
+    As in the Coq doc documentation tool the following notation convention is introduced:
      
     \begin{enumerate}
      \item In \texttt{.v-files} comments are annotated by \lstinline!(* some comment *)!. 
@@ -112,102 +118,110 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
      
      
 \subsection{Types}
-
-     Every expression has a type.
-%     \begin{enumerate}
-%      \item  \lstinline* Check true.* gives the type of the method \lstinline! boolean!.
-%      \item \lstinline! Check negb.! returns \lstinline! bool -> bool!( read \glqq bool arrow bool\grqq).
-%             It is the functions input data type and the output data type, given input data of that type.
-%       \item \lstinline! andb! returns \lstinline!bool->bool->bool!. This function produces an output of type bool given two bools.
-%     \end{enumerate}
+     Every expression in Coq has a type.
+     \begin{enumerate}
+      \item  \lstinline* Check true.* gives the type of the expression \lstinline! boolean!.
+      \item \lstinline! Check negb.! returns \lstinline! bool -> bool! . (Read as  ``bool arrow bool'').
+           %  It is the functions input data type and the output data type, given input data of that type.
+       \item \lstinline! andb! returns \lstinline!bool->bool->bool!. This function produces an output of type \lstinline! bool! given two inputs of type \lstinline! bool!.
+     \end{enumerate}
    
-\subsection{New Types from old}
-
-	 Let's define a data type \lstinline!rgb!. And a data type, whose constructor takes that type as an argument.
+\subsection{New Types from Old}
+     
+     
+	 Note that so far the data-types we have seen were enumerated types.
+	 Let's define a data type \lstinline!rgb! and a data type, whose constructor takes this type as an argument.
 	\begin{lstlisting}
 	 Inductive rgb: Type:=
-	 | red     (* These are *)
-	 | green   (* the expressions *)
-	 | blue.   (* in the set [rgb]. *)
+	  | red     (* These are *)
+	  | green   (* the expressions *)
+	  | blue.   (* in the set [rgb]. *)
 	 \end{lstlisting}
-	 The constructors of the type \lstinline!rgb! are  \lstinline!red, green! and \lstinline!blue!. 
+	 The constructors of the type \lstinline!rgb! are \lstinline!red, green! and \lstinline!blue!. 
 	 
 	 \begin{lstlisting}
 	 Inductive color: Type := 
-	 | black
-	 | white
-	 | primary (p:rgb). (* If [p] is in the set [rgb] then the constructor  [primary] applied to the argument [p] is an expression in the set color.*) 
+	  | black
+	  | white
+	  | primary (p:rgb). (* If [p] is in the set [rgb], then the constructor [primary] applied to the argument [p] is an expression in the set color.*) 
 	 \end{lstlisting}
 	 
 	 The expressions in the set color are \lstinline!black, white! and \lstinline!primary!.
-	 Note that, expressions formed in these ways (as above) are the only ones belonging to the sets \lstinline!rgb! and \lstinline!color!.
+	 Note that, expressions formed as above are the only ones belonging to the sets \lstinline!rgb! and \lstinline!color!.
 	 
 
 \subsection{Tuples}
 
-    A single constructor with multiple parameters is of type \lstinline! tuple!.
+    A single constructor with multiple parameters can be used to create a type \lstinline! tuple!.
 	\begin{example}[A nybble: half a byte]
  	 	\begin{lstlisting}
- 	 		(*a bit*)    Inductive bit: Type := 
- 	 						|B0
- 	 						|B1.
- 		    (*a nybble*) Inductive nybble: Type := 
- 		   				 	|bits( b0 b1 b2 b3: bit).
- 		   				 	
- 		   	check( bits B1 B0 B1 B0)
+ 	 		Inductive bit: Type := (*a bit*) 
+ 	 		 |B0
+ 	 		 |B1.
+ 		    Inductive nybble: Type := (*a nybble*)
+ 		   	 |bits( b0 b1 b2 b3: bit).
+ 		   			 	
+ 		   	Check(bits B1 B0 B1 B0) (* => bits B1 B0 B1 B0 : nybble *)
  		\end{lstlisting}
- 		Hence, a tuple of four bits as a nybble.
+ 		Hence, a tuple of four bits is a nybble.
  		
- 		Assume we want to test a nybble to see if all its bits are 0. We unwrapp the nybble by patternmatching.
+ 		Assume we would like to test a nybble in order to see if all its bits are 0. We are unwrapping the nybble by patternmatching:
  		\begin{lstlisting}
  		Definition all_zero(nb: nybble): bool :=
  		  match nb with
- 		  |(bits B0 B0 B0 B0) -> true
- 		  |(bits _ _ _ _) -> false ( * This wildcard pattern got included to advoid inventing variable names that will not be used. *) 
+ 	  	    |(bits B0 B0 B0 B0) -> true
+ 		    |(bits _ _ _ _) -> false (* This wildcard pattern was included to avoid inventing variable names, which are not going to be used. *) 
  		  end.
  		 \end{lstlisting}
  	\end{example}
  	
 
 \subsection{Modules}
-	Coq provides a module system (organizing large development) in this course we won't need most of it.
+
+	Coq provides a {\itshape module system} to aid organizing large developments.
+	In this course most of it is not going to be needed.
+
 	\begin{lstlisting}
 	Module X 
 	...
-	End X.
+	End X
 	\end{lstlisting}
 
 \subsection{Numbers}
- \begin{itemize}
- \item[]Note that the types day, bool, bits and tuples have a finite set of values, 
- \item[] while the set of natural numbers $\mathbb{N}$ is an infinite set.
- \end{itemize}
-  Hence, we need to construct $\mathbb{N}$ using a datatype with a final number of constructors. 
-  Recall that many representations exits (e.g. hexadecimal with base 16, octa with base 8, binary with base 2).
-  The most familiar is the decimal representation.
+
+  Note that on the one hand the types day, bool, bits and tuples have a finite set of values, while on the other hand the set of natural numbers $\mathbb{N}$ is an infinite set.
+ 
+  Hence, we have to construct $\mathbb{N}$ using a data type with a final number of constructors. 
+  Recall, many representations of $\mathbb{N}$ exits (e.g. hexadecimal with base 16, octa with base 8, binary with base 2).
+  The most familiar is the decimal representation.\\
   However, each representation of $\mathbb{N}$ is useful under different circumstances. 
-  he binary representation is well available in computer hardware, since it presents a simple circuitry.
-  Here we would like to make proofs simple using the unary (base 1) representation.
+  The binary representation is valuable in computer hardware, because it presents a simple circuitry.
+  Here we are aiming to make proofs simple using the unary (base 1) representation.
   
   \begin{lstlisting}
   Inductive nat: Type :=
-  | 0
-  | S (n:nat).
+    | 0
+    | S (n:nat).
   \end{lstlisting}
   
-  One might picture this representation by scratches on a wall in prison. It uses two constructors: 
+  One might picture this representation by scratches on a wall in prison. \\
+  It uses two constructors: 
   \begin{itemize}
-  \item the letter \lstinline!0! represents zero 
-  \item the letter \lstinline!S! represents a natural number $n\in\mathbb{N}_{\setminus 0}$.  
+  \item The letter \lstinline!0! represents the natural number zero. 
+  \item The letter \lstinline!S! represents a natural number $n\in\mathbb{N}\setminus\{ 0\}$.  
   \end{itemize}
-  We can convert this represntaion into decimal represented number as in the following.
+  There is a way of converting this representation refereed to as \lstinline!nat! into its decimal representation. This is elaborated as follows.
   \begin{example}
-  \begin{align*}
-  \texttt{unitary}				& \texttt{decimal}	\\
-  \texttt{\lstinline!0!} 		&: 0 				\\
-  \texttt{\lstinline! S 0!}  	&: 1				\\
-  \texttt{\lstinline! S(S0)!}	&: 2				\\
-  \end{align*}
+  
+	  \begin{tabular} {r l}
+	  
+		  \texttt{unitary}				& \texttt{decimal}	\\
+		  \texttt{\lstinline!0!} 		&: 0 				\\
+		  \texttt{\lstinline! S 0!}  	&: 1				\\
+		  \texttt{\lstinline! S ( S 0)!}	&: 2				\\
+		  \texttt{\lstinline! S( S ( S 0))!}	&: 3				\\
+		    
+	  \end{tabular}
   \end{example}
-  Moreover, it is easy to see that if $n$ is in the set \lstinline! nat! is in the set it follows \lstinline! S n ! is an expression belonging to the set \lstinline! nat !.
-  And Expressions formed by these two ways (i.e. \lstinline! 0 ! / \lstinline! Sn! are the only ones belonging the the set \lstinline! nat!. 
+  Moreover, it is easy to see if $n$ is in the set \lstinline! nat!, it follows \lstinline! S n ! is an expression belonging to the set \lstinline! nat !.
+  And expressions belong the set \lstinline! nat! if and only if they are  formed by either of those methods (i.e. \lstinline! 0 ! or  \lstinline! S n!). 
