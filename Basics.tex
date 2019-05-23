@@ -193,8 +193,8 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
  
   Hence, we have to construct $\mathbb{N}$ using a data type with a final number of constructors. 
   Recall, many representations of $\mathbb{N}$ exits (e.g. hexadecimal with base 16, octa with base 8, binary with base 2).
-  The most familiar is the decimal representation.\\
-  However, each representation of $\mathbb{N}$ is useful under different circumstances. 
+  The most familiar might be the decimal representation.\\
+  However, each representation of $\mathbb{N}$ can be useful under different circumstances. 
   The binary representation is valuable in computer hardware, because it presents a simple circuitry.
   Here we are aiming to make proofs simple using the unary (base 1) representation.
   
@@ -224,35 +224,36 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 		    
 	  \end{tabular}
   \end{example}
-  Moreover, it is easy to see that 
+  Moreover, it is easy to see the following: 
   \begin{itemize}
-  \item \lstinline! 0! belongs to the set \lstinline! nat!
-  \item  If \lstinline! n ! is in the set \lstinline! nat!, it follows \lstinline! S n ! is an expression belonging to the set \lstinline! nat !.
+  \item The expression \lstinline! 0! belongs to the set \lstinline! nat!.
+  \item If \lstinline! n ! is in the set \lstinline! nat!, it follows \lstinline! S n ! is an expression belonging to the set \lstinline! nat !.
   \item And expressions belong the set \lstinline! nat! if and only if they are  formed by either of those methods (i.e. \lstinline! 0 ! or  \lstinline! S n!). 
   \end{itemize}
   
   
   Note that the same results apply to the definitions of \lstinline! day!, \lstinline! bool! and \lstinline! color!.
-  These conditions are a precise force of the \lstinline! Inductive! declaration. Expressions like \lstinline!true!. \lstinline! false!, \lstinline! S( false( 0 ( 0 S )))! do not belong to this set.  
-  But on the other hand \lstinline! 0! and \lstinline! S! are arbitrary symbols chosen in the defined representation. The interpretation of these marks is given by their usage in computing.
-  To realize this functions, which ``pattern match'' a represnation of natural numbers are written.
+  These conditions are a precise force of the \lstinline! Inductive! declaration. Expressions adult from other data constructors like \lstinline!true!, \lstinline! false!, \lstinline!andb(S(false( 0 ( 0 S ))))! do not belong to this set.  
+  But on the other hand, \lstinline!0! and \lstinline!S! are arbitrary symbols chosen in the defined representation. 
+  Actually the {\itshape interpretation} of these marks is given by their usage in computing.
+  To realize this functions, which ``pattern match'' a represnation of natural numbers, are written.
   
   We are following the idea:  If n has the form \lstinline! Sn'! for some \lstinline! n'!, then return  \lstinline! n'!.
   \begin{example}[predecessor function]
    \begin{lstlisting}
-   Definition pred (n:nat): nat :=
-   	match n with 
-   	  | 0 => 0
-   	  | S n' => n'
-   	  end.
+  	 Definition pred (n:nat): nat :=
+   		match n with 
+   	     | 0 => 0
+   	     | S n' => n'
+   	    end. 
    	  
-   	  Check 
-   	  
-   	  End NatPlayground
-   	  check( S(S(S(S(0)))). (* = 4: nat *)
+   	 End NatPlayground
+   	 
+   	 check( S(S(S(S(0)))). (* = 4: nat *)
    \end{lstlisting}
   \end{example}
-  Because natural numbers are such a pervasive form of data, Coq always prints out a natural number. ( It uses a `` bulid-in magic'' for paring and printing.)
+  Because natural numbers are such a pervasive form of data, Coq always prints out a natural number as decimal by default.
+  (It uses a `` bulid-in magic'' for paring and printing.)
  
   \begin{lstlisting}
   Definition minustwo( n: nat) : nat :=
@@ -262,63 +263,76 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
       | S ( S n') = > n'
      end.
      
-     compute( minustwo(4)) (* = 2: nat *)
+   Compute( minustwo(4)) (* = 2: nat *)
   \end{lstlisting}  
-  We have seen the functions \lstinline!S!, ¸\lstinline!pred! and \lstinline!minustwo!.
-  Note that there is a fundamental difference. The functions \lstinline!pred!, \lstinline!minustwo! apply computaional rules. There are no computaional rules  about \lstinline!S!.
-  I.e. by the definition of \lstinline!pred! \lstinline! pred 2! can be simplified to \lstinline!1!. In the case of \lstinline!S! there is no such behavior exists.
+  Sofar we have seen the functions \lstinline!S!, ¸\lstinline!pred! and \lstinline!minustwo!.
+  Note that, there is a fundamental difference.
+  The functions \lstinline!pred! and \lstinline!minustwo! apply computaional rules. 
+  There are no computaional rules  about \lstinline!S!.
+  I.e., by the definition of \lstinline!pred!, \lstinline! pred 2! can be simplified to \lstinline!1!. 
+  In the case of \lstinline!S! no such behavior exists.
   The definition of \lstinline!S! has no bahavior at all.\\ 
     
   In order to define more functions over numbers pattern matching is not sufficient. We are introducing recursion.
   Recursion in Coq is notated by the keyword \lstinline!Fixpoint!.
   
   \begin{lstlisting}
-  Fixpoint evenb(n:nat) : bool :=
+  Fixpoint evenb (n:nat) : bool :=
   	match n with
   	| 0 => true
   	| S 0 => false
-  	| S (S n') => evenb n
+  	| S (S n') => evenb n'
   	end.
   	
-  	Definition oddb( n:nat): bool := negb (even bn). (* a simple definition of odd *)
+  	Definition oddb (n:nat): bool := negb (even bn). (* a simple definition of odd *)
+  	
   	Example test_oddb1: oddb1 = true
     	Proof. simpl. reflexivity. Qed.
   \end{lstlisting}
-   Note that in this proof \lstinline! simpl.! actually has no effect on the goal. 
-   All the work is done by \lstinline!refelxivity!. We are going to come to back to that later.
+   Note that in this proof \lstinline!simpl.! actually has no effect on the goal. 
+   All the work is done by \lstinline!refelxivity!. 
+   We are going to come to back to that later.
    
-   \section{Multi argumnet function recursion}
+   \subsection{Multi Argument-Function by Recursion}
    
    \begin{lstlisting}
+   Module NatPlayground2.
    Fixpoint plus (n:nat) (m:nat): nat :=
      match n with
        | 0 => m
-       | Sn' => S(plus n' m)
+       | S n' => S (plus n' m)
      end.
+     
+    Example.text_mult1: (mult33) = 9. 
    \end{lstlisting}
    
-   \paragraph{A notaion convention for multiple arguments of the same type}
+   \paragraph{A Notaion Convention For Multiple Arguments Of The Same Type}
+   
    \begin{lstlisting}
-    Fixpoint minus (n,m: nat):nat :=
-     match n,m with
-       | 0, - => 0
+    Fixpoint minus (n,m: nat): nat :=
+     match n, m with
+       | 0, _ => 0
        | S _, 0 => n
-       | Sn', Sm' => minus S n' m'
+       | S n', S m' => minus n' m'
       end.
+      
+      End NatPlayground2
    \end{lstlisting}
         
-   \section{Introducing Notations}
-    For the Coq-parser and Coq-prettifyer sake we are introducing a new notaion:
+   \subsection{Introducing Notations}
+    For the Coq-parsers and Coq-prettifyers sake we are introducing a new notation:
+    
     \begin{lstlisting}
-     Notaion " x+y":= (plus xy)
-                       (at level 50, left associatifity): nat_scope. (*This line is not of our interest.*)
+     Notation "x+y":= (plus x y)
+                      (at level 50, left associatifity) (*This line is not of interest for our purpose.*)
+                      : nat_scope. (*This line is not of our interest.*)
     \end{lstlisting} 
    
    
    \begin{center}
    \begin{tabular}{|c|c|c|c|}
      \hline 
- 	  used noataion & function        & functionality                       & uses           \\  \hline
+ 	  used notation & function        & functionality                       & uses           \\  \hline
   	  x =? y        & eqb             & test natural numbers                & nested matches \\  
   	                &                 & for equality yielding a boolean     &                \\  \hline
    	  x <=?y        & leb             & test if a first argumnet            & nested matcher \\  
