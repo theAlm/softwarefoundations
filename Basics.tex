@@ -264,3 +264,68 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
      
      compute( minustwo(4)) (* = 2: nat *)
   \end{lstlisting}  
+  We have seen the functions \lstinline!S!, ¸\lstinline!pred! and \lstinline!minustwo!.
+  Note that there is a fundamental difference. The functions \lstinline!pred!, \lstinline!minustwo! apply computaional rules. There are no computaional rules  about \lstinline!S!.
+  I.e. by the definition of \lstinline!pred! \lstinline! pred 2! can be simplified to \lstinline!1!. In the case of \lstinline!S! there is no such behavior exists.
+  The definition of \lstinline!S! has no bahavior at all.\\ 
+    
+  In order to define more functions over numbers pattern matching is not sufficient. We are introducing recursion.
+  Recursion in Coq is notated by the keyword \lstinline!Fixpoint!.
+  
+  \begin{lstlisting}
+  Fixpoint evenb(n:nat) : bool :=
+  	match n with
+  	| 0 => true
+  	| S 0 => false
+  	| S (S n') => evenb n
+  	end.
+  	
+  	Definition oddb( n:nat): bool := negb (even bn). (* a simple definition of odd *)
+  	Example test_oddb1: oddb1 = true
+    	Proof. simpl. reflexivity. Qed.
+  \end{lstlisting}
+   Note that in this proof \lstinline! simpl.! actually has no effect on the goal. 
+   All the work is done by \lstinline!refelxivity!. We are going to come to back to that later.
+   
+   \section{Multi argumnet function recursion}
+   
+   \begin{lstlisting}
+   Fixpoint plus (n:nat) (m:nat): nat :=
+     match n with
+       | 0 => m
+       | Sn' => S(plus n' m)
+     end.
+   \end{lstlisting}
+   
+   \paragraph{A notaion convention for multiple arguments of the same type}
+   \begin{lstlisting}
+    Fixpoint minus (n,m: nat):nat :=
+     match n,m with
+       | 0, - => 0
+       | S _, 0 => n
+       | Sn', Sm' => minus S n' m'
+      end.
+   \end{lstlisting}
+        
+   \section{Introducing Notations}
+    For the Coq-parser and Coq-prettifyer sake we are introducing a new notaion:
+    \begin{lstlisting}
+     Notaion " x+y":= (plus xy)
+                       (at level 50, left associatifity): nat_scope. (*This line is not of our interest.*)
+    \end{lstlisting} 
+   
+   
+   \begin{center}
+   \begin{tabular}{|c|c|c|c|}
+     \hline 
+ 	  used noataion & function        & functionality                       & uses           \\  \hline
+  	  x =? y        & eqb             & test natural numbers                & nested matches \\  
+  	                &                 & for equality yielding a boolean     &                \\  \hline
+   	  x <=?y        & leb             & test if a first argumnet            & nested matcher \\  
+   	                &                 & is less or equal yielding a boolean &                \\  \hline
+   	 \hline
+   \end{tabular}
+   \end{center}
+   
+
+   
