@@ -233,12 +233,13 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
   
   
   Note that the same results apply to the definitions of \lstinline! day!, \lstinline! bool! and \lstinline! color!.
-  These conditions are a precise force of the \lstinline! Inductive! declaration. Expressions adult from other data constructors like \lstinline!true!, \lstinline! false!, \lstinline!andb(S(false( 0 ( 0 S ))))! do not belong to this set.  
+  These conditions are a precise force of the \lstinline! Inductive! declaration. 
+  Expressions adult from other data constructors like \lstinline!true!, \lstinline! false!, \lstinline!andb(S(false( 0 ( 0 S ))))! do not belong to this set.  
   But on the other hand, \lstinline!0! and \lstinline!S! are arbitrary symbols chosen in the defined representation. 
   Actually the {\itshape interpretation} of these marks is given by their usage in computing.
-  To realize this functions, which ``pattern match'' a represnation of natural numbers, are written.
+  To realize this functions, which ``pattern match'' a representation of natural numbers, are written.
   
-  We are following the idea:  If n has the form \lstinline! Sn'! for some \lstinline! n'!, then return  \lstinline! n'!.
+  We are following the idea:  If n has the form \lstinline! Sn'! for some \lstinline! n'! in the set \lstinline!nat!, then return  \lstinline! n'!.
   \begin{example}[predecessor function]
    \begin{lstlisting}
   	 Definition pred (n:nat): nat :=
@@ -253,23 +254,23 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
    \end{lstlisting}
   \end{example}
   Because natural numbers are such a pervasive form of data, Coq always prints out a natural number as decimal by default.
-  (It uses a `` bulid-in magic'' for paring and printing.)
+  (It uses a tiny `` bulid-in magic'' for paring and printing.)
  
   \begin{lstlisting}
   Definition minustwo( n: nat) : nat :=
     match n with
-      | 0 => 0
-      | S 0 => 0
+      | 0 =>  0
+      | S 0 =>  0
       | S ( S n') = > n'
      end.
      
    Compute( minustwo(4)) (* = 2: nat *)
   \end{lstlisting}  
-  Sofar we have seen the functions \lstinline!S!, ¸\lstinline!pred! and \lstinline!minustwo!.
+  Sofar we have seen the functions \lstinline!S!, \lstinline!pred! and \lstinline!minustwo!.
   Note that, there is a fundamental difference.
   The functions \lstinline!pred! and \lstinline!minustwo! apply computaional rules. 
-  There are no computaional rules  about \lstinline!S!.
-  I.e., by the definition of \lstinline!pred!, \lstinline! pred 2! can be simplified to \lstinline!1!. 
+  There are no computaional rules about \lstinline!S!.
+  I.e., by the definition of \lstinline!pred!, \lstinline!pred 2! can be simplified to \lstinline!1!. 
   In the case of \lstinline!S! no such behavior exists.
   The definition of \lstinline!S! has no bahavior at all.\\ 
     
@@ -297,29 +298,35 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
    
    \begin{lstlisting}
    Module NatPlayground2.
-   Fixpoint plus (n:nat) (m:nat): nat :=
+   
+   Fixpoint plus (n : nat) (m : nat): nat :=
      match n with
        | 0 => m
        | S n' => S (plus n' m)
      end.
      
-    Example.text_mult1: (mult33) = 9. 
+    Compute (plus 3 2). 
    \end{lstlisting}
    
-   \paragraph{A Notaion Convention For Multiple Arguments Of The Same Type}
+    A notaion convention for calling functions or matching two expressions for multiple arguments of the same type exist in Coq, too.
    
    \begin{lstlisting}
-    Fixpoint minus (n,m: nat): nat :=
+    Fixpoint minus (n m: nat): nat :=
      match n, m with
-       | 0, _ => 0
-       | S _, 0 => n
+       | 0 , _ => 0
+       | S _ , 0 => n
        | S n', S m' => minus n' m'
       end.
       
-      End NatPlayground2
+     Example test_mult1: (minus 3 2) = 1.
+     
+      
+     End NatPlayground2
    \end{lstlisting}
         
    \subsection{Introducing Notations}
+
+
     For the Coq-parsers and Coq-prettifyers sake we are introducing a new notation:
     
     \begin{lstlisting}
@@ -328,18 +335,25 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
                       : nat_scope. (*This line is not of our interest.*)
     \end{lstlisting} 
    
+   And these are some more functions defined for our purpose. 
+   The intersterd reader is referend to the literature for an exact definition.  
    
    \begin{center}
    \begin{tabular}{|c|c|c|c|}
      \hline 
  	  used notation & function        & functionality                       & uses           \\  \hline
-  	  x =? y        & eqb             & test natural numbers                & nested matches \\  
+ 	  x - y         & minus           & substract natural numbers           & see snipplet   \\  \hline
+      x + y         & plus            & add natural numbers                 & see snipplet   \\  \hline
+      x * y         & mult            & multiply natural numbers            & nested matches \\  \hline   
+   	  x =? y        & eqb             & test natural numbers                & nested matches \\  
   	                &                 & for equality yielding a boolean     &                \\  \hline
-   	  x <=?y        & leb             & test if a first argumnet            & nested matcher \\  
+   	  x <=?y        & leb             & test if a first argumnet            & nested matches \\  
    	                &                 & is less or equal yielding a boolean &                \\  \hline
    	 \hline
    \end{tabular}
    \end{center}
+   
+   \subsection{Proof by Simplification}
    
 
    
