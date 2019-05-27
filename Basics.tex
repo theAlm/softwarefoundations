@@ -341,7 +341,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
                       (at level 50, left associativity) (*This line is not of interest for our purpose.*)
                       : nat_scope. (*This line is not of our interest.*)
                       
-     Check(( 0 + 1 ) +1).
+     Check(( 0 + 1 ) + 1).
     \end{lstlisting} 
    
    And these are some more functions defined for our purpose. 
@@ -351,18 +351,19 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
    \begin{tabular}{|c|c|c|c|}
      \hline 
  	  notation      & function        & functionality                       & uses           \\  \hline
- 	  x - y         & minus           & substract two natural numbers       & see snipplet \ref{lst:minus_nat} \\  \hline
-    %  x + y         & plus            & add natural numbers                 & see snipplet   \\  \hline
+ 	  x - y         & minus           & substract two natural numbers       & see listing  \ref{lst:minus_nat} \\  \hline
       x * y         & mult            & multiply natural numbers            & nested matches \\  \hline   
    	  x =? y        & eqb             & test natural numbers                & nested matches \\  
   	                &                 & for equality yielding a boolean     &                \\  \hline
-   	  x <=?y        & leb             & test if a first argumnet            & nested matches \\  
+   	  x <=? y       & leb             & test if a first argumnet            & nested matches \\  
    	                &                 & is less or equal yielding a boolean &                \\  \hline
-   	 \hline
    \end{tabular}
    \end{center}
 	Note that we when we sayed that Coq comes with almost nothing bulit in, we really mean it.
-    Even equality testing is a user-defined operation.    
+    Even equality testing is a user-defined operation.
+    
+    
+        
    \subsection{Proof by Simplification}
    
    
@@ -370,7 +371,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
    Example: We have seen all claims were shown by the same proofs. \lstinline!simple! and \lstinline!refelctivity!. 
    \lstinline!simple! simplified equations and \lstinline!reflexivity! checked weather both sides contain identical values.
    An on the hand rule might say that, \lstinline!simple! can be used to show more simple properties.
-   For example we consider the follwing observation:`` 0+n reduces to n, no matter, what n is.''
+   For example we consider the follwing observation: ``0+n reduces to n, no matter, what n is.''
    The mathematical precisly formulated statement can be proven by the definition of zero directly.
    
    \begin{example}
@@ -390,90 +391,122 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 
 
 	\begin{lstlisting}
-    Theorem plus_0_n': for all n: nat, 0+n = n.
-    proof: intros n. reflexivity. Qed.	
+    Theorem plus_0_n': for all n: nat, 0 + n = n.
+    Proof: intros n. reflexivity. Qed.	
     \end{lstlisting}
     
-    Note that \lstinline!example! and \lstinline!theorem! mean pretty much the same in Coq.
+    By looking at the Coq output we can see that \lstinline!reflexivity! somehow tries ``	unfolding'' defined terms.
+    
+    Note that \lstinline!example! and \lstinline!theorem! (and \lstinline!Lemma!, \lstinline!Fact!, \lstinline!Remark! and a few other),
+    mean pretty much the same in Coq, while in Mathematics they do not.
     
    
-    \paragraph{Prooftechnique}
-    \paragraph{Simplification and Reflexivity}
-     Whenever a \lstinline!Theorem! starts with \lstinline!for all n!, we might start a proof by the phrase:
-     Assume \lstinline!n! is some natural number. By \lstinline! intros n! we can tell that to Coq.\\
-     A tactic ia a command used between \lstinline!proof! and \lstinline! Qed.!, which guides the process of checking some claim. E.g.:
-	    \begin{lstlisting}
-	    	intros. simpl. reflexivity.
-    	\end{lstlisting}
      
+    \paragraph{Prooftechniques}
+    
+    \paragraph{Intros, Simplification and Reflexivity}
+     Whenever a \lstinline!Theorem! starts with \lstinline!for all n!, we might start a proof by the phrase:
+     Assume \lstinline!n! is some natural number. By \lstinline! intros n! we can tell this to Coq.\\
+     A {\itshape tactic} is a command used between \lstinline!proof! and \lstinline! Qed.!, 
+     which guides the process of checking some claim for example the keyword \lstinline! intros!, \lstinline! simpl! and \lstinline!reflexivity.! 
+     are tactics.
      \paragraph{Notation} 
-     The suffix \lstinline!_|! is pronounced ´´on the left''.  
-      \begin{lstlisting}
-      Theorem mult_0_l: for all n: nat, or n = 0.
-        proof: intros n. refelxivity. Qed.
-     \end{lstlisting}
+     The suffix \lstinline!_|! is pronounced ``on the left''. 
+     \begin{example}
+	     \begin{lstlisting}
+	      Theorem mult_0_l: for all n: nat, or n = 0.
+	        proof: intros n. refelexivity. Qed.
+	     \end{lstlisting}
+     \end{example} 
+  
+   Let's recall what relfexivity in terms of an equivalence relation means.  
+   \begin{definition}[Equivalence Relation]
+   Assume $x,y\in \mathcal{M}$ an arbitrary set $\mathcal{M}\neq\emptyset$ and $\thicksim\subset A \times A $ an arbitrary relation.
+   Then $\thicksim$ is sayed to be an equivalence relation if and only if:
+   \begin{enumerate}
+   \item $a\thicksim a$ (reflexivity)
+   \item $a \thicksim b$ if and only if $b \thicksim c$ (symmertry)
+   \item if $a \thicksim b$ and $ b\thicksim c$ then $a \thicksim c$ (transitivity) 
+   \end{enumerate}
+   \end{definition}
+     
+   Due to the \href{https://pjreddie.com/coq-tactics/}{Coq tactics index} it is recomended to use refelxivity, if your goal is to prove that something is equals to itself.  
       
      \paragraph{Proof by Rewriting}
+     
+     Consider the following example theorem:     
      \begin{example}
 	 \begin{lstlisting}
 	 Theorem plus_id_examples: for all n m: nat
        n = m -> 
 	   n+n = m+m.	 
-	 \end{lstlisting}     
-     Instead by making a claim about all numbers look at the secial case when \lstinline!n=m!.
-     \begin{align*}
-     \texttt{´´} -> \texttt{''} implies 
-     \end{align*}
-     the tactic \lstinline! intros!.     
-     \end{example}
-    
-     Note taht the arrow \lstinline!->! tells Coq to rewrite from left to rithz and \lstinline!<-! can be used to rewrite from right to left.
+	 \end{lstlisting}  
+	 \end{example}   
+	
+	 We would like to show this theorem instead by making a claim about all numbers by looking at the special case when \lstinline!n=m!.
+     \lstinline!->! corresponds to the mathematical implication operator $\implies$. 
      
-     \begin{tabular} {|l|c|l|}
+%     The {\itshape tactic} \lstinline! intros!.     
+    
+    
+     Note that, the arrow \lstinline!->! tells Coq to rewrite the object of focus from left to right and \lstinline!<-! can be used to rewrite from right to left.
+     
+     \begin{tabular} {|l|l|l|}
      	\hline
-     	command                         & a mathematical translation                       & comment \\  \hline
-     	\lstinline!proof.!              & moves the last used theorem into the focus.      & moves the universal quanitivier into the focus  \\ \hline
-     	\lstinline!intros n m.!         & Assume $m,n \in \mathbb{N}.$                     &                                                 \\ \hline
-    	\lstinline!intros H.!           & $H :=\{n=m\}$                                    & moves hypothesis into the context                \\    \hline                                            \\
-     	\lstinline!rewrite -> H.!       & replace by H from left to right                  &                                                 \\  
-     	                                & i.e. $n:=m$ $\implies m+m = m+m$                 & rewrite the goal using the hypothesis           \\ \hline
-     	\lstinline!reflexivity.!        & use equivalence to show equality                 &                                                 \\ \hline
-    	\lstinline!Qed.!                &                                                  &                                                 \\  \hline
-    	\hline
+     	  command                        & a mathematical translation          & comment \\  \hline
+     	 \lstinline!proof.!              & $\text{wts}: \forall m,n \in \mathbb{N}:$ & Moves the last used \\   
+     	      	                         &  $n = m \implies n+n = m+m \qquad$  &         \\     
+     	      	                         &  $Proof:$                           & theorem into the focus.\\  
+       	                                 &                                     &                                    \\   \hline
+         \lstinline!  intros n m.!       & Assume $m,n \in \mathbb{N}.$        & Moves the universally quanitified variables\\
+                                         &                                     & n and m into the focus.   \\   \hline                                            
+          \lstinline!  intros H.!        & $H :=\{n=m\}$                       & Moves the hypothesis into              \\ 
+    	                                 &                                     & the focus of Coq.                                          \\    \hline   
+     	 \lstinline!  rewrite -> H.!     &                                     & Replace by H from left to right and                            \\  
+     	                                 & $H \wedge n:=m$ $\implies m+m = m+m$& rewrite the goal using the hypothesis.           \\ \hline
+     	 \lstinline!  reflexivity.!      & trivial                             &  We obtained a trivial statement.                 \\ \hline
+    	 \lstinline! Qed.!                & Qed.                                &  Quod era demonstrandum.                         \\  \hline
+    	 
      \end{tabular}
    
    
-   \begin{definition}[Equivalence Relation]
-   Assume $x,y\in \mathcal{M}$ an arbitrary set $\mathcal{M}\neq\emptyset$ and $\tilde{}\subset A \times A $ an arbitrary relation.
-   Then $\tilde{}$ is sayed to be an equivalence relation if and only if:
-   \begin{enumerate}
-   \item $a\tilde{} a$ (reflexivity)
-   \item $a\tilde{} b$ if and only if $b \tilde{} c$ (symmertry)
-   \item if $a\tilde{} b$ and $ b\tilde{} c$ then $a\tilde{} c$ (transitivity) 
-   \end{enumerate}
-   \end{definition}
-     
-   Due to the \href{https://pjreddie.com/coq-tactics/}{Coq tactics index} it is recomended to use refelxivity, if your goal is to prove that something is equals to itself.  
+   
    
    We can also use \lstinline!rewrite! with a previously proved theorem insted of a hypothesis of context.
-   If the statement of the previously proved theorem involves prequnatified variables Coq reuses them.
+   If the statement of the previously proved theorem involves prequnatified variables, Coq reuses them.
    
    \begin{lstlisting}
    Theorem mult_0_plus: for all n m: nat,
-     intros n m. ( 0 +n)* m = n*m. (* Let $n,m\in\mathbb{N}$ *) 
-     refelxivity -> plus_0_n.      (* rewrite $0+n$, by n *)
+   (0 + n) * m = n * m.
+   Proof.
+     intros n m.                   (* Let $n,m\in\mathbb{N}$ *) 
+     refelxivity -> plus_0_n.       (* rewrite $0+n$, by n *)
      reflexivity.                  (* m = m *)
      Qed.
    \end{lstlisting}   
 
 	\paragraph{Admitted and Abort}
 	
-	The comand \lstinline!Admitted! tells Coq to skip a proofing the theorem and accept it as given.
-	It can be used in long proof to subsidary state longer \lstinline!Lemmas!  Or a proof was startet it can be interuped by the command \lstinline!Abort!.
-	Note if a proof was forgotton in the follwing nonesense might be proven. \\
+	The comand \lstinline!Admitted! tells Coq to skip a proof of a theorem and to accept it as given.
+	It can be used in long proofs to subsidary state longer \lstinline!Lemmas!.
+	If a proof was startet it can be interuped by the command \lstinline!Abort!.
+	Note, if a proof was forgotton in the follwing nonesense is a able to be shown. \\
 	
+	
+ \subsection{Proof by Case Analysis}
+   Consider the follwing example. It clearly demonstartes that, it is not possible to prove everyting using the simplification tactic.   
+   
+   
    \paragraph{Destruct}	
-	It is not possible to prove everyting using the simplification tactic.   
+   \begin{lstlisting}
+   Theorem plus_1_neq_0_firsttry : for all n : nat,
+     (n + 1) =? 0 = false.
+     Proof.
+     intros n.
+     simpl. (* does nothing! *)
+   Abort.
+   \end{lstlisting}
+	
 	\begin{lstlisting}
 	intros n. destruct n as[ |n'] eqn: E
 	\end{lstlisting}
