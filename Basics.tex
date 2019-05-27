@@ -122,7 +122,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
      \begin{enumerate}
       \item  \lstinline* Check true.* gives the type of the expression \lstinline! boolean!.
       \item \lstinline! Check negb.! returns \lstinline! bool -> bool! . (Read as  ``bool arrow bool'').
-           %  It is the functions input data type and the output data type, given input data of that type.
+              It is the functions input data type and the output data type, given input data of that type.
        \item \lstinline! andb! returns \lstinline!bool->bool->bool!. This function produces an output of type \lstinline! bool! given two inputs of type \lstinline! bool!.
      \end{enumerate}
    
@@ -308,9 +308,9 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
     Compute (plus 3 2). 
    \end{lstlisting}
    
-    A notaion convention for calling functions or matching two expressions for multiple arguments of the same type exist in Coq, too.
+    A notation convention for calling functions or matching two expressions for multiple arguments of the same type exist in Coq, too.
    
-   \begin{lstlisting}
+   \begin{lstlisting}[label = lst:minus_nat, caption={ \lstinline!minus! and \lstinline!exp!}]
     Fixpoint minus (n m: nat): nat :=
      match n, m with
        | 0 , _ => 0
@@ -322,6 +322,13 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
      
       
      End NatPlayground2
+     
+     Fixpoint exp (base power : nat) : nat :=
+       match power with
+         | 0 => S 0
+         | S p => mult base (exp base p)
+       end.
+         
    \end{lstlisting}
         
    \subsection{Introducing Notations}
@@ -330,9 +337,11 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
     For the Coq-parsers and Coq-prettifyers sake we are introducing a new notation:
     
     \begin{lstlisting}
-     Notation "x+y":= (plus x y)
-                      (at level 50, left associatifity) (*This line is not of interest for our purpose.*)
+     Notation " x + y ":= (plus x y)
+                      (at level 50, left associativity) (*This line is not of interest for our purpose.*)
                       : nat_scope. (*This line is not of our interest.*)
+                      
+     Check(( 0 + 1 ) +1).
     \end{lstlisting} 
    
    And these are some more functions defined for our purpose. 
@@ -341,9 +350,9 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
    \begin{center}
    \begin{tabular}{|c|c|c|c|}
      \hline 
- 	  used notation & function        & functionality                       & uses           \\  \hline
- 	  x - y         & minus           & substract natural numbers           & see snipplet   \\  \hline
-      x + y         & plus            & add natural numbers                 & see snipplet   \\  \hline
+ 	  notation      & function        & functionality                       & uses           \\  \hline
+ 	  x - y         & minus           & substract two natural numbers       & see snipplet \ref{lst:minus_nat} \\  \hline
+    %  x + y         & plus            & add natural numbers                 & see snipplet   \\  \hline
       x * y         & mult            & multiply natural numbers            & nested matches \\  \hline   
    	  x =? y        & eqb             & test natural numbers                & nested matches \\  
   	                &                 & for equality yielding a boolean     &                \\  \hline
@@ -352,29 +361,31 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
    	 \hline
    \end{tabular}
    \end{center}
-   
+	Note that we when we sayed that Coq comes with almost nothing bulit in, we really mean it.
+    Even equality testing is a user-defined operation.    
    \subsection{Proof by Simplification}
    
    
    Till now we have defined a few datatypes and functions.
    Example: We have seen all claims were shown by the same proofs. \lstinline!simple! and \lstinline!refelctivity!. 
-   \lstinline!simple! simplifies equations and \lstinline!reflexivity! checks weather both sides contain identical values.
-   On the hand rule might say that \lstinline!simple! can be used to show more simple properties.
-   For example we are considering the follwing observation:´´ 0+n reduces to n, no matter, what n is.''
-   The mathematical precisly formualted statement can be proven by definition of zero directly.
+   \lstinline!simple! simplified equations and \lstinline!reflexivity! checked weather both sides contain identical values.
+   An on the hand rule might say that, \lstinline!simple! can be used to show more simple properties.
+   For example we consider the follwing observation:`` 0+n reduces to n, no matter, what n is.''
+   The mathematical precisly formulated statement can be proven by the definition of zero directly.
    
    \begin{example}
 	   \begin{theorem}
   	   \begin{lstlisting}
-   		Theorem. plus_0_n: for n: nat, 0+n = n.
-   		Proof. intros n. simpl. refelxivity. Qed.
+   		Theorem. plus_0_n: for all n: nat, 0+n = n.
+   		  Proof. intros n. simpl. refelxivity. Qed.
     	\end{lstlisting}	
 	\end{theorem}
 	\end{example}              
     \begin{remark}
-    	Reflexivity does not only check. It is more powerful. It simplifies, too. 
-    	We have seen in our examples simpl just was added so we can see the intermediate state.
-    	E.g. the proof from above can be simpliefied. 
+    	Reflexivity does not only check weather both sides of an equation contain identical values. 
+    	On top of that it simplifies, which makes it more powerful. 
+    	We have seen \lstinline!simpl! added in our examples so we can see the intermediate state.
+    	Therefore, the above proof can be simpliefied by omitting \lstinline!simpl!. 
      \end{remark}
 
 
@@ -457,7 +468,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 
 	\paragraph{Admitted and Abort}
 	
-	The comand \llstinline{Admitted} tells Coq to skip a proofing the theorem and accept it as given.
+	The comand \lstinline!Admitted! tells Coq to skip a proofing the theorem and accept it as given.
 	It can be used in long proof to subsidary state longer \lstinline!Lemmas!  Or a proof was startet it can be interuped by the command \lstinline!Abort!.
 	Note if a proof was forgotton in the follwing nonesense might be proven. \\
 	
