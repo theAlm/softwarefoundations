@@ -4,6 +4,7 @@
 *.pdf
 *.bbl
 *.blg
+*.fdb_latexmk
 IntroductionToCoq.thm
 IntroductionToCoq.toc
 IntroductionToCoq.bbl
