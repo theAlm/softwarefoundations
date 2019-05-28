@@ -2,7 +2,6 @@
 
 
 
-
 \subsection{Introduction}
 
 In this chapter we are going to introduce the most essential elements of Coq's functional programming language called {\itshape  Gallina}. 
@@ -15,7 +14,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
  
   The built-in features set in Coq is extremely small. In particular, Coq is a powerful mechanism for defining data types from scratch.
   Current Coq distributions come preloaded with an extensive standard library.
-  Bools, numbers, data struts like lists and hash tables.\\
+  Boolean, numbers, data struts like lists and hash tables.\\
   In this course we are going to explicitly recapitulate the used definitions.
    
   
@@ -76,7 +75,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 
 \subsection{Booleans}
 
-    Of course, Coq provides an default implementation of booleans.
+    Of course, Coq provides an default implementation of Booleans.
     (See the \href{https://www.cs.princeton.edu/courses/archive/fall07/cos595/stdlib/html/Coq.Init.Datatypes.html}{Coq.Init.Datatypes in the Coq-Library documentation}).  
     In the following we are going to be consistent with the Coq library documentation according to the standard library.
     We are going to introduce coinciding selfdefined data types whenever possible.
@@ -153,7 +152,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 \subsection{Tuples}
 
     A single constructor with multiple parameters can be used to create a type \lstinline! tuple!.
-	\begin{example}[A nybble: half a byte]
+	\begin{example}[A nybble: half a byte]~\\\vspace{-10mm}
  	 	\begin{lstlisting}
  	 		Inductive bit: Type := (*a bit*) 
  	 		 |B0
@@ -165,7 +164,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
  		\end{lstlisting}
  		Hence, a tuple of four bits is a nybble.
  		
- 		Assume we would like to test a nybble in order to see if all its bits are 0. We are unwrapping the nybble by patternmatching:
+ 		Assume we would like to test a nybble in order to see if all its bits are 0. We are unwrapping the nybble by pattern-matching:
  		\begin{lstlisting}
  		Definition all_zero(nb: nybble): bool :=
  		  match nb with
@@ -240,7 +239,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
   To realize this functions, which ``pattern match'' a representation of natural numbers, are written.
   
   We are following the idea:  If n has the form \lstinline! Sn'! for some \lstinline! n'! in the set \lstinline!nat!, then return  \lstinline! n'!.
-  \begin{example}[predecessor function]
+  \begin{example}[predecessor function]~\\\vspace{-10mm}
    \begin{lstlisting}
   	 Definition pred (n:nat): nat :=
    		match n with 
@@ -351,15 +350,15 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
    \begin{tabular}{|c|c|c|c|}
      \hline 
  	  notation      & function        & functionality                       & uses           \\  \hline
- 	  x - y         & minus           & substract two natural numbers       & see listing  \ref{lst:minus_nat} \\  \hline
+ 	  x - y         & minus           & subtract two natural numbers       & see listing  \ref{lst:minus_nat} \\  \hline
       x * y         & mult            & multiply natural numbers            & nested matches \\  \hline   
    	  x =? y        & eqb             & test natural numbers                & nested matches \\  
   	                &                 & for equality yielding a boolean     &                \\  \hline
-   	  x <=? y       & leb             & test if a first argumnet            & nested matches \\  
+   	  x <=? y       & leb             & test if a first argument            & nested matches \\  
    	                &                 & is less or equal yielding a boolean &                \\  \hline
    \end{tabular}
    \end{center}
-	Note that we when we sayed that Coq comes with almost nothing bulit in, we really mean it.
+	Note that we when we sayed that Coq comes with almost nothing built-it in, we really mean it.
     Even equality testing is a user-defined operation.
     
     
@@ -367,12 +366,12 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
    \subsection{Proof by Simplification}
    
    
-   Till now we have defined a few datatypes and functions.
+   Till now we have defined a few data types and functions.
    Example: We have seen all claims were shown by the same proofs. \lstinline!simple! and \lstinline!refelctivity!. 
    \lstinline!simple! simplified equations and \lstinline!reflexivity! checked weather both sides contain identical values.
    An on the hand rule might say that, \lstinline!simple! can be used to show more simple properties.
-   For example we consider the follwing observation: ``0+n reduces to n, no matter, what n is.''
-   The mathematical precisly formulated statement can be proven by the definition of zero directly.
+   For example we consider the following observation: ``0+n reduces to n, no matter, what n is.''
+   The mathematical precisely formulated statement can be proven by the definition of zero directly.
    
    \begin{example}
 	   \begin{theorem}
@@ -386,7 +385,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
     	Reflexivity does not only check weather both sides of an equation contain identical values. 
     	On top of that it simplifies, which makes it more powerful. 
     	We have seen \lstinline!simpl! added in our examples so we can see the intermediate state.
-    	Therefore, the above proof can be simpliefied by omitting \lstinline!simpl!. 
+    	Therefore, the above proof can be simplified by omitting \lstinline!simpl!. 
      \end{remark}
 
 
@@ -419,29 +418,29 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 	     \end{lstlisting}
      \end{example} 
   
-   Let's recall what relfexivity in terms of an equivalence relation means.  
+   Let's recall what reflexivity in terms of an equivalence relation means.  
    \begin{definition}[Equivalence Relation]
    Assume $x,y\in \mathcal{M}$ an arbitrary set $\mathcal{M}\neq\emptyset$ and $\thicksim\subset A \times A $ an arbitrary relation.
    Then $\thicksim$ is sayed to be an equivalence relation if and only if:
    \begin{enumerate}
    \item $a\thicksim a$ (reflexivity)
-   \item $a \thicksim b$ if and only if $b \thicksim c$ (symmertry)
+   \item $a \thicksim b$ if and only if $b \thicksim c$ (symmetry)
    \item if $a \thicksim b$ and $ b\thicksim c$ then $a \thicksim c$ (transitivity) 
    \end{enumerate}
    \end{definition}
      
-   Due to the \href{https://pjreddie.com/coq-tactics/}{Coq tactics index} it is recomended to use refelxivity, if your goal is to prove that something is equals to itself.  
+   Due to the \href{https://pjreddie.com/coq-tactics/}{Coq tactics index} it is recommended to use reflexivity, if your goal is to prove that something is equals to itself.  
       
      \paragraph{Proof by Rewriting}
      
      Consider the following example theorem:     
-     \begin{example}
-	 \begin{lstlisting}
+     %\begin{example}\\
+	 \begin{lstlisting}[caption=Example]
 	 Theorem plus_id_examples: for all n m: nat
        n = m -> 
 	   n+n = m+m.	 
 	 \end{lstlisting}  
-	 \end{example}   
+	 %\end{example}   
 	
 	 We would like to show this theorem instead by making a claim about all numbers by looking at the special case when \lstinline!n=m!.
      \lstinline!->! corresponds to the mathematical implication operator $\implies$. 
@@ -458,7 +457,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
      	      	                         &  $n = m \implies n+n = m+m \qquad$  &         \\     
      	      	                         &  $Proof:$                           & theorem into the focus.\\  
        	                                 &                                     &                                    \\   \hline
-         \lstinline!  intros n m.!       & Assume $m,n \in \mathbb{N}.$        & Moves the universally quanitified variables\\
+         \lstinline!  intros n m.!       & Assume $m,n \in \mathbb{N}.$        & Moves the universally quantified variables\\
                                          &                                     & n and m into the focus.   \\   \hline                                            
           \lstinline!  intros H.!        & $H :=\{n=m\}$                       & Moves the hypothesis into              \\ 
     	                                 &                                     & the focus of Coq.                                          \\    \hline   
@@ -472,8 +471,8 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
    
    
    
-   We can also use \lstinline!rewrite! with a previously proved theorem insted of a hypothesis of context.
-   If the statement of the previously proved theorem involves prequnatified variables, Coq reuses them.
+   We can also use \lstinline!rewrite! with a previously proved theorem instead of a hypothesis of context.
+   If the statement of the previously proved theorem involves prequantified variables, Coq reuses them.
    
    \begin{lstlisting}
    Theorem mult_0_plus: for all n m: nat,
@@ -487,14 +486,14 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 
 	\paragraph{Admitted and Abort}
 	
-	The comand \lstinline!Admitted! tells Coq to skip a proof of a theorem and to accept it as given.
-	It can be used in long proofs to subsidary state longer \lstinline!Lemmas!.
-	If a proof was startet it can be interuped by the command \lstinline!Abort!.
-	Note, if a proof was forgotton in the follwing nonesense is a able to be shown. \\
+	The command \lstinline!Admitted! tells Coq to skip a proof of a theorem and to accept it as given.
+	It can be used in long proofs to subsidiary state longer \lstinline!Lemmas!.
+	If a proof was started it can be interrupted by the command \lstinline!Abort!.
+	Note, if a proof was forgotten in the following nonsense is a able to be shown. \\
 	
 	
  \subsection{Proof by Case Analysis}
-   Consider the follwing example. It clearly demonstartes that, it is not possible to prove everyting using the simplification tactic.   
+   Consider the following example. It clearly demonstrates that, it is not possible to prove everything using the simplification tactic.   
    
    
    \paragraph{Destruct}	
@@ -506,9 +505,51 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
      simpl. (* does nothing! *)
    Abort.
    \end{lstlisting}
+	Write something short from the book, why it obviously is not going to work.\\
 	
+	Note that if \lstinline!n=0! it can be calculated that \lstinline!n+1=?0! and set it equals to  \lstinline!false!. 
+	And if \lstinline!n=Sn'! for some \lstinline!n'! we can not calculate the expression.
+	Although we don't know, which number \lstinline!n+1! is, we can calculate that it begins with an \lstinline!S!.
+	It follows \lstinline!n+1= ? 0! yields \lstinline!false!.
+	
+    Hence we would like to generate two subgoals including variables named as in the called \lstinline! intros! pattern.	   
+        
+    Therefore we are using the tactics \lstinline! destruct!	
 	\begin{lstlisting}
-	intros n. destruct n as[ |n'] eqn: E
+	intros n.
+	destruct n as[ |n'] eqn: E
 	\end{lstlisting}
+	
+	\begin{enumerate}
+		\item 	The expression \lstinline![.. ]! is called the intro pattern. It is a list of lists of names separated by \lstinline!|!.
+		\item   Any data type can be referd to in the into pattern's list.
+		\item In this case the first entry of our list is empty, because the \lstinline!0!-constructor is nullary and the constructor of \lstinline!S! is unary, therefor it is written \lstinline!n'! as the second member of our list.
+		\item \lstinline!E! is the variable for the equation in the following
+		\item In general every subgoal, which follows the destruct is going to be marked by \lstinline!-!.
+	\end{enumerate} 
+	
+	The bullets are not necessarily to list sufficiently. 
+	Coq asks to show every listed subgoal in sequence.
+	But due to readability and clearance, ensurence of correctness and convenience in debugging sub goals should be listed.
+	
+	Moreover, there are no hard or fast rules in proof formatting (i.e. indents and linebreaks). 
+	Bullets in the beginning of the line foster readability and maximally 80 characters per line are convenient.
+	
+	\begin{example}
+	  \begin{lstlisting}
+	  	Theorem newb_involutive: for all b: bool,
+	  	  neg b ( neg b ) = b.
+	  	  
+	  	Proof. 
+	  	  intros b destruct b eq n: E
+	  	    - reflexivity. 
+	  	    - reflexivity. 
+	  	   Qed.  
+	  \end{lstlisting}
+	\end{example}
+	 
+	 
+	
+	
 
    
