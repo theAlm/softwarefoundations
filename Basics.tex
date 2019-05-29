@@ -521,19 +521,19 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 	\end{lstlisting}
 	
 	\begin{enumerate}
-		\item 	The expression \lstinline![.. ]! is called the intro pattern. It is a list of lists of names separated by \lstinline!|!.
-		\item   Any data type can be referd to in the into pattern's list.
-		\item In this case the first entry of our list is empty, because the \lstinline!0!-constructor is nullary and the constructor of \lstinline!S! is unary, therefor it is written \lstinline!n'! as the second member of our list.
+		\item The expression \lstinline![ |n']! between \lstinline!as! and \lstinline!eqn! is called the intro pattern. It is a list of lists of names separated by \lstinline!|!.
+		\item It can be referd to any data type in the intro pattern.
+		\item In the above case the first entry of the list is empty, because the \lstinline!0!-constructor is nullary and the constructor of \lstinline!S! is unary, therefor it is written \lstinline!n'! as the second member of our list.
 		\item \lstinline!E! is the variable for the equation in the following
-		\item In general every subgoal, which follows the destruct is going to be marked by \lstinline!-!.
+		\item In general every subgoal, which follows the destruct, is going to be marked by \lstinline!-!.
 	\end{enumerate} 
 	
-	The bullets are not necessarily to list sufficiently. 
-	Coq asks to show every listed subgoal in sequence.
-	But due to readability and clearance, ensurence of correctness and convenience in debugging sub goals should be listed.
+	The bullets are not necessarily to list. 
+	Coq asks to show every listed subgoal following a \lstinline!destruct! in sequence.
+	But due to readability and clearance, ensurence of correctness and convenience while debugging sub goals should be listed.
 	
 	Moreover, there are no hard or fast rules in proof formatting (i.e. indents and linebreaks). 
-	Bullets in the beginning of the line foster readability and maximally 80 characters per line are convenient.
+	Bullets in the beginning of the line foster readability and limitting the number of charcters per line to 80 aim readability.
 	
 	\begin{example}
 	  \begin{lstlisting}
@@ -548,8 +548,31 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 	  \end{lstlisting}
 	\end{example}
 	 
+	 Note that above a name specification is not required, because there is no \lstinline!as! clause in the \lstinline!destruct!.
+	 Since no varible has to be binded by the use of the tactics, listing empty lists as \lstinline![]! or \lstinline![|]! would be bad style and lead to a confusing choice by Coq.
 	 
-	
-	
-
+	 \lstinline!destruct! as ab le to be invoked inside subgaols to generate more proof obligations.
+	  The nested subgoals can either be grouped by an addition sign \lstinline!+!, the so called asterix a \lstinline!*!, or a curly parentheis.
+	  \begin{example}
+	  \begin{lstlisting}
+	  destruct a eqn: EqnA.
+	    + reflectivity.
+	    + destruct b eqn: EqnB.
+	      - refelexivity.
+	      - destruct c eqn: EqnC.
+	          * simpl.        
+	  
+	   destruct d eqn: EqnD.
+	    { reflectivity.
+	      destruct e eqn: EqnE. } 
+	       { reflexivity.
+	         destruct f eqn: EqnF. } 
+	           { simpl. }   
+	   \end{lstlisting}
+	   \end{example}     
+	 
+	  For using a case analysis right after introducing variables it is written
+	  \lstinline! intros xy destruct y as [  |y] eqn:E.!	
+	  This is able to be shortend to the expression \lstinline! intros [ |y].!, although the equation recording assumption is lost.   
+    
    
