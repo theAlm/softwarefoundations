@@ -374,7 +374,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
    The mathematical precisely formulated statement can be proven by the definition of zero directly.
    
    \begin{example}
-	   \begin{theorem}
+	   \begin{theorem} ~\\vspace{-5mm}
   	   \begin{lstlisting}
    		Theorem. plus_0_n: for all n: nat, 0+n = n.
    		  Proof. intros n. simpl. refelxivity. Qed.
@@ -401,7 +401,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
     
    
      
-    \paragraph{Proof-techniques}
+    \paragraph{Proof-Techniques}
     
     \paragraph{Intros, Simplification and Reflexivity}
      Whenever a \lstinline!Theorem! starts with \lstinline!for all n!, we might start a proof by the phrase:
@@ -409,10 +409,11 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
      A {\itshape tactic} is a command used between \lstinline!proof! and \lstinline! Qed.!, 
      which guides the process of checking some claim for example the keyword \lstinline! intros!, \lstinline! simpl! and \lstinline!reflexivity.! 
      are tactics.
+     
      \paragraph{Notation} 
      The suffix \lstinline!_|! is pronounced ``on the left''. 
-     \begin{example}
-	     \begin{lstlisting}
+     \begin{example} ~\ \vspace{-5mm}
+	     \begin{lstlisting} 
 	      Theorem mult_0_l: for all n: nat, or n = 0.
 	        proof: intros n. refelexivity. Qed.
 	     \end{lstlisting}
@@ -457,16 +458,16 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
      	      	                         &  $n = m \implies n+n = m+m \qquad$  &         \\     
      	      	                         &  $Proof:$                           & theorem into the focus.\\  
        	                                 &                                     &                                    \\   \hline
-         \lstinline!  intros n m.!       & Assume $m,n \in \mathbb{N}.$        & Moves the universally quantified variables\\
-                                         &                                     & n and m into the focus.   \\   \hline                                            
+         \lstinline!  intros n m.!       & Assume $m,n \in \mathbb{N}.$        & Moves the universally quantified \\
+                                         &                                     & variables n and m into the focus.   \\   \hline                                            
           \lstinline!  intros H.!        & $H :=\{n=m\}$                       & Moves the hypothesis into              \\ 
     	                                 &                                     & the focus of Coq.                                          \\    \hline   
-     	 \lstinline!  rewrite -> H.!     &                                     & Replace by H from left to right and                            \\  
-     	                                 & $H \wedge n:=m$ $\implies m+m = m+m$& rewrite the goal using the hypothesis.           \\ \hline
+     	 \lstinline!  rewrite -> H.!     &  $H \wedge n:=m$                                   & Replace by H from left to right and                            \\  
+     	                                 &  $\implies m+m = m+m$& rewrite the goal using the hypothesis.           \\ \hline
      	 \lstinline!  reflexivity.!      & trivial                             &  We obtained a trivial statement.                 \\ \hline
     	 \lstinline! Qed.!                & Qed.                                &  Quod era demonstrandum.                         \\  \hline
     	 
-     \end{tabular}
+     \end{tabular}\\
    
    
    
@@ -496,7 +497,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
    Consider the following example. It clearly demonstrates that, it is not possible to prove everything using the simplification tactic.   
    
    
-   \paragraph{Destruct}	
+   \paragraph{Destruct}	~\vspace{-5mm}
    \begin{lstlisting}
    Theorem plus_1_neq_0_firsttry : for all n : nat,
      (n + 1) =? 0 = false.
@@ -535,7 +536,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 	Moreover, there are no hard or fast rules in proof formatting (i.e. indents and linebreaks). 
 	Bullets in the beginning of the line foster readability and limiting the number of characters per line to 80 aim readability.
 	
-	\begin{example}
+	\begin{example} ~\\\vspace{-10mm}
 	  \begin{lstlisting}
 	  	Theorem newb_involutive: for all b: bool,
 	  	  neg b ( neg b ) = b.
@@ -553,24 +554,26 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 	 
 	 \lstinline!destruct! as ab le to be invoked inside subgaols to generate more proof obligations.
 	  The nested subgoals can either be grouped by an addition sign \lstinline!+!, the so called asterix a \lstinline!*!, or a curly parenthesis.
-	  \begin{example}
+	  \begin{example} ~\\\vspace{-10mm}
 	  \begin{lstlisting}
 	  destruct a eqn: EqnA.
 	    + reflectivity.
 	    + destruct b eqn: EqnB.
 	      - refelexivity.
 	      - destruct c eqn: EqnC.
-	          * simpl.        
+	          * simpl. 
+	          (*...*)       
 	  
 	   destruct d eqn: EqnD.
 	    { reflectivity.
 	      destruct e eqn: EqnE. } 
 	       { reflexivity.
 	         destruct f eqn: EqnF. } 
-	           { simpl. }   
+	           { simpl. }
+	           (*...*)   
 	   \end{lstlisting}
 	   \end{example}     
-	 2.13 
+	 
 	  For using a case analysis right after introducing variables it is written
 	  \lstinline! intros xy destruct y as [  |y] eqn:E.!	
 	  This is able to be shortened to the expression \lstinline! intros [ |y].!, although the equation recording assumption is lost.   
