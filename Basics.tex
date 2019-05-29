@@ -70,15 +70,15 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
     Moreover, Coq can be asked to \lstinline!extract! a program from our \lstinline! Definition! in a programming language, which is more conventional, being equipped with a high performance compiler.
     In particular this is one of the main uses of Coq. 
     It provides a method to transfer proved-correct algorithms in Gallina to efficient machine code.
-    (Assuming the correctness of the corresponding high performance compile e.g. the Ocaml, Haskell or Scheme compiler. 
+    (Assuming the correctness of the corresponding high performance compile e.g. the Ocaml, Haskell or Scheme compiler.) 
 
 
 \subsection{Booleans}
 
     Of course, Coq provides an default implementation of Booleans.
-    (See the \href{https://www.cs.princeton.edu/courses/archive/fall07/cos595/stdlib/html/Coq.Init.Datatypes.html}{Coq.Init.Datatypes in the Coq-Library documentation}).  
+    (See the \newline \href{https://www.cs.princeton.edu/courses/archive/fall07/cos595/stdlib/html/Coq.Init.Datatypes.html}{Coq.Init.Datatypes in the Coq-Library documentation}).  
     In the following we are going to be consistent with the Coq library documentation according to the standard library.
-    We are going to introduce coinciding selfdefined data types whenever possible.
+    We are going to introduce coinciding self-defined data types whenever possible.\\
     Booleans can be defined as follows:
     
     \label{Def:booleans}
@@ -97,7 +97,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
     end.
     \end{lstlisting}
     
-    The functions \lstinline!negb! and \lstinline!andb! corresponding to the boolean functions {\emph negation} and {\emph and} are implemented in a similar manner.
+    The functions \lstinline!negb! and \lstinline!andb! corresponding to the Boolean functions {\emph negation} and {\emph and} are implemented in a similar manner.
      
     And a new symbolic notations is implemented as follows
     \begin{lstlisting}
@@ -253,7 +253,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
    \end{lstlisting}
   \end{example}
   Because natural numbers are such a pervasive form of data, Coq always prints out a natural number as decimal by default.
-  (It uses a tiny `` bulid-in magic'' for paring and printing.)
+  (It uses a tiny `` build-in magic'' for paring and printing.)
  
   \begin{lstlisting}
   Definition minustwo( n: nat) : nat :=
@@ -265,13 +265,13 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
      
    Compute( minustwo(4)) (* = 2: nat *)
   \end{lstlisting}  
-  Sofar we have seen the functions \lstinline!S!, \lstinline!pred! and \lstinline!minustwo!.
+  So far we have seen the functions \lstinline!S!, \lstinline!pred! and \lstinline!minustwo!.
   Note that, there is a fundamental difference.
-  The functions \lstinline!pred! and \lstinline!minustwo! apply computaional rules. 
-  There are no computaional rules about \lstinline!S!.
+  The functions \lstinline!pred! and \lstinline!minustwo! apply computational rules. 
+  There are no computational rules about \lstinline!S!.
   I.e., by the definition of \lstinline!pred!, \lstinline!pred 2! can be simplified to \lstinline!1!. 
   In the case of \lstinline!S! no such behavior exists.
-  The definition of \lstinline!S! has no bahavior at all.\\ 
+  The definition of \lstinline!S! has no behavior at all.\\ 
     
   In order to define more functions over numbers pattern matching is not sufficient. We are introducing recursion.
   Recursion in Coq is notated by the keyword \lstinline!Fixpoint!.
@@ -344,7 +344,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
     \end{lstlisting} 
    
    And these are some more functions defined for our purpose. 
-   The intersterd reader is referend to the literature for an exact definition.  
+   The interested reader is refereed to the literature for an exact definition.  
    
    \begin{center}
    \begin{tabular}{|c|c|c|c|}
@@ -353,12 +353,12 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
  	  x - y         & minus           & subtract two natural numbers       & see listing  \ref{lst:minus_nat} \\  \hline
       x * y         & mult            & multiply natural numbers            & nested matches \\  \hline   
    	  x =? y        & eqb             & test natural numbers                & nested matches \\  
-  	                &                 & for equality yielding a boolean     &                \\  \hline
+  	                &                 & for equality yielding a Boolean     &                \\  \hline
    	  x <=? y       & leb             & test if a first argument            & nested matches \\  
-   	                &                 & is less or equal yielding a boolean &                \\  \hline
+   	                &                 & is less or equal yielding a Boolean &                \\  \hline
    \end{tabular}
    \end{center}
-	Note that we when we sayed that Coq comes with almost nothing built-it in, we really mean it.
+	Note that we when we said that Coq comes with almost nothing built-it in, we really mean it.
     Even equality testing is a user-defined operation.
     
     
@@ -401,7 +401,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
     
    
      
-    \paragraph{Prooftechniques}
+    \paragraph{Proof-techniques}
     
     \paragraph{Intros, Simplification and Reflexivity}
      Whenever a \lstinline!Theorem! starts with \lstinline!for all n!, we might start a proof by the phrase:
@@ -421,7 +421,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
    Let's recall what reflexivity in terms of an equivalence relation means.  
    \begin{definition}[Equivalence Relation]
    Assume $x,y\in \mathcal{M}$ an arbitrary set $\mathcal{M}\neq\emptyset$ and $\thicksim\subset A \times A $ an arbitrary relation.
-   Then $\thicksim$ is sayed to be an equivalence relation if and only if:
+   Then $\thicksim$ is said to be an equivalence relation if and only if:
    \begin{enumerate}
    \item $a\thicksim a$ (reflexivity)
    \item $a \thicksim b$ if and only if $b \thicksim c$ (symmetry)
@@ -522,7 +522,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 	
 	\begin{enumerate}
 		\item The expression \lstinline![ |n']! between \lstinline!as! and \lstinline!eqn! is called the intro pattern. It is a list of lists of names separated by \lstinline!|!.
-		\item It can be referd to any data type in the intro pattern.
+		\item It can be refereed to any data type in the intro pattern.
 		\item In the above case the first entry of the list is empty, because the \lstinline!0!-constructor is nullary and the constructor of \lstinline!S! is unary, therefor it is written \lstinline!n'! as the second member of our list.
 		\item \lstinline!E! is the variable for the equation in the following
 		\item In general every subgoal, which follows the destruct, is going to be marked by \lstinline!-!.
@@ -530,10 +530,10 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 	
 	The bullets are not necessarily to list. 
 	Coq asks to show every listed subgoal following a \lstinline!destruct! in sequence.
-	But due to readability and clearance, ensurence of correctness and convenience while debugging sub goals should be listed.
+	But due to readability and clearance, guarantee of correctness and convenience while debugging sub goals should be listed.
 	
 	Moreover, there are no hard or fast rules in proof formatting (i.e. indents and linebreaks). 
-	Bullets in the beginning of the line foster readability and limitting the number of charcters per line to 80 aim readability.
+	Bullets in the beginning of the line foster readability and limiting the number of characters per line to 80 aim readability.
 	
 	\begin{example}
 	  \begin{lstlisting}
@@ -549,10 +549,10 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 	\end{example}
 	 
 	 Note that above a name specification is not required, because there is no \lstinline!as! clause in the \lstinline!destruct!.
-	 Since no varible has to be binded by the use of the tactics, listing empty lists as \lstinline![]! or \lstinline![|]! would be bad style and lead to a confusing choice by Coq.
+	 Since no variable has to be bounded by the use of the tactics, listing empty lists as \lstinline![]! or \lstinline![|]! would be bad style and lead to a confusing choice by Coq.
 	 
 	 \lstinline!destruct! as ab le to be invoked inside subgaols to generate more proof obligations.
-	  The nested subgoals can either be grouped by an addition sign \lstinline!+!, the so called asterix a \lstinline!*!, or a curly parentheis.
+	  The nested subgoals can either be grouped by an addition sign \lstinline!+!, the so called asterix a \lstinline!*!, or a curly parenthesis.
 	  \begin{example}
 	  \begin{lstlisting}
 	  destruct a eqn: EqnA.
@@ -570,9 +570,9 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 	           { simpl. }   
 	   \end{lstlisting}
 	   \end{example}     
-	 
+	 2.13 
 	  For using a case analysis right after introducing variables it is written
 	  \lstinline! intros xy destruct y as [  |y] eqn:E.!	
-	  This is able to be shortend to the expression \lstinline! intros [ |y].!, although the equation recording assumption is lost.   
+	  This is able to be shortened to the expression \lstinline! intros [ |y].!, although the equation recording assumption is lost.   
     
    
