@@ -1,0 +1,76 @@
+\section{Importing}
+
+
+In order to use the definitions from the previous chapter we are going to compile 
+\texttt{Basics.v} and import it.
+(In case the book \label{•} is used and the archive form was downloaded, this following steps can be skipped.)   
+
+First of all we are creating a Coq project called {\itshape \_ CoqProject}.  
+It is goint to map the current directory \texttt{.} to the directory where our files are kept (\texttt{lf}).
+Using the CoqIDE, Proof General (we have not written what that is) or executing Coq via the command line the follwoing process differes.
+Proof general is going to be referd to the literature.\\\
+Create a file called \texttt{\_ coqProject} within the working directory, which contains the file \texttt{Basics.v}.
+Within this file add the line 
+
+\begin{lstlisting}
+-Q. LF
+\end{lstlisting}
+
+Therefore the libray is going to be called \texttt{LF.Basics}. 
+To make an executable file out of our \texttt{Basics.v} we are creating the \texttt{Basics.vo} file by one of the colloqing options.
+Using the CoqIDE the file \texttt{Basics.v} should be opend and the button in the compile menue {\itshape compile Buffer} is clicked.
+When using the command line the file \texttt{Basics.vo} can be build or compiled using the Coq  make-file utility.
+The Cow-makefile utility is installed together with Coq.
+
+\begin{lstlisting}
+coq-makefile -f _CoqProject*.v -o Makefile
+\end{lstlisting}
+
+Moreover, run this command whenever you add or remove files to the  working directory  \texttt{lf} whenever files were added or removed.
+To make the compiled version of \texttt{Basics.vo} the following command can be called
+\begin{lstlisting}
+make (** builds the complete directory)
+make Basics.vo (** builds Basics.vo **)
+\end{lstlisting}
+Note that make compiles and calculates dependencies automatically. 
+The Coq-compiler, which is called {\itshape coqc} can be called by 
+\begin{lstlisting}
+run coqc-Q.LF Basics.v.
+\end{lstlisting}
+But remember always to prefer \texttt{make} over compiling, because of the dependencies.\\
+ 
+To include the compiled chapter \texttt{Basics.vo} into the sourcecode of the chapter \texttt{Induction.v} write
+\begin{lstlisting}
+From LF Require Export Basics.
+\end{lstlisting}
+Into the first line of the \texttt{Induction.v}-file.
+
+ 
+
+\section{Potential Troubles}
+
+If an error arises, which complains about missing identifiers, in the file the "load path" for Coq might not be set up correctly.
+Cheking the loaded path by
+\begin{lstlisting}
+Print loadPath (**-> still figure out: is this a comandline command or a Coq-comand?**) 
+\end{lstlisting} 
+might be helpful. The errror message
+\begin{lstlisting}
+Compiled library Foo makes inconsistent assumptions over library Bar
+\end{lstlisting}
+might be generated, because different versions of Coq are installed on your machine.
+In particualr  CoqIDe and Proof General can use differnt versions of Coq for compiling.
+
+If the libraries 
+\begin{lstlisting}
+Unable to locate library Basics.
+\end{lstlisting}
+
+ 
+
+
+
+ 
+
+ 
+% http://courses.cms.caltech.edu/cs11/material/c/mike/misc/compiling_c.html}
