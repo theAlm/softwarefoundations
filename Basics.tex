@@ -387,12 +387,15 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
     	We have seen \lstinline!simpl! added in our examples so we can see the intermediate state.
     	Therefore, the above proof can be simplified by omitting \lstinline!simpl!. 
      \end{remark}
-
+     
+% TODO: fix the syntax of this line and include it bellow:
+%[caption={plus_0_n'}, label= lst:plus_0_n'_]
 
 	\begin{lstlisting}
     Theorem plus_0_n': for all n: nat, 0 + n = n.
     Proof: intros n. reflexivity. Qed.	
     \end{lstlisting}
+    
     
     By looking at the Coq output we can see that \lstinline!reflexivity! somehow tries ``	unfolding'' defined terms.
     
