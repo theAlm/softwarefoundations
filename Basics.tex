@@ -388,10 +388,10 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
     	Therefore, the above proof can be simplified by omitting \lstinline!simpl!. 
      \end{remark}
      
-% TODO: fix the syntax of this line and include it bellow:
-%[caption={plus_0_n'}, label= lst:plus_0_n'_]
 
-	\begin{lstlisting}
+
+
+	\begin{lstlisting}[caption={ \lstinline!plus_0_n'!}, label= lst:plus0nPrime]
     Theorem plus_0_n': for all n: nat, 0 + n = n.
     Proof: intros n. reflexivity. Qed.	
     \end{lstlisting}
@@ -552,7 +552,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 	  \end{lstlisting}
 	\end{example}
 	 
-	 Note that above a name specification is not required, because there is no \lstinline!as! clause in the \lstinline!destruct!.
+	 Note that above a name specification %[caption={"plus_0_n'"}, label= lst:plus_0_n'_]captionis not required, because there is no \lstinline!as! clause in the \lstinline!destruct!.
 	 Since no variable has to be bounded by the use of the tactics, listing empty lists as \lstinline![]! or \lstinline![|]! would be bad style and lead to a confusing choice by Coq.
 	 
 	 \lstinline!destruct! as ab le to be invoked inside subgaols to generate more proof obligations.
@@ -581,4 +581,6 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 	  \lstinline! intros xy destruct y as [  |y] eqn:E.!	
 	  This is able to be shortened to the expression \lstinline! intros [ |y].!, although the equation recording assumption is lost.   
     
+   
+   
    
