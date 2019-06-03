@@ -1,7 +1,7 @@
 \section{Induction}
 
 \subsection{Proof by Induction}
-In the proof \ref{} it was shown have , %see line 392, Basics.tex
+In the proof \ref{lst:plus0nPrime} it was shown have , 
 that \lstinline!0! is the neutral element from the left if the natural numbers \lstinline!nat! is studiet as a group. 
 
 Is should be shown that zero is is the natural element from the right:
@@ -10,9 +10,61 @@ Theorem plus_n_0_first: for all n: nat
   n = n + 0.  
 \end{lstlisting}
 
-But the tactics which were introduced till know are not sufficiently powerful to proof this theorem.
+But the tactics, which were introduced till know, are not sufficiently powerful to proof this theorem.
 
 \begin{lstlisting}
+Theorem plus_n_O_firsttry : forall n:nat,
+  n = n + 0.
 \end{lstlisting}
 
-Recall the mathematical principle of induction. % it should be assumed as known
+Applying refelxivity can not proof the theorem. In fact, simplifying the expression \lstinline!n + 0 !, leads to nowhere.
+Because looking at the definition of \lstinline!plus!, it is obvious.
+If \lstinline!n! is an unknown number, the  \lstinline!match! can not be applied.
+  
+\begin{lstlisting}
+Proof.
+  intros n.
+  simpl. (* Does nothing. *)
+Abort.
+\end{lstlisting}
+
+Proofing by the \lstinline!destruct!-tactic is going to fail, because in the case \lstinline!n = Sn'! the expression \lstinline!S n' = S n' + 0! can not be simplified by the same reason as above.
+\begin{lstlisting}
+Proof.
+  intros n. destruct n as [| n'] eqn:E.
+  - (* n = 0 *)
+    reflexivity. 
+  - (* n = S n' *)
+    simpl.       (*Does nothing.*)
+Abort.
+\end{lstlisting}
+
+Recall the mathematical principle of induction.
+Due to apply induction in Coq the steps are the same and the syntax is simialar to the \lstinline!destruct! tactics.
+ 
+
+\begin{lstlisting}
+Theorem minus_diag : forall n,
+  minus n n = 0.
+Proof.
+  intros n. induction n as [| n' IHn'].
+  - (*case: n = 0 *)
+    simpl. reflexivity.
+  - (*case: n = S n' *)
+    simpl. rewrite -> IHn'. reflexivity.  
+  Qed.
+\end{lstlisting}
+
+The \lstinline!as!-clause has two parts seperated by \lstinline!|!.
+\begin{itemize}
+	\item In the above statement of \lstinline!induction! the first subgoal is to show the induction basis for \lstinline!n =0!.
+	\item And the second subgoal is the induction step for \lstinline!n = Sn'!.
+	      The Assumption \lstinline!n'+0 = n'! is added to Coq's context with the name \lstinline!IHn'! as induction hypothesis.
+		  Is must be shown \lstinline! Sn' = Sn' +0!. \
+          Applying \lstinline!simpl.! yields \lstinline!Sn' = S(n'+0)!, which follows from the induction hypothesis. 
+          Hence, \lstinline!relfexivity.! finishes the proof.
+\end{itemize} 
+
+
+
+
