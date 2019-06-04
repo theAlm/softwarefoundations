@@ -58,11 +58,11 @@ Proof.
 The \lstinline!as!-clause has two parts seperated by \lstinline!|!.
 \begin{itemize}
 	\item In the above statement of \lstinline!induction! the first subgoal is to show the induction basis for \lstinline!n =0!.
-	\item And the second subgoal is the induction step for \lstinline!n = Sn'!.
-	      The Assumption \lstinline!n'+0 = n'! is added to Coq's context with the name \lstinline!IHn'! as induction hypothesis.
-		  Is must be shown \lstinline! Sn' = Sn' +0!. \
+	\item And the second subgoal is the induction step for \lstinline!n = Sn'!, since \lstinline!nat! is defined inductivly (see listing  \ref{lst:DefNat}).
+	      The assumption \lstinline!n'+0 = n'! is added to Coq's context named as \lstinline!IHn'! as induction hypothesis.
+		  It must be shown \lstinline! Sn' = Sn' +0!. \
           Applying \lstinline!simpl.! yields \lstinline!Sn' = S(n'+0)!, which follows from the induction hypothesis. 
-          Hence, \lstinline!relfexivity.! finishes the proof.
+          Hence, \lstinline!relfexivity.! finishes this proof.
 \end{itemize} 
 
 
