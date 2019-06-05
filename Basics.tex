@@ -49,28 +49,30 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
   \end{example}
 
   Coq is able of {\itshape type  interference}, whenever the type is not defined explicitly.
-  But for readability, we are including types in the following.
-   
+  But for readability, we are including types in the following.\\   
   For testing the above definition and function we have three possibilities in Coq:
      
    \begin{enumerate}
    \item Compute a compound expression including the function:\\
  		 \lstinline! compute (next_weekday friday).  (* = monday : day *)! or \\
    		 \lstinline! compute (next_weekday (next_weekday saturday)). (* = tuesday : day *)!
-   \item Record an expected behaviour as a Coq-\lstinline!Example! and verify the assertion: 
-         E.g.: {\itshape The second weekday after Saturday is Tuesday.}  
+   \item Record an expected behaviour as a Coq-\lstinline!Example! and verify the assertion:\\ 
+         {\itshape The second weekday after Saturday is Tuesday.}  
    
 		   \begin{lstlisting}
 		   		Example. test_next_weekday: (next_weekday (next_weeekday(saturday)) = tuesday 
 		   		proof. simpl. reflexivity. Qed.
 		   \end{lstlisting}
-   			The details of the implementation are not important right now. We are going to come back to them later.
-   \end{enumerate}   
-
-    Moreover, Coq can be asked to \lstinline!extract! a program from our \lstinline! Definition! in a programming language, which is more conventional, being equipped with a high performance compiler.
+   			The details of the implementation are not important right now. 
+   			We are going to come back to them later.
+   
+   \item Moreover, Coq can be asked to \lstinline!extract! a program from our \lstinline! Definition! in a programming language, which is more conventional, being equipped with a high performance compiler.
     In particular this is one of the main uses of Coq. 
     It provides a method to transfer proved-correct algorithms in Gallina to efficient machine code.
-    (Assuming the correctness of the corresponding high performance compile e.g. the Ocaml, Haskell or Scheme compiler.) 
+    (Assuming the correctness of the corresponding high performance compile e.g. the Ocaml, Haskell or Scheme compiler.) 			
+   \end{enumerate}   
+
+    
 
 
 \subsection{Boolean}
@@ -87,18 +89,15 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
       | true
       | false.
     \end{lstlisting}
-    
-    A function with multiple input arguments is implemented by
+     A function with multiple input arguments is implemented by
     \begin{lstlisting}
     Definition orb (b1: bool) (b2: bool) : bool :=
     match b1 with
 	  | true -> true
 	  | false -> b2
     end.
-    \end{lstlisting}
-    
-    The functions \lstinline!negb! and \lstinline!andb! corresponding to the Boolean functions {\emph negation} and {\emph and} are implemented in a similar manner.
-     
+    \end{lstlisting}    
+    The functions \lstinline!negb! and \lstinline!andb! corresponding to the Boolean functions {\emph negation} and {\emph and} are implemented in a similar manner.\\   
     And a new symbolic notations is implemented as follows
     \begin{lstlisting}
     Notation "x && y" := (andb x y).
@@ -143,8 +142,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 	  | black
 	  | white
 	  | primary (p:rgb). (* If [p] is in the set [rgb], then the constructor [primary] applied to the argument [p] is an expression in the set color.*) 
-	 \end{lstlisting}
-	 
+	 \end{lstlisting}	 
 	 The expressions in the set color are \lstinline!black, white! and \lstinline!primary!.
 	 Note that, expressions formed as above are the only ones belonging to the sets \lstinline!rgb! and \lstinline!color!.
 	 
@@ -162,9 +160,9 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
  		   			 	
  		   	Check(bits B1 B0 B1 B0) (* => bits B1 B0 B1 B0 : nybble *)
  		\end{lstlisting}
- 		Hence, a tuple of four bits is a nybble.
- 		
- 		Assume we would like to test a nybble in order to see if all its bits are 0. We are unwrapping the nybble by pattern-matching:
+ 		Hence, a tuple of four bits is a nybble.\\ 		
+ 		Assume we would like to test a nybble in order to see if all its bits are 0. 
+ 		We are unwrapping the nybble by pattern-matching:
  		\begin{lstlisting}
  		Definition all_zero(nb: nybble): bool :=
  		  match nb with
@@ -188,8 +186,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 
 \subsection{Numbers}
 
-  Note that on the one hand the types day, bool, bits and tuples have a finite set of values, while on the other hand the set of natural numbers $\mathbb{N}$ is an infinite set.
- 
+  Note that on the one hand the types day, bool, bits and tuples have a finite set of values, while on the other hand the set of natural numbers $\mathbb{N}$ is an infinite set.\\ 
   Hence, we have to construct $\mathbb{N}$ using a data type with a final number of constructors. 
   Recall, many representations of $\mathbb{N}$ exits (e.g. hexadecimal with base 16, octa with base 8, binary with base 2).
   The most familiar might be the decimal representation.\\
@@ -202,8 +199,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
   Inductive nat: Type :=
     | 0
     | S (n:nat).
-  \end{lstlisting}
-  
+  \end{lstlisting}  
   One might picture this representation by scratches on a wall in prison. \\
   It uses two constructors: 
   \begin{itemize}
@@ -228,16 +224,13 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
   \item The expression \lstinline! 0! belongs to the set \lstinline! nat!.
   \item If \lstinline! n ! is in the set \lstinline! nat!, it follows \lstinline! S n ! is an expression belonging to the set \lstinline! nat !.
   \item And expressions belong the set \lstinline! nat! if and only if they are  formed by either of those methods (i.e. \lstinline! 0 ! or  \lstinline! S n!). 
-  \end{itemize}
-  
-  
+  \end{itemize}  
   Note that the same results apply to the definitions of \lstinline! day!, \lstinline! bool! and \lstinline! color!.
   These conditions are a precise force of the \lstinline! Inductive! declaration. 
   Expressions adult from other data constructors like \lstinline!true!, \lstinline! false!, \lstinline!andb(S(false( 0 ( 0 S ))))! do not belong to this set.  
   But on the other hand, \lstinline!0! and \lstinline!S! are arbitrary symbols chosen in the defined representation. 
   Actually the {\itshape interpretation} of these marks is given by their usage in computing.
-  To realize this functions, which ``pattern match'' a representation of natural numbers, are written.
-  
+  To realize this functions, which ``pattern match'' a representation of natural numbers, are written.\\  
   We are following the idea:  If n has the form \lstinline! Sn'! for some \lstinline! n'! in the set \lstinline!nat!, then return  \lstinline! n'!.
   \begin{example}[predecessor function]~\\\vspace{-10mm}
    \begin{lstlisting}
@@ -271,8 +264,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
   There are no computational rules about \lstinline!S!.
   I.e., by the definition of \lstinline!pred!, \lstinline!pred 2! can be simplified to \lstinline!1!. 
   In the case of \lstinline!S! no such behavior exists.
-  The definition of \lstinline!S! has no behavior at all.\\ 
-    
+  The definition of \lstinline!S! has no behavior at all.\\     
   In order to define more functions over numbers pattern matching is not sufficient. We are introducing recursion.
   Recursion in Coq is notated by the keyword \lstinline!Fixpoint!.
   
@@ -305,8 +297,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
      end.
      
     Compute (plus 3 2). 
-   \end{lstlisting}
-   
+   \end{lstlisting}   
     A notation convention for calling functions or matching two expressions for multiple arguments of the same type exist in Coq, too.
    
    \begin{lstlisting}[label = lst:minus_nat, caption={ \lstinline!minus! and \lstinline!exp!}]
@@ -341,8 +332,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
                       : nat_scope. (*This line is not of our interest.*)
                       
      Check(( 0 + 1 ) + 1).
-    \end{lstlisting} 
-   
+    \end{lstlisting}    
    And these are some more functions defined for our purpose. 
    The interested reader is refereed to the literature for an exact definition.  
    
@@ -394,11 +384,8 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 	\begin{lstlisting}[caption={ \lstinline!plus_0_n'!}, label= lst:plus0nPrime]
     Theorem plus_0_n': for all n: nat, 0 + n = n.
     Proof: intros n. reflexivity. Qed.	
-    \end{lstlisting}
-    
-    
-    By looking at the Coq output we can see that \lstinline!reflexivity! somehow tries ``	unfolding'' defined terms.
-    
+    \end{lstlisting}    
+    By looking at the Coq output we can see that \lstinline!reflexivity! somehow tries ``	unfolding'' defined terms.\\    
     Note that \lstinline!example! and \lstinline!theorem! (and \lstinline!Lemma!, \lstinline!Fact!, \lstinline!Remark! and a few other),
     mean pretty much the same in Coq, while in Mathematics they do not.
     
@@ -443,17 +430,14 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 	 Theorem plus_id_examples: for all n m: nat
        n = m -> 
 	   n+n = m+m.	 
-	 \end{lstlisting}  
-	 %\end{example}   
-	
+	 \end{lstlisting}
+	 %\end{example}	
 	 We would like to show this theorem instead by making a claim about all numbers by looking at the special case when \lstinline!n=m!.
      \lstinline!->! corresponds to the mathematical implication operator $\implies$. 
+%     The {\itshape tactic} \lstinline! intros!.        
+     Note that, the arrow \lstinline!->! tells Coq to rewrite the object of focus from left to right and \lstinline!<-! can be used to rewrite from right to left.\\
      
-%     The {\itshape tactic} \lstinline! intros!.     
-    
-    
-     Note that, the arrow \lstinline!->! tells Coq to rewrite the object of focus from left to right and \lstinline!<-! can be used to rewrite from right to left.
-     
+     \begin{center}
      \begin{tabular} {|l|l|l|}
      	\hline
      	  command                        & a mathematical translation          & comment \\  \hline
@@ -470,14 +454,10 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
      	 \lstinline!  reflexivity.!      & trivial                             &  We obtained a trivial statement.                 \\ \hline
     	 \lstinline! Qed.!                & Qed.                                &  Quod era demonstrandum.                         \\  \hline
     	 
-     \end{tabular}\\
-   
-   
-   
-   
+     \end{tabular}
+     \end{center}         
    We can also use \lstinline!rewrite! with a previously proved theorem instead of a hypothesis of context.
-   If the statement of the previously proved theorem involves prequantified variables, Coq reuses them.
-   
+   If the statement of the previously proved theorem involves prequantified variables, Coq reuses them.   
    \begin{lstlisting}
    Theorem mult_0_plus: for all n m: nat,
    (0 + n) * m = n * m.
@@ -509,15 +489,13 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
      simpl. (* does nothing! *)
    Abort.
    \end{lstlisting}
-	Write something short from the book, why it obviously is not going to work.\\
-	
+   
+   \textbf{ Write something short from the book, why it obviously is not going to work.}\\		
 	Note that if \lstinline!n=0! it can be calculated that \lstinline!n+1=?0! and set it equals to  \lstinline!false!. 
 	And if \lstinline!n=Sn'! for some \lstinline!n'! we can not calculate the expression.
 	Although we don't know, which number \lstinline!n+1! is, we can calculate that it begins with an \lstinline!S!.
-	It follows \lstinline!n+1= ? 0! yields \lstinline!false!.
-	
-    Hence we would like to generate two subgoals including variables named as in the called \lstinline! intros! pattern.	   
-        
+	It follows \lstinline!n+1= ? 0! yields \lstinline!false!.\\	
+    Hence we would like to generate two subgoals including variables named as in the called \lstinline! intros! pattern.	 \\        
     Therefore we are using the tactics \lstinline! destruct!	
 	\begin{lstlisting}
 	intros n.
@@ -531,11 +509,9 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 		\item \lstinline!E! is the variable for the equation in the following
 		\item In general every subgoal, which follows the destruct, is going to be marked by \lstinline!-!.
 	\end{enumerate} 
-	
 	The bullets are not necessarily to list. 
 	Coq asks to show every listed subgoal following a \lstinline!destruct! in sequence.
-	But due to readability and clearance, guarantee of correctness and convenience while debugging sub goals should be listed.
-	
+	But due to readability and clearance, guarantee of correctness and convenience while debugging sub goals should be listed.\\	
 	Moreover, there are no hard or fast rules in proof formatting (i.e. indents and linebreaks). 
 	Bullets in the beginning of the line foster readability and limiting the number of characters per line to 80 aim readability.
 	
@@ -550,11 +526,9 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 	  	    - reflexivity. 
 	  	   Qed.  
 	  \end{lstlisting}
-	\end{example}
-	 
+	\end{example}	 
 	 Note that above a name specification %[caption={"plus_0_n'"}, label= lst:plus_0_n'_]captionis not required, because there is no \lstinline!as! clause in the \lstinline!destruct!.
-	 Since no variable has to be bounded by the use of the tactics, listing empty lists as \lstinline![]! or \lstinline![|]! would be bad style and lead to a confusing choice by Coq.
-	 
+	 Since no variable has to be bounded by the use of the tactics, listing empty lists as \lstinline![]! or \lstinline![|]! would be bad style and lead to a confusing choice by Coq.\\	 
 	 \lstinline!destruct! as ab le to be invoked inside subgaols to generate more proof obligations.
 	  The nested subgoals can either be grouped by an addition sign \lstinline!+!, the so called asterix a \lstinline!*!, or a curly parenthesis.
 	  \begin{example} ~\\\vspace{-10mm}
@@ -575,8 +549,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 	           { simpl. }
 	           (*...*)   
 	   \end{lstlisting}
-	   \end{example}     
-	 
+	   \end{example}	 
 	  For using a case analysis right after introducing variables it is written
 	  \lstinline! intros xy destruct y as [  |y] eqn:E.!	
 	  This is able to be shortened to the expression \lstinline! intros [ |y].!, although the equation recording assumption is lost.   
