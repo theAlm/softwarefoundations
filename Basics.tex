@@ -20,7 +20,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
   
   \begin{example}
   We are defining a type called \lstinline!day!.
-  \begin{lstlisting}
+  \begin{lstlisting} [caption={\lstinline!day!}] 
     Inductive day: Type :=
 	  | monday
 	  | tuesday
@@ -34,7 +34,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
   The type members are called \lstinline!monday!, \lstinline!tuesday! , \lstinline!wednesday! \ldots{} and \lstinline!sunday!.\\
   
   We are defining a function operating on \lstinline!day!: 
-  \begin{lstlisting}
+  \begin{lstlisting}[caption = {\lstinline! next_weekday!}]
   Definition next_weekday(d:day) day:=
     match d with 
 	  | monday => tuesday
@@ -54,8 +54,8 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
      
    \begin{enumerate}
    \item Compute a compound expression including the function:\\
- 		 \lstinline! compute (next_weekday friday).  (* = monday : day *)! or \\
-   		 \lstinline! compute (next_weekday (next_weekday saturday)). (* = tuesday : day *)!
+ 		 \lstinline! compute (next_weekday friday).  (*\nbsp	 = monday : day *)! or \\
+   		 \lstinline! compute (next_weekday (next_weekday saturday)). (*\nbsp   = tuesday : day *)!
    \item Record an expected behaviour as a Coq-\lstinline!Example! and verify the assertion:\\ 
          {\itshape The second weekday after Saturday is Tuesday.}  
    
@@ -105,7 +105,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
     \end{lstlisting}
     
      
-\subsection{Notation}
+\subsection{Some Notation}
     As in the Coq doc documentation tool the following notation convention is introduced:
      
     \begin{enumerate}
@@ -221,9 +221,9 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
   \end{example}
   Moreover, it is easy to see the following: 
   \begin{itemize}
-  \item The expression \lstinline! 0! belongs to the set \lstinline! nat!.
+  \item The expression \lstinline!0! belongs to the set \lstinline! nat!.
   \item If \lstinline! n ! is in the set \lstinline! nat!, it follows \lstinline! S n ! is an expression belonging to the set \lstinline! nat !.
-  \item And expressions belong the set \lstinline! nat! if and only if they are  formed by either of those methods (i.e. \lstinline! 0 ! or  \lstinline! S n!). 
+  \item And expressions belong the set \lstinline!nat! if and only if they are  formed by either of those methods (i.e. \lstinline! 0 ! or  \lstinline! S n!). 
   \end{itemize}  
   Note that the same results apply to the definitions of \lstinline! day!, \lstinline! bool! and \lstinline! color!.
   These conditions are a precise force of the \lstinline! Inductive! declaration. 
@@ -328,8 +328,8 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
     
     \begin{lstlisting}
      Notation " x + y ":= (plus x y)
-                      (at level 50, left associativity) (*This line is not of interest for our purpose.*)
-                      : nat_scope. (*This line is not of our interest.*)
+                      (at level 50, left associativity) (* This line is not of interest for our purpose. *)
+                      : nat_scope. (* This line is not of our interest. *)
                       
      Check(( 0 + 1 ) + 1).
     \end{lstlisting}    
@@ -539,7 +539,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 	      - refelexivity.
 	      - destruct c eqn: EqnC.
 	          * simpl. 
-	          (*...*)       
+	          (* ... *)       
 	  
 	   destruct d eqn: EqnD.
 	    { reflectivity.
@@ -547,7 +547,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 	       { reflexivity.
 	         destruct f eqn: EqnF. } 
 	           { simpl. }
-	           (*...*)   
+	           (* ... *)   
 	   \end{lstlisting}
 	   \end{example}	 
 	  For using a case analysis right after introducing variables it is written
