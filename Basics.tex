@@ -19,8 +19,8 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
    
   
   \begin{example}
-  We are defining a type called \lstinline!day!.
-  \begin{lstlisting} [caption={\lstinline!day!}] 
+  We are defining a type called \lstinline!day!.~\\\vspace{-10mm}
+  {\normalfont \begin{lstlisting} [caption={\lstinline!day!}] 
     Inductive day: Type :=
 	  | monday
 	  | tuesday
@@ -29,12 +29,10 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 	  | friday
 	  | saturday
 	  | sunday.
-	  \end{lstlisting} 
-  
+  \end{lstlisting}}
   The type members are called \lstinline!monday!, \lstinline!tuesday! , \lstinline!wednesday! \ldots{} and \lstinline!sunday!.\\
-  
   We are defining a function operating on \lstinline!day!: 
-  \begin{lstlisting}[caption = {\lstinline! next_weekday!}]
+  {\normalfont \begin{lstlisting}[caption = {\lstinline! next_weekday!}]
   Definition next_weekday(d:day) day:=
     match d with 
 	  | monday => tuesday
@@ -45,9 +43,8 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 	  | saturday => monday
 	  | sunday => monday.
     end.  
-  \end{lstlisting}
+  \end{lstlisting}}
   \end{example}
-
   Coq is able of {\itshape type  interference}, whenever the type is not defined explicitly.
   But for readability, we are including types in the following.\\   
   For testing the above definition and function we have three possibilities in Coq:
@@ -151,7 +148,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 
     A single constructor with multiple parameters can be used to create a type \lstinline! tuple!.
 	\begin{example}[A nybble: half a byte]~\\\vspace{-10mm}
- 	 	\begin{lstlisting}
+ 	 	{\normalfont \begin{lstlisting}
  	 		Inductive bit: Type := (*a bit*) 
  	 		 |B0
  	 		 |B1.
@@ -169,7 +166,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
  	  	    |(bits B0 B0 B0 B0) -> true
  		    |(bits _ _ _ _) -> false (* This wildcard pattern was included to avoid inventing variable names, which are not going to be used. *) 
  		  end.
- 		 \end{lstlisting}
+ 		 \end{lstlisting}}
  	\end{example}
  	
 
@@ -207,17 +204,18 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
   \item The letter \lstinline!S! represents a natural number $n\in\mathbb{N}\setminus\{ 0\}$.  
   \end{itemize}
   There is a way of converting this representation refereed to as \lstinline!nat! into its decimal representation. This is elaborated as follows.
-  \begin{example}
-  
+  \begin{example}[Converting Unary to Decimal]  ~\\%\vspace{mm}
+  \begin{center}  
 	  \begin{tabular} {r l}
 	  
-		  \texttt{unitary}				& \texttt{decimal}	\\
+		  \texttt{unary}				& \texttt{decimal}	\\
 		  \texttt{\lstinline!0!} 		&: 0 				\\
 		  \texttt{\lstinline! S 0!}  	&: 1				\\
-		  \texttt{\lstinline! S ( S 0)!}	&: 2				\\
-		  \texttt{\lstinline! S( S ( S 0))!}	&: 3				\\
+		  \texttt{\lstinline! S ( S 0)!}	&: 2			\\
+		  \texttt{\lstinline! S( S ( S 0))!}	&: 3		\\
 		    
 	  \end{tabular}
+	  \end{center}
   \end{example}
   Moreover, it is easy to see the following: 
   \begin{itemize}
@@ -233,7 +231,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
   To realize this functions, which ``pattern match'' a representation of natural numbers, are written.\\  
   We are following the idea:  If n has the form \lstinline! Sn'! for some \lstinline! n'! in the set \lstinline!nat!, then return  \lstinline! n'!.
   \begin{example}[predecessor function]~\\\vspace{-10mm}
-   \begin{lstlisting}
+   {\normalfont \begin{lstlisting}
   	 Definition pred (n:nat): nat :=
    		match n with 
    	     | 0 => 0
@@ -243,7 +241,8 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
    	 End NatPlayground
    	 
    	 check( S(S(S(S(0)))). (* = 4: nat *)
-   \end{lstlisting}
+   \end{lstlisting} 
+   \normalfont}
   \end{example}
   Because natural numbers are such a pervasive form of data, Coq always prints out a natural number as decimal by default.
   (It uses a tiny `` build-in magic'' for paring and printing.)
@@ -364,11 +363,11 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
    The mathematical precisely formulated statement can be proven by the definition of zero directly.
    
    \begin{example}
-	   \begin{theorem} ~\\vspace{-5mm}
-  	   \begin{lstlisting}
+	   \begin{theorem} ~\\\vspace{-5mm}
+  	   {\normalfont \begin{lstlisting}
    		Theorem. plus_0_n: for all n: nat, 0+n = n.
    		  Proof. intros n. simpl. refelxivity. Qed.
-    	\end{lstlisting}	
+    	\end{lstlisting}}	
 	\end{theorem}
 	\end{example}              
     \begin{remark}
