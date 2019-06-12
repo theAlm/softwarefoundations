@@ -1,0 +1,3 @@
+[submodule "mbasic"]
+	path = mbasic
+	url = ssh://git@kastagir.homelinux.org:3000/Skripte/mbasic.git
