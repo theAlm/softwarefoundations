@@ -15,7 +15,9 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
   The built-in features set in Coq is extremely small. In particular, Coq is a powerful mechanism for defining data types from scratch.
   Current Coq distributions come preloaded with an extensive standard library.
   Boolean, numbers, data struts like lists and hash tables.\\
-  In this course we are going to explicitly recapitulate the used definitions.
+  
+  In this course we are going to explicitly recapitulate the used definitions. 
+  It is started by a rather simple example of a selfdefined type.  
    
   
   \begin{example}
@@ -47,12 +49,14 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
   \end{example}
   Coq is able of {\itshape type  interference}, whenever the type is not defined explicitly.
   But for readability, we are including types in the following.\\   
+  Moreover, we are going to annotate the Coq-output as comments in the source code by sourrounding it by parenthesis with a star \lstinline!(*...*)!.\\ 
+  
   For testing the above definition and function we have three possibilities in Coq:
      
    \begin{enumerate}
-   \item Compute a compound expression including the function:\\
+   \item Compute a compound expression including the function:\\ 		
  		 \lstinline! compute (next_weekday friday).  (*\nbsp	 = monday : day *)! or \\
-   		 \lstinline! compute (next_weekday (next_weekday saturday)). (*\nbsp   = tuesday : day *)!
+ 		 \lstinline! compute (next_weekday (next_weekday saturday)). (*\nbsp   = tuesday : day *)!\\ 	      
    \item Record an expected behaviour as a Coq-\lstinline!Example! and verify the assertion:\\ 
          {\itshape The second weekday after Saturday is Tuesday.}  
    
