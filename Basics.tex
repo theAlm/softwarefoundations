@@ -117,7 +117,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
      
      
 \subsection{Types}
-     Every expression in Coq has a type.
+     Every expression in Coq has a type, which can be revealed by \lstinline!check!. 
      \begin{enumerate}
       \item  \lstinline* Check true.* gives the type of the expression \lstinline! boolean!.
       \item \lstinline! Check negb.! returns \lstinline! bool -> bool! . (Read as  ``bool arrow bool'').
@@ -129,24 +129,29 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
      
      
 	 Note that so far the data-types we have seen were enumerated types.
-	 Let's define a data type \lstinline!rgb! and a data type, whose constructor takes this type as an argument.
-	 \begin{minipage}{0.5\textwidth}
+	 Let's define a data type \lstinline!rgb! and a data type \lstinline!primary!, whose constructor takes this type as an argument.
+	 
+    \begin{minipage}[t]{0.45\textwidth}
 	\begin{lstlisting}
 	 Inductive rgb: Type:=
-	  | red     (* These are *)
-	  | green   (* the expressions *)
-	  | blue.   (* in the set [rgb]. *)
+	  | red     (* These are the*)
+	  | green   (* expressions in*)
+	  | blue.   (* the set [rgb]. *)
 	 \end{lstlisting}
 	 The constructors of the type \lstinline!rgb! are \lstinline!red, green! and \lstinline!blue!. 
-	 
+	 \end{minipage}
+	 \hfill	 
+	 \begin{minipage}[t]{0.45\textwidth}
 	 \begin{lstlisting}
 	 Inductive color: Type := 
-	  | black
-	  | white
+	  | black  (* An expression in the set color *)
+	  | white  (* An expression in the set color *)
 	  | primary (p:rgb). (* If [p] is in the set [rgb], then the constructor [primary] applied to the argument [p] is an expression in the set color.*) 
 	 \end{lstlisting}
-	 \end{minipage}	 
+	 The constructors of the type \lstinline!color! are \lstinline!black, white! and \lstinline!primary!.\\
 	 The expressions in the set color are \lstinline!black, white! and \lstinline!primary!.
+	 \end{minipage}	 	 
+	 
 	 Note that, expressions formed as above are the only ones belonging to the sets \lstinline!rgb! and \lstinline!color!.
 	 
 
