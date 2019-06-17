@@ -172,7 +172,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
  		Assume we would like to test a nibble in order to see if all its bits are 0. 
  		We are unwrapping the nibble by pattern-matching:
  		\begin{lstlisting}
- 		Definition all_zero(nb: nibble): bool :=
+ 		Definition all_zero(nb: nbble): bool :=
  		  match nb with
  	  	    |(bits B0 B0 B0 B0) -> true
  		    |(bits _ _ _ _) -> false (* This wildcard pattern was included to avoid inventing variable names, which are not going to be used. *) 
@@ -184,19 +184,23 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 \subsection{Modules}
 
 	Coq provides a {\itshape module system} to aid organizing large developments.
-	In this course most of it is not going to be needed.
+	In this course most of it is not going to be needed. Namespaces use the $.$-notation as in C.
 
 	\begin{lstlisting}
 	Module X 
 	...
+	...foo.. (* a definition declared as foo *)
+	...
 	End X
+	
+	X.foo (* referes to foo definded in the module X. *)
 	\end{lstlisting}
 
 \subsection{Numbers}
 
   Note that on the one hand the types day, bool, bits and tuples have a finite set of values, while on the other hand the set of natural numbers $\mathbb{N}$ is an infinite set.\\ 
-  Hence, we have to construct $\mathbb{N}$ using a data type with a final number of constructors. 
-  Recall, many representations of $\mathbb{N}$ exits (e.g. hexadecimal with base 16, octa with base 8, binary with base 2).
+  Hence, we have to construct $\mathbb{N}$ using a data type with a fintite number of constructors. 
+  Recall, that many representations of $\mathbb{N}$ exits (e.g. hexadecimal with base 16, octa with base 8, binary with base 2).
   The most familiar might be the decimal representation.\\
   However, each representation of $\mathbb{N}$ can be useful under different circumstances. 
   The binary representation is valuable in computer hardware, because it presents a simple circuitry.
@@ -208,14 +212,18 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
     | 0
     | S (n:nat).
   \end{lstlisting}  
-  One might picture this representation by scratches on a wall in prison. \\
-  It uses two constructors: 
+  The two constructors of the set \lstinline!nat! are \lstinline!S! and \lstinline!0!. \\
+
+ % One might picture this representation by strokes on a coaster in a beer garden.                                                       
+ One might picture this representation by strokes on the coffe consumation list of the DOPSY group staff members.  
   \begin{itemize}
-  \item The letter \lstinline!0! represents the natural number zero. 
-  \item The letter \lstinline!S! represents a natural number $n\in\mathbb{N}\setminus\{ 0\}$.  
+  \item The expressions \lstinline!0! is in the set \lstinline!nat!.
+  \item The expression \lstinline!0! represents the natural number zero. 
+  \item If \lstinline!n! is an expression belonging to the set \lstinline!nat!, then \lstinline!Sn! represents a natural number $n\in\mathbb{N}\setminus\{ 0\}$.  
   \end{itemize}
-  There is a way of converting this representation refereed to as \lstinline!nat! into its decimal representation. This is elaborated as follows.
-  \begin{example}[Converting Unary to Decimal]  ~\\%\vspace{mm}
+  There is a way of converting this representation refereed to as \lstinline!nat! into its decimal representation. 
+  This is elaborated in example \ref{ex:ConvertingUnaryToDecimal}.
+  \begin{example}[Converting Unary to Decimal] \label{ex:ConvertingUnaryToDecimal} ~\\%\vspace{mm}
   \begin{center}  
 	  \begin{tabular} {r l}
 	  
@@ -234,9 +242,9 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
   \item If \lstinline! n ! is in the set \lstinline! nat!, it follows \lstinline! S n ! is an expression belonging to the set \lstinline! nat !.
   \item And expressions belong the set \lstinline!nat! if and only if they are  formed by either of those methods (i.e. \lstinline! 0 ! or  \lstinline! S n!). 
   \end{itemize}  
-  Note that the same results apply to the definitions of \lstinline! day!, \lstinline! bool! and \lstinline! color!.
+  Note that the same rules apply to the definitions of \lstinline! day!, \lstinline! bool! and \lstinline! color!.
   These conditions are a precise force of the \lstinline! Inductive! declaration. 
-  Expressions adult from other data constructors like \lstinline!true!, \lstinline! false!, \lstinline!andb(S(false( 0 ( 0 S ))))! do not belong to this set.  
+  Expressions build from other data constructors like \lstinline!true!, \lstinline! false!, \lstinline!andb(S(false( 0 ( 0 S ))))! do not belong to this set.  
   But on the other hand, \lstinline!0! and \lstinline!S! are arbitrary symbols chosen in the defined representation. 
   Actually the {\itshape interpretation} of these marks is given by their usage in computing.
   To realize this functions, which ``pattern match'' a representation of natural numbers, are written.\\  
