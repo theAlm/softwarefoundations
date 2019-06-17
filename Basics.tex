@@ -149,7 +149,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 	  | primary (p:rgb). (* If [p] is in the set [rgb], then the constructor [primary] applied to the argument [p] is an expression in the set color.*) 
 	 \end{lstlisting}
 	 The constructors of the type \lstinline!color! are \lstinline!black, white! and \lstinline!primary!.\\
-	 The expressions in the set color are \lstinline!black, white! and \lstinline!primary!.
+	 %The expressions in the set color are \lstinline!black, white! and \lstinline!primary! if primary is fomed as above.
 	 \end{minipage}	 	 
 	 
 	 Note that, expressions formed as above are the only ones belonging to the sets \lstinline!rgb! and \lstinline!color!.
@@ -158,21 +158,21 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 \subsection{Tuples}
 
     A single constructor with multiple parameters can be used to create a type \lstinline! tuple!.
-	\begin{example}[A nybble: half a byte]~\\\vspace{-10mm}
+	\begin{example}[A nibble: half a byte]~\\\vspace{-10mm}
  	 	{\normalfont \begin{lstlisting}
  	 		Inductive bit: Type := (*a bit*) 
  	 		 |B0
  	 		 |B1.
- 		    Inductive nybble: Type := (*a nybble*)
+ 		    Inductive nibble: Type := (*a nibble*)
  		   	 |bits( b0 b1 b2 b3: bit).
  		   			 	
- 		   	Check(bits B1 B0 B1 B0) (* => bits B1 B0 B1 B0 : nybble *)
+ 		   	Check(bits B1 B0 B1 B0) (* => bits B1 B0 B1 B0 : nibble *)
  		\end{lstlisting}
- 		Hence, a tuple of four bits is a nybble.\\ 		
- 		Assume we would like to test a nybble in order to see if all its bits are 0. 
- 		We are unwrapping the nybble by pattern-matching:
+ 		Hence, a tuple of four bits is a nibble.\\ 		
+ 		Assume we would like to test a nibble in order to see if all its bits are 0. 
+ 		We are unwrapping the nibble by pattern-matching:
  		\begin{lstlisting}
- 		Definition all_zero(nb: nybble): bool :=
+ 		Definition all_zero(nb: nibble): bool :=
  		  match nb with
  	  	    |(bits B0 B0 B0 B0) -> true
  		    |(bits _ _ _ _) -> false (* This wildcard pattern was included to avoid inventing variable names, which are not going to be used. *) 
