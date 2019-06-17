@@ -9,8 +9,10 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 
 
 \subsection{Data and Functions}
+\label{subSec:DataAndFuctions}
 
  \paragraph{Enumerated Type}
+ 
  
   The built-in features set in Coq is extremely small. In particular, Coq is a powerful mechanism for defining data types from scratch.
   Current Coq distributions come preloaded with an extensive standard library.
@@ -65,7 +67,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
    			The details of the implementation are not important right now. 
    			We are going to come back to them later.
    
-   \item Moreover, Coq can be asked to \lstinline!extract! a program from our \lstinline! Definition! in a programming language, which is more conventional, being equipped with a high performance compiler.
+   \item \label{CoqAsCodeGen} Moreover, Coq can be asked to \lstinline!extract! a program from our \lstinline! Definition! in a programming language, which is more conventional, being equipped with a high performance compiler.
     In particular this is one of the main uses of Coq. 
     It provides a method to transfer proved-correct algorithms in Gallina to efficient machine code.
     (Assuming the correctness of the corresponding high performance compile e.g. the Ocaml, Haskell or Scheme compiler.) 			
