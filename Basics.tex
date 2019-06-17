@@ -49,17 +49,15 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
   \end{example}
   Coq is able of {\itshape type  interference}, whenever the type is not defined explicitly.
   But for readability, we are including types in the following.\\   
-  Moreover, we are going to annotate the Coq-output as comments in the source code by sourrounding it by parenthesis with a star \lstinline!(*...*)!.\\ 
   
   For testing the above definition and function we have three possibilities in Coq:
      
    \begin{enumerate}
    \item Compute a compound expression including the function:\\ 		
- 		 \lstinline! compute (next_weekday friday).  (*\nbsp	 = monday : day *)! or \\
- 		 \lstinline! compute (next_weekday (next_weekday saturday)). (*\nbsp   = tuesday : day *)!\\ 	      
+ 		 \lstinline! compute (next_weekday friday).! Coq output: \lstinline!\nbsp	 = monday : day ! or \\
+ 		 \lstinline! compute (next_weekday (next_weekday saturday)).! Coq output: \lstinline! = tuesday : day !\\ 	      
    \item Record an expected behaviour as a Coq-\lstinline!Example! and verify the assertion:\\ 
-         {\itshape The second weekday after Saturday is Tuesday.}  
-   
+         {\itshape The second weekday after Saturday is Tuesday.}     
 		   \begin{lstlisting}
 		   		Example. test_next_weekday: (next_weekday (next_weeekday(saturday)) = tuesday 
 		   		proof. simpl. reflexivity. Qed.
@@ -130,6 +128,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
      
 	 Note that so far the data-types we have seen were enumerated types.
 	 Let's define a data type \lstinline!rgb! and a data type, whose constructor takes this type as an argument.
+	 \begin{minipage}{0.5\textwidth}
 	\begin{lstlisting}
 	 Inductive rgb: Type:=
 	  | red     (* These are *)
@@ -143,7 +142,8 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 	  | black
 	  | white
 	  | primary (p:rgb). (* If [p] is in the set [rgb], then the constructor [primary] applied to the argument [p] is an expression in the set color.*) 
-	 \end{lstlisting}	 
+	 \end{lstlisting}
+	 \end{minipage}	 
 	 The expressions in the set color are \lstinline!black, white! and \lstinline!primary!.
 	 Note that, expressions formed as above are the only ones belonging to the sets \lstinline!rgb! and \lstinline!color!.
 	 
