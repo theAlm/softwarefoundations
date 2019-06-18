@@ -193,7 +193,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 	...
 	End X
 	
-	X.foo (* referes to foo definded in the module X. *)
+	X.foo (* Referes to foo, which is definded in the module X. *)
 	\end{lstlisting}
 
 \subsection{Numbers}
@@ -248,34 +248,58 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
   But on the other hand, \lstinline!0! and \lstinline!S! are arbitrary symbols chosen in the defined representation. 
   Actually the {\itshape interpretation} of these marks is given by their usage in computing.
   To realize this functions, which ``pattern match'' a representation of natural numbers, are written.\\  
-  We are following the idea:  If n has the form \lstinline! Sn'! for some \lstinline! n'! in the set \lstinline!nat!, then return  \lstinline! n'!.
-  \begin{example}[predecessor function]~\\\vspace{-10mm}
-   {\normalfont \begin{lstlisting}
-  	 Definition pred (n:nat): nat :=
-   		match n with 
-   	     | 0 => 0
-   	     | S n' => n'
-   	    end. 
+  We are following the idea:  If n has the form \lstinline! Sm! for some \lstinline! m! in the set \lstinline!nat!, then return  \lstinline! n'!.
+  \begin{example}[Predecessor Function]%~\\\vspace{-10mm}
+   {\normalfont 
+   
+   Note that althogh the predecessor of the number zero is not defined it was declared in listing \ref{lst:pred} for simplicity.    
+   
+   \begin{minipage}[t]{0.45\textwidth}
+   \begin{lstlisting}[caption= \lstinline!pred!, label =lst:pred]
+  	Definition pred (n : nat) : nat := 
+  	  match n with 
+   	    | 0 => 0
+   	    | S m => m
+   	  end. 
    	  
-   	 End NatPlayground
+    End NatPlayground
    	 
-   	 check( S(S(S(S(0)))). (* = 4: nat *)
-   \end{lstlisting} 
-   \normalfont}
+    Check pred. 
+    \end{lstlisting}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.45\textwidth}
+    \begin{lstlisting}[caption= Coq-output]
+     nat -> nat    
+    \end{lstlisting}
+    \end{minipage}
+   
+    
+  \normalfont }
   \end{example}
+  
   Because natural numbers are such a pervasive form of data, Coq always prints out a natural number as decimal by default.
-  (It uses a tiny `` build-in magic'' for paring and printing.)
+  (It uses a tiny ``build-in magic'' for paring and printing.)
  
-  \begin{lstlisting}
-  Definition minustwo( n: nat) : nat :=
+  \begin{minipage}[t]{0.50\textwidth}
+  \begin{lstlisting}[caption= \lstinline! minustwo!]
+   Definition minustwo( n: nat) : nat :=
     match n with
       | 0 =>  0
       | S 0 =>  0
-      | S ( S n') = > n'
+      | S (S m) = > m
      end.
+     Compute(minustwo(4))
+   \end{lstlisting} 
+   \end{minipage} 
+   \hfill     
+  \begin{minipage}[t]{0.45\textwidth}
+  \begin{lstlisting}[caption = Coq-output] 
+    = 2: nat 
+   \end{lstlisting}
+   \end{minipage}     
+      
      
-   Compute( minustwo(4)) (* = 2: nat *)
-  \end{lstlisting}  
   So far we have seen the functions \lstinline!S!, \lstinline!pred! and \lstinline!minustwo!.
   Note that, there is a fundamental difference.
   The functions \lstinline!pred! and \lstinline!minustwo! apply computational rules. 
@@ -283,7 +307,8 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
   I.e., by the definition of \lstinline!pred!, \lstinline!pred 2! can be simplified to \lstinline!1!. 
   In the case of \lstinline!S! no such behavior exists.
   The definition of \lstinline!S! has no behavior at all.\\     
-  In order to define more functions over numbers pattern matching is not sufficient. We are introducing recursion.
+  
+  In order to define more functions over numbers pattern matching used in the definitions of \lstinline!pred! and \lstinline!minustwo! is not sufficient. We are introducing recursion.
   Recursion in Coq is notated by the keyword \lstinline!Fixpoint!.
   
   \begin{lstlisting}
