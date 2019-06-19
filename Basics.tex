@@ -85,13 +85,13 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
     Boolean can be defined as follows:
     
     \label{Def:booleans}
-    \begin{lstlisting}    
+    \begin{lstlisting}[caption= \lstinline!bool!]    
     Inductive bool: Type :=
       | true
       | false.
     \end{lstlisting}
      A function with multiple input arguments is implemented by
-    \begin{lstlisting}
+    \begin{lstlisting}[caption = \lstinline!orb!]
     Definition orb (b1: bool) (b2: bool) : bool :=
     match b1 with
 	  | true -> true
@@ -100,7 +100,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
     \end{lstlisting}    
     The functions \lstinline!negb! and \lstinline!andb! corresponding to the Boolean functions {\emph negation} and {\emph and} are implemented in a similar manner.\\   
     And a new symbolic notations is implemented as follows
-    \begin{lstlisting}
+    \begin{lstlisting}[caption= introducing a new notation]
     Notation "x && y" := (andb x y).
     Notation "x||y" := (orb x y).
     \end{lstlisting}
@@ -132,7 +132,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 	 Let's define a data type \lstinline!rgb! and a data type \lstinline!primary!, whose constructor takes this type as an argument.
 	 
     \begin{minipage}[t]{0.45\textwidth}
-	\begin{lstlisting}
+	\begin{lstlisting}[caption = \lstinline!rgb!]
 	 Inductive rgb: Type:=
 	  | red     (* These are the*)
 	  | green   (* expressions in*)
@@ -142,7 +142,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 	 \end{minipage}
 	 \hfill	 
 	 \begin{minipage}[t]{0.45\textwidth}
-	 \begin{lstlisting}
+	 \begin{lstlisting}[caption = \lstinline!color!]
 	 Inductive color: Type := 
 	  | black  (* An expression in the set color *)
 	  | white  (* An expression in the set color *)
@@ -159,10 +159,11 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 
     A single constructor with multiple parameters can be used to create a type \lstinline! tuple!.
 	\begin{example}[A nibble: half a byte]~\\\vspace{-10mm}
- 	 	{\normalfont \begin{lstlisting}
+ 	 	{\normalfont \begin{lstlisting}[caption = \lstinline!bit! and \lstinline!nibbel!]
  	 		Inductive bit: Type := (*a bit*) 
  	 		 |B0
  	 		 |B1.
+ 	 		 
  		    Inductive nibble: Type := (*a nibble*)
  		   	 |bits( b0 b1 b2 b3: bit).
  		   			 	
@@ -171,8 +172,8 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
  		Hence, a tuple of four bits is a nibble.\\ 		
  		Assume we would like to test a nibble in order to see if all its bits are 0. 
  		We are unwrapping the nibble by pattern-matching:
- 		\begin{lstlisting}
- 		Definition all_zero(nb: nbble): bool :=
+ 		\begin{lstlisting}[caption = \lstinline!all_zero!]
+ 		Definition all_zero(nb: nibble): bool :=
  		  match nb with
  	  	    |(bits B0 B0 B0 B0) -> true
  		    |(bits _ _ _ _) -> false (* This wildcard pattern was included to avoid inventing variable names, which are not going to be used. *) 
@@ -186,7 +187,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 	Coq provides a {\itshape module system} to aid organizing large developments.
 	In this course most of it is not going to be needed. Namespaces use the $.$-notation as in C.
 
-	\begin{lstlisting}
+	\begin{lstlisting}[caption = \lstinline!Module!]
 	Module X 
 	...
 	...foo.. (* a definition declared as foo *)
@@ -199,7 +200,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 \subsection{Numbers}
 
   Note that on the one hand the types day, bool, bits and tuples have a finite set of values, while on the other hand the set of natural numbers $\mathbb{N}$ is an infinite set.\\ 
-  Hence, we have to construct $\mathbb{N}$ using a data type with a fintite number of constructors. 
+  Hence, we have to construct $\mathbb{N}$ using a data type with a finite number of constructors. 
   Recall, that many representations of $\mathbb{N}$ exits (e.g. hexadecimal with base 16, octa with base 8, binary with base 2).
   The most familiar might be the decimal representation.\\
   However, each representation of $\mathbb{N}$ can be useful under different circumstances. 
@@ -309,7 +310,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
   The definition of \lstinline!S! has no behavior at all.\\     
   
   In order to define more functions over numbers pattern matching used in the definitions of \lstinline!pred! and \lstinline!minustwo! is not sufficient. We are introducing recursion.
-  Recursion in Coq is notated by the keyword \lstinline!Fixpoint!.
+  Recursion in Coq is notated by the keyword \lstinline!Fixpoint!. Note that the previous definitions obviously did not use recursion, because the definitions did not call themseves.
   
   \begin{lstlisting}[caption = \lstinline!evenb!]
   Fixpoint evenb (n:nat) : bool :=
@@ -330,7 +331,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
    
    \subsection{Multi Argument-Function by Recursion}
    
-   \begin{lstlisting}
+   \begin{lstlisting}[caption = \lstinline!plus!]
    Module NatPlayground2
    
    Fixpoint plus (n : nat) (m : nat): nat :=
@@ -370,28 +371,30 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 
     For the Coq-parser's and Coq-prettifyer's sake we are introducing a new notation:
     
-    \begin{lstlisting}
+    \begin{lstlisting}[caption= operator overloading] 
      Notation " x + y ":= (plus x y)
                       (at level 50, left associativity) (* This line is not of interest for our purpose. *)
                       : nat_scope. (* This line is not of our interest. *)
                       
      Check(( 0 + 1 ) + 1).
     \end{lstlisting}    
-   And these are some more functions defined for our purpose. 
-   The interested reader is referred to the literature for an exact definition.  
+   And in table \ref{tab:operators} some more functions for our purpose are listed.
+   The interested reader is referred to the literature for an exact definition (see table \ref{tab:operators}).  
    
-   \begin{center}
+   \begin{table}   
    \begin{tabular}{|c|c|c|c|}
      \hline 
  	  notation      & function        & functionality                       & uses           \\  \hline
- 	  x - y         & minus           & subtract two natural numbers       & see listing  \ref{lst:minus_nat} \\  \hline
+ 	  x - y         & minus           & subtract two natural numbers        & see listing  \ref{lst:minus_nat} \\  \hline
       x * y         & mult            & multiply natural numbers            & nested \lstinline!match!es \\  \hline   
    	  x =? y        & eqb             & test natural numbers                & nested \lstinline!match!es \\  
   	                &                 & for equality yielding a Boolean     &                \\  \hline
    	  x <=? y       & leb             & test if a first argument            & nested \lstinline!match!es \\  
    	                &                 & is less or equal yielding a Boolean &                \\  \hline
    \end{tabular}
-   \end{center}
+   \caption{\label{tab:operators} common operators on natural numbers full implementation can be found in \cite[section: Basics Functional Programming in Coq: Numbers]{PACGGHSY}}
+   \end{table}   
+   
 	Note that we when we said that Coq comes with almost nothing built-it in, we really mean it.
     Even equality testing is a user-defined operation.
     
@@ -409,7 +412,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
    
    \begin{example}
 	   \begin{theorem} ~\\\vspace{-5mm}
-  	   {\normalfont \begin{lstlisting}
+  	   {\normalfont \begin{lstlisting}[caption=\lstinline!plus_0_n!, label=lst:plus_0_n]
    		Theorem. plus_0_n: for all n: nat, 0+n = n.
    		  Proof. intros n. simpl. refelxivity. Qed.
     	\end{lstlisting}}	
@@ -447,7 +450,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
      \paragraph{Notation} 
      The suffix \lstinline!_|! is pronounced ``on the left''. 
      \begin{example} ~\ \vspace{-5mm}
-	     \begin{lstlisting} 
+	     \begin{lstlisting}[caption = \lstinline!mult_0_l!]
 	      Theorem mult_0_l: for all n: nat, or n = 0.
 	        proof: intros n. refelexivity. Qed.
 	     \end{lstlisting}
@@ -470,7 +473,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
      
      Consider the following example theorem:     
      %\begin{example}\\
-	 \begin{lstlisting}[caption=Example]
+	 \begin{lstlisting}[caption=\lstinline!plus_id_examples!]
 	 Theorem plus_id_examples: for all n m: nat
        n = m -> 
 	   n+n = m+m.	 
@@ -502,7 +505,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
      \end{center}         
    We can also use \lstinline!rewrite! with a previously proved theorem instead of a hypothesis of context.
    If the statement of the previously proved theorem involves prequantified variables, Coq reuses them.   
-   \begin{lstlisting}
+   \begin{lstlisting}[caption=\lstinline!mult_0_plus!]
    Theorem mult_0_plus: for all n m: nat,
    (0 + n) * m = n * m.
    Proof.
@@ -525,7 +528,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
    
    
    \paragraph{Destruct}	~\vspace{-5mm}
-   \begin{lstlisting}
+   \begin{lstlisting}[caption= \lstinline! plus_1_neq_0_firsttry!]
    Theorem plus_1_neq_0_firsttry : for all n : nat,
      (n + 1) =? 0 = false.
      Proof.
@@ -541,7 +544,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 	It follows \lstinline!n+1= ? 0! yields \lstinline!false!.\\	
     Hence we would like to generate two subgoals including variables named as in the called \lstinline! intros! pattern.	 \\        
     Therefore we are using the tactics \lstinline! destruct!	
-	\begin{lstlisting}
+	\begin{lstlisting}[caption = \lstinline! destruct!]
 	intros n.
 	destruct n as[ |n'] eqn: E
 	\end{lstlisting}
@@ -560,7 +563,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 	Bullets in the beginning of the line foster readability and limiting the number of characters per line to 80 aim readability.
 	
 	\begin{example} ~\\\vspace{-10mm}
-	  \begin{lstlisting}
+	  \begin{lstlisting}[caption=\lstinline!newb_invloutive!]
 	  	Theorem newb_involutive: for all b: bool,
 	  	  neg b ( neg b ) = b.
 	  	  
@@ -576,7 +579,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 	 \lstinline!destruct! as ab le to be invoked inside subgaols to generate more proof obligations.
 	  The nested subgoals can either be grouped by an addition sign \lstinline!+!, the so called asterix a \lstinline!*!, or a curly parenthesis.
 	  \begin{example} ~\\\vspace{-10mm}
-	  \begin{lstlisting}
+	  \begin{lstlisting}[caption = syntax of nested \lstinline!destruct! expressions]
 	  destruct a eqn: EqnA.
 	    + reflectivity.
 	    + destruct b eqn: EqnB.
