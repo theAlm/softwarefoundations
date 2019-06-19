@@ -312,8 +312,8 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
   In order to define more functions over numbers pattern matching used in the definitions of \lstinline!pred! and \lstinline!minustwo! is not sufficient. We are introducing recursion.
   Recursion in Coq is notated by the keyword \lstinline!Fixpoint!. Note that the previous definitions obviously did not use recursion, because the definitions did not call themseves.
   
-  \begin{lstlisting}[caption = \lstinline!evenb!]
-  Fixpoint evenb (n:nat) : bool :=
+  \begin{lstlisting}[caption = \lstinline!evenb! and \lstinline!oddb!]
+  Fixpoint evenb (n : nat) : bool :=
   	match n with
   	| 0 => true
   	| S 0 => false
@@ -326,7 +326,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
     	Proof. simpl. reflexivity. Qed.
   \end{lstlisting}
    Note that in this proof \lstinline!simpl.! actually has no effect on the goal. 
-   All the work is done by \lstinline!refelxivity!. 
+   All the work is done by \lstinline!reflexivity!. 
    We are going to come to back to that later.
    
    \subsection{Multi Argument-Function by Recursion}
@@ -371,7 +371,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 
     For the Coq-parser's and Coq-prettifyer's sake we are introducing a new notation:
     
-    \begin{lstlisting}[caption= operator overloading] 
+    \begin{lstlisting}[caption= operator overloading of \lstinline!+!] 
      Notation " x + y ":= (plus x y)
                       (at level 50, left associativity) (* This line is not of interest for our purpose. *)
                       : nat_scope. (* This line is not of our interest. *)
@@ -404,9 +404,9 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
    
    
    Till now we have defined a few data types and functions.
-   Example: We have seen all claims were shown by the same proofs. \lstinline!simple! and \lstinline!refelctivity!. 
+   Example: We have seen all claims were shown by the same proofs. \lstinline!simple! and \lstinline!reflexivity!. 
    \lstinline!simple! simplified equations and \lstinline!reflexivity! checked weather both sides contain identical values.
-   An on the hand rule might say that, \lstinline!simple! can be used to show more simple properties.
+   A rule of thumb might say that, \lstinline!simple! can be used to show more simple properties.
    For example we consider the following observation: ``0+n reduces to n, no matter, what n is.''
    The mathematical precisely formulated statement can be proven by the definition of zero directly.
    
@@ -414,7 +414,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 	   \begin{theorem} ~\\\vspace{-5mm}
   	   {\normalfont \begin{lstlisting}[caption=\lstinline!plus_0_n!, label=lst:plus_0_n]
    		Theorem. plus_0_n: for all n: nat, 0+n = n.
-   		  Proof. intros n. simpl. refelxivity. Qed.
+   		  Proof. intros n. simpl. reflexivity. Qed.
     	\end{lstlisting}}	
 	\end{theorem}
 	\end{example}              
@@ -583,7 +583,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 	  destruct a eqn: EqnA.
 	    + reflectivity.
 	    + destruct b eqn: EqnB.
-	      - refelexivity.
+	      - reflexivity.
 	      - destruct c eqn: EqnC.
 	          * simpl. 
 	          (* ... *)       
