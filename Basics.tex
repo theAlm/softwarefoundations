@@ -193,7 +193,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
 	...
 	End X
 	
-	X.foo (* Referes to foo, which is definded in the module X. *)
+	X.foo (* Referes to foo which is definded in the module X. *)
 	\end{lstlisting}
 
 \subsection{Numbers}
@@ -311,7 +311,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
   In order to define more functions over numbers pattern matching used in the definitions of \lstinline!pred! and \lstinline!minustwo! is not sufficient. We are introducing recursion.
   Recursion in Coq is notated by the keyword \lstinline!Fixpoint!.
   
-  \begin{lstlisting}
+  \begin{lstlisting}[caption = \lstinline!evenb!]
   Fixpoint evenb (n:nat) : bool :=
   	match n with
   	| 0 => true
@@ -321,7 +321,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
   	
   	Definition oddb (n:nat): bool := negb (even bn). (* a simple definition of odd *)
   	
-  	Example test_oddb1: oddb1 = true
+  	Example test_oddb1: oddb 1 = true
     	Proof. simpl. reflexivity. Qed.
   \end{lstlisting}
    Note that in this proof \lstinline!simpl.! actually has no effect on the goal. 
@@ -331,7 +331,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
    \subsection{Multi Argument-Function by Recursion}
    
    \begin{lstlisting}
-   Module NatPlayground2.
+   Module NatPlayground2
    
    Fixpoint plus (n : nat) (m : nat): nat :=
      match n with
@@ -341,8 +341,9 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
      
     Compute (plus 3 2). 
    \end{lstlisting}   
-    A notation convention for calling functions or matching two expressions for multiple arguments of the same type exist in Coq, too.
-   
+    A notation convention for calling functions with two expressions and matching two expressions with multiple arguments of the same type exist in Coq, too. 
+    See listing \ref{lst:minus_nat}.
+    
    \begin{lstlisting}[label = lst:minus_nat, caption={ \lstinline!minus! and \lstinline!exp!}]
     Fixpoint minus (n m: nat): nat :=
      match n, m with
@@ -367,7 +368,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
    \subsection{Introducing Notations}
 
 
-    For the Coq-parsers and Coq-prettifyers sake we are introducing a new notation:
+    For the Coq-parser's and Coq-prettifyer's sake we are introducing a new notation:
     
     \begin{lstlisting}
      Notation " x + y ":= (plus x y)
@@ -377,17 +378,17 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
      Check(( 0 + 1 ) + 1).
     \end{lstlisting}    
    And these are some more functions defined for our purpose. 
-   The interested reader is refereed to the literature for an exact definition.  
+   The interested reader is referred to the literature for an exact definition.  
    
    \begin{center}
    \begin{tabular}{|c|c|c|c|}
      \hline 
  	  notation      & function        & functionality                       & uses           \\  \hline
  	  x - y         & minus           & subtract two natural numbers       & see listing  \ref{lst:minus_nat} \\  \hline
-      x * y         & mult            & multiply natural numbers            & nested matches \\  \hline   
-   	  x =? y        & eqb             & test natural numbers                & nested matches \\  
+      x * y         & mult            & multiply natural numbers            & nested \lstinline!match!es \\  \hline   
+   	  x =? y        & eqb             & test natural numbers                & nested \lstinline!match!es \\  
   	                &                 & for equality yielding a Boolean     &                \\  \hline
-   	  x <=? y       & leb             & test if a first argument            & nested matches \\  
+   	  x <=? y       & leb             & test if a first argument            & nested \lstinline!match!es \\  
    	                &                 & is less or equal yielding a Boolean &                \\  \hline
    \end{tabular}
    \end{center}
