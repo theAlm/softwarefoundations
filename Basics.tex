@@ -488,7 +488,7 @@
 	     Consider the following example theorem:     
 	     %\begin{example}\\
 		 \begin{lstlisting}[caption=\lstinline!plus_id_examples!]
-		 Theorem plus_id_examples: for all n m: nat
+		 Theorem plus_id_example: for all n m: nat,
 	       n = m -> 
 		   n+n = m+m.	 
 		 \end{lstlisting}
@@ -501,19 +501,25 @@
 	     \begin{center}
 	     \begin{tabular} {|l|l|l|}
 	     	\hline
-	     	  command                        & a mathematical translation          & comment \\  \hline
-	     	 \lstinline!proof.!              & $\text{wts}: \forall m,n \in \mathbb{N}:$ & Moves the last used \\   
-	     	      	                         &  $n = m \implies n+n = m+m \qquad$  &         \\     
-	     	      	                         &  $Proof:$                           & theorem into the focus.\\  
-	       	                                 &                                     &                                    \\   \hline
-	         \lstinline!  intros n m.!       & Assume $m,n \in \mathbb{N}.$        & Moves the universally quantified \\
-	                                         &                                     & variables n and m into the focus.   \\   \hline                                            
-	          \lstinline!  intros H.!        & $H :=\{n=m\}$                       & Moves the hypothesis into              \\ 
-	    	                                 &                                     & the focus of Coq.                                          \\    \hline   
-	     	 \lstinline!  rewrite -> H.!     &  $H \wedge n:=m$                                   & Replace by H from left to right and                            \\  
-	     	                                 &  $\implies m+m = m+m$& rewrite the goal using the hypothesis.           \\ \hline
-	     	 \lstinline!  reflexivity.!      & trivial                             &  We obtained a trivial statement.                 \\ \hline
-	    	 \lstinline! Qed.!                & Qed.                                &  Quod era demonstrandum.                         \\  \hline
+	     	 command                        & a mathematical translation          & comment  \\  \hline
+	     	 \lstinline!Theorem plus_id_example: for all n m: nat,!
+	     	                                 & Theorem (\verb!plus_id_example!): $\forall n,m \in \mathbb{N}:$
+	     	                                                                       & Declares the statement \\ 
+	         \lstinline!n = m ->!            & $n=m$                               & with the name \lstinline! plus_id_example! in \\ 
+		     \lstinline!n + n = m + m.!      & $\implies P(n,m) := n+n = m+m.$     & Coq as \lstinline!subgoal! \\  \hline
+	     	 \lstinline!proof.!              & Proof:                       & Moves the last proven \\   
+	     	      	                         &                                     & \lstinline!subgoal! into  \\     
+	     	      	                         &                                     & Coq's focus.\\  
+	       	                                 &                                     &                                     \\   \hline
+	         \lstinline!  intros n m.!       & Assume $n,m \in \mathbb{N}.$        & Moves the universally quantified     \\
+	                                         &                                     & variables \lstinline!n! and \lstinline!m! into the focus.    \\   \hline                                            
+	         \lstinline!  intros H.!         & $H(n,m) :=\{n=m\}.$                 & Moves the hypothesis \lstinline!H! of\\ 
+	    	                                     &                                     & the subgoal into the focus of Coq.   \\ \hline   
+	     	 \lstinline!  rewrite -> H.!     & $H(n,m)\implies $                   & Substitute by H from left to right  \\  
+	     	                                 & $\implies P(n,m)\Leftrightarrow\{m+m = n+n\}.$
+	     	                                      	                              &  in the \lstinline!subgoal!. Simplify if possible. \\ \hline
+	     	 \lstinline!  reflexivity.!      & trivial.                             &  We obtained a trivial statement.                  \\ \hline
+	    	     \lstinline! Qed.!               & $\qed.$                                &  Quod era demonstrandum.                           \\  \hline
 	    	 
 	     \end{tabular}
 	     \end{center}         
