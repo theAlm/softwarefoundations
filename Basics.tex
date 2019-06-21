@@ -7,9 +7,10 @@
 	In this chapter we are going to introduce the most essential elements of Coq's functional programming language called {\itshape  Gallina}. 
 	Moreover, {\itshape tactics}, which can be applied to prove properties of Coq programs, are introduced.
 	
-	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\subsection{Data and Functions}
 	\label{subSec:DataAndFuctions}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 	 \paragraph{Enumerated Type}
 	 
@@ -73,10 +74,9 @@
 	    (Assuming the correctness of the corresponding high performance compile e.g. the Ocaml, Haskell or Scheme compiler.) 			
 	   \end{enumerate}   
 	
-	    
-	
-	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\subsection{Boolean}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 	    Of course, Coq provides an default implementation of Boolean.
 	    (See the \newline \href{https://www.cs.princeton.edu/courses/archive/fall07/cos595/stdlib/html/Coq.Init.Datatypes.html}{Coq.Init.Datatypes in the Coq-Library documentation}).  
@@ -105,8 +105,9 @@
 	    Notation "x||y" := (orb x y).
 	    \end{lstlisting}
 	    
-	     
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	     
 	\subsection{Some Notation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 	    As in the Coq doc documentation tool the following notation convention is introduced:
 	     
 	    \begin{enumerate}
@@ -115,8 +116,9 @@
 	     \item And we write \lstinline! Admitted.! at the end of an incomplete proof.    
 	     \end{enumerate}
 	     
-	     
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	     
 	\subsection{Types}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	     Every expression in Coq has a type, which can be revealed by \lstinline!check!. 
 	     \begin{enumerate}
 	      \item  \lstinline* Check true.* gives the type of the expression \lstinline! boolean!.
@@ -124,10 +126,11 @@
 	              It is the functions input data type and the output data type, given input data of that type.
 	       \item \lstinline! andb! returns \lstinline!bool->bool->bool!. This function produces an output of type \lstinline! bool! given two inputs of type \lstinline! bool!.
 	     \end{enumerate}
-	   
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	   
 	\subsection{New Types from Old}
-	     
-	     
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	          
 		 Note that so far the data-types we have seen were enumerated types.
 		 Let's define a data type \lstinline!rgb! and a data type \lstinline!primary!, whose constructor takes this type as an argument.
 		 
@@ -153,9 +156,12 @@
 		 \end{minipage}	 	 
 		 
 		 Note that, expressions formed as above are the only ones belonging to the sets \lstinline!rgb! and \lstinline!color!.
+
+
 		 
-	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 	\subsection{Tuples}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 	    A single constructor with multiple parameters can be used to create a type \lstinline! tuple!.
 		\begin{example}[A nibble: half a byte]~\\\vspace{-10mm}
@@ -181,8 +187,9 @@
 	 		 \end{lstlisting}}
 	 	\end{example}
 	 	
-	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 	\subsection{Modules}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 		Coq provides a {\itshape module system} to aid organizing large developments.
 		In this course most of it is not going to be needed. Namespaces use the $.$-notation as in C.
@@ -196,8 +203,10 @@
 		
 		X.foo (* Referes to foo which is definded in the module X. *)
 		\end{lstlisting}
-	
+		
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 	\subsection{Numbers}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 	  Note that on the one hand the types day, bool, bits and tuples have a finite set of values, while on the other hand the set of natural numbers $\mathbb{N}$ is an infinite set.\\ 
 	  Hence, we have to construct $\mathbb{N}$ using a data type with a finite number of constructors. 
@@ -328,8 +337,11 @@
 	   Note that in this proof \lstinline!simpl.! actually has no effect on the goal. 
 	   All the work is done by \lstinline!reflexivity!. 
 	   We are going to come to back to that later.
+
 	   
-	   \subsection{Multi Argument-Function by Recursion}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	   
+   \subsection{Multi Argument-Function by Recursion}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	   
 	   \begin{lstlisting}[caption = \lstinline!plus!]
 	   Module NatPlayground2
@@ -365,9 +377,10 @@
 	       end.
 	         
 	   \end{lstlisting}
-	        
-	   \subsection{Introducing Notations}
-	
+	   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	        
+   \subsection{Introducing Notations}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 	
 	    For the Coq-parser's and Coq-prettifyer's sake we are introducing a new notation:
 	    
@@ -398,10 +411,9 @@
 		Note that we when we said that Coq comes with almost nothing built-it in, we really mean it.
 	    Even equality testing is a user-defined operation.
 	    
-	    
-	        
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	     
 	   \subsection{Proof by Simplification}
-	   
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	   
 	   Till now we have defined a few data types and functions.
 	   Example: We have seen all claims were shown by the same proofs. \lstinline!simple! and \lstinline!reflexivity!. 
@@ -423,10 +435,7 @@
 	    	On top of that it simplifies, which makes it more powerful. 
 	    	We have seen \lstinline!simpl! added in our examples so we can see the intermediate state.
 	    	Therefore, the above proof can be simplified by omitting \lstinline!simpl!. 
-	     \end{remark}
-	     
-	
-	
+	     \end{remark}	
 	
 		\begin{lstlisting}[caption={ \lstinline!plus_0_n'!}, label= lst:plus0nPrime]
 	    Theorem plus_0_n': for all n: nat, 0 + n = n.
@@ -437,9 +446,10 @@
 	    mean pretty much the same in Coq, while in Mathematics they do not.
 	    
 	   
-	     
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	     
 	\subsection{Proof-Techniques}
 	\label{subsec:proof-techniques}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	    
 	    \paragraph{Intros, Simplification and Reflexivity}
 	     Whenever a \lstinline!Theorem! starts with \lstinline!for all n!, we might start a proof by the phrase:
@@ -526,8 +536,9 @@
 		If a proof was started it can be interrupted by the command \lstinline!Abort!.
 		Note, if a proof was forgotten in the following nonsense is a able to be shown. \\
 		
-		
-	 \subsection{Proof by Case Analysis}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		
+	\subsection{Proof by Case Analysis}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	   Consider the following example. It clearly demonstrates that, it is not possible to prove everything using the simplification tactic.   
 	   
 	   
