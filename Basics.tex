@@ -440,22 +440,20 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
      
     \paragraph{Proof-Techniques}
     
-    \paragraph{Intros, Simplification and Reflexivity}
+    \subparagraph{Intros, Simplification and Reflexivity}
      Whenever a \lstinline!Theorem! starts with \lstinline!for all n!, we might start a proof by the phrase:
      Assume \lstinline!n! is some natural number. By \lstinline! intros n! we can tell this to Coq.\\
-     A {\itshape tactic} is a command used between \lstinline!proof! and \lstinline! Qed.!, 
-     which guides the process of checking some claim for example the keyword \lstinline! intros!, \lstinline! simpl! and \lstinline!reflexivity.! 
-     are tactics.
-     
-     \paragraph{Notation} 
-     The suffix \lstinline!_|! is pronounced ``on the left''. 
-     \begin{example} ~\ \vspace{-5mm}
-	     \begin{lstlisting}[caption = \lstinline!mult_0_l!]
-	      Theorem mult_0_l: for all n: nat, or n = 0.
-	        proof: intros n. refelexivity. Qed.
-	     \end{lstlisting}
-     \end{example} 
-  
+     A {\itshape tactic} is a command used between \lstinline!proof! and \lstinline! Qed!, 
+     which guides the process of checking some claim for example the keyword \lstinline! intros!, \lstinline! simpl! and \lstinline!reflexivity! 
+     are tactics.     
+     \begin{remark}{Notation.} 
+     The suffix \lstinline!_l! is pronounced ``on the left'' (see listing \ref{exp:reflexivity}). 
+	 \begin{lstlisting}[caption = \lstinline!mult_0_l!, label= {exp:reflexivity}]
+	 Theorem mult_0_l: for all n: nat, or n = 0.
+	   proof: intros n. refelexivity. Qed.
+	 \end{lstlisting}
+	 \end{remark} 
+      
    Let's recall what reflexivity in terms of an equivalence relation means.  
    \begin{definition}[Equivalence Relation]
    Assume $x,y\in \mathcal{M}$ an arbitrary set $\mathcal{M}\neq\emptyset$ and $\thicksim\subset A \times A $ an arbitrary relation.
@@ -469,7 +467,7 @@ Moreover, {\itshape tactics}, which can be applied to prove properties of Coq pr
      
    Due to the \href{https://pjreddie.com/coq-tactics/}{Coq tactics index} it is recommended to use reflexivity, if your goal is to prove that something is equals to itself.  
       
-     \paragraph{Proof by Rewriting}
+     \subparagraph{Proof by Rewriting}
      
      Consider the following example theorem:     
      %\begin{example}\\
