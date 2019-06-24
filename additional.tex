@@ -1,0 +1,29 @@
+\section{Additional Materials}\label{app:AdditionalMaterials}
+
+\subsection{Coq and Predicate Logic} \label{subsec:CoqAndPredicateLogic}
+	The semantics of a Coq-\lstinline!theorem! might be interpreted as a logical formula.
+	The Coq-\lstinline!Proof.! might be the justification of this formula. 
+	For readability in the follwoing premises denoted by capital letters are introduced which do not appear in Coq.
+	\begin{table}[h]
+		\begin{center}
+			\begin{tabular}{|c|l|}
+			    \hline
+	 			line no.  &  predicate logical translation \\  \hline
+		     	  1-3    % & $P\ n \ m$ means `' \\ 	     	                                                   
+		     	         % & $N\ n\ m$ means `$n, m \in \mathbb{N}$' \\ 
+		                  & \lstinline!plus_id_example! means `$ \forall\ n\ m\ [n\ , m \in \mathbb{N}]: n = m \rightarrow n+n = m+m.$'\\ \hline        
+		     	  4       & proof. \\     	     	      	                      
+		                  &  \lstinline!subgoal! $:= n+n = m+m$    \\ \hline
+		          5       &   $N \ n \ m \ := \ n,\ m \in \mathbb{N}$       \\ \hline       
+		          6       &   $ H\ n\ m :=( n= m)$ \\        
+		    	      7       &   $ \forall n \ m\ [N \ n,\ m]: H\ n\ m \rightarrow ($\lstinline!subgoal!$\leftrightarrow( m+m = m+m)$\\   \hline 
+		          8       &   (* by refelxivity and simplification it is conluded*) \\
+		                  & $\forall n\ m\ [ N\ n\ m]: H \rightarrow$ \lstinline!subgoal!.  \\  \hline
+		          9       & $\qed.$\\ \hline        	          
+	        		\end{tabular}
+		\end{center}
+		\label{tab:CoqAndPreciateLogic}
+		\caption{listing \ref{lst:plus_id_example} \lstinline!plus_id_example!'s translation into predicate logic.} 
+	\end{table}
+
+TODO: Reference for the logical notation .

@@ -478,12 +478,10 @@
 	   \end{definition}
 	     
 	    A more detailed aproach of understanding the tactics \lstinline!refelxivity! is elaborated in section \ref{sec:reflexivity}.  
-	    %%%
-	    % TODO: FILL IN THIS ABOVE REFERENCE
-	    %%% 
+	
 	    However, due to the \href{https://pjreddie.com/coq-tactics/}{Coq tactics index} it is recommended to use reflexivity, if your goal is to prove that something is equals to itself.  
 	      
-	     \paragraph{Proof by Rewriting}
+	     \paragraph{Proof by Rewriting} \label{par:ProofByRewriting}
 	     
 	     Consider the following example theorem:     
 	     %\begin{example}\\
@@ -496,40 +494,58 @@
 		 We would like to show this theorem instead by making a claim about all numbers by looking at the special case when \lstinline!n=m!.
 	     \lstinline!->! corresponds to the mathematical implication operator $\implies$. 
 	%     The {\itshape tactic} \lstinline! intros!.        
-	     Note that, the arrow \lstinline!->! tells Coq to rewrite the object of focus from left to right and \lstinline!<-! can be used to rewrite from right to left.\\
-	     %%%%%%%%%%%%%%%%%%%%
-	     % Some text
-	     %%%%%%%%%%%%%%%%%%%
-        
-	     \begin{center}
-	     \begin{tabular} {|l|l|l|}
+	     Note that the arrow \lstinline!->! tells Coq to rewrite the object of focus from left to right and \lstinline!<-! can be used to rewrite from right to left.\\
+	     
+	     In order to proof theorem \lstinline!plus_id_example! the theorem's hypothesis is rewritten as shown in listing \ref{lst:plus_id_example}.
+	     \begin{lstlisting}[caption = \lstinline!plus_id_example! and it's proof, label= {lst:plus_id_example}]
+           Theorem plus_id_example: for all n m: nat,
+             n = m ->
+             n + n = m + m.
+           Proof.
+             intros n m.
+             intros H.
+             rewrite -> H.
+             reflexivity.
+             Qed.
+         \end{lstlisting}
+         For a demonstartion of the usage of the Coq-code listed in listing \ref{lst:plus_id_example}. 
+         This Coq-Code's translation to a mathematical proof is listed in table \ref{tab:aMathematicalTranslation}.  
+         \begin{table}[h]       
+	   	  \begin{center}
+	 	    \begin{tabular}{|c|l|l|}	       
 	     	\hline
-	     	 command                        & a mathematical translation          & comment  \\  \hline
-	     	 \lstinline!Theorem plus_id_example: !& Theorem (\verb!plus_id_example!): 	  & Declares the statement \\
-	     	 \lstinline!  for all n m: nat,!                                 & $\forall n,m \in \mathbb{N}:$       & with the name   \\
-	         \lstinline!n = m ->!            & $n=m$                               & \lstinline!plus_id_example! in Coq \\ 
-		     \lstinline!n + n = m + m.!      & $\implies P(n,m) := n+n = m+m.$     & as \lstinline!subgoal! \\  \hline
-	     	 \lstinline!proof.!              & Proof:                              & Moves the last proven \\   
-	     	      	                         &                                     & \lstinline!subgoal! into Coq's focus.  \\     \hline
+	     	 line no.  & a mathematical translation           & comment  \\  \hline
+	     	  1        & Theorem (\verb!plus_id_example!): $\forall n,m \in \mathbb{N}:$ 
+	     	                                                  & Declares the statement \\ 
+	     	  2         & $n=m$                                & with the name   \\ 
+	          3        & $\quad\implies P(n,m) := n+n = m+m.$      & \lstinline!plus_id_example! in Coq \\  
+		              &      & as \lstinline!subgoal! \\  \hline
+	     	  4        & Proof:                              & Moves the last proven \\   
+	     	      	   &                                     & \lstinline!subgoal! into Coq's focus.  \\     \hline
 	     	      	                      
-	         \lstinline!  intros n m.!       & Assume $n,m \in \mathbb{N}.$        & Moves the universally     \\
-	                                         &                                     & quantified  variables \lstinline!n!      \\   
-	                                         &                                     & and \lstinline!m! into the focus.\\     \hline  
-	         \lstinline!  intros H.!         & $H(n,m) :=\{n=m\}.$                 & Moves the hypothesis \lstinline!H! \\ 
-	    	                                     &                                     & of the \lstinline!subgoal! into the    \\   
-	    	                                     &                                     & focus of Coq.\\ \hline 
-	     	 \lstinline!  rewrite -> H.!     & $H(n,m)\implies $                   & Substitute by H from \\  
-	     	                                 & $\implies P(n,m)\Leftrightarrow\{m+m = n+n\}.$
-	     	                                      	                              &  left to right in the \lstinline!subgoal!.\\
-	     	                                 &     	                              &  Simplify if possible. \\ \hline
-	     	 \lstinline!  reflexivity.!      & trivial.                            &  We obtained a                  \\ 
-	     	                                 &                                     & trivial statement. \\ \hline
-	    	     \lstinline! Qed.!               & $\qed.$                             &  Quod era demonstrandum.                           \\  \hline
-	    	 
-	     \end{tabular}
-	     \end{center}         
-	   We can also use \lstinline!rewrite! with a previously proved theorem instead of a hypothesis of context.
-	   If the statement of the previously proved theorem involves prequantified variables, Coq reuses them.   
+	          5         & Assume $n,m \in \mathbb{N}.$        & Moves the universally     \\
+	                    &                                     & quantified  variables \lstinline!n!      \\   
+	                    &                                     & and \lstinline!m! into the focus.\\     \hline  
+	          6         & $H(n,m) :=\{n=m\}.$                 & Moves the hypothesis \lstinline!H! \\ 
+	    	                &                                     & of the \lstinline!subgoal! into the    \\   
+	    	                &                                     & focus of Coq.\\ \hline 
+	          7         & $H(n,m)\implies $                   & Substitute by H from \\  
+	     	            & $\implies P(n,m)\Leftrightarrow\{m+m = n+n\}.$
+	     	                    	                              & left to right in the \lstinline!subgoal!.\\
+                        &     	                              & Simplify if possible. \\ \hline
+	     	  8         & trivial.                             & We obtained a                  \\ 
+	     	            &                                      & trivial statement. \\ \hline
+	    	      9        & $\qed.$                               &  Quod era demonstrandum.  \\  \hline
+	    	   	 \end{tabular}
+	    	   	   \caption{\lstinline!plus_id_example!'s mathematical translation}
+	    	   	   \label{tab:aMathematicalTranslation}  
+	         \end{center}          
+          \end{table}  
+       N	ote that the semantics of the Coq-code in listing \ref{lst:plus_id_example} can be easily understood by a reader who is familiar with predicate logic as in \ref{}.
+       Therefore a one-to-one taranslation of this listing in predicate logic is listen in appendix \ref{app:AdditionalMaterials} \ref{subsec:CoqAndPredicateLogic}.  \\      
+       % Steffens Skrip.    
+	   \lstinline!rewrite!  can also be user with a previously proven theorem instead of a hypothesis of context.
+	   If the statement of the previously proven theorem involves prequantified variables, Coq reuses them.   
 	   \begin{lstlisting}[caption=\lstinline!mult_0_plus!]
 	   Theorem mult_0_plus: for all n m: nat,
 	   (0 + n) * m = n * m.
