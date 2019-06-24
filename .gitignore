@@ -6,15 +6,16 @@
 *.bbl
 *.blg
 *.fdb_latexmk
-IntroductionToCoq.thm
-IntroductionToCoq.toc
-IntroductionToCoq.bbl
-IntroductionToCoq.blg
-IntroductionToCoq.idx
-IntroductionToCoq.tex.new
-IntroductionToCoq.thm
-IntroductionToCoq.toc
+*.thm
+*.toc
+*.bbl
+*.blg
+*.idx
 
+
+*.glo
+*.glsdefs
+*.ist
 gitHeadInfo.gin
 
 mbasic\.fdb_latexmk
