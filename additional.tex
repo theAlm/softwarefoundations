@@ -1,9 +1,10 @@
-\section{Additional Materials}\label{app:AdditionalMaterials}
+\section{Additional Materials}
+\label{app:AdditionalMaterials}
 
 \subsection{Coq and Predicate Logic} \label{subsec:CoqAndPredicateLogic}
 	The semantics of a Coq-\lstinline!theorem! might be interpreted as a logical formula.
 	The Coq-\lstinline!Proof.! might be the justification of this formula. 
-	For readability in the follwoing premises denoted by capital letters ($P$ and $N$) are introduced which do not appear in Coq.
+	For readability in the following premises denoted by capital letters ($P$ and $N$) are introduced which do not appear in Coq.
 	\begin{table}[h]
 		\begin{center}
 			\begin{tabular}{|c|l|}
@@ -12,12 +13,12 @@
 		     	  1-3    % & $P\ n \ m$ means `' \\ 	     	                                                   
 		     	         % & $N\ n\ m$ means `$n, m \in \mathbb{N}$' \\ 
 		                  & \lstinline!plus_id_example! means `$ \forall\ n\ m\ [n\ , m \in \mathbb{N}]: n = m \rightarrow n+n = m+m.$'\\ \hline        
-		     	  4       & proof. \\     	     	      	                      
-		                  &   $ P\ n\ m:= n+n = m+m$    \\ \hline
-		          5       &   $N \ n \ m \ := \ n,\ m \in \mathbb{N}$       \\ \hline       
+		     	  4       & Proof: \\     	     	      	                      
+		                  &   $ P\ n\ m:= (n+n = m+m)$    \\ \hline
+		          5       &   $N \ n \ m \ := ( n,\ m \in \mathbb{N})$       \\ \hline       
 		          6       &   $ H\ n\ m :=( n= m)$ \\        
-		    	      7       &   $ \forall n \ m\ [N \ n,\ m]: H\ n\ m \rightarrow (P\ n\ m \leftrightarrow( m+m = m+m))$\\   \hline 
-		          8       &   (* by refelxivity and simplification it is conluded*) \\
+		    	      7       &   $ \forall n \ m\ [N \ n\ m]: H\ n\ m \rightarrow (P\ n\ m \leftrightarrow( m+m = m+m))$\\   \hline 
+		          8       &   (* by reflexivity and simplification it is conclude) \\
 		                  & $\forall n\ m\ [ N\ n\ m]: H\ n\ m  \rightarrow P\ n\ m$.  \\  \hline
 		          9       & $\qed.$\\ \hline        	          
 	        		\end{tabular}
