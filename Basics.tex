@@ -497,29 +497,34 @@
 	     \lstinline!->! corresponds to the mathematical implication operator $\implies$. 
 	%     The {\itshape tactic} \lstinline! intros!.        
 	     Note that, the arrow \lstinline!->! tells Coq to rewrite the object of focus from left to right and \lstinline!<-! can be used to rewrite from right to left.\\
-	     
+	     %%%%%%%%%%%%%%%%%%%%
+	     % Some text
+	     %%%%%%%%%%%%%%%%%%%
+        
 	     \begin{center}
 	     \begin{tabular} {|l|l|l|}
 	     	\hline
 	     	 command                        & a mathematical translation          & comment  \\  \hline
-	     	 \lstinline!Theorem plus_id_example: for all n m: nat,!
-	     	                                 & Theorem (\verb!plus_id_example!): $\forall n,m \in \mathbb{N}:$
-	     	                                                                       & Declares the statement \\ 
-	         \lstinline!n = m ->!            & $n=m$                               & with the name \lstinline! plus_id_example! in \\ 
-		     \lstinline!n + n = m + m.!      & $\implies P(n,m) := n+n = m+m.$     & Coq as \lstinline!subgoal! \\  \hline
-	     	 \lstinline!proof.!              & Proof:                       & Moves the last proven \\   
-	     	      	                         &                                     & \lstinline!subgoal! into  \\     
-	     	      	                         &                                     & Coq's focus.\\  
-	       	                                 &                                     &                                     \\   \hline
-	         \lstinline!  intros n m.!       & Assume $n,m \in \mathbb{N}.$        & Moves the universally quantified     \\
-	                                         &                                     & variables \lstinline!n! and \lstinline!m! into the focus.    \\   \hline                                            
-	         \lstinline!  intros H.!         & $H(n,m) :=\{n=m\}.$                 & Moves the hypothesis \lstinline!H! of\\ 
-	    	                                     &                                     & the subgoal into the focus of Coq.   \\ \hline   
-	     	 \lstinline!  rewrite -> H.!     & $H(n,m)\implies $                   & Substitute by H from left to right  \\  
+	     	 \lstinline!Theorem plus_id_example: !& Theorem (\verb!plus_id_example!): 	  & Declares the statement \\
+	     	 \lstinline!  for all n m: nat,!                                 & $\forall n,m \in \mathbb{N}:$       & with the name   \\
+	         \lstinline!n = m ->!            & $n=m$                               & \lstinline!plus_id_example! in Coq \\ 
+		     \lstinline!n + n = m + m.!      & $\implies P(n,m) := n+n = m+m.$     & as \lstinline!subgoal! \\  \hline
+	     	 \lstinline!proof.!              & Proof:                              & Moves the last proven \\   
+	     	      	                         &                                     & \lstinline!subgoal! into Coq's focus.  \\     \hline
+	     	      	                      
+	         \lstinline!  intros n m.!       & Assume $n,m \in \mathbb{N}.$        & Moves the universally     \\
+	                                         &                                     & quantified  variables \lstinline!n!      \\   
+	                                         &                                     & and \lstinline!m! into the focus.\\     \hline  
+	         \lstinline!  intros H.!         & $H(n,m) :=\{n=m\}.$                 & Moves the hypothesis \lstinline!H! \\ 
+	    	                                     &                                     & of the \lstinline!subgoal! into the    \\   
+	    	                                     &                                     & focus of Coq.\\ \hline 
+	     	 \lstinline!  rewrite -> H.!     & $H(n,m)\implies $                   & Substitute by H from \\  
 	     	                                 & $\implies P(n,m)\Leftrightarrow\{m+m = n+n\}.$
-	     	                                      	                              &  in the \lstinline!subgoal!. Simplify if possible. \\ \hline
-	     	 \lstinline!  reflexivity.!      & trivial.                             &  We obtained a trivial statement.                  \\ \hline
-	    	     \lstinline! Qed.!               & $\qed.$                                &  Quod era demonstrandum.                           \\  \hline
+	     	                                      	                              &  left to right in the \lstinline!subgoal!.\\
+	     	                                 &     	                              &  Simplify if possible. \\ \hline
+	     	 \lstinline!  reflexivity.!      & trivial.                            &  We obtained a                  \\ 
+	     	                                 &                                     & trivial statement. \\ \hline
+	    	     \lstinline! Qed.!               & $\qed.$                             &  Quod era demonstrandum.                           \\  \hline
 	    	 
 	     \end{tabular}
 	     \end{center}         
