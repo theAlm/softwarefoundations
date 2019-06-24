@@ -495,8 +495,8 @@
 	%     The {\itshape tactic} \lstinline! intros!.        
 	     Note that the arrow \lstinline!->! tells Coq to rewrite the object of focus from left to right and \lstinline!<-! can be used to rewrite from right to left.\\
 	     
-	     In order to proof theorem \lstinline!plus_id_example! the theorem's hypothesis is rewritten as shown in listing \ref{lst:plus_id_example}.
-	     \begin{lstlisting}[caption = \lstinline!plus_id_example! and it's proof, label= {lst:plus_id_example}]
+	     In order to proof theorem \lstinline!plus_id_example! the theorem's hypothesis is rewritten as shown in listing \ref{lst:plus_id_example_proof}.
+	     \begin{lstlisting}[caption = \lstinline!plus_id_example! and it's proof, label= {lst:plus_id_example_proof}]
            Theorem plus_id_example: for all n m: nat,
              n = m ->
              n + n = m + m.
@@ -506,9 +506,8 @@
              rewrite -> H.
              reflexivity.
              Qed.
-         \end{lstlisting}
-         For a demonstartion of the usage of the Coq-code listed in listing \ref{lst:plus_id_example}. 
-         This Coq-Code's translation to a mathematical proof is listed in table \ref{tab:aMathematicalTranslation}.  
+         \end{lstlisting} 
+         For clearity of the semantics this Coq-Code's ( listing \ref{lst:plus_id_example_proof}) translation to a mathematical proof is listed in table \ref{tab:aMathematicalTranslation}.  
          \begin{table}[h]       
 	   	  \begin{center}
 	 	    \begin{tabular}{|c|l|l|}	       
@@ -517,8 +516,8 @@
 	     	  1        & Theorem (\verb!plus_id_example!): $\forall n,m \in \mathbb{N}:$ 
 	     	                                                  & Declares the statement \\ 
 	     	  2         & $n=m$                                & with the name   \\ 
-	          3        & $\quad\implies P(n,m) := n+n = m+m.$      & \lstinline!plus_id_example! in Coq \\  
-		              &      & as \lstinline!subgoal! \\  \hline
+	          3        & $\quad\implies n+n = m+m.$      & \lstinline!plus_id_example! in Coq \\  
+		              &      & as \lstinline!subgoal!. \\  \hline
 	     	  4        & Proof:                              & Moves the last proven \\   
 	     	      	   &                                     & \lstinline!subgoal! into Coq's focus.  \\     \hline
 	     	      	                      
@@ -528,22 +527,22 @@
 	          6         & $H(n,m) :=\{n=m\}.$                 & Moves the hypothesis \lstinline!H! \\ 
 	    	                &                                     & of the \lstinline!subgoal! into the    \\   
 	    	                &                                     & focus of Coq.\\ \hline 
-	          7         & $H(n,m)\implies $                   & Substitute by H from \\  
-	     	            & $\implies( P(n,m)\Leftrightarrow\{m+m = m+m\}).$
+	          7         & $H(n,m)\implies $                   & Substitutes by H from \\  
+	     	            & $\implies( n+n = m+m \Leftrightarrow\ m+m = m+m).$
 	     	                    	                              & left to right in the \lstinline!subgoal!.\\
-                        &     	                              & Simplify if possible. \\ \hline
-	     	  8         & trivial.                             & We obtained a                  \\ 
-	     	            &                                      & trivial statement. \\ \hline
+                        &     	                              & Simplifies if possible. \\ \hline
+	     	  8         & trivial.                             & We obtained a trivial                 \\ 
+	     	            &                                      &  statement. \\ \hline
 	    	      9        & $\qed.$                               &  Quod era demonstrandum.  \\  \hline
 	    	   	 \end{tabular}
 	    	   	   \caption{\lstinline!plus_id_example!'s mathematical translation}
 	    	   	   \label{tab:aMathematicalTranslation}  
 	         \end{center}          
           \end{table}  
-       N	ote that the semantics of the Coq-code in listing \ref{lst:plus_id_example} can be easily understood by a reader who is familiar with the notation of predicate logic as in \ref{}. 
-       The function of the tactics reflexivity is also similar to princliple of refelxifvity in predicate logic. 
-       Therefore a one-to-one taranslation of this listing in predicate logic is listen in appendix \ref{app:AdditionalMaterials} \ref{subsec:CoqAndPredicateLogic}.  \\      
-       % Steffens Skrip.    
+       N	ote that the syntax and semantics of the Coq-code in listing \ref{lst:plus_id_example} can be easily understood by a reader who is familiar with the notation of predicate logic as in \ref{BasisLogik}. 
+       The function of the tactics \lstinline!reflexivity! is also similar to the princliple of refelxifvity in predicate logic (see  Need a prdicate logic reference). 
+       Therefore a one-to-one translation of this listing into predicate logic can be found in appendix \ref{app:AdditionalMaterials} \ref{subsec:CoqAndPredicateLogic}.  \\      
+         
 	   \lstinline!rewrite!  can also be user with a previously proven theorem instead of a hypothesis of context.
 	   If the statement of the previously proven theorem involves prequantified variables, Coq reuses them.   
 	   \begin{lstlisting}[caption=\lstinline!mult_0_plus!]
