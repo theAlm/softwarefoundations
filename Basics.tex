@@ -478,8 +478,7 @@
 	   \end{definition}
 	     
 	    A more detailed aproach of understanding the tactics \lstinline!refelxivity! is elaborated in section \ref{sec:reflexivity}.  
-	
-	    However, due to the \href{https://pjreddie.com/coq-tactics/}{Coq tactics index} it is recommended to use reflexivity, if your goal is to prove that something is equals to itself.  
+	    However, due to the \href{https://pjreddie.com/coq-tactics/}{Coq tactics index} it is recommended to use reflexivity, if the is goal to prove that something is equals to itself.  
 	      
 	     \paragraph{Proof by Rewriting} \label{par:ProofByRewriting}
 	     
@@ -530,7 +529,7 @@
 	    	                &                                     & of the \lstinline!subgoal! into the    \\   
 	    	                &                                     & focus of Coq.\\ \hline 
 	          7         & $H(n,m)\implies $                   & Substitute by H from \\  
-	     	            & $\implies P(n,m)\Leftrightarrow\{m+m = n+n\}.$
+	     	            & $\implies( P(n,m)\Leftrightarrow\{m+m = m+m\}).$
 	     	                    	                              & left to right in the \lstinline!subgoal!.\\
                         &     	                              & Simplify if possible. \\ \hline
 	     	  8         & trivial.                             & We obtained a                  \\ 
@@ -541,7 +540,8 @@
 	    	   	   \label{tab:aMathematicalTranslation}  
 	         \end{center}          
           \end{table}  
-       N	ote that the semantics of the Coq-code in listing \ref{lst:plus_id_example} can be easily understood by a reader who is familiar with predicate logic as in \ref{}.
+       N	ote that the semantics of the Coq-code in listing \ref{lst:plus_id_example} can be easily understood by a reader who is familiar with the notation of predicate logic as in \ref{}. 
+       The function of the tactics reflexivity is also similar to princliple of refelxifvity in predicate logic. 
        Therefore a one-to-one taranslation of this listing in predicate logic is listen in appendix \ref{app:AdditionalMaterials} \ref{subsec:CoqAndPredicateLogic}.  \\      
        % Steffens Skrip.    
 	   \lstinline!rewrite!  can also be user with a previously proven theorem instead of a hypothesis of context.
