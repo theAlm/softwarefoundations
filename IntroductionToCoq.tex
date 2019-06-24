@@ -9,6 +9,7 @@
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{amsmath}
+\usepackage{enumerate}
 
 \usepackage{booktabs}
 \usepackage{graphicx}
@@ -251,12 +252,12 @@ $\star \star \star$ \textsc{Ende} $\star \star \star$
 \end{center}
 
 % Appendix
-%%%%%%%%%%%%%%%%%%% lecture notes mbasics %%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \cleardoublepage
 \appendix
 
 \include{additional}
+%%%%%%%%%%%%%%%%%%% lecture notes mbasics %%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% include this later
 \subimport{mbasic/}{notation}
@@ -274,7 +275,6 @@ $\star \star \star$ \textsc{Ende} $\star \star \star$
 \makeatother
 
 \cleardoublepage
-\bibliography{IntroductionToCoq}
-%\bibliography{mbasic}
+\bibliography{IntroductionToCoq,mbasic/mbasic}
 
 \end{document}
