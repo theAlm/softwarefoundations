@@ -40,6 +40,7 @@
 \usepackage{script}
 %\usepackage{myMakros}
 \usepackage{caption}
+\usepackage{import}
 
 
 \usepackage{listings}
@@ -258,9 +259,10 @@ $\star \star \star$ \textsc{Ende} $\star \star \star$
 \include{additional}
 
 %% include this later
-%\include{mbasic/notation}
-%\include{mbasic/logik}
-%\include{mbasic/proof}
+\subimport{mbasic/}{notation}
+
+%\subimport{mbasic/}{logik}
+%\include{mbasic/}{proof}
 
 
 % Index 
