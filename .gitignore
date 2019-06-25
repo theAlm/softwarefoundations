@@ -18,5 +18,9 @@
 *.ist
 gitHeadInfo.gin
 
+*.acn
+*.glg
+*.gls
+
 mbasic\.fdb_latexmk
 mbasic\.fls
