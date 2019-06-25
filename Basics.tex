@@ -4,7 +4,7 @@
 	\subsection{Introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-	In this chapter we are going to introduce the most essential elements of Coq's functional programming language called {\itshape  Gallina}. 
+	In this chapter we are going to introduce the most essential elements of Coq's functional programming language called {\itshape Gallina}. 
 	Moreover, {\itshape tactics}, which can be applied to prove properties of Coq programs, are introduced.
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -163,7 +163,7 @@
 	\subsection{Tuples}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
-	    A single constructor with multiple parameters can be used to create a type \lstinline! tuple!.
+	    A single constructor with multiple parameters can be used to create a type \lstinline!tuple!.
 		\begin{example}[A nibble: half a byte]~\\\vspace{-10mm}
 	 	 	{\normalfont \begin{lstlisting}[caption = \lstinline!bit! and \lstinline!nibbel!]
 	 	 		Inductive bit: Type := (*a bit*) 
@@ -225,7 +225,7 @@
 	  The two constructors of the set \lstinline!nat! are \lstinline!S! and \lstinline!0!. \\
 	
 	 % One might picture this representation by strokes on a coaster in a beer garden.                                                       
-	 One might picture this representation by strokes on the coffe consumation list of the DOPSY group staff members.  
+	 One might picture this representation by strokes on the coffe consumation list of the DOPSY group's staff members.  
 	  \begin{itemize}
 	  \item The expressions \lstinline!0! is in the set \lstinline!nat!.
 	  \item The expression \lstinline!0! represents the natural number zero. 
@@ -343,7 +343,7 @@
    \subsection{Multi Argument-Function by Recursion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	   
-	   \begin{lstlisting}[caption = \lstinline!plus!]
+	   \begin{lstlisting}[caption = \lstinline!plus!, label=lst:plus]
 	   Module NatPlayground2
 	   
 	   Fixpoint plus (n : nat) (m : nat): nat :=
@@ -352,7 +352,7 @@
 	       | S n' => S (plus n' m)
 	     end.
 	     
-	    Compute (plus 3 2). 
+	    Compute (plus 3 2).
 	   \end{lstlisting}   
 	    A notation convention for calling functions with two expressions and matching two expressions with multiple arguments of the same type exist in Coq, too. 
 	    See listing \ref{lst:minus_nat}.
@@ -540,7 +540,7 @@
 	    	   	   \label{tab:aMathematicalTranslation}  
 	         \end{center}          
           \end{table}  
-       N	ote that the syntax and semantics of the Coq-code in listing \ref{lst:plus_id_example} can be easily understood by a reader who is familiar with the notation of predicate logic as in \ref{BasisLogik}. 
+       N	ote that the syntax and semantics of the Coq-code in listing \ref{lst:plus_id_example_proof} can be easily understood by a reader who is familiar with the notation of predicate logic as in \ref{BasisLogik}. 
        The function of the tactics \lstinline!reflexivity! is also similar to the princliple of refelxifvity in predicate logic (see  Need a prdicate logic reference). 
        Therefore a one-to-one translation of this listing into predicate logic can be found in appendix \ref{app:AdditionalMaterials} \ref{subsec:CoqAndPredicateLogic}.  \\      
          
@@ -551,7 +551,7 @@
 	   (0 + n) * m = n * m.
 	   Proof.
 	     intros n m.                   (* Let $n,m\in\mathbb{N}$ *) 
-	     refelxivity -> plus_0_n.       (* rewrite $0+n$, by n *)
+	     reflexivity -> plus_0_n.       (* rewrite $0+n$, by n *)
 	     reflexivity.                  (* m = m *)
 	     Qed.
 	   \end{lstlisting}   
@@ -561,7 +561,7 @@
 		The command \lstinline!Admitted! tells Coq to skip a proof of a theorem and to accept it as given.
 		It can be used in long proofs to subsidiary state longer \lstinline!Lemmas!.
 		If a proof was started it can be interrupted by the command \lstinline!Abort!.
-		Note, if a proof was forgotten in the following nonsense is a able to be shown. \\
+		Note, if a proof was forgotten in the following shenanigans is a able to be shown. \\
 		
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		
 	\subsection{Proof by Case Analysis}
@@ -577,15 +577,21 @@
 	     intros n.
 	     simpl. (* Does nothing! *)
 	   Abort.
+	   \label{lst:plus_1_neq_0_firsttry}
 	   \end{lstlisting}
-	   
-	   \textbf{ Write something short from the book, why it obviously is not going to work.}\\		
-		Note that if \lstinline!n=0! it can be calculated that \lstinline!n+1=?0! and set it equals to  \lstinline!false!. 
-		And if \lstinline!n=Sn'! for some \lstinline!n'! we can not calculate the expression.
-		Although we don't know, which number \lstinline!n+1! is, we can calculate that it begins with an \lstinline!S!.
-		It follows \lstinline!n+1= ? 0! yields \lstinline!false!.\\	
-	    Hence we would like to generate two subgoals including variables named as in the called \lstinline! intros! pattern.	 \\        
-	    Therefore we are using the tactics \lstinline! destruct!	
+	    One might imagine a natural number \lstinline!n! as string build up of it's constructors \lstinline!S! and \lstinline!0! at the end.
+	    Evaluating the expression \lstinline!(n+1) =? 0! suffices to either evaluate the operation \lstinline!eqb! or \lstinline!plus!.
+	    By recalling (or looking up) the declarations of those operators (see listing \ref{lst:plus} and table \ref{tab:operators}) it is noted that both scopes begin by a \lstinline!match!.
+	    Hence a pattern matching of an unknown string that is the first argument of the operator is executed.
+	    But due to the generality of this string no matching can be proceeded. It follows \lstinline!simpl! carries out nothing. \lstinline!Abort! interrupts Coq.
+	    In general unknown hypothetical values like arbitrary numbers, Boolean or lists might not be able to be evaluated.\\		
+		Note that if we assume \lstinline!n=0! it can be calculated that \lstinline!n+1! is not equal to zero.
+		Hence \lstinline!n+1?=0! equals to \lstinline!false! by type interference. 
+		On the other hand if \lstinline!n=Sm! for some arbitrary \lstinline!m\in nat! we can not calculate this expression.
+		Although it is not know, which number \lstinline!n+1! is, it can be calculate that it begins with an \lstinline!S!.
+		It follows \lstinline!n+1= ? 0! evaluates to \lstinline!false!.\\	
+	    If such a procedure is carried out by Coq, two subgoals have to be generated including variables named like in the called \lstinline!intros! pattern.\\        
+	    Therefore the tactics \lstinline!destruct! is applied.	
 		\begin{lstlisting}[caption = \lstinline! destruct!]
 		intros n.
 		destruct n as[ |n'] eqn: E
@@ -618,7 +624,7 @@
 		\end{example}	 
 		 Note that above a name specification %[caption={"plus_0_n'"}, label= lst:plus_0_n'_]captionis not required, because there is no \lstinline!as! clause in the \lstinline!destruct!.
 		 Since no variable has to be bounded by the use of the tactics, listing empty lists as \lstinline![]! or \lstinline![|]! would be bad style and lead to a confusing choice by Coq.\\	 
-		 \lstinline!destruct! as ab le to be invoked inside subgaols to generate more proof obligations.
+		 \lstinline!destruct! as ab le to be invoked inside subgoals to generate more proof obligations.
 		  The nested subgoals can either be grouped by an addition sign \lstinline!+!, the so called asterix a \lstinline!*!, or a curly parenthesis.
 		  \begin{example} ~\\\vspace{-10mm}
 		  \begin{lstlisting}[caption = syntax of nested \lstinline!destruct! expressions]
