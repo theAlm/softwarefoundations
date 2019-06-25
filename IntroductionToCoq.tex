@@ -4,7 +4,7 @@
 \usepackage{fontspec}
 \usepackage{polyglossia}
 \setmainlanguage[variant=british]{english}
-\setlength{\parindent}{0pt} % we don't want paragraph indettaion  
+\setlength{\parindent}{0pt} % we don't want paragraph indentation  
 
 \usepackage{amssymb}
 \usepackage{amsfonts}
@@ -39,7 +39,7 @@
 \usepackage[numbered]{bookmark}
 \usepackage{microtype} % some formatting
 \usepackage{script}
-%\usepackage{myMakros}
+%\usepackage{myMakros} % macros for autoformating
 \usepackage{caption}
 \usepackage{import}
 \usepackage{glossaries}
@@ -91,12 +91,8 @@
 
 % Baue ein Glossar
 \makeglossaries
-%\input{Glossar}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\setabbreviationstyle[acronym]{long-short}
+\input{Glossar}
 
-\newacronym{laser}{laser}{light amplification by stimulatedemission of radiation}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Include global settings
 \input{settings.tex}
 \discretemathfalse
@@ -262,12 +258,11 @@ $\star \star \star$ \textsc{Ende} $\star \star \star$
 \end{center}
 
 % Appendix
-
 \cleardoublepage
 \appendix
 
 \include{additional}
-%%%%%%%%%%%%%%%%%%% lecture notes mbasics %%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%% lecture notes mbasic %%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% include this later
 \subimport{mbasic/}{notation}
@@ -276,16 +271,18 @@ $\star \star \star$ \textsc{Ende} $\star \star \star$
 %\include{mbasic/}{proof}
 
 % Index 
-\cleardoublepage
-\addcontentsline{toc}{section}{Stichwortverzeichnis}
-\def\indexname{Stichwortverzeichnis}
-\makeatletter
-\printindex
-\makeatother
-\cleardoublepage
+%\cleardoublepage
+%\addcontentsline{toc}{section}{Stichwortverzeichnis}
+%\def\indexname{Stichwortverzeichnis}
+%\makeatletter
+%\printindex
+%\makeatother
 
+% Glossar
+\cleardoublepage
 \printglossaries
 
+% Bibilography
 \cleardoublepage
 \bibliography{IntroductionToCoq,mbasic/mbasic}
 
