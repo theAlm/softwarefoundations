@@ -405,7 +405,8 @@
 	   	  x <=? y       & leb             & test if a first argument            & nested \lstinline!match!es \\  
 	   	                &                 & is less or equal yielding a Boolean &                \\  \hline
 	   \end{tabular}
-	   \caption{\label{tab:operators} common operators on natural numbers full implementation can be found in \cite[section: Basics Functional Programming in Coq: Numbers]{PACGGHSY}}
+	   \caption{common operators on natural numbers full implementation can be found in \cite[section: Basics Functional Programming in Coq: Numbers]{PACGGHSY}}
+	   \label{tab:operators}	   
 	   \end{table}   
 	   
 		Note that we when we said that Coq comes with almost nothing built-it in, we really mean it.
@@ -524,7 +525,7 @@
 	          5         & Assume $n,m \in \mathbb{N}.$        & Moves the universally     \\
 	                    &                                     & quantified  variables \lstinline!n!      \\   
 	                    &                                     & and \lstinline!m! into the focus.\\     \hline  
-	          6         & $H(n,m) :=\{n=m\}.$                 & Moves the hypothesis \lstinline!H! \\ 
+	          6         & $H(n,m) :=(n=m).$                 & Moves the hypothesis \lstinline!H! \\ 
 	    	                &                                     & of the \lstinline!subgoal! into the    \\   
 	    	                &                                     & focus of Coq.\\ \hline 
 	          7         & $H(n,m)\implies $                   & Substitutes by H from \\  
@@ -574,7 +575,7 @@
 	     (n + 1) =? 0 = false.
 	     Proof.
 	     intros n.
-	     simpl. (* does nothing! *)
+	     simpl. (* Does nothing! *)
 	   Abort.
 	   \end{lstlisting}
 	   
