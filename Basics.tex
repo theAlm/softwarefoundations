@@ -165,7 +165,8 @@
 	
 	    A single constructor with multiple parameters can be used to create a type \lstinline!tuple!.
 		\begin{example}[A nibble: half a byte]~\\\vspace{-10mm}
-	 	 	{\normalfont \begin{lstlisting}[caption = \lstinline!bit! and \lstinline!nibbel!]
+	 	 	{\normalfont 
+	 	 	    \begin{lstlisting}[caption = \lstinline!bit! and \lstinline!nibbel!]
 	 	 		Inductive bit: Type := (*a bit*) 
 	 	 		 |B0
 	 	 		 |B1.
@@ -197,7 +198,7 @@
 		\begin{lstlisting}[caption = \lstinline!Module!]
 		Module X 
 		...
-		...foo.. (* a definition declared as foo *)
+		... foo... (* a definition declared as foo *)
 		...
 		End X
 		
@@ -299,7 +300,8 @@
 	      | S 0 =>  0
 	      | S (S m) = > m
 	     end.
-	     Compute(minustwo(4))
+	     
+	   Compute(minustwo(4))
 	   \end{lstlisting} 
 	   \end{minipage} 
 	   \hfill     
@@ -329,9 +331,9 @@
 	  	| S (S n') => evenb n'
 	  	end.
 	  	
-	  	Definition oddb (n:nat): bool := negb (even bn). (* a simple definition of odd *)
+	  Definition oddb (n:nat): bool := negb (even bn). (* a simple definition of odd *)
 	  	
-	  	Example test_oddb1: oddb 1 = true
+	  Example test_oddb1: oddb 1 = true
 	    	Proof. simpl. reflexivity. Qed.
 	  \end{lstlisting}
 	   Note that in this proof \lstinline!simpl.! actually has no effect on the goal. 
@@ -440,7 +442,7 @@
 	
 		\begin{lstlisting}[caption={ \lstinline!plus_0_n'!}, label= lst:plus0nPrime]
 	    Theorem plus_0_n': for all n: nat, 0 + n = n.
-	    Proof: intros n. reflexivity. Qed.	
+	      Proof: intros n. reflexivity. Qed.	
 	    \end{lstlisting}    
 	    By looking at the Coq output we can see that \lstinline!reflexivity! somehow tries ``unfolding'' defined terms.\\    
 	    Note that \lstinline!example! and \lstinline!theorem! (and \lstinline!Lemma!, \lstinline!Fact!, \lstinline!Remark! and a few other),
@@ -462,7 +464,7 @@
 	     The suffix \lstinline!_l! is pronounced ``on the left'' (see listing \ref{lst:reflexivity}). 
 	 	 \begin{lstlisting}[caption = \lstinline!mult_0_l!, label= {lst:reflexivity}]
 		 Theorem mult_0_l: for all n: nat, or n = 0.
-		   proof: intros n. refelexivity. Qed.
+		   Proof. intros n. refelexivity. Qed.
 		 \end{lstlisting}
 		 \end{remark} 
 	      
@@ -501,11 +503,11 @@
            Theorem plus_id_example: for all n m: nat,
              n = m ->
              n + n = m + m.
-           Proof.
-             intros n m.
-             intros H.
-             rewrite -> H.
-             reflexivity.
+             Proof.
+               intros n m.
+               intros H.
+               rewrite -> H.
+               reflexivity.
              Qed.
          \end{lstlisting} 
          For clearity of the semantics this Coq-Code's ( listing \ref{lst:plus_id_example_proof}) translation to a mathematical proof is listed in table \ref{tab:aMathematicalTranslation}.  
@@ -548,12 +550,12 @@
 	   If the statement of the previously proven theorem involves prequantified variables, Coq reuses them.   
 	   \begin{lstlisting}[caption=\lstinline!mult_0_plus!]
 	   Theorem mult_0_plus: for all n m: nat,
-	   (0 + n) * m = n * m.
+	     (0 + n) * m = n * m.
 	   Proof.
 	     intros n m.                   (* Let $n,m\in\mathbb{N}$ *) 
 	     reflexivity -> plus_0_n.       (* rewrite $0+n$, by n *)
 	     reflexivity.                  (* m = m *)
-	     Qed.
+	   Qed.
 	   \end{lstlisting}   
 	
 		\paragraph{Admitted and Abort}
@@ -570,14 +572,13 @@
 	   
 	   
 	   \paragraph{Destruct}	~\vspace{-5mm}
-	   \begin{lstlisting}[caption= \lstinline! plus_1_neq_0_firsttry!]
+	   \begin{lstlisting}[caption= \lstinline! plus_1_neq_0_firsttry!, label=lst:plus_1_neq_0_firsttry]
 	   Theorem plus_1_neq_0_firsttry : for all n : nat,
 	     (n + 1) =? 0 = false.
 	     Proof.
-	     intros n.
-	     simpl. (* Does nothing! *)
-	   Abort.
-	   \label{lst:plus_1_neq_0_firsttry}
+	       intros n.
+	       simpl. (* Does nothing! *)
+	     Abort.
 	   \end{lstlisting}
 	    One might imagine a natural number \lstinline!n! as string build up of it's constructors \lstinline!S! and \lstinline!0! at the end.
 	    Evaluating the expression \lstinline!(n+1) =? 0! suffices to either evaluate the operation \lstinline!eqb! or \lstinline!plus!.
@@ -619,7 +620,7 @@
 		  	  intros b. destruct b eq n: E.
 		  	    - reflexivity. 
 		  	    - reflexivity. 
-		  	   Qed.  	   
+		  	Qed.  	   
 		  \end{lstlisting}
 		\end{example}	 
 		 Note that in the listing \ref{lst:newb_involutive} a name specification is not required, because there is no \lstinline!as! clause in the \lstinline!destruct!.
@@ -658,14 +659,14 @@
 		  Note that the equation recording assumption is lost in trade of shortage.
 		  Moreover, if there is no necessity to name arguments, they can be replaced by \lstinline![]! (see listing \ref{lst:andb_commutative}).
 		  \begin{lstlisting}[caption= \lstinline!andb_commutative!, label =lst:andb_commutative]
-		  Therorem andb_commutative:
+		  Theorem andb_commutative:
 		    for all b, c andb b c = and c b.
-		  Proof.
-		    intros [] [].
-		      - reflexivity.
-		      - reflexivity.
-		      - reflexivity.
-		      - reflexivity.
+		    Proof.
+		      intros [] [].
+		        - reflexivity.
+		        - reflexivity.
+		        - reflexivity.
+		        - reflexivity.
 		    Qed. 		  		  
 		  \end{lstlisting}
 		     
