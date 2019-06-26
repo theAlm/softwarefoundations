@@ -598,35 +598,37 @@
 		\end{lstlisting}
 		
 		\begin{enumerate}
-			\item The expression \lstinline![ |n']! between \lstinline!as! and \lstinline!eqn! is called the intro pattern. It is a list of lists of names separated by \lstinline!|!.
+			\item The expression \lstinline![ |n']! between \lstinline!as! and \lstinline!eqn! is called the {\itshape intro pattern}. It is a list of lists of names separated by \lstinline!|!.
 			\item It can be refereed to any data type in the intro pattern.
-			\item In the above case the first entry of the list is empty, because the \lstinline!0!-constructor is nullary and the constructor of \lstinline!S! is unary, therefor it is written \lstinline!n'! as the second member of our list.
-			\item \lstinline!E! is the variable for the equation in the following
+			\item In the above case the first entry of the list is empty, because the \lstinline!0!-constructor is {\itshape nullary} and the constructor of \lstinline!S! is {\itshape unary}, therefore it is written \lstinline!n'! as the second member of our list.
+			\item \lstinline!E! is the variable for the equation in the following.
 			\item In general every subgoal, which follows the destruct, is going to be marked by \lstinline!-!.
 		\end{enumerate} 
 		The bullets are not necessarily to list. 
 		Coq asks to show every listed subgoal following a \lstinline!destruct! in sequence.
-		But due to readability and clearance, guarantee of correctness and convenience while debugging sub goals should be listed.\\	
-		Moreover, there are no hard or fast rules in proof formatting (i.e. indents and linebreaks). 
-		Bullets in the beginning of the line foster readability and limiting the number of characters per line to 80 aim readability.
+		But due to readability and clearance, guarantee of correctness and convenience while debugging, sub goals should be listed.\\	
+		Moreover, there are no hard or fast rules in proof formatting (i.e., indents and linebreaks). 
+		Bullets in the beginning of the line foster readability and limiting the number of characters per line to 80 aims readability.
 		
 		\begin{example} ~\\\vspace{-10mm}
-		  \begin{lstlisting}[caption=\lstinline!newb_invloutive!]
+		  \begin{lstlisting}[caption=\lstinline!newb_invloutive!, label=lst:newb_involutive]
 		  	Theorem newb_involutive: for all b: bool,
 		  	  neg b ( neg b ) = b.
 		  	  
 		  	Proof. 
-		  	  intros b destruct b eq n: E
+		  	  intros b. destruct b eq n: E.
 		  	    - reflexivity. 
 		  	    - reflexivity. 
-		  	   Qed.  
+		  	   Qed.  	   
 		  \end{lstlisting}
 		\end{example}	 
-		 Note that above a name specification %[caption={"plus_0_n'"}, label= lst:plus_0_n'_]captionis not required, because there is no \lstinline!as! clause in the \lstinline!destruct!.
+		 Note that in the listing \ref{lst:newb_involutive} a name specification is not required, because there is no \lstinline!as! clause in the \lstinline!destruct!.
 		 Since no variable has to be bounded by the use of the tactics, listing empty lists as \lstinline![]! or \lstinline![|]! would be bad style and lead to a confusing choice by Coq.\\	 
-		 \lstinline!destruct! as ab le to be invoked inside subgoals to generate more proof obligations.
-		  The nested subgoals can either be grouped by an addition sign \lstinline!+!, the so called asterix a \lstinline!*!, or a curly parenthesis.
-		  \begin{example} ~\\\vspace{-10mm}
+		 \lstinline!destruct! is able to be invoked inside subgoals to generate more proof obligations.
+		  The nested subgoals can either be grouped by an addition sign \lstinline!+!, the so called asterix (\lstinline!*!), or a curly parenthesis. 
+		  In particular the curly parenthesis is applicable if more then three levels of subgoals are required. 
+		  \begin{example}[usage of \lstinline!destruct!] 
+		  ~\\\vspace{-10mm}
 		  \begin{lstlisting}[caption = syntax of nested \lstinline!destruct! expressions]
 		  destruct a eqn: EqnA.
 		    + reflectivity.
@@ -645,9 +647,28 @@
 		           (* ... *)   
 		   \end{lstlisting}
 		   \end{example}	 
-		  For using a case analysis right after introducing variables it is written
-		  \lstinline! intros xy destruct y as [  |y] eqn:E.!	
-		  This is able to be shortened to the expression \lstinline! intros [ |y].!, although the equation recording assumption is lost.   
+		  For using a case analysis right after introducing variables it is written:
+		  \begin{lstlisting}[caption = \lstinline!intros! and \lstinline!destruct!]
+		  	intros y. destruct y as [  |y] eqn:E.
+		  \end{lstlisting}	
+		  This is able to be shortened to the expression in listing \ref{lst:shortformIntrosAndDestruct}.  
+		  \begin{lstlisting}[caption= shortform \lstinline!intros! and  \lstinline!destruct!, label= lst:shortformIntrosAndDestruct]
+		  intros[ |y].
+		  \end{lstlisting}		  
+		  Note that the equation recording assumption is lost in trade of shortage.
+		  Moreover, if there is no necessity to name arguments, they can be replaced by \lstinline![]! (see listing \ref{lst:andb_commutative}).
+		  \begin{lstlisting}[caption= \lstinline!andb_commutative!, label =lst:andb_commutative]
+		  Therorem andb_commutative:
+		    for all b, c andb b c = and c b.
+		  Proof.
+		    intros [] [].
+		      - reflexivity.
+		      - reflexivity.
+		      - reflexivity.
+		      - reflexivity.
+		    Qed. 		  		  
+		  \end{lstlisting}
+		     
 	    
    
    
