@@ -1,11 +1,11 @@
-\section{Basic Functional Programming in Coq}
+\section{Basics: Functional Programming in Coq}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\subsection{Introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 	In this chapter we are going to introduce the most essential elements of Coq's functional programming language called {\itshape Gallina}. 
-	Moreover, {\itshape tactics}, which can be applied to prove properties of Coq programs, are introduced.
+	Moreover, {\itshape tactics} which can be applied to prove properties of Coq programs are introduced (subsection \ref{subsec:proof-techniques} and \ref{subsec:proofByCaseAnalysis}).
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\subsection{Data and Functions}
@@ -16,11 +16,10 @@
 	 
 	 
 	  The built-in features set in Coq is extremely small. In particular, Coq is a powerful mechanism for defining data types from scratch.
-	  Current Coq distributions come preloaded with an extensive standard library.
-	  Boolean, numbers, data struts like lists and hash tables.\\
+	  Current Coq distributions come preloaded with an extensive standard library containing Boolean, numbers, data struts like lists and hash tables.\\
 	  
 	  In this course we are going to explicitly recapitulate the used definitions. 
-	  It is started by a rather simple example of a selfdefined type.  
+	  It is started by a rather simple example of a self-defined type.  
 	   
 	  
 	  \begin{example}
@@ -68,10 +67,10 @@
 	   			The details of the implementation are not important right now. 
 	   			We are going to come back to them later.
 	   
-	   \item \label{CoqAsCodeGen} Moreover, Coq can be asked to \lstinline!extract! a program from our \lstinline! Definition! in a programming language, which is more conventional, being equipped with a high performance compiler.
+	   \item \label{CoqAsCodeGen} Moreover, Coq can be asked to \lstinline!extract! a program from our \lstinline! Definition! in a programming language which is more conventional, being equipped with a high performance compiler.
 	    In particular this is one of the main uses of Coq. 
 	    It provides a method to transfer proved-correct algorithms in Gallina to efficient machine code.
-	    (Assuming the correctness of the corresponding high performance compile e.g. the Ocaml, Haskell or Scheme compiler.) 			
+	    (Assuming the correctness of the corresponding high performance compiler e.g. the Ocaml, Haskell or Scheme compiler.) 			
 	   \end{enumerate}   
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -98,8 +97,8 @@
 		  | false -> b2
 	    end.
 	    \end{lstlisting}    
-	    The functions \lstinline!negb! and \lstinline!andb! corresponding to the Boolean functions {\emph negation} and {\emph and} are implemented in a similar manner.\\   
-	    And a new symbolic notations is implemented as follows
+	    The functions \lstinline!negb! and \lstinline!andb!, corresponding to the Boolean functions {\emph negation} and {\emph and}, are implemented in a similar manner.\\   
+	    And a new symbolic notations is implemented as follows:
 	    \begin{lstlisting}[caption= introducing a new notation]
 	    Notation "x && y" := (andb x y).
 	    Notation "x||y" := (orb x y).
@@ -123,7 +122,7 @@
 	     \begin{enumerate}
 	      \item  \lstinline* Check true.* gives the type of the expression \lstinline! boolean!.
 	      \item \lstinline! Check negb.! returns \lstinline! bool -> bool! . (Read as  ``bool arrow bool'').
-	              It is the functions input data type and the output data type, given input data of that type.
+	              It is the function's input data type and the output data type, given input data of that type.
 	       \item \lstinline! andb! returns \lstinline!bool->bool->bool!. This function produces an output of type \lstinline! bool! given two inputs of type \lstinline! bool!.
 	     \end{enumerate}
 
@@ -135,7 +134,7 @@
 		 Let's define a data type \lstinline!rgb! and a data type \lstinline!primary!, whose constructor takes this type as an argument.
 		 
 	    \begin{minipage}[t]{0.45\textwidth}
-		\begin{lstlisting}[caption = \lstinline!rgb!]
+		\begin{lstlisting}[caption = \lstinline!rgb!, label = lst:rgb]
 		 Inductive rgb: Type:=
 		  | red     (* These are the*)
 		  | green   (* expressions in*)
@@ -145,7 +144,7 @@
 		 \end{minipage}
 		 \hfill	 
 		 \begin{minipage}[t]{0.45\textwidth}
-		 \begin{lstlisting}[caption = \lstinline!color!]
+		 \begin{lstlisting}[caption = \lstinline!color!, label = lst:color ]
 		 Inductive color: Type := 
 		  | black  (* An expression in the set color *)
 		  | white  (* An expression in the set color *)
@@ -155,7 +154,7 @@
 		 %The expressions in the set color are \lstinline!black, white! and \lstinline!primary! if primary is fomed as above.
 		 \end{minipage}	 	 
 		 
-		 Note that, expressions formed as above are the only ones belonging to the sets \lstinline!rgb! and \lstinline!color!.
+		 Note that expressions formed as in listing \ref{lst:rgb} and \ref{lst:color} are the only ones belonging to the sets \lstinline!rgb! and \lstinline!color!.
 
 
 		 
@@ -177,8 +176,8 @@
 	 		   	Check(bits B1 B0 B1 B0) (* => bits B1 B0 B1 B0 : nibble *)
 	 		\end{lstlisting}
 	 		Hence, a tuple of four bits is a nibble.\\ 		
-	 		Assume we would like to test a nibble in order to see if all its bits are 0. 
-	 		We are unwrapping the nibble by pattern-matching:
+	 		Assume we would like to test a nibble in order to see if all it's bits are 0. 
+	 		The nibble is unwrapped by pattern-matching:
 	 		\begin{lstlisting}[caption = \lstinline!all_zero!]
 	 		Definition all_zero(nb: nibble): bool :=
 	 		  match nb with
@@ -202,7 +201,7 @@
 		...
 		End X
 		
-		X.foo (* Referes to foo which is definded in the module X. *)
+		X.foo (* Referes to foo, which is definded in the module X. *)
 		\end{lstlisting}
 		
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
@@ -211,11 +210,11 @@
 	
 	  Note that on the one hand the types day, bool, bits and tuples have a finite set of values, while on the other hand the set of natural numbers $\mathbb{N}$ is an infinite set.\\ 
 	  Hence, we have to construct $\mathbb{N}$ using a data type with a finite number of constructors. 
-	  Recall, that many representations of $\mathbb{N}$ exits (e.g. hexadecimal with base 16, octa with base 8, binary with base 2).
+	  Recall, that many representations of $\mathbb{N}$ exist (e.g. hexadecimal with base 16, octa with base 8, binary with base 2).
 	  The most familiar might be the decimal representation.\\
 	  However, each representation of $\mathbb{N}$ can be useful under different circumstances. 
 	  The binary representation is valuable in computer hardware, because it presents a simple circuitry.
-	  Here we are aiming to make proofs simple using the unary (base 1) representation.
+	  Here simple proofs are aimed using the unary (base 1) representation.
 	  
 	  \begin{lstlisting}[caption={\lstinline!nat!}, label=lst:DefNat]
 	  Module NatPlayground
@@ -227,13 +226,13 @@
 	  The two constructors of the set \lstinline!nat! are \lstinline!S! and \lstinline!0!. \\
 	
 	 % One might picture this representation by strokes on a coaster in a beer garden.                                                       
-	 One might picture this representation by strokes on the coffe consumation list of the DOPSY group's staff members.  
+	 One might picture this representation by strokes on the coffee consummation list of the DOPSY group's staff members.  
 	  \begin{itemize}
-	  \item The expressions \lstinline!0! is in the set \lstinline!nat!.
+	  \item The expression \lstinline!0! is in the set \lstinline!nat!.
 	  \item The expression \lstinline!0! represents the natural number zero. 
 	  \item If \lstinline!n! is an expression belonging to the set \lstinline!nat!, then \lstinline!Sn! represents a natural number $n\in\mathbb{N}\setminus\{ 0\}$.  
 	  \end{itemize}
-	  There is a way of converting this representation refereed to as \lstinline!nat! into its decimal representation. 
+	  There is a way of converting this representation refereed to as \lstinline!nat! into it's decimal representation. 
 	  This is elaborated in example \ref{ex:ConvertingUnaryToDecimal}.
 	  \begin{example}[Converting Unary to Decimal] \label{ex:ConvertingUnaryToDecimal} ~\\%\vspace{mm}
 	  \begin{center}  
@@ -251,8 +250,8 @@
 	  Moreover, it is easy to see the following: 
 	  \begin{itemize}
 	  \item The expression \lstinline!0! belongs to the set \lstinline! nat!.
-	  \item If \lstinline! n ! is in the set \lstinline! nat!, it follows \lstinline! S n ! is an expression belonging to the set \lstinline! nat !.
-	  \item And expressions belong the set \lstinline!nat! if and only if they are  formed by either of those methods (i.e. \lstinline! 0 ! or  \lstinline! S n!). 
+	  \item If \lstinline! n ! is in the set \lstinline! nat!, it follows \lstinline! S n ! is an expression belonging to the set \lstinline! nat!.
+	  \item And expressions belongs the set \lstinline!nat! if and only if they are  formed by either of those methods (i.e. \lstinline! 0 ! or  \lstinline! S n!). 
 	  \end{itemize}  
 	  Note that the same rules apply to the definitions of \lstinline! day!, \lstinline! bool! and \lstinline! color!.
 	  These conditions are a precise force of the \lstinline! Inductive! declaration. 
@@ -260,12 +259,11 @@
 	  But on the other hand, \lstinline!0! and \lstinline!S! are arbitrary symbols chosen in the defined representation. 
 	  Actually the {\itshape interpretation} of these marks is given by their usage in computing.
 	  To realize this functions, which ``pattern match'' a representation of natural numbers, are written.\\  
-	  We are following the idea:  If n has the form \lstinline! Sm! for some \lstinline! m! in the set \lstinline!nat!, then return  \lstinline! n'!.
+	  We are following the idea:  If n has the form \lstinline!S m! for some \lstinline! m! in the set \lstinline!nat!, then return  \lstinline!m!.
 	  \begin{example}[Predecessor Function]%~\\\vspace{-10mm}
 	   {\normalfont 
-	   
-	   Note that althogh the predecessor of the number zero is not defined it was declared in listing \ref{lst:pred} for simplicity.    
-	   
+	   Note that although the predecessor of the number zero is not defined, it was declared in listing \ref{lst:pred} for simplicity.    
+	  
 	   \begin{minipage}[t]{0.45\textwidth}
 	   \begin{lstlisting}[caption= \lstinline!pred!, label =lst:pred]
 	  	Definition pred (n : nat) : nat := 
@@ -318,8 +316,8 @@
 	  The functions \lstinline!pred! and \lstinline!minustwo! apply computational rules. 
 	  There are no computational rules about \lstinline!S!.
 	  I.e., by the definition of \lstinline!pred!, \lstinline!pred 2! can be simplified to \lstinline!1!. 
-	  In the case of \lstinline!S! no such behavior exists.
-	  The definition of \lstinline!S! has no behavior at all.\\     
+	  In the case of \lstinline!S! no such behaviour exists.
+	  The definition of \lstinline!S! has no behaviour at all.\\     
 	  
 	  In order to define more functions over numbers pattern matching used in the definitions of \lstinline!pred! and \lstinline!minustwo! is not sufficient. We are introducing recursion.
 	  Recursion in Coq is notated by the keyword \lstinline!Fixpoint!. Note that the previous definitions obviously did not use recursion, because the definitions did not call themseves.
@@ -385,7 +383,7 @@
    \subsection{Introducing Notations}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 	
-	    For the Coq-parser's and Coq-prettifyer's sake we are introducing a new notation:
+	    For the Coq-parser and Coq-prettifyer's sake we are introducing a new notation:
 	    
 	    \begin{lstlisting}[caption= operator overloading of \lstinline!+!] 
 	     Notation " x + y ":= (plus x y)
@@ -408,11 +406,11 @@
 	   	  x <=? y       & leb             & test if a first argument            & nested \lstinline!match!es \\  
 	   	                &                 & is less or equal yielding a Boolean &                \\  \hline
 	   \end{tabular}
-	   \caption{common operators on natural numbers full implementation can be found in \cite[section: Basics Functional Programming in Coq: Numbers]{PACGGHSY}}
+	   \caption{common operators on natural numbers, full implementation can be found in \cite[section: Basics, Functional Programming in Coq: Numbers]{PACGGHSY}}
 	   \label{tab:operators}	   
 	   \end{table}   
 	   
-		Note that we when we said that Coq comes with almost nothing built-it in, we really mean it.
+		Note that we when we said that Coq comes with almost nothing built-in, we really mean it.
 	    Even equality testing is a user-defined operation.
 	    
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	     
@@ -421,24 +419,22 @@
 	   
 	   Till now we have defined a few data types and functions.
 	   Example: We have seen all claims were shown by the same proofs. \lstinline!simple! and \lstinline!reflexivity!. 
-	   \lstinline!simple! simplified equations and \lstinline!reflexivity! checked weather both sides contain identical values.
+	   \lstinline!simpl! simplified equations and \lstinline!reflexivity! checked weather both sides contain identical values.
 	   A rule of thumb might say that, \lstinline!simple! can be used to show more simple properties.
-	   For example we consider the following observation: ``0+n reduces to n, no matter, what n is.''
+	   For example consider the following observation: ``0+n reduces to n, no matter, what n is.''
 	   The mathematical precisely formulated statement can be proven by the definition of zero directly.
 	   
-	   \begin{example}
-		   \begin{theorem} ~\\\vspace{-5mm}
+	   \begin{example}[theorem \lstinline!plus_0_m!] ~\\\vspace{-5mm}
 	  	   {\normalfont \begin{lstlisting}[caption=\lstinline!plus_0_n!, label=lst:plus_0_n]
 	   		Theorem. plus_0_n: for all n: nat, 0+n = n.
 	   		  Proof. intros n. simpl. reflexivity. Qed.
-	    	\end{lstlisting}}	
-		\end{theorem}
+	    	\end{lstlisting}	}	
 		\end{example}              
 	    \begin{remark}
 	    	Reflexivity does not only check weather both sides of an equation contain identical values. 
-	    	On top of that it simplifies, which makes it more powerful. 
-	    	We have seen \lstinline!simpl! added in our examples so we can see the intermediate state.
-	    	Therefore, the above proof can be simplified by omitting \lstinline!simpl!. 
+	    	On top of this it simplifies, which makes it more powerful. 
+	    	We have seen \lstinline!simpl! added in examples so we can see the intermediate state.
+	    	Therefore, the proof in listing \ref{lst:plus_0_n} can be simplified by omitting \lstinline!simpl!.(See listing \ref{lst:plus0nPrime}.) 
 	     \end{remark}	
 	
 		\begin{lstlisting}[caption={ \lstinline!plus_0_n'!}, label= lst:plus0nPrime]
@@ -457,15 +453,15 @@
 	    
 	    \paragraph{Intros, Simplification and Reflexivity}
 	     Whenever a \lstinline!Theorem! starts with \lstinline!for all n!, we might start a proof by the phrase:
-	     Assume \lstinline!n! is some natural number. By \lstinline! intros n! we can tell this to Coq.\\
-	     A {\itshape tactic} is a command used between \lstinline!proof! and \lstinline! Qed!, 
-	     which guides the process of checking some claim for example the keyword \lstinline! intros!, \lstinline! simpl! and \lstinline!reflexivity! 
+	     Assume \lstinline!n! is some natural number. By \lstinline!intros n! we can tell this to Coq.\\
+	     A {\itshape tactic} is a command used between \lstinline!proof! and \lstinline!Qed!, 
+	     which guides the process of checking some claim for example the keyword \lstinline!intros!, \lstinline! simpl! and \lstinline!reflexivity! 
 	     are tactics.     
 	      \begin{remark}{Notation:} 
 	     The suffix \lstinline!_l! is pronounced ``on the left'' (see listing \ref{lst:reflexivity}). 
 	 	 \begin{lstlisting}[caption = \lstinline!mult_0_l!, label= {lst:reflexivity}]
 		 Theorem mult_0_l: for all n: nat, or n = 0.
-		   Proof. intros n. refelexivity. Qed.
+		   Proof. intros n. reflexivity. Qed.
 		 \end{lstlisting}
 		 \end{remark} 
 	      
@@ -481,10 +477,11 @@
 	   \end{enumerate}
 	   \end{definition}
 	     
-	    A more detailed aproach of understanding the tactics \lstinline!refelxivity! is elaborated in section \ref{sec:reflexivity}.  
-	    However, due to the \href{https://pjreddie.com/coq-tactics/}{Coq tactics index} it is recommended to use reflexivity, if the is goal to prove that something is equals to itself.  
+	    A more detailed approach of understanding the tactics \lstinline!refelxivity! is elaborated in section \ref{sec:reflexivity}.  
+	    However, due to the \href{https://pjreddie.com/coq-tactics/}{Coq tactics index} it is recommended to use reflexivity, if the goal is to prove that something is equals to itself.  
 	      
-	     \paragraph{Proof by Rewriting} \label{par:ProofByRewriting}
+	     \paragraph{Proof by Rewriting} 
+	     \label{par:ProofByRewriting}
 	     
 	     Consider the following example theorem:     
 	     %\begin{example}\\
@@ -511,7 +508,7 @@
                reflexivity.
              Qed.
          \end{lstlisting} 
-         For clearity of the semantics this Coq-Code's ( listing \ref{lst:plus_id_example_proof}) translation to a mathematical proof is listed in table \ref{tab:aMathematicalTranslation}.  
+         For clearity of the semantics this Coq-code's (listing \ref{lst:plus_id_example_proof}) translation to a mathematical proof is listed in table \ref{tab:aMathematicalTranslation}.  
          \begin{table}[h]       
 	   	  \begin{center}
 	 	    \begin{tabular}{|c|l|l|}	       
@@ -544,10 +541,10 @@
 	         \end{center}          
           \end{table}  
        N	ote that the syntax and semantics of the Coq-code in listing \ref{lst:plus_id_example_proof} can be easily understood by a reader who is familiar with the notation of predicate logic as in \ref{BasisLogik}. 
-       The function of the tactics \lstinline!reflexivity! is also similar to the princliple of refelxifvity in predicate logic (see  Need a prdicate logic reference). 
+       The function of the tactics \lstinline!reflexivity! is also similar to the principle of reflexivity in predicate logic (see:  Need a predicate logic reference!). 
        Therefore a one-to-one translation of this listing into predicate logic can be found in appendix \ref{app:AdditionalMaterials} \ref{subsec:CoqAndPredicateLogic}.  \\      
          
-	   \lstinline!rewrite!  can also be user with a previously proven theorem instead of a hypothesis of context.
+	   \lstinline!rewrite! can also be used with a previously proven theorem instead of a hypothesis of context.
 	   If the statement of the previously proven theorem involves prequantified variables, Coq reuses them.   
 	   \begin{lstlisting}[caption=\lstinline!mult_0_plus!]
 	   Theorem mult_0_plus: for all n m: nat,
@@ -564,10 +561,11 @@
 		The command \lstinline!Admitted! tells Coq to skip a proof of a theorem and to accept it as given.
 		It can be used in long proofs to subsidiary state longer \lstinline!Lemmas!.
 		If a proof was started it can be interrupted by the command \lstinline!Abort!.
-		Note, if a proof was forgotten in the following shenanigans is a able to be shown. \\
+		Note, if a proof was forgotten in the following shenanigans is able to be shown. \\
 		
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%		
 	\subsection{Proof by Case Analysis}
+	\label{subsec:proofByCaseAnalysis}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	   Consider the following example. It clearly demonstrates that, it is not possible to prove everything using the simplification tactic.   
 	   
@@ -589,7 +587,7 @@
 	    In general unknown hypothetical values like arbitrary numbers, Boolean or lists might not be able to be evaluated.\\		
 		Note that if we assume \lstinline!n=0! it can be calculated that \lstinline!n+1! is not equal to zero.
 		Hence \lstinline!n+1?=0! equals to \lstinline!false! by type interference. 
-		On the other hand if \lstinline!n=Sm! for some arbitrary \lstinline!m\in nat! we can not calculate this expression.
+		On the other hand if \lstinline!n=Sm! for some arbitrary \lstinline!m \in nat! we can not calculate this expression.
 		Although it is not know, which number \lstinline!n+1! is, it can be calculate that it begins with an \lstinline!S!.
 		It follows \lstinline!n+1= ? 0! evaluates to \lstinline!false!.\\	
 	    If such a procedure is carried out by Coq, two subgoals have to be generated including variables named like in the called \lstinline!intros! pattern.\\        
@@ -613,7 +611,7 @@
 		Bullets in the beginning of the line foster readability and limiting the number of characters per line to 80 aims readability.\\
 		The tactic \lstinline!destruct! can be applied to any inductively defined data type (e.g. \lstinline!bool!).
 		
-		\begin{example} ~\\\vspace{-10mm}
+		\begin{example}[First \lstinline!destruct!] ~\\\vspace{-10mm}
 		  \begin{lstlisting}[caption=\lstinline!newb_invloutive!, label=lst:newb_involutive]
 		  	Theorem newb_involutive: for all b: bool,
 		  	  neg b ( neg b ) = b.
@@ -628,7 +626,7 @@
 		 Note that in the listing \ref{lst:newb_involutive} a name specification is not required, because there is no \lstinline!as! clause in the \lstinline!destruct!.
 		 Since no variable has to be bounded by the use of the tactics, listing empty lists as \lstinline![]! or \lstinline![|]! would be bad style and lead to a confusing choice by Coq.\\	 
 		 \lstinline!destruct! is able to be invoked inside subgoals to generate more proof obligations.
-		  The nested subgoals can either be grouped by an addition sign \lstinline!+!, the so called asterix (\lstinline!*!), or a curly parenthesis. 
+		  The nested subgoals can either be grouped by an addition sign \lstinline!+!, the so called asterix (\lstinline!*!), or a curly parenthesis (\lstinline!{}!). 
 		  In particular the curly parenthesis is applicable if more then three levels of subgoals are required. 
 		  \begin{example}[usage of \lstinline!destruct!] 
 		  ~\\\vspace{-10mm}
@@ -650,7 +648,7 @@
 		           (* ... *)   
 		   \end{lstlisting}
 		   \end{example}	 
-		  For using a case analysis right after introducing variables it is written:
+		  To use a case analysis right after introducing variables it is written:
 		  \begin{lstlisting}[caption = \lstinline!intros! and \lstinline!destruct!]
 		  	intros y. destruct y as [  |y] eqn:E.
 		  \end{lstlisting}	
