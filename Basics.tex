@@ -454,7 +454,7 @@
 	    \paragraph{Intros, Simplification and Reflexivity}
 	     Whenever a \lstinline!Theorem! starts with \lstinline!for all n!, we might start a proof by the phrase:
 	     Assume \lstinline!n! is some natural number. By \lstinline!intros n! we can tell this to Coq.\\
-	     A {\itshape tactic} is a command used between \lstinline!proof! and \lstinline!Qed!, 
+	     A {\itshape tactic} is a command used between \lstinline!Proof! and \lstinline!Qed!, 
 	     which guides the process of checking some claim for example the keyword \lstinline!intros!, \lstinline! simpl! and \lstinline!reflexivity! 
 	     are tactics.     
 	      \begin{remark}{Notation:} 
@@ -468,7 +468,7 @@
 	    In order to understand the tactics \lstinline!reflexivity! carefully analyse the Coq-output of listing \ref{lst:reflexivity}.   
 	    Let's recall what reflexivity in terms of an equivalence relation means: 
 	   \begin{definition}[Equivalence Relation]
-	   Assume $x,y\in \mathcal{M}$ an arbitrary set $\mathcal{M}\neq\emptyset$ and $\thicksim\subset A \times A $ an arbitrary relation.
+	   Assume $x,y\in \mathcal{M}$ an arbitrary set $\mathcal{M}\neq\emptyset$ and $\thicksim\subset A \times A$ an arbitrary relation.
 	   Then $\thicksim$ is said to be an equivalence relation if and only if:
 	   \begin{enumerate}
 	   \item $a\thicksim a$ (reflexivity)
@@ -477,7 +477,7 @@
 	   \end{enumerate}
 	   \end{definition}
 	     
-	    A more detailed approach of understanding the tactics \lstinline!refelxivity! is elaborated in section \ref{sec:reflexivity}.  
+	    A more detailed approach of understanding the tactics \lstinline!reflexivity! is elaborated in section \ref{sec:reflexivity}.  
 	    However, due to the \href{https://pjreddie.com/coq-tactics/}{Coq tactics index} it is recommended to use reflexivity, if the goal is to prove that something is equals to itself.  
 	      
 	     \paragraph{Proof by Rewriting} 
