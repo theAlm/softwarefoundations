@@ -231,7 +231,8 @@
 	  \item The expression \lstinline!0! is in the set \lstinline!nat!.
 	  \item The expression \lstinline!0! represents the natural number zero. 
 	  \item If \lstinline!n! is an expression belonging to the set \lstinline!nat!, then \lstinline!Sn! represents a natural number $n\in\mathbb{N}\setminus\{ 0\}$.  
-	  \end{itemize}
+	  \end{itemize}	  
+	  
 	  There is a way of converting this representation refereed to as \lstinline!nat! into it's decimal representation. 
 	  This is elaborated in example \ref{ex:ConvertingUnaryToDecimal}.
 	  \begin{example}[Converting Unary to Decimal] \label{ex:ConvertingUnaryToDecimal} ~\\%\vspace{mm}
@@ -250,7 +251,7 @@
 	  Moreover, it is easy to see the following: 
 	  \begin{itemize}
 	  \item The expression \lstinline!0! belongs to the set \lstinline! nat!.
-	  \item If \lstinline! n ! is in the set \lstinline! nat!, it follows \lstinline! S n ! is an expression belonging to the set \lstinline! nat!.
+	  \item If \lstinline!n! is in the set \lstinline! nat!, it follows \lstinline! S n ! is an expression belonging to the set \lstinline! nat!.
 	  \item And expressions belongs the set \lstinline!nat! if and only if they are  formed by either of those methods (i.e. \lstinline! 0 ! or  \lstinline! S n!). 
 	  \end{itemize}  
 	  Note that the same rules apply to the definitions of \lstinline! day!, \lstinline! bool! and \lstinline! color!.
@@ -258,12 +259,20 @@
 	  Expressions build from other data constructors like \lstinline!true!, \lstinline! false!, \lstinline!andb(S(false( 0 ( 0 S ))))! do not belong to this set.  
 	  But on the other hand, \lstinline!0! and \lstinline!S! are arbitrary symbols chosen in the defined representation. 
 	  Actually the {\itshape interpretation} of these marks is given by their usage in computing.
-	  To realize this functions, which ``pattern match'' a representation of natural numbers, are written.\\  
+	  To realize this functions, which ``pattern match'' a representation of natural numbers, are written.\\
+	   
+	   \begin{figure}[p]
+	   	\includegraphics{SemantikSyntax.eps}
+	   	\caption{An illustration of function pred. {\textbf Make a proper figure.}}
+	   	\label{fig:SemantikAndSyntaxPred}	     
+	   \end{figure}	    
+
 	  We are following the idea:  If n has the form \lstinline!S m! for some \lstinline! m! in the set \lstinline!nat!, then return  \lstinline!m!.
 	  \begin{example}[Predecessor Function]%~\\\vspace{-10mm}
 	   {\normalfont 
 	   Note that although the predecessor of the number zero is not defined, it was declared in listing \ref{lst:pred} for simplicity.    
-	  
+
+	   
 	   \begin{minipage}[t]{0.45\textwidth}
 	   \begin{lstlisting}[caption= \lstinline!pred!, label =lst:pred]
 	  	Definition pred (n : nat) : nat := 
