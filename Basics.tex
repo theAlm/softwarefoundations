@@ -227,6 +227,7 @@
 	
 	 % One might picture this representation by strokes on a coaster in a beer garden.                                                       
 	 One might picture this representation by strokes on the coffee consummation list of the DOPSY group's staff members.  
+	 (Actually the definition in listing \ref{lst:DefNat} is an inductive definition as delinated in the Appendix \ref{subsec:InduktiveDefinition}.)	  
 	  \begin{itemize}
 	  \item The expression \lstinline!0! is in the set \lstinline!nat!.
 	  \item The expression \lstinline!0! represents the natural number zero. 
@@ -621,7 +622,7 @@
 		The tactic \lstinline!destruct! can be applied to any inductively defined data type (e.g. \lstinline!bool!).
 		
 		\begin{example}[First \lstinline!destruct!] ~\\\vspace{-10mm}
-		  \begin{lstlisting}[caption=\lstinline!newb_invloutive!, label=lst:newb_involutive]
+		  \begin{lstlisting}[caption=\lstinline!newb_involutive!, label=lst:newb_involutive]
 		  	Theorem newb_involutive: for all b: bool,
 		  	  neg b ( neg b ) = b.
 		  	  
