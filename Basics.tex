@@ -436,7 +436,7 @@
 	   
 	   \begin{example}[theorem \lstinline!plus_0_m!] ~\\\vspace{-5mm}
 	  	   {\normalfont \begin{lstlisting}[caption=\lstinline!plus_0_n!, label=lst:plus_0_n]
-	   		Theorem. plus_0_n: for all n: nat, 0+n = n.
+	   		Theorem. plus_0_n: forall n: nat, 0+n = n.
 	   		  Proof. intros n. simpl. reflexivity. Qed.
 	    	\end{lstlisting}	}	
 		\end{example}              
@@ -448,7 +448,7 @@
 	     \end{remark}	
 	
 		\begin{lstlisting}[caption={ \lstinline!plus_0_n'!}, label= lst:plus0nPrime]
-	    Theorem plus_0_n': for all n: nat, 0 + n = n.
+	    Theorem plus_0_n': forall n: nat, 0 + n = n.
 	      Proof: intros n. reflexivity. Qed.	
 	    \end{lstlisting}    
 	    By looking at the Coq output we can see that \lstinline!reflexivity! somehow tries ``unfolding'' defined terms.\\    
@@ -462,7 +462,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	    
 	    \paragraph{Intros, Simplification and Reflexivity}
-	     Whenever a \lstinline!Theorem! starts with \lstinline!for all n!, we might start a proof by the phrase:
+	     Whenever a \lstinline!Theorem! starts with \lstinline!forall n!, we might start a proof by the phrase:
 	     Assume \lstinline!n! is some natural number. By \lstinline!intros n! we can tell this to Coq.\\
 	     A {\itshape tactic} is a command used between \lstinline!Proof! and \lstinline!Qed!, 
 	     which guides the process of checking some claim for example the keyword \lstinline!intros!, \lstinline! simpl! and \lstinline!reflexivity! 
@@ -470,7 +470,7 @@
 	      \begin{remark}{Notation:} 
 	     The suffix \lstinline!_l! is pronounced ``on the left'' (see listing \ref{lst:reflexivity}). 
 	 	 \begin{lstlisting}[caption = \lstinline!mult_0_l!, label= {lst:reflexivity}]
-		 Theorem mult_0_l: for all n: nat, 0 * n = 0.
+		 Theorem mult_0_l: forall n: nat, 0 * n = 0.
 		   Proof. intros n. reflexivity. Qed.
 		 \end{lstlisting}
 		 \end{remark} 
@@ -496,7 +496,7 @@
 	     Consider the following example theorem:     
 	     %\begin{example}\\
 		 \begin{lstlisting}[caption=\lstinline!plus_id_examples!]
-		 Theorem plus_id_example: for all n m: nat,
+		 Theorem plus_id_example: forall n m: nat,
 	       n = m -> 
 		   n+n = m+m.	 
 		 \end{lstlisting}
@@ -508,7 +508,7 @@
 	     
 	     In order to proof theorem \lstinline!plus_id_example! the theorem's hypothesis is rewritten as shown in listing \ref{lst:plus_id_example_proof}.
 	     \begin{lstlisting}[caption = \lstinline!plus_id_example! and it's proof, label= {lst:plus_id_example_proof}]
-           Theorem plus_id_example: for all n m: nat,
+           Theorem plus_id_example: forall n m: nat,
              n = m ->
              n + n = m + m.
              Proof.
@@ -557,7 +557,7 @@
 	   \lstinline!rewrite! can also be used with a previously proven theorem instead of a hypothesis of context.
 	   If the statement of the previously proven theorem involves prequantified variables, Coq reuses them.   
 	   \begin{lstlisting}[caption=\lstinline!mult_0_plus!]
-	   Theorem mult_0_plus: for all n m: nat,
+	   Theorem mult_0_plus: forall n m: nat,
 	     (0 + n) * m = n * m.
 	   Proof.
 	     intros n m.                   (* Let $n,m\in\mathbb{N}$ *) 
@@ -582,7 +582,7 @@
 	   
 	   \paragraph{Destruct}	~\vspace{-5mm}
 	   \begin{lstlisting}[caption= \lstinline! plus_1_neq_0_firsttry!, label=lst:plus_1_neq_0_firsttry]
-	   Theorem plus_1_neq_0_firsttry : for all n : nat,
+	   Theorem plus_1_neq_0_firsttry : forall n : nat,
 	     (n + 1) =? 0 = false.
 	     Proof.
 	       intros n.
@@ -626,7 +626,7 @@
 		This a first example of the usage of bullets within the \lstinline!destruct! scope:
 		{\normalfont
 		  \begin{lstlisting}[caption=\lstinline!newb_involutive!, label=lst:newb_involutive]
-		  	Theorem newb_involutive: for all b: bool,
+		  	Theorem newb_involutive: forall b: bool,
 		  	  neg b ( neg b ) = b.
 		  	  
 		  	Proof. 
@@ -675,7 +675,7 @@
 		  Moreover, if there is no necessity to name arguments, they can be replaced by \lstinline![]! (see listing \ref{lst:andb_commutative}).
 		  \begin{lstlisting}[caption= \lstinline!andb_commutative!, label =lst:andb_commutative]
 		  Theorem andb_commutative:
-		    for all b, c andb b c = andb c b.
+		    forall b, c andb b c = andb c b.
 		    Proof.
 		      intros [] [].
 		        - reflexivity.
