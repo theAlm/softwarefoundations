@@ -42,7 +42,7 @@ Proof.
 Abort.
 \end{lstlisting}
 
-Recall the mathematical principle of induction.
+Recall the mathematical principle of induction. (E.g. see appendix \ref{subsec:InduktionsbeweiseUndDasInduktionsprinzip}.)
 Due to apply induction in Coq the steps are the same and the syntax is simialar to the \lstinline!destruct! tactics.
  
 
@@ -66,7 +66,7 @@ The \lstinline!as!-clause has two parts seperated by \lstinline!|!.
 	      The assumption \lstinline!n'+0 = n'! is added to Coq's context named as \lstinline!IHn'! as induction hypothesis.
 		  It must be shown \lstinline! Sn' = Sn' +0!. \\
           Applying \lstinline!simpl! yields \lstinline!Sn' = S(n'+0)!, which follows from the induction hypothesis. 
-          Hence, \lstinline!relfexivity! finishes this proof.
+          Hence, applying \lstinline!relfexivity! finishes this proof.
 \end{itemize} 
 
 
