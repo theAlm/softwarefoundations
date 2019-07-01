@@ -2,44 +2,44 @@
 
 
 In order to use the definitions from the previous chapter we are going to compile the file 
-\texttt{Basics.v} and import it.
+\texttt{Basics.v} and import the compiles version in the current file \texttt{Induction.v}.
 (In case the book \cite{PACGGHSY} is used and downloaded as an archive, the following steps can be skipped.)   
 
 \subsection{Building Coq Libraries}
 
 First of all, a Coq project, called {\itshape \_CoqProject}, is created.  
-It is going to map the current directory \texttt{.} to the directory (\texttt{lf}) wherein the source files are kept .
+It is going to map the current directory ``\texttt{.}'' to the directory \texttt{lf} wherein the source files are kept.
 Using the CoqIDE, Proof General or executing Coq via the command line the compiling and building process differs.
-The Proof General using reader is refereed to the literature \cite[chp. Induction, Proof by Induction]{PACGGHSY}.\\
+The Proof General using reader is refereed to the literature \cite[Section, Induction, Proof by Induction]{PACGGHSY}.\\
 
-Create a file called \texttt{\_coqProject} within the working directory, which contains the file \texttt{Basics.v}.
+Create a file called \texttt{\_coqProject} within the working directory which contains the file \texttt{Basics.v}.
 Within this file add the line 
 
 \begin{lstlisting}
 -Q. LF
 \end{lstlisting}
 
-, which declares the library's name \texttt{LF.Basics}. 
+which declares the library's name \texttt{LF.Basics}. 
 To make the executable \texttt{Basics.vo}-file out of the \texttt{Basics.v} multiple options exist.
 
-Using the CoqIDE, the file \texttt{Basics.v} should be opend, and the button in the compile menu {\itshape compile Buffer} is clicked.
+Using the CoqIDE, the file \texttt{Basics.v} should be opend, and the button in the compile menu  ``{\itshape Compile Buffer}'' is clicked.
 If using the command line the file \texttt{Basics.vo} can be build or compiled using the Coq  make-file utility.
-By the way, the Coq-makefile utility is installed together with Coq.
+By the way, the {\itshape Coq-makefile utility } is installed together with Coq.
 Type the following console-command:
 \begin{lstlisting}[language=bash]
 coq-makefile -f _CoqProject*.v -o Makefile
 \end{lstlisting}
 
 In addition run this command, whenever files to the working directory \texttt{lf} were added or removed.
-To compiled \texttt{Basics.vo}, call either on of the following commands 
+To compile \texttt{Basics.v}, call either on of the following commands 
 \begin{lstlisting}[language=bash]
-make (* builds the complete directory)
+make (* builds the complete directory *)
 make Basics.vo (* builds Basics.vo *)
 \end{lstlisting}
 Note that, \lstinline!make! compiles and calculates dependencies automatically. 
-The Coq-compiler, which is called {\itshape coqc} can be called by 
+The Coq-compiler, which is called {\itshape coqc} can be called by: 
 \begin{lstlisting}
-run coqc-Q.LF Basics.v.
+coqc -Q.LF Basics.v
 \end{lstlisting}
 But remember always to prefer \texttt{make} over compiling, because of the dependencies.\\
  
@@ -54,9 +54,9 @@ into the first line of the \texttt{Induction.v}-file.
 \subsection{Potential Troubles}
 
 If an error arises which complains about missing identifiers in the file the "load path" for Coq might not be set up correctly.
-Checking the loaded path by
+Checking the loaded path by the comand
 \begin{lstlisting}
-Print loadPath  
+Print LoadPath.  
 \end{lstlisting} 
 might be helpful. The error message
 \begin{lstlisting}[language = bash]
@@ -65,7 +65,7 @@ might be helpful. The error message
 might be generated, because incompatible versions of Coq are installed on a machine.
 In particular,  CoqIDE and Proof General can use different versions of Coq for compiling. 
 
-To resolve these issues build the files again.
+To resolve these issues build the files again.\\
 
 Receiving the error message 
 \begin{lstlisting}
