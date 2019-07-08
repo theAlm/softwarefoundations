@@ -17,7 +17,7 @@ Theorem plus_n_O_firsttry : forall n:nat,
   n = n + 0.
 \end{lstlisting}
 
-Applying refelxivity can not proof the theorem. In fact, simplifying the expression \lstinline!n + 0 ! leads to nowhere.
+Applying reflexivity can not proof the theorem. In fact, simplifying the expression \lstinline!n + 0 ! leads to nowhere.
 Because looking at the definition of \lstinline!plus!, it becomes obvious.
 If \lstinline!n! is an unknown number, the  \lstinline!match! can not be applied.
   
@@ -43,7 +43,7 @@ Abort.
 \end{lstlisting}
 
 Recall the mathematical principle of induction. (E.g. see appendix \ref{subsec:InduktionsbeweiseUndDasInduktionsprinzip}.)
-Due to apply induction in Coq the steps are the same and the syntax is simialar to the \lstinline!destruct! tactics.
+Due to apply induction in Coq the steps are the same and the syntax is similar to the \lstinline!destruct! tactics.
  
 
 \begin{lstlisting}[caption = \lstinline!minus_diag!, label =lst:minus_diag] 
@@ -59,15 +59,46 @@ Proof.
   Qed.
 \end{lstlisting}
 
-The \lstinline!as!-clause has two parts seperated by \lstinline!|!.
+The \lstinline!as!-clause has two parts separated by \lstinline!|!.
 \begin{itemize}
 	\item In the above statement of \lstinline!induction! the first subgoal is to show the induction basis for \lstinline!n =0!.
 	\item And the second subgoal is the induction step for \lstinline!n = Sn'!, since \lstinline!nat! is defined inductivly (see listing  \ref{lst:DefNat}).
 	      The assumption \lstinline!n'+0 = n'! is added to Coq's context named as \lstinline!IHn'! as induction hypothesis.
 		  It must be shown \lstinline! Sn' = Sn' +0!. \\
           Applying \lstinline!simpl! yields \lstinline!Sn' = S(n'+0)!, which follows from the induction hypothesis. 
-          Hence, applying \lstinline!relfexivity! finishes this proof.
+          Hence, applying \lstinline!reflexivity! finishes this proof.
 \end{itemize} 
+
+\subsection{Proofs Within Proofs}
+
+In Coq and {\itshape formal mathematics} large proofs are often broken into a sequence of theorems and later proofs might refer to more early stated proofs.
+Sometimes a proof requires miscellenous trivial or to litte general facts. 
+Therefore the facts sometimes do not need a name.
+
+To state intermediate goals like a little sub theorem during proofs the tactics \lstinline!assert! is used.
+
+
+\begin{example}
+We have can show the previous theorem \lstinline!mult_0_plus!. This is an example using destruct. 
+
+\begin{lstinline}
+	mult_0_plus': \forall n,m: nat,
+	...
+	assert (H: 0+n = n).
+	...
+\end{lstinline}
+
+\end{example}
+
+In listing \ref{lstinline} the tactics assert in line introduces two subgoals. 
+The assertion itself is listed with \lstinline!H! the introduction as prefix.
+The proof of the assertion is bounded by curly parenthesis.\\
+It profides reducability and interactive use of Coq it is more easy to see when the proof of the first subgoal is finished.
+
+The second subgoal is the same as the subgoal in the proof before the subgoal exact of in the context the assumption H was added.
+But the previously proven fact is able to be used to make progress.
+ 
+
 
 
 
