@@ -10,7 +10,7 @@ Theorem plus_n_0_first: forall n: nat,
   n = n + 0.  
 \end{lstlisting}
 
-But the tactics which were introduced till know, are not sufficiently powerful to proof this theorem.
+But the tactics which were introduced untill now, are not sufficiently powerful to proof this theorem.
 
 \begin{lstlisting}[caption = \lstinline!plus_n_O_firsttry!, label=lst:plus_n_0_firsttry] 
 Theorem plus_n_O_firsttry : forall n:nat,
@@ -19,7 +19,7 @@ Theorem plus_n_O_firsttry : forall n:nat,
 
 Applying reflexivity can not proof the theorem. In fact, simplifying the expression \lstinline!n + 0 ! leads to nowhere.
 Because looking at the definition of \lstinline!plus!, it becomes obvious.
-If \lstinline!n! is an unknown number, the  \lstinline!match! can not be applied.
+If \lstinline!n! is an unknown number, the \lstinline!match! can not be applied.
   
 \begin{lstlisting}[caption= \lstinline!Proof! of \lstinline!plus_n_0_firsttry!, label = lst:proof_of_plus_n_0_firsttry]
 Proof.
@@ -79,15 +79,20 @@ To state intermediate goals like a little sub theorem during proofs the tactics 
 
 
 \begin{example}
-We have can show the previous theorem \lstinline!mult_0_plus!. This is an example using destruct. 
+We have can show the previous theorem \lstinline!mult_0_plus!. 
+This is an example using \lstinline!assert!. 
 
-\begin{lstinline}
-	mult_0_plus': \forall n,m: nat,
-	...
-	assert (H: 0+n = n).
-	...
-\end{lstinline}
-
+\begin{lstlisting}
+Theorem mult_0_plus' : forall n m : nat,
+  (0 + n) * m = n * m. 
+Proof.
+  intros n m.
+  assert (H: 0 + n = n).  
+  reflexivity. 
+  rewrite -> H.
+  reflexivity.  
+Qed.
+\end{lstlisting}
 \end{example}
 
 In listing \ref{lstinline} the tactics assert in line introduces two subgoals. 
@@ -95,9 +100,44 @@ The assertion itself is listed with \lstinline!H! the introduction as prefix.
 The proof of the assertion is bounded by curly parenthesis.\\
 It profides reducability and interactive use of Coq it is more easy to see when the proof of the first subgoal is finished.
 
-The second subgoal is the same as the subgoal in the proof before the subgoal exact of in the context the assumption H was added.
+The second subgoal is the same as the subgoal in the proof before the subgoal exact of in the context the assumption \lstinline!H! was added.
 But the previously proven fact is able to be used to make progress.
+Let's look at another example.
  
+It should be shown that we have for all natural numbers \lstinline!n, m \in nat!:
+ 
+\lstinline!(n+m) + (p+q) = (m+n) + (p+q)! But the tactics is not going to be applied, in the most useful way. 
+If \lstinline!rewrite! is applied it is going to act on the wrong wrong plus sign (i.e. the summand \lstinline!n+m! is switched with the \lstinline!p+q!).
+\begin{lstlisting}
+Theorem plus_rearrange_firsttry : forall n m p q : nat,
+  (n + m) + (p + q) = (m + n) + (p + q).
+Proof.
+  intros n m p q.
+  (* We just need to swap (n + m) for (m + n)... seems
+     like plus_comm should do the trick! *)
+  rewrite -> plus_comm.
+  (* Doesn't work...Coq rewrites the wrong plus! *)
+Abort.
+\end{lstlisting}
+
+This habit can be worked around by rewriting the wanted variables. 
+
+\subsection{Formal vs. Informal Proofs}
+
+\begin{quote}
+`Informal proofs are algorithms; formal proofs are code.'
+\end{quote}
+
+There is a disquestion about formal and informal proofs in mathematics. 
+An informal proof is a proof that is a proof which is written in some natural language (e.g. English) which guides the human reader.   
+Because it is worked with Coq in this scope, it is worked heavily with formal proofs.
+That is, it is preconditioned that the proof can be methodically derived from a set of formal logical rules and that the proof can be methodically derived from a certain set of formal logic rules.
+And on the other hand a proof is a list that guides the programm in checking. But due to readability for the human reader it is structured using comments and bullets.
+Note that Coq has been designed in such a way that its induction hypothesis generates the same sub-goal in the same order a mathematician would write.                                                                                            
+
+
+
+
 
 
 
