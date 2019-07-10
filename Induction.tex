@@ -1,17 +1,19 @@
 \section{Induction}
+In this section the tactics \lstinline!induction!, which is applicable analogously to the mathematical principle of induction, is introduced.
 
 \subsection{Proof by Induction}
 In the proof in listing \ref{lst:plus0nPrime} it was shown, 
-that \lstinline!0! is the neutral element from the left if the natural numbers \lstinline!nat! is studied as a group. 
-
-Is should be shown that zero is is the natural element from the right:
+that \lstinline!0! is the neutral element with respect to \lstinline!+! from the left of the group of natural numbers \lstinline!nat!. 
+It should be shown that \lstinline!0! also is the natural element for \lstinline!+! in \lstinline!nat! from the right. 
+This writes as:
 \begin{lstlisting}[caption = \lstinline!plus_n_0_first!, label= lst:plus_n_0_first]
 Theorem plus_n_0_first: forall n: nat,
   n = n + 0.  
 \end{lstlisting}
-
-But the tactics which were introduced untill now, are not sufficiently powerful to proof this theorem.
-
+(If the reader is not familiar with groups it is not sufficient to understand the algebraic nature of a group.
+ Thus, it can be refereed to \cite{S} for an introduction to groups.)\\
+But the tactics which were introduced till now, are not sufficiently powerful to proof this theorem.
+And applying the tactics \lstinline!simpl! yields no results, too (see listing \ref{lst:proof_of_plus_n_0_firsttry}).
 \begin{lstlisting}[caption = \lstinline!plus_n_O_firsttry!, label=lst:plus_n_0_firsttry] 
 Theorem plus_n_O_firsttry : forall n:nat,
   n = n + 0.
@@ -28,8 +30,8 @@ Proof.
 Abort.
 \end{lstlisting}
 
-Proofing by the \lstinline!destruct!-tactic is going to fail, because in the case \lstinline!n = Sn'! the expression \lstinline!S n' = S n' + 0! can not be simplified by the same reason as above.
-\begin{lstlisting}[caption = \lstinline!plus_1_new_0!, label = lst:Theorem_plus_1_new_0]
+Furthermore, proofing by the \lstinline!destruct! tactic is going to fail, because in the case \lstinline!n = Sn'! the expression \lstinline!S n' = S n' + 0! can not be simplified by the same reason as above (see listing \ref{lst:plus_1_new_0}).
+\begin{lstlisting}[caption = \lstinline!plus_1_new_0!, label = lst:plus_1_new_0]
 Theorem plus_1_new_0: forall n : nat,
   (n+1) =? 0 = false. 
  
@@ -42,7 +44,7 @@ Proof.
 Abort.
 \end{lstlisting}
 
-Recall the mathematical principle of induction. (E.g. see appendix \ref{subsec:InduktionsbeweiseUndDasInduktionsprinzip}.)
+Recall the mathematical principle of induction. (E.g. see Appendix \ref{subsec:InduktionsbeweiseUndDasInduktionsprinzip}.)
 Due to apply induction in Coq the steps are the same and the syntax is similar to the \lstinline!destruct! tactics.
  
 
@@ -64,7 +66,7 @@ The \lstinline!as!-clause has two parts separated by \lstinline!|!.
 	\item In the above statement of \lstinline!induction! the first subgoal is to show the induction basis for \lstinline!n =0!.
 	\item And the second subgoal is the induction step for \lstinline!n = Sn'!, since \lstinline!nat! is defined inductivly (see listing  \ref{lst:DefNat}).
 	      The assumption \lstinline!n'+0 = n'! is added to Coq's context named as \lstinline!IHn'! as induction hypothesis.
-		  It must be shown \lstinline! Sn' = Sn' +0!. \\
+		  It must be shown \lstinline! Sn' = Sn' + 0!. \\
           Applying \lstinline!simpl! yields \lstinline!Sn' = S(n'+0)!, which follows from the induction hypothesis. 
           Hence, applying \lstinline!reflexivity! finishes this proof.
 \end{itemize} 
@@ -72,7 +74,7 @@ The \lstinline!as!-clause has two parts separated by \lstinline!|!.
 \subsection{Proofs Within Proofs}
 
 In Coq and {\itshape formal mathematics} large proofs are often broken into a sequence of theorems and later proofs might refer to more early stated proofs.
-Sometimes a proof requires miscellenous trivial or to litte general facts. 
+Sometimes a proof requires miscellaneous trivial or to little general facts. 
 Therefore the facts sometimes do not need a name.
 
 To state intermediate goals like a little sub theorem during proofs the tactics \lstinline!assert! is used.
@@ -82,34 +84,35 @@ To state intermediate goals like a little sub theorem during proofs the tactics 
 We have can show the previous theorem \lstinline!mult_0_plus!. 
 This is an example using \lstinline!assert!. 
 
-\begin{lstlisting}
-Theorem mult_0_plus' : forall n m : nat,
+\begin{lstlisting}[caption = \lstinline!mult_0_plus'!, label = lst:mult_0_plus_prime]
+Theorem mult_0_plus_prime: forall n m: nat,
   (0 + n) * m = n * m. 
 Proof.
   intros n m.
   assert (H: 0 + n = n).  
-  reflexivity. 
-  rewrite -> H.
+  	reflexivity. 
+  	rewrite -> H.
   reflexivity.  
 Qed.
 \end{lstlisting}
 \end{example}
 
-In listing \ref{lstinline} the tactics assert in line introduces two subgoals. 
+In listing \ref{lst:mult_0_plus_prime} the tactics \lstinline!assert! in line 5 introduces two subgoals. 
 The assertion itself is listed with \lstinline!H! the introduction as prefix.
 The proof of the assertion is bounded by curly parenthesis.\\
-It profides reducability and interactive use of Coq it is more easy to see when the proof of the first subgoal is finished.
+It provides reducebility and interactive use of Coq it is more easy to see when the proof of the first subgoal is finished.
 
 The second subgoal is the same as the subgoal in the proof before the subgoal exact of in the context the assumption \lstinline!H! was added.
 But the previously proven fact is able to be used to make progress.
-Let's look at another example.
+Let's look at another example.\\
  
 It should be shown that we have for all natural numbers \lstinline!n, m \in nat!:
  
-\lstinline!(n+m) + (p+q) = (m+n) + (p+q)! But the tactics is not going to be applied, in the most useful way. 
-If \lstinline!rewrite! is applied it is going to act on the wrong wrong plus sign (i.e. the summand \lstinline!n+m! is switched with the \lstinline!p+q!).
-\begin{lstlisting}
-Theorem plus_rearrange_firsttry : forall n m p q : nat,
+\lstinline!(n+m) + (p+q) = (m+n) + (p+q)!.
+But the tactics is not going to be applied, in the most useful way. 
+If \lstinline!rewrite! is applied it is going to act on the wrong plus sign (i.e. the summand \lstinline!n+m! is switched with the \lstinline!p+q!).
+\begin{lstlisting}[caption = \lstinline!plus_rearrange_firstttry!, label=lst:plus_rearrange_firsttry]
+Theorem plus_rearrange_firsttry : forall n m p q: nat,
   (n + m) + (p + q) = (m + n) + (p + q).
 Proof.
   intros n m p q.
@@ -125,15 +128,17 @@ This habit can be worked around by rewriting the wanted variables.
 \subsection{Formal vs. Informal Proofs}
 
 \begin{quote}
-`Informal proofs are algorithms; formal proofs are code.'
+`Informal proofs are algorithms; Formal proofs are code.'
 \end{quote}
 
 There is a disquestion about formal and informal proofs in mathematics. 
-An informal proof is a proof that is a proof which is written in some natural language (e.g. English) which guides the human reader.   
-Because it is worked with Coq in this scope, it is worked heavily with formal proofs.
+An informal proof is a proof that is a proof which is written in some natural language (e.g. English).
+It guides a human reader.   
+Because it is worked with Coq in this scope, it is heavily worked with formal proofs.
 That is, it is preconditioned that the proof can be methodically derived from a set of formal logical rules and that the proof can be methodically derived from a certain set of formal logic rules.
-And on the other hand a proof is a list that guides the programm in checking. But due to readability for the human reader it is structured using comments and bullets.
-Note that Coq has been designed in such a way that its induction hypothesis generates the same sub-goal in the same order a mathematician would write.                                                                                            
+Moreover, a proof is a list which guides the program in checking. 
+But due to readability for the human reader, a proof is structured by comments and bullets.
+Note that Coq has been designed in such a way that its induction hypothesis generates the same subgoal in the same order a mathematician would write an inductive proof.                                                                                            
 
 
 
