@@ -15,36 +15,36 @@ The Proof General using reader is refereed to the literature \cite[Section, Indu
 Create a file called \texttt{\_coqProject} within the working directory which contains the file \texttt{Basics.v}.
 Within this file add the line 
 
-\begin{lstlisting}
+\begin{lstlisting}[caption = \lstinline!naming a library!]
 -Q .LF
 \end{lstlisting}
 
 which declares the library's name \texttt{LF.Basics}. 
 To make the executable \texttt{Basics.vo}-file out of the \texttt{Basics.v} multiple options exist.
 
-Using the CoqIDE, the file \texttt{Basics.v} should be opend, and the button in the compile menu  ``{\itshape Compile Buffer}'' is clicked.
+Using the CoqIDE, the file \texttt{Basics.v} should be opened, and the button in the compile menu  ``{\itshape Compile Buffer}'' is clicked.
 If using the command line the file \texttt{Basics.vo} can be build or compiled using the Coq  make-file utility.
 By the way, the {\itshape Coq-makefile utility } is installed together with Coq.
 Type the following console-command:
-\begin{lstlisting}[language=bash]
+\begin{lstlisting}[language=bash, caption = \lstinline!coq-makefile!, label = lst:coq-makefile]
 coq-makefile -f _CoqProject*.v -o Makefile
 \end{lstlisting}
 
 In addition run this command, whenever files to the working directory \texttt{lf} were added or removed.
 To compile \texttt{Basics.v}, call either on of the following commands 
-\begin{lstlisting}[language=bash]
+\begin{lstlisting}[language=bash, caption = \lstinline!make!, label = lst:make]
 make (* builds the complete directory *)
 make Basics.vo (* builds Basics.vo *)
 \end{lstlisting}
 Note that, \lstinline!make! compiles and calculates dependencies automatically. 
 The Coq-compiler, which is called {\itshape coqc} can be called by: 
-\begin{lstlisting}
+\begin{lstlisting}[language=bash, caption =\lstinline!coqc!, label = lst:coqc]
 coqc -Q.LF Basics.v
 \end{lstlisting}
 But remember always to prefer \texttt{make} over compiling, because of the dependencies.\\
  
 To include the compiled chapter \texttt{Basics.vo} into the source code of the chapter \texttt{Induction.v} it is written
-\begin{lstlisting}
+\begin{lstlisting}[language = bash, caption = \lstinline!Require Export!, label = lst:RequireExport]
 From LF Require Export Basics.
 \end{lstlisting}
 into the first line of the \texttt{Induction.v}-file.
@@ -54,12 +54,12 @@ into the first line of the \texttt{Induction.v}-file.
 \subsection{Potential Troubles}
 
 If an error arises which complains about missing identifiers in the file the "load path" for Coq might not be set up correctly.
-Checking the loaded path by the comand
-\begin{lstlisting}
+Checking the loaded path by the command
+\begin{lstlisting}[language = bash, caption = checking the loaded path, label = lst:PrintLoadPath]
 Print LoadPath.  
 \end{lstlisting} 
 might be helpful. The error message
-\begin{lstlisting}[language = bash]
+\begin{lstlisting}[language = bash, caption = possible  version error, label = lst:possibleVersionError ]
   Compiled library Foo makes inconsistent assumptions over library Bar
 \end{lstlisting}
 might be generated, because incompatible versions of Coq are installed on a machine.
@@ -68,13 +68,13 @@ In particular,  CoqIDE and Proof General can use different versions of Coq for c
 To resolve these issues build the files again.\\
 
 Receiving the error message 
-\begin{lstlisting}
+\begin{lstlisting}[language = bash, caption= possible compiling error, label=lst:PossibleCompilingError]
 Unable to locate library Basics.
 \end{lstlisting}
 might be caused if two libraries are dependent and \texttt{Bar} was modified and compiled singly.
 To overcome this issue, build \texttt{Basics.vo} again.
 In case to many files are affected build everything again.
-\begin{lstlisting}[language=bash]
+\begin{lstlisting}[language=bash, caption = rebuilding libraries, label = lst:RebuildingLibraries]
 Make clean, make
 \end{lstlisting}
 
