@@ -119,21 +119,35 @@ Proof.
   (* We just need to swap (n + m) for (m + n)... seems
      like plus_comm should do the trick! *)
   rewrite -> plus_comm.
-  (* Doesn't work...Coq rewrites the wrong plus! *)
+  (* Doesn't work ... Coq rewrites the wrong plus! *)
 Abort.
 \end{lstlisting}
 
-This habit can be worked around by rewriting the wanted variables. 
+This habit can be worked around by rewriting the wanted variables as in listing \ref{lst:plus_rearrange} using the tactics \lstinline!assert!. 
+
+\begin{lstlisting}[caption = \lstinline!plus_rearrange!, label = lst:plus_rearrange]
+Theorem plus_rearrange : forall n m p q: nat,
+  (n + m) + (p + q) = (m + n) + (p + q).
+Proof.
+  intros n m p q.
+  assert (H: n + m = m + n).
+  { rewrite -> plus_comm. reflexivity. }
+  rewrite -> H. 
+  reflexivity.  
+Qed.
+\end{lstlisting}
+
 
 \subsection{Formal vs. Informal Proofs}
 
 \begin{quote}
 `Informal proofs are algorithms; Formal proofs are code.'
 \end{quote}
-
-There is a disquestion about formal and informal proofs in mathematics. 
+The question about a mathematical proof has challenged mathematics and philosophy for millennia.
+There is a discourse about formal and informal proofs in mathematics. \\
 An informal proof is a proof that is a proof which is written in some natural language (e.g. English).
-It guides a human reader.   
+It guides a human reader. 
+One might state that a proof of a mathematical proposition P is written or spoken  text, which  the reader or here that P is true.\\ 
 Because it is worked with Coq in this scope, it is heavily worked with formal proofs.
 That is, it is preconditioned that the proof can be methodically derived from a set of formal logical rules and that the proof can be methodically derived from a certain set of formal logic rules.
 Moreover, a proof is a list which guides the program in checking. 
