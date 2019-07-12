@@ -11,7 +11,8 @@
 *.bbl
 *.blg
 *.idx
-
+*.ilg
+*.ind
 
 *.glo
 *.glsdefs
