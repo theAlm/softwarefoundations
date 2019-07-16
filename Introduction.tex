@@ -5,7 +5,7 @@ This is a summary of the electronic text-book \cite{PACGGHSY} with comments from
 This summary aims to be give a clear instruction of the usage and applicability of Coq.\\
 
     
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%% TODO: %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Steffens comments:
 Fill later-
  Why do we do this?
@@ -14,14 +14,15 @@ Fill later-
  Mathematical building blocks. Proof technices. Notation to Appendix.\\
  \gls{functional programming}
 We are going to use the interactive mode, because we want to use Coq as a proof-assistant. {\emph Find a reference.}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%% TODO END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \subsection{Preface}
 Within this introduction the mathematical underpinning of reliable software is given the building blocks are
 \begin{itemize}
 \item basics concepts of logic (see sec. \ref{} % TODO:)
 \item computer assisted theorem prving (see sec. \ref{} %TODO:)
 \item Coq-proof assistant (see sec. \ref{} %TODO:
-\item functional programming ( see sec. \ref{} %TODO)
+\item functional programming (see sec. \ref{} %TODO)
 \item operational semantics (see sec. \ref{} %TODO:)
 \item logics for reasoning about programs (see sec. \ref{} %TODO: )
 \item static type systems (see sec. \ref{} %TODO:)
@@ -53,14 +54,37 @@ https://coq.inria.fr/refman/language/gallina-specification-language.html
 
 \subsection{Logic}
 
+\begin{quote}
+``As a matter of fact, logic has turned out to be significantly more effective in computer science then it has been in mathematics.''
+\end{quote}
+Volumes have been written about the central role of logic in computer science. 
+It's fundamental tool {\itshape inductive proof} is going to be explored very deeply here.
 
+\subsection{Proof Assistants}
+In computer science proof assistants are an important tool for helping construct formal proofs of logical propositions.
+There are two categories of these tool.
+First of all the are automated theorem proofers. These are able of a ''push-button- operation'' which returns true, false'' or ``ran out of time'' given a proposition.
+Example applications are SAT-solvers, SMT-solvers or model checkers. 
+Second there are proof assistants, which are hybrid tools which automate the more routine-like aspects of a proof, while depending on human guidance. 
+Examples are \gls{Isabelle}, Agda, Twelfe, ACL2, PVS or Coq.\\
+The Coq proof assistent has been developed since 1988 and gathered a large community in resaerch and the industry.
+It provied a rich environment for interactive development of machine-checked code for formal reasoning.\\
+It's kernel is a simple proof checker, ensuring that correct decustion of setst are ever performed. Moreover, there are high-level facilites for proof development.
+Coq has been applied as critical enabler across computer science and mathematics a platform for modelling programming languages and as an environment for developing formally certifed software and hardware.
+ 
 
 \subsection{Trivia}
-
-
+Some French computer scientist have a tradition of naming their software as animal species.
+Coq is the French word for roster.
+The roster is the national symbol of the French.
+Coq sounds like the initial of the \gls{CoC}.
+Coq's early developers.-- TODO: Look UP! 
 
 \subsection{Functional Programming}
+There are two meanings of the term. It is either refered to programming idioms (something like a pattern)
+or something else as in this scope.
 
+Functional promaning refers to a progamiing, which is free of side effects.
 
 \subsection{System Requirements}
 
@@ -68,7 +92,7 @@ https://coq.inria.fr/refman/language/gallina-specification-language.html
 
 \paragraph{Proof General}
 -explain what this is
-
+i
 
 \paragraph{Coq IDE}
 
