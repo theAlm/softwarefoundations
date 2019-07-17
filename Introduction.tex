@@ -82,27 +82,39 @@ Coq's early developers.-- TODO: Look UP!
 
 \subsection{Functional Programming}
 There are two meanings of the term. It is either refered to programming idioms (something like a pattern)
-or something else as in this scope.
+or something else as in this scope.\par
+Functional promaning refers to a progamming, which is free of side effects.
+By sideeffects phenomea as I/O or redirecting pointers are meant. Fr example, let's imagine iterative sorting. 
+A sorting-function might take a list of numbers to and rearange the pointers to these numbers.
+In functional programming a new list is returned which contains the same number arranged in an order.\\ 
+Advanteges of functional programming are  that we are having a new data structure leaving the old one in tact. 
+Therefore there is no reason to worry about the structure beiing shared, weather one part of the program might break an invariant that another part of the program relies on.\par
+The industry is interested in functional programming due to it's simple behavior in the presence of acurracy.
+Furthermore, functional programming is more easy to parallelize then the counter parts.
+E.g. the map-reduce idiom, which relies at the heart of massively destributed querry processor lile  \gls{Hadoop} is functional programing. 
 
-Functional promaning refers to a progamiing, which is free of side effects.
+\begin{quote}
+`` [...] When we come to look more closely, we find that these two sides of Cow are actully aspects of the very same underlying machinery. I.e. proofs are programms. 
+\end{quote}
+ 
+
 
 \subsection{System Requirements}
 
-
+Coq runs on Windows, Linux and macOS.
+Cow 8.8.1 can be found on the Coq-homepage.
+The following choices of IDEs are advaidable. 
 
 \paragraph{Proof General}
--explain what this is
-i
+Proof genaral is an \gls{Emacs} based IDE. It is recomended to users how are familiar with \gls{Emacs}.
 
 \paragraph{Coq IDE}
+Cow IDE is a simple stand-alone IDE. It should be advaidable with any Coq-installation. 
+It shall be warned Coq IDE should be run with the asynchronus and error reliance model disabled. 
 
 \paragraph{Coq in the command line}
 
-
-
-
 \subsection{Usage of this Notes}
-
 
 The listings of Coq-code in this book are meant to be run by the reader in a Coq "forgotten word" while reading.
 
