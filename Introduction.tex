@@ -1,26 +1,13 @@
 \section{Introduction}
 
-
-This is a summary of the electronic text-book \cite{PACGGHSY} with comments from the author and based on the peers and supervisors feedback.
+This is a summary of the electronic text-book \cite{PACGGHSY} with comments and a little rewritten sections by the author and based on the peers and supervisors feedback.
 This summary aims to be give a clear instruction of the usage and applicability of Coq.\\
-
-    
-%%%%%%%%%%%%%%%%%% TODO: %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-Steffens comments:
-Fill later-
- Why do we do this?
- History of Coq
- maybe a little motivating example if you find one
- Mathematical building blocks. Proof technices. Notation to Appendix.\\
- \gls{functional programming}
-We are going to use the interactive mode, because we want to use Coq as a proof-assistant. {\emph Find a reference.}
-%%%%%%%%%%%%%%%%%%% TODO END %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Preface}
 Within this introduction the mathematical underpinning of reliable software is given the building blocks are
 \begin{itemize}
 \item basics concepts of logic (see sec. \ref{} % TODO:)
-\item computer assisted theorem prving (see sec. \ref{} %TODO:)
+\item computer assisted theorem proving (see sec. \ref{} %TODO:)
 \item Coq-proof assistant (see sec. \ref{} %TODO:
 \item functional programming (see sec. \ref{} %TODO)
 \item operational semantics (see sec. \ref{} %TODO:)
@@ -32,16 +19,67 @@ Within this introduction the mathematical underpinning of reliable software is g
 There is a lot of motivation for reliable software. 
 First of all the scale, complexity and number of involved people in modern systems is increasing.
 Therefore building correct software is extremely difficult.
-The information processing is waved into every aspect of society, 
-therefore the costs of bugs and insecurities are amplified to multiple levels.\\
+Information processing is waved into every aspect of society, therefore the costs of bugs and insecurities are amplified to multiple levels.\\
 Computer scientists and software engineers have responded to improve reliability with a lot of design threats and to improve reliability and mathematical technices for reasoning.
-The within this work the it should be contributed to validates these properties. They are:
+Within this work the it should be contributed to validates these properties. They are:
 \begin{enumerate}
 \item basic tools from logic for making and justifying precise claims about programs
 \item use of proof assistants to construct rigorous logical arguments
 \item functional programmings as method of programming and simplifying reasoning about programs as a bridge between programming and logic
 \end{enumerate}
-%%%%%%%%%%%%%%%%%%%%%% TODO %%%%%%%%%%%%%%%%%%%%%
+
+
+
+\subsection{Logic}
+
+\begin{quote}
+``As a matter of fact, logic has turned out to be significantly more effective in computer science then it has been in mathematics.''
+\end{quote}
+Volumes have been written about the central role of logic in computer science. 
+It's fundamental tool {\itshape inductive proof} is going to be explored very deeply within this work.
+
+\subsection{Proof Assistants}
+In computer science proof assistants are an important tool for helping construct formal proofs of logical propositions.
+There are two categories of these tool.\\
+First of all there are automated theorem proofers. 
+These are able of a ''push-button- operation'' which returns true, false'' or ``ran out of time'' given a proposition.
+Example applications are SAT-solvers, SMT-solvers or model checkers. 
+Second there are proof assistants, which are hybrid tools which automate the more routine-like aspects of a proof, while depending on human guidance. 
+Examples are \gls{Isabelle}, Agda, Twelf, ACL2, PVS or Coq.\\
+The Coq proof assistent has been developed since 1983 and gathered a large community in resaerch and the industry.
+It proviedes a rich environment for interactive development of machine-checked code for formal reasoning.\\
+It's kernel is a simple proof checker, ensuring that correct deution of sets are ever performed. 
+Moreover, there are high-level facilites for proof development.
+Coq has been applied as critical enabler across computer science and mathematics a platform for modelling programming languages and as an environment for developing formally certifed software and hardware.
+ 
+
+\subsection{Trivia}
+Some French computer scientist have a tradition of naming their software as animal species.
+{\itshape Coq} is the French word for roster.
+The roster is the national symbol of the French.
+Coq sounds like the initial of the \gls{CoC}.
+One of Coq's early developers is called Terry Coquand.
+
+\subsection{Functional Programming}
+There are two meanings of the term. 
+It is either refered to programming idioms (something like a pattern) or something else as in this work.\\
+
+Functional promaning refers to a progamming, which is free of side effects.
+By sideeffects phenomea as I/O or redirecting pointers are meant. 
+For example, let's imagine iterative sorting. 
+A sorting-function might take a list of numbers to and rearange the pointers to these numbers.
+In functional programming a new list is returned which contains the same number arranged in an order.\\ 
+Advanteges of functional programming are  that we are having a new data structure leaving the old one in tact. 
+Therefore there is no reason to worry about the structure beiing shared, weather one part of the program might break an invariant that another part of the program relies on.\par
+The industry is interested in functional programming due to it's simple behavior in the presence of acurracy.
+Furthermore, functional programming is more easy to parallelize then the counter parts.
+E.g. the map-reduce idiom, which relies at the heart of massively destributed querry processor life \gls{Hadoop} is functional programing. 
+
+\begin{quote}
+`` [...] When we come to look more closely, we find that these two sides of Coq are actully aspects of the very same underlying machinery - i.e. proofs are programs.'' 
+\end{quote}
+
+ %%%%%%%%%%%%%%%%%%%%%% TODO %%%%%%%%%%%%%%%%%%%%%
 
 
 Comments, Zeichensatz (ASC II), Data Endings.
@@ -52,67 +90,27 @@ https://coq.inria.fr/refman/language/gallina-specification-language.html
 %%%%%%%%%%%%%%%%%%%%%% TODO end %%%%%%%%%%%%%%%%%
 
 
-\subsection{Logic}
-
-\begin{quote}
-``As a matter of fact, logic has turned out to be significantly more effective in computer science then it has been in mathematics.''
-\end{quote}
-Volumes have been written about the central role of logic in computer science. 
-It's fundamental tool {\itshape inductive proof} is going to be explored very deeply here.
-
-\subsection{Proof Assistants}
-In computer science proof assistants are an important tool for helping construct formal proofs of logical propositions.
-There are two categories of these tool.
-First of all the are automated theorem proofers. These are able of a ''push-button- operation'' which returns true, false'' or ``ran out of time'' given a proposition.
-Example applications are SAT-solvers, SMT-solvers or model checkers. 
-Second there are proof assistants, which are hybrid tools which automate the more routine-like aspects of a proof, while depending on human guidance. 
-Examples are \gls{Isabelle}, Agda, Twelfe, ACL2, PVS or Coq.\\
-The Coq proof assistent has been developed since 1988 and gathered a large community in resaerch and the industry.
-It provied a rich environment for interactive development of machine-checked code for formal reasoning.\\
-It's kernel is a simple proof checker, ensuring that correct decustion of setst are ever performed. Moreover, there are high-level facilites for proof development.
-Coq has been applied as critical enabler across computer science and mathematics a platform for modelling programming languages and as an environment for developing formally certifed software and hardware.
- 
-
-\subsection{Trivia}
-Some French computer scientist have a tradition of naming their software as animal species.
-Coq is the French word for roster.
-The roster is the national symbol of the French.
-Coq sounds like the initial of the \gls{CoC}.
-Coq's early developers.-- TODO: Look UP! 
-
-\subsection{Functional Programming}
-There are two meanings of the term. It is either refered to programming idioms (something like a pattern)
-or something else as in this scope.\par
-Functional promaning refers to a progamming, which is free of side effects.
-By sideeffects phenomea as I/O or redirecting pointers are meant. Fr example, let's imagine iterative sorting. 
-A sorting-function might take a list of numbers to and rearange the pointers to these numbers.
-In functional programming a new list is returned which contains the same number arranged in an order.\\ 
-Advanteges of functional programming are  that we are having a new data structure leaving the old one in tact. 
-Therefore there is no reason to worry about the structure beiing shared, weather one part of the program might break an invariant that another part of the program relies on.\par
-The industry is interested in functional programming due to it's simple behavior in the presence of acurracy.
-Furthermore, functional programming is more easy to parallelize then the counter parts.
-E.g. the map-reduce idiom, which relies at the heart of massively destributed querry processor lile  \gls{Hadoop} is functional programing. 
-
-\begin{quote}
-`` [...] When we come to look more closely, we find that these two sides of Cow are actully aspects of the very same underlying machinery. I.e. proofs are programms. 
-\end{quote}
- 
-
-
 \subsection{System Requirements}
 
 Coq runs on Windows, Linux and macOS.
-Cow 8.8.1 can be found on the Coq-homepage.
-The following choices of IDEs are advaidable. 
+A current installation can be found on the Coq-homepage. 
+The listings in this work from \cite{PACGGHSY} have been tested using Coq 8.8.1.
+The following choices of IDEs are advaidabl. 
 
 \paragraph{Proof General}
-Proof genaral is an \gls{Emacs} based IDE. It is recomended to users how are familiar with \gls{Emacs}.
+Proof genaral is an \gls{Emacs} based IDE. It is recomended to users how are familiar with the Emacs-Editor.
 
 \paragraph{Coq IDE}
-Cow IDE is a simple stand-alone IDE. It should be advaidable with any Coq-installation. 
+Coq IDE is a simple stand-alone IDE. 
+It should be advaidable with any Coq-installation. 
 It shall be warned Coq IDE should be run with the asynchronus and error reliance model disabled. 
 
 \paragraph{Coq in the command line}
+We are going to use the interactive mode, because we want to use Coq as a proof-assistant. {\emph Find a reference.}
+
+\paragraph{bundel}
+vim plugin.
+
 
 \subsection{Usage of this Notes}
 
