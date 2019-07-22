@@ -46,10 +46,10 @@ These are able of a ''push-button- operation'' which returns true, false'' or ``
 Example applications are SAT-solvers, SMT-solvers or model checkers. 
 Second there are proof assistants, which are hybrid tools which automate the more routine-like aspects of a proof, while depending on human guidance. 
 Examples are \gls{Isabelle}, Agda, Twelf, ACL2, PVS or Coq.\\
-The Coq proof assistent has been developed since 1983 and gathered a large community in resaerch and the industry.
-It proviedes a rich environment for interactive development of machine-checked code for formal reasoning.\\
+The Coq proof assistant has been developed since 1983 and gathered a large community in research and the industry.
+It provides a rich environment for interactive development of machine-checked code for formal reasoning.\\
 It's kernel is a simple proof checker, ensuring that correct deution of sets are ever performed. 
-Moreover, there are high-level facilites for proof development.
+Moreover, there are high-level facilities for proof development.
 Coq has been applied as critical enabler across computer science and mathematics a platform for modelling programming languages and as an environment for developing formally certifed software and hardware.
  
 
@@ -62,21 +62,21 @@ One of Coq's early developers is called Terry Coquand.
 
 \subsection{Functional Programming}
 There are two meanings of the term. 
-It is either refered to programming idioms (something like a pattern) or something else as in this work.\\
+It is either refereed to programming idioms (something like a pattern) or something else as in this work.\\
 
-Functional promaning refers to a progamming, which is free of side effects.
-By sideeffects phenomea as I/O or redirecting pointers are meant. 
+Functional programming refers to a programming, which is free of side effects.
+By side effects phenomena as I/O or redirecting pointers are meant. 
 For example, let's imagine iterative sorting. 
-A sorting-function might take a list of numbers to and rearange the pointers to these numbers.
+A sorting-function might take a list of numbers to and rearrange the pointers to these numbers.
 In functional programming a new list is returned which contains the same number arranged in an order.\\ 
-Advanteges of functional programming are  that we are having a new data structure leaving the old one in tact. 
-Therefore there is no reason to worry about the structure beiing shared, weather one part of the program might break an invariant that another part of the program relies on.\par
-The industry is interested in functional programming due to it's simple behavior in the presence of acurracy.
+Advantages of functional programming are  that we are having a new data structure leaving the old one in tact. 
+Therefore there is no reason to worry about the structure being shared, weather one part of the program might break an invariant that another part of the program relies on.\par
+The industry is interested in functional programming due to it's simple behaviour in the presence of accuracy.
 Furthermore, functional programming is more easy to parallelize then the counter parts.
-E.g. the map-reduce idiom, which relies at the heart of massively destributed querry processor life \gls{Hadoop} is functional programing. 
+E.g. the map-reduce idiom, which relies at the heart of massively distributed query processor life \gls{Hadoop} is functional programming. 
 
 \begin{quote}
-`` [...] When we come to look more closely, we find that these two sides of Coq are actully aspects of the very same underlying machinery - i.e. proofs are programs.'' 
+`` [...] When we come to look more closely, we find that these two sides of Coq are actually aspects of the very same underlying machinery - i.e. proofs are programs.'' 
 \end{quote}
 
  %%%%%%%%%%%%%%%%%%%%%% TODO %%%%%%%%%%%%%%%%%%%%%
@@ -95,33 +95,40 @@ https://coq.inria.fr/refman/language/gallina-specification-language.html
 Coq runs on Windows, Linux and macOS.
 A current installation can be found on the Coq-homepage. 
 The listings in this work from \cite{PACGGHSY} have been tested using Coq 8.8.1.
-The following choices of IDEs are advaidable. 
+The following choices of IDEs are available. 
 
 \paragraph{Proof General}
-Proof genaral is an Emacs based IDE. 
-It is recomended to users who are familiar with the Emacs-editor.
+Proof general is an Emacs based IDE. 
+It is recommended to users who are familiar with the Emacs-editor.
 
 \paragraph{Coq IDE}
 Coq IDE is a simple stand-alone IDE. 
-It should be advaidable with any Coq-installation. 
-It shall be warned that Coq IDE should be run with the asynchronus and error reliance model disabled. 
-
-
+It should be available with any Coq-installation. 
+It shall be warned that Coq IDE should be run with the asynchronous and error reliance model disabled. 
 
 \paragraph{Coquille}
-Coqille is a vim plugin used by the autor it can be found here \url{https://github.com/Werner2005/coquille}.
-It provides syntax check by color highlighting evaluate until point.
+Coqille is a vim plugin used by the author it can be found here \url{https://github.com/Werner2005/coquille}.
+It provides syntax check by color highlighting evaluate until point. 
+The author worked with coquille to explorer Coq.\\
+It provides a similar workflow as CoqIDE. 
+Coquille labels itself as a user friendly  replacement to Coqtop. 
+It provides forwards and backwards navigation. \\
 
-\begin{figure}[h]
-\includegraphics{}
-\caption{Coq Interface launched in gvim using coquille.}
-\end{figure}
+In order to launch it start gvim or vim from the console an run (\texttt{:CoqLaunch}). 
+Coqille's main screen provides an evaluation of the Coq-code untill the position of the curser (press \texttt{F4}), a stepwise forward (press \texttt{F2}) and backwards (press \texttt{F3}) evaluation.                 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Furthermore, it highlights the syntax. 
+%TODO: explain syntax highlithing.  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \paragraph{Coq in the command line}
-It is not recomended to use Coq in the comand line mode. 
-Because the interactive mode is prefered, when using Coq as a proof assistant. 
+It is not recommended to use Coq in the command line mode. 
+Because the interactive mode is preferred, when using Coq as a proof assistant. 
 
 
-
+\begin{figure}[h]
+\includegraphics[width=0.9\textwidth]{CoqIDE.png}
+\caption{Coq interface launched in gvim using coquille. }
+\end{figure}
 
 
