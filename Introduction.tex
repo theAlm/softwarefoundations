@@ -79,15 +79,7 @@ E.g. the map-reduce idiom, which relies at the heart of massively distributed qu
 `` [...] When we come to look more closely, we find that these two sides of Coq are actually aspects of the very same underlying machinery - i.e. proofs are programs.'' 
 \end{quote}
 
- %%%%%%%%%%%%%%%%%%%%%% TODO %%%%%%%%%%%%%%%%%%%%%
 
-
-Comments, Zeichensatz (ASC II), Data Endings.
-Look this up here:\\
-https://coq.inria.fr/refman/language/gallina-specification-language.html
-
-
-%%%%%%%%%%%%%%%%%%%%%% TODO end %%%%%%%%%%%%%%%%%
 
 
 \subsection{System Requirements}
@@ -107,11 +99,12 @@ Proof general is an Emacs based IDE.
 It is recommended to users who are familiar with the Emacs-editor.
 
 \paragraph{CoqIDE}
-Coq IDE is a simple stand-alone IDE. 
+CoqIDE is a simple stand-alone IDE. 
 It should be available with any Coq-installation. 
 It shall be warned that Coq IDE should be run with the asynchronous and error reliance model disabled. 
 
 \paragraph{Coquille}
+refernces see the CoqIDE documentation.
 Coqille is a vim plugin used by the author.
 It can be found here: \url{https://github.com/Werner2005/coquille}.
 It provides syntax check by color highlighting and and interactive evaluation.  
@@ -125,21 +118,27 @@ To that coquille provides forwards and backwards navigation.\\
 In order to launch coqille open a Coq script (a \texttt{.v}-file) by gvim or vim from the console and run (\texttt{:CoqLaunch}). 
 Coqille's main screen provides an evaluation of the Coq-code untill the position of the curser (press \texttt{F4}), a stepwise forward (press \texttt{F2}) and backwards (press \texttt{F3}) evaluation.                 
 Furthermore, the plugin provides syntax highliting (see figure \ref{fig:Coquille}).
-While running a buffer it is deposited grey.  
+While running a buffer it is deposited grey.
 A green deposition indicates a correct evaluation. 
 And a just prooven subgoals is displayed in the goal window. 
 Failing commands are desposited red and the message window reports errors.
 
+ %%%%%%%%%%%%%%%%%%%%%% TODO %%%%%%%%%%%%%%%%%%%%%
+\paragraph{•}
+
+Comments, Zeichensatz (ASC II), Data Endings.
+Look this up here:\\
+https://coq.inria.fr/refman/language/gallina-specification-language.html
 
 
-
+%%%%%%%%%%%%%%%%%%%%%% TODO end %%%%%%%%%%%%%%%%%
 
 \begin{figure}[h]
 \includegraphics[width=0.9\textwidth]{CoqIDE.png}
 \caption{Coq interface launched in gvim using coquille.\\ 
 Left window: The open Coq-script \texttt{Basics.v}.
 Upper right: The {\itshape goal window}. 
-Lower right: The {\itshape message windwow}.}
+Lower right: The {\itshape message window}.}
 \label{fig:Coquille}
 \end{figure}
 
