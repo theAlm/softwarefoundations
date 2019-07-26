@@ -1,7 +1,7 @@
 \section{Introduction}
 
 This is a summary of the electronic text-book \cite{PACGGHSY} with comments and a little rewritten sections by the author and based on the peers and supervisor's feedback. 
-Other refrences are marked. 
+Other references are marked. 
 This summary aims to be give a clear instruction of the usage and applicability of Coq.\\
 
 \subsection{Preface}
@@ -56,7 +56,7 @@ The Coq proof assistant has been developed since 1983 and gathered a large commu
 It provides a rich environment for interactive development of machine-checked code for formal reasoning.\\
 It's kernel is a simple proof checker, ensuring that correct deution of sets are ever performed. 
 Moreover, there are high-level facilities for proof development.
-Coq has been applied as critical enabler across computer science and mathematics a plattform for modelling programming languages and as an environment for developing {\itshape formally certifed software and hardware}.
+Coq has been applied as critical enabler across computer science and mathematics a platform for modelling programming languages and as an environment for developing {\itshape formally certifed software and hardware}.
  
 
 \subsection{Trivia}
@@ -118,8 +118,7 @@ It shall be warned that CoqIDE should be run with the asynchronous and error rel
 
 \paragraph{Coquille}
 
-refernces see the CoqIDE documentation.
-Coquille is a vim plugin used by the author.
+Coquille is a vim plug-in used by the author.
 It can be found here: \url{https://github.com/Werner2005/coquille}.
 It provides syntax check by color highlighting and and interactive evaluation.  
 The author worked with coquille to explorer Coq.\\
@@ -131,11 +130,11 @@ To that coquille provides forwards and backwards navigation.\\
 
 In order to launch coquille open a Coq script (a \texttt{.v}-file) by gvim or vim from the console and run (\texttt{:CoqLaunch}). 
 Coqille's main screen provides an evaluation of the Coq-code untill the position of the curser (press \texttt{F4}), a stepwise forward (press \texttt{F2}) and backwards (press \texttt{F3}) evaluation.                 
-Furthermore, the plugin provides syntax highliting (see figure \ref{fig:Coquille}).
+Furthermore, the plug-in provides syntax highlighting (see figure \ref{fig:Coquille}).
 While running a buffer it is deposited grey.
 A green deposition indicates a correct evaluation. 
 And a just prooven subgoals is displayed in the goal window. 
-Failing commands are desposited red and the message window reports errors.
+Failing commands are deposited red and the message window reports errors.
 
  %%%%%%%%%%%%%%%%%%%%%% TODO %%%%%%%%%%%%%%%%%%%%%
 \paragraph{Encoding }
@@ -153,11 +152,11 @@ Lower right: The {\itshape message window}.}
 \end{figure}
 
 \subsection{Languages}
-Coq uses three differnt languages. 
-First, there is a vernucular language. 
+Coq uses three different languages. 
+First, there is a vernacular language. 
 It is a top-level interaction. 
 It's keywords start with a capital letter e.g. \lstinline!Theorem!, \lstinline!Proof! and  \lstinline!Qed!. 
-There is the tactics language (e.g. \lstinline!intros! and \lstinline!exact!).
-And finally there is an unnamed language of Coq-terms. 
-It consits of a lot of operators (e.g. \lstinline!for all A:Prop, A -> A!).
+Second, there is the tactics language (e.g. \lstinline!intros! and \lstinline!exact!).
+Finally there is an unnamed language of Coq-terms. 
+It consists of a lot of operators (e.g. \lstinline!for all A:Prop, A -> A!).
 Technically, it is part of the tactics language, but it is useful to think of it as it's own thing.
