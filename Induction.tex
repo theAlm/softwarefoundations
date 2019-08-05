@@ -63,7 +63,7 @@ Proof.
 
 The \lstinline!as!-clause has two parts separated by \lstinline!|!.
 \begin{itemize}
-	\item In the above statement of \lstinline!induction! the first subgoal is to show the induction basis for \lstinline!n =0!.
+	\item In the above statement of \lstinline!induction! the first subgoal is to show the induction basis for \lstinline!n=0!.
 	\item And the second subgoal is the induction step for \lstinline!n = Sn'!, since \lstinline!nat! is defined inductivly (see listing  \ref{lst:DefNat}).
 	      The assumption \lstinline!n'+0 = n'! is added to Coq's context named as \lstinline!IHn'! as induction hypothesis.
 		  It must be shown \lstinline! Sn' = Sn' + 0!. \\
@@ -81,7 +81,7 @@ To state intermediate goals like a little sub theorem during proofs the tactics 
 
 
 \begin{example}
-We have can show the previous theorem \lstinline!mult_0_plus!. 
+We can show the previous theorem \lstinline!mult_0_plus!. 
 This is an example using \lstinline!assert!. 
 
 \begin{lstlisting}[caption = \lstinline!mult_0_plus'!, label = lst:mult_0_plus_prime]
@@ -100,7 +100,7 @@ Qed.
 In listing \ref{lst:mult_0_plus_prime} the tactics \lstinline!assert! in line 5 introduces two subgoals. 
 The assertion itself is listed with \lstinline!H! the introduction as prefix.
 The proof of the assertion is bounded by curly parenthesis.\\
-It provides reducebility and interactive use of Coq it is more easy to see when the proof of the first subgoal is finished.
+It provides reducibility and interactive use of Coq it is more easy to see when the proof of the first subgoal is finished.
 
 The second subgoal is the same as the subgoal in the proof before the subgoal exact of in the context the assumption \lstinline!H! was added.
 But the previously proven fact is able to be used to make progress.
@@ -147,7 +147,7 @@ The question about a mathematical proof has challenged mathematics and philosoph
 There is a discourse about formal and informal proofs in mathematics. \\
 An informal proof is a proof that is a proof which is written in some natural language (e.g. English).
 It guides a human reader. 
-One might state that a proof of a mathematical proposition P is written or spoken  text, which  the reader or here that P is true.\\ 
+One might state that a proof of a mathematical proposition P is written or spoken  text, which  the reader or hearer that P is true.\\ 
 Because it is worked with Coq in this scope, it is heavily worked with formal proofs.
 That is, it is preconditioned that the proof can be methodically derived from a set of formal logical rules and that the proof can be methodically derived from a certain set of formal logic rules.
 Moreover, a proof is a list which guides the program in checking. 
