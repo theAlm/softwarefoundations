@@ -27,7 +27,7 @@ If using the command line the file \texttt{Basics.vo} can be build or compiled u
 By the way, the {\itshape Coq-makefile utility } is installed together with Coq.
 Type the following console-command:
 \begin{lstlisting}[language=bash, caption = \lstinline!coq-makefile!, label = lst:coq-makefile]
-coq_makefile -f _CoqProject.v -o Makefile
+coq_makefile -f _CoqProject *.v -o Makefile
 \end{lstlisting}
 
 In addition run this command, whenever files to the working directory \texttt{lf} were added or removed.
