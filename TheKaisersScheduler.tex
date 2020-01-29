@@ -105,18 +105,21 @@ Furthermore, time controlled process allocation due to \cite{B} and \cite[p. 34]
 Let $\sigma: \mathbb{N} \times \mathbb{N}_0 \rightarrow \mathbb{N}_0$ be a function called the time schedule or implementation plan.
 \begin{enumerate}
 \item $\forall t \in \mathbb{R}^+$ we have $\sigma(t)\in \{1,2,...,n\}$
-\item 
-\[
-  \sigma(t) = \begin{cases}
-            	k > 0 \quad \text{we say the process} \quad  P_k \quad \text{is working at time} \quad t. \\
-               0 \quad  \text{the process is not working. Then the idel-process of the operating system is working.  \\
-            \end{cases}
-\]	
-%% &\text{If} \quad \sigma(t) = k > 0 \quad \text{we say the process} \quad  P_k \quad \text{is working at time}t.\\
-%%		&\text{If} \quad \sigma(t)= 0 \quad  \text{the process is not working. \\
-%%		&Then the idel-process of the operating system is working.} 
+\item \begin{equation}
+		\sigma(t) =
+		\begin{cases}
+			k > 0 & \text{we say the process $P_k$ is working at time $t$.}\\
+			0 & \text{the process is not working.}\\
+			  &\quad  \text{Then the idele-process$i$ of the operating system is working.}
+		\end{cases}       
+\end{equation}
 \end{enumerate}
 \end{definition}
+
+A depute process is given by $ N = \{1, \cdots, n\}\subset \mathbf{N}$. 
+
+Let $P \subset \{1, \cdots, n\} \subset S$.
+$S$ is executed in a periodically repeated timeslot such that $\delta p_{sv}$ is the periodlength and $\delta e_{sv}$ is the size of the time slot.
 
 \begin{remark}
 Note that $\sigma$ is a step-function. 
