@@ -59,42 +59,62 @@ Due to \cite{B} the major requirment is saied to be as in the follwing:
 
 Moreover there is this requirement $\mathcal{B}$.
 \begin{quote}
-	For $L>\epsilon$ (for a suitable $\epsilon$) for which the real-time thread schedule has asserted a real-time thread $\tau$ to be expectet on the CPU, there must be a function of the method by which the minimum number of CPU cycles avialable to execute the instructions of $\tau$ can be determined.
+For $L>\epsilon$ (for a suitable $\epsilon$) for which the real-time thread schedule has asserted a real-time thread $\tau$ to be expectet on the CPU, there must be a function of the method by which the minimum number of CPU cycles avialable to execute the instructions of $\tau$ can be determined.
 \end{quote}
-   
+
+\paragraph{Model of a sporadic disriptive process}
+ommited because of a mighty redudandeny
+
+\paragraph*{Encapsulation of a scheduled process}
+ 
+The scheduler found  in \cite{K} is going to be classified for the scope of implementation. It is an encapsulated EDF (earlies-deadline-first) process with scheduling inside the represenatative process. Let
+      
 \begin{align}
-\text{Let} \quad  & \delta_p \in \mathbb{N} \quad \text{be a periodic disruptive process and}\\
- &\delta_s  \mathbb{N} \quad \text{an asporadic disruptive process.}\\
- &\text{Let} \quad P =:{1, ..., n} \subset \mathbb{N}^n \text{be an disruptable process.}  \\
- &\text{Let} \quad  \delta p_i, i = 1,..,n \quad  \text{denote the period and}  \\
- &\text{Let} \quad  \delta e_i, i = 1,..,n \quad  \text{denote the execution time}.  
+ & \delta_p \in \mathbb{N} \quad \text{be a periodic disruptive process and}\\
+ 	&\delta_s \in  \mathbb{N} \quad \text{be an asporadic disruptive process.}\\
+	 &\text{Let} \quad P := \{1, \cdots, n \} \subset \mathbb{N}^n \quad \text{be an disruptable process.}  \\
+ 	&\text{Let} \quad  \delta p_i, \quad \text{for} \quad i = 1,..,n \quad  \text{denote the period and}  \\
+ 	&\delta e_i \quad \text{for} \quad  i = 1,..,n \quad  \text{denote the execution time}.  
 \end{align}   
 
-Moreover we define the slotted priority modell by Bollea with Kaiser's sporadic and periodic disruptive process \cite[] with a discrete time in contrast to these autors.
-This chioce is due to the real-time model in \cite[] and \cite[p.12] the exclusion model.
+Moreover, we define the slotted priority modell by Bollea with Kaiser's sporadic and periodic disruptive process with a discrete time in contrast to these autors.
+This chioce is due to the real-time model from \cite{PROSA_schedubility_analysis} and the real-time kernel as in  \cite[chp. 5.3]{B}. 
 
 \begin{definition}
-	We represent the time the as $\mathbf{N}$.
+	Time is $\mathbb{N}$.
 \end{definition}
 
-According to  \cite{}
+According to \cite[]{} due to the establishing the exclusion model we denote by
+
+\begin{equation}
+\sigma: \mathbb{N}^n \times \mathbb{N}^n\longrightarrow \mathbb{N} 
+\end{equation}
+a scheduler satisfying an EDF-regulation \ref{}. TODO: Add this condition.
+
+
 \begin{definition}
 Let $P_i\in \mathcal{P}$ be a process and 
 \begin{equation}
 P^j_i = ( \Delta p_i, r_i) \in \mathbb{N}_o^2,  
 \end{equation}
-where $\Delta p_i$ is called the persiod and $r_i$ the residum. 
+where $\Delta p_i$ is called the period and $r_i$ the residum. 
 \end{definition}
-Furthermore, time controlled process allocation due to \cite{B} and \cite[p. 34]{K} is defined as.
+Furthermore, time controlled process allocation due to \cite{B} and \cite[p. 34]{K} is defined as in the following.
 
 \begin{definition}
-Let $\sigma: \mathbf{N} \times \mathbf{N}_0 \rightarrow \mathbf{N}_0$ be a function called the time schedule or implementation plan.
+Let $\sigma: \mathbb{N} \times \mathbb{N}_0 \rightarrow \mathbb{N}_0$ be a function called the time schedule or implementation plan.
 \begin{enumerate}
-\item $\forall t \in \mathbb{R}^+$ we have $\sigma(t)\in \{1,2,...,n\})$
-\item \begin{align*}
-		&\text{If} \quad \sigma(t) = k > 0  \text{we say the process} P_k \text{is working at time}t.\\
-		&\text{If} \quad \sigma(t)= 0 \quad  \text{the process is not working. Then the idel-process of the operating system is working.} 	
-	\end{align*}
+\item $\forall t \in \mathbb{R}^+$ we have $\sigma(t)\in \{1,2,...,n\}$
+\item 
+\[
+  \sigma(t) = \begin{cases}
+            	k > 0 \quad \text{we say the process} \quad  P_k \quad \text{is working at time} \quad t. \\
+               0 \quad  \text{the process is not working. Then the idel-process of the operating system is working.  \\
+            \end{cases}
+\]	
+%% &\text{If} \quad \sigma(t) = k > 0 \quad \text{we say the process} \quad  P_k \quad \text{is working at time}t.\\
+%%		&\text{If} \quad \sigma(t)= 0 \quad  \text{the process is not working. \\
+%%		&Then the idel-process of the operating system is working.} 
 \end{enumerate}
 \end{definition}
 
