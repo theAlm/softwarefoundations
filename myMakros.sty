@@ -12,6 +12,10 @@
 \RequirePackage{script}
 \RequirePackage{listings} 
 \RequirePackage{lstcoq}
+
+
+\newcommand{\Mod}[1] {\ (\mathrm {mod} \ #1)} 
+
 %
 %\newcommand{\ex_lstlisting}[5]{%
 %\begin{example}[#1] ~\\\vspace{-5mm}%
@@ -31,13 +35,13 @@
 
 
 
-\newcommand{\ex_lstlisting1}[3]{%
-\begin{example}[#1] ~\\\vspace{-5mm}%
-{\normaltext 
-\begin{lstlisting}
-#2
-\end{lstlisting}
-}%  end normal text
-{#3}
-\end{example}
-}% end newcommand
+%\newcommand{\ex_lstlisting1}[3]{%
+%\begin{example}[#1] ~\\\vspace{-5mm}%
+%{\normaltext 
+%\begin{lstlisting}
+%#2
+%\end{lstlisting}
+%}%  end normal text
+%{#3}
+%\end{example}
+%}% end newcommand

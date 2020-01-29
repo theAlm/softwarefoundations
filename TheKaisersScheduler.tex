@@ -135,9 +135,9 @@ The remaining period time is contains the  disruptive process $\delta_p$ and $\d
 
 We are writing
 \begin{align}
-	\Delta p_{sv} &\text{for the period length} \\
-	\Delta e_s &\text{for the executiontime of the sporatic process and}\\ 
-	\Delta e_p &\text{for the executiontime of a periodic task.}
+	\Delta p_{sv} &\text{ for the period length} \\
+	\Delta e_s &\text{ for the executiontime of the sporatic process and}\\ 
+	\Delta e_p &\text{ for the executiontime of a periodic task.}
 \end{align}
 
 \paragraph{The slotted priority model by Bollela}
@@ -152,20 +152,22 @@ We have
 \Delta e_p &:= \Delta p_{glob} - \Delta e\\
 \Delta p_{p} &:= \Delta p_{glob}, 
 \end{align}
-where $Delta p_{p}$ denotes the period of the desruptive process.
+where $\Delta p_{p}$ denotes the period of the desruptive process.
 
 \paragraph{The sporadic disruptive process}
 As in \cite{K} the sporadic desruptive process with cummulated calculation time $\Delta e$ satisfies
 \begin{equation}
-\lvert{\Delta p_{glob}}\rvert \leq \lvert{\Delta_{glob}} \rvert. 
+\Delta p_{p} \leq \lvert{\Delta p_{glob}} \rvert. 
 \end{equation}
 With the above assumptions we have
 \begin{theorem}
 With the assumption of the schedubility criterium 
-\begin{multline}
-\forall t \geq \mathbf{N} \quad \text{we have}\\
-\sum_{i=1}^n \lfloor \frac{t}{\Delta p_i} \rfloor \Delta e_i \leq \lfloor \frac{t}\Delta p_{sv} \Delta e_{sv} \rfloor 
-\end{multline}
+
+
+\begin{eqnarry*}
+\forall t \geq \mathbb{N} \quad &\text{we have}\\
+                                &\sum_{i=1}^n \lfloor \frac{t}{\Delta p_i} \rfloor \Delta e_i \leq \lfloor \frac{t}\Delta p_{sv} \Delta e_{sv} \rfloor  + 
+\end{eqnarray*}
 \end{theorem}
 
 \begin{remark}
