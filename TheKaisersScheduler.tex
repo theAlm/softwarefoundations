@@ -134,8 +134,17 @@ We are writing
 Within this model we are having a two-staged procces hirachie. 
 The global scheduler is purly time-controlled.
 Its' period is given by $\Delta p_{glob}$ and its's to execution task time slot is still to remain $\Delta e_{time}$.
-The  
-  	 
+The representative process is the local scheduler. 
+It is non interruptable, periodic disruptive process.
+We have
+\begin{align}
+\Delta e_p &:= \Delta p_{glob} - \Delta e\\
+\Delta p_{p} &:= \Delta p_{glob}, 
+\end{align}
+where $Delta p_{p}$ denotes the period of the desruptive process.
+
+\paragraph{The sporadic disruptive process}
+   	 
 
 \begin{remark}
 Note that $\sigma$ is a step-function. 
