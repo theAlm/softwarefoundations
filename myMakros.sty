@@ -16,6 +16,17 @@
 
 \newcommand{\Mod}[1] {\ (\mathrm {mod} \ #1)} 
 
+
+\newcommand{\includecode}[2][c]{\lstinputlisting[caption=#2, escapechar=]{#2}}
+
+% example usage:
+%\includecode{sched.c}
+%\includecode[asm]{sched.c}
+
+\newcommand{\includecoqcode}[2][v]{\lstinputlisting[caption=#2,escapechar=]{#2}}
+
+
+
 %
 %\newcommand{\ex_lstlisting}[5]{%
 %\begin{example}[#1] ~\\\vspace{-5mm}%

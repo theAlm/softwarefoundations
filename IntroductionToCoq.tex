@@ -47,6 +47,8 @@
 \usepackage{float}
 \usepackage{eqnarray}
 
+
+
 \usepackage{listings}
 \usepackage{lstcoq}
 \lstset{language=coq, % Coq
@@ -75,6 +77,8 @@
 		captionpos=b, % Position of the caption
 		aboveskip=25pt}% Space between text and the top of the listing
 
+
+\usepackage{gitinfo}
 
 % Algorithmen in C-Style
 %\SetKwIF{If}{ElseIf}{Else}{if}{\{}{\}\\else if }{\}\\else\{}{\}}%
@@ -251,13 +255,21 @@
 \include{Induction}
 \include{Lists}
 
-%
+% Einführug in Planungsverfahren
+
 \include{TheKaisersScheduler}
+
+% Coq Anwendungen 
+
+%Files from PROSA repository working directory 
+\subimport{prosa_working_dir/implementation/basic/}{ImplementationInCoq}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \include{AxiomsOfKolmogorov}
 \include{HowComputerscientistThoughtTheyDiscoverdProbabilityTheory}
 \include{BellsInequality}
 \include{PROSAandTheDiscretizationOfTime}
-\include{ImplementationInCoq}
 \include{ARingToRuleThemAllTheFourierTransforms}
 % Kapitel ohne Inhalt
 \include{ToAnswer}
@@ -280,10 +292,6 @@ $\star \star \star$ \textsc{End} $\star \star \star$
 
 
 
-
-%%%%%%%%%%%%%%%%%% Listings from PROSA repository  working directory %%%%%%%%%%%%%%%%%
-
-%\include{/prosa_working_dir/implementation/basic}{PROSArepro}
 
 
 %%%%%%%%%%%%%%%%%%% Nachschalagewerk MBasics %%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -311,7 +319,6 @@ $\star \star \star$ \textsc{End} $\star \star \star$
 
 % Grundlagen der Komplexittstheorie
 %\subimport{mbasic/}{komplex}%% % TODO: Probably have to make the 'Stichwortverzeichnis' build to import this.
-
 
 % Index 
 %\cleardoublepage
