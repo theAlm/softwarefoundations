@@ -4,6 +4,14 @@ Get :
 
 \url{git@gitlab.cs.hs-rm.de:almeroth/prosa_working_dir.git}
 
-\begin{lstlisting}
-{prosa_working_dir/implementation/basics/schedule.v}
-\end{lstlisting}
+
+%\lstinputlisting{PROSArepro}{schedule.v}
+
+\newcommand{\includecode}[2][c]{\lstinputlisting[caption=#2, escapechar=]{#2}<!---->}
+% ...
+
+\includecode{sched.c}
+\includecode[asm]{sched.c}
+% ...
+
+%\lstlistoflistingsla -
