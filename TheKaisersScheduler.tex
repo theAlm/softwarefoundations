@@ -45,11 +45,14 @@ Let's recap \glspl{real-time system} as in \cite{KBK}.
 The {\itshape process} is defined as a sequential execution of a program on a processor. 
 The execution ends after a finite number of steps. 
 Therefore it corresponds to a finite execution of machine commands and is not separable.\\
-A process is called {\itshape periodic} if it should be restated after a certain time called {\itshape the period}. 
-Otherwise a process is called {\itshape aperiodic} or {\itshape sporadic}.\\
+\begin{definition}
+	A process is called {\itshape periodic} if it should be restated after a certain time called {\itshape the period}. 
+	Otherwise a process is called {\itshape aperiodic} or {\itshape sporadic}.
+
 
 Furthermore, whenever as process is said to be {\itshape non-preemptive} the execution may not be interrupted between the beginning and ending of the process. 
-It is called {\itshape preemptive} if it may be interrupted after any instruction.\\  
+It is called {\itshape preemptive} if it may be interrupted after any instruction.
+\end{definition}  
  
 The slotted prirority modell from \cite{B} with  sporadic and periodic processes (\cite{K}).
 Due to \cite{B} the major requirement is saied to be as in the following:
@@ -61,7 +64,7 @@ Due to \cite{B} the major requirement is saied to be as in the following:
 
 Moreover there is this requirement $\mathcal{B}$.
 \begin{quote}
-For $L>\epsilon$ (for a suitable $\epsilon$) for which the real-time thread schedule has asserted a real-time thread $\tau$ to be expectet on the CPU, there must be a function of the method by which the minimum number of CPU cycles avialable to execute the instructions of $\tau$ can be determined.
+`For $L>\epsilon$ (for a suitable $\epsilon$) for which the real-time thread schedule has asserted a real-time thread $\tau$ to be expectet on the CPU, there must be a function of the method by which the minimum number of CPU cycles avialable to execute the instructions of $\tau$ can be determined.'
 \end{quote}
 
 \paragraph{Model of a sporadic disriptive process}
@@ -79,13 +82,8 @@ The scheduler found  in \cite{K} is going to be classified for the scope of impl
  	&\delta e_i \quad \text{for} \quad  i = 1,..,n \quad  \text{denote the execution time}.  
 \end{align}   
 
-<<<<<<< HEAD
 Moreover, we define the slotted priority modell by Bollea with Kaiser's sporadic and periodic disruptive process with a discrete time in contrast to these autors.
-This chioce is due to the real-time model from \cite{PROSA_schedubility_analysis} and the real-time kernel as in  \cite[chp. 5.3]{B}. 
-=======
-Moreover we define the slotted priority model by Bollea with Kaiser's sporadic and periodic disruptive process \cite[] with a discrete time in contrast to these autors.
-This choice is due to the real-time model in \cite[] and \cite[p.12] the exclusion model.
->>>>>>> ad4cdc49bc1e49740d01e638de2de04d33a35f25
+This chioce is due to the real-time model from \cite{PROSA_schedubility_analysis} and the real-time kernel as in  \cite[chp. 5.3]{B} and the exclusion model  \cite[p.12]{B}.
 
 \begin{definition}
 	Time is $\mathbb{N}$.
@@ -104,11 +102,7 @@ Let $P_i\in \mathcal{P}$ be a process and
 \begin{equation}
 P^j_i = ( \Delta p_i, r_i) \in \mathbb{N}_o^2,  
 \end{equation}
-<<<<<<< HEAD
-where $\Delta p_i$ is called the period and $r_i$ the residum. 
-=======
 where $\Delta p_i$ is called the period and $r_i$ the residuum. 
->>>>>>> ad4cdc49bc1e49740d01e638de2de04d33a35f25
 \end{definition}
 Furthermore, time controlled process allocation due to \cite{B} and \cite[p. 34]{K} is defined as in the following.
 
@@ -127,7 +121,7 @@ Let $\sigma: \mathbb{N} \times \mathbb{N}_0 \rightarrow \mathbb{N}_0$ be a funct
 \end{enumerate}
 \end{definition}
 
-A depute process is given by $ N = \{1, \cdots, n\}\subset \mathbf{N}$. 
+A depute process is given by $ N = \{1, \cdots, n\}\subset \mathbb{N}$. 
 
 Let $P \subset \{1, \cdots, n\} \subset S$.
 $S$ is executed in a periodically repeated timeslot such that $\delta p_{sv}$ is the periodlength and $\delta e_{sv}$ is the size of the time slot.
@@ -155,19 +149,14 @@ We have
 where $\Delta p_{p}$ denotes the period of the desruptive process.
 
 \paragraph{The sporadic disruptive process}
-As in \cite{K} the sporadic desruptive process with cummulated calculation time $\Delta e$ satisfies
+As in \cite{K} the sporadic des
+ptive process with cummulated calculation time $\Delta e$ satisfies
 \begin{equation}
 \Delta p_{p} \leq \lvert{\Delta p_{glob}} \rvert. 
 \end{equation}
 With the above assumptions we have
+
 \begin{theorem}
-With the assumption of the schedubility criterium 
-
-
-\begin{eqnarry*}
-\forall t \geq \mathbb{N} \quad &\text{we have}\\
-                                &\sum_{i=1}^n \lfloor \frac{t}{\Delta p_i} \rfloor \Delta e_i \leq \lfloor \frac{t}\Delta p_{sv} \Delta e_{sv} \rfloor  + 
-\end{eqnarray*}
 \end{theorem}
 
 \begin{remark}
