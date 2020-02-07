@@ -26,3 +26,5 @@ gitHeadInfo.gin
 
 mbasic\.fdb_latexmk
 mbasic\.fls
+
+implementation/basic/ImplementationInCoq.log
