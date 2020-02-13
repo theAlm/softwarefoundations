@@ -76,16 +76,12 @@
 		aboveskip=25pt}% Space between text and the top of the listing
 
 
-% Algorithmen in C-Style
-%\SetKwIF{If}{ElseIf}{Else}{if}{\{}{\}\\else if }{\}\\else\{}{\}}%
-%\SetKwSwitch{Switch}{Case}{Other}{switch}{\{}{case}{default:}{\}}%
-%\SetKwRepeat{Repeat}{do \{}{\} while}%
-%\SetKwBlock{Begin}{\{}{\}}
-%\SetKwFor{For}{for}{\{}{\}}
-%\SetKwFor{While}{while}{\{}{\}}
-%\SetKwInput{KwData}{Eingabe}
-%\SetKwInput{KwResult}{Ergebnis}
-%\renewcommand{\listalgorithmcfname}{Algorithmenverzeichnis}%
+
+\usepackage{gitinfo} % see ImplementationInCoq.tex
+
+
+%\renewcommand{\listalgorithmcfname}{Algorithmenverzeichnis}% is not bulidung right now
+
 
 % Baue einen Index
 \makeindex
@@ -124,8 +120,8 @@
 % Definitionen für die Titelseite
 \newcommand{\docutyp}{Skript}
 \newcommand{\lecture}{An Introduction to Coq}
-%\newcommand{\docudate}{Wintersemester 2018/2019}
-\newcommand{\docudate}{Sommersemester 2019}
+\newcommand{\docudate}{Wintersemester 2018/2019}
+%\newcommand{\docudate}{Sommersemester 2019}
 
 \newcommand{\institution}{{\Large Hochschule RheinMain}\\
                           Fachbereich Design Informatik Medien}
@@ -133,9 +129,8 @@
 \newcommand{\lectureremail}{\href{mailto:tanja.almeroth@hs-rm.de}{tanja.almeroth@hs-rm.de}}
 
 \newcommand{\writer}{Tanja Almeroth}
-\newcommand{\reviser}{xxx xxx}
 \newcommand{\email}{Tanja.Almeroth@hs-rm.de}
-\newcommand{\writtendate}{Mai 2019}
+\newcommand{\writtendate}{März 2020}
 
 \begin{document}
 
@@ -143,7 +138,7 @@
 
 \begin{titlepage}
 
-        \vspace{40pt}
+	\vspace{40pt}
 	\begin{center}
 
                 
@@ -173,49 +168,25 @@
 \cleardoublepage
 
 \vspace{0.3\textheight} 
-%\begin{raggedleft}
-%Wenn Leute nicht glauben, dass Mathematik\\
-%einfach ist, dann nur deshalb, weil sie nicht begreifen,\\
-%wie kompliziert das Leben ist.\\[\smallskipamount]
-%\hfill \textsc{John von Neumann}%
-%\end{raggedleft}
-
+\begin{raggedleft}
+Wenn Leute nicht glauben, dass Mathematik\\
+einfach ist, dann nur deshalb, weil sie nicht begreifen,\\
+wie kompliziert das Leben ist.\\[\smallskipamount]
+\hfill \textsc{John von Neumann}%
+\end{raggedleft}
 \vspace*{1.5cm}
 
-%\begin{raggedleft}
-%Wenn es eine gute Idee ist, dann mach es\\ 
-%einfach. Es ist viel einfacher sich hinterher zu\\
-%entschuldigen, als vorher dafür eine\\
-%Genehmigung zu bekommen.\\[\smallskipamount]
-%\hfill \textsc{Grace Hopper}%
-%\end{raggedleft}
+
 
 \vspace*{1.5cm}
 %
-%\begin{raggedleft}
-%Wake up! Time to die!\\[\smallskipamount]
-%\hfill \textsc{Leon} in Blade Runner%
-%\end{raggedleft}
+\begin{raggedleft}
+\url{https://www.youtube.com/watch?v=2E7fBHIUGBs}\\[\smallskipamount]
+\end{raggedleft}
 
 \vfill
 
-%Dieses Skript ist aus den Fragen und Bemerkungen von Studenten des
-%Diplom, Bachelor und Master-Studiengangs Informatik an der Hochschule
-%RheinMain (ehemals Fachhochschule Wiesbaden) hervorgegangen. Ich danke
-%allen meinen Studenten für konstruktive Anmerkungen und
-%Verbesserungen. Dabei möchte ich besonders Frau Carola Henzel nennen,
-%die sehr viele Tippfehler (Mengen, Summen und Beweistechniken)
-%berichtigte. Herr Kim Stebel hat die Bemerkungen zu bipartiten Graphen
-%verbessert. Herr Norbert Wesp berichtete über sprachliche Fehler in
-%Abschnitt \ref{sec:proof} und Tippfehler in der Einleitung. Eine größere 
-%Anzahl von Tipp- und Flüchtigkeitsfehlern wurden von Herrn Marcell Dietl
-%entdeckt und gemeldet. Danke!
-%
-%Naturgemäß ist ein Skript nie fehlerfrei (ganz im Gegenteil!) und es
-%ändert (mit Sicherheit!) sich im Laufe der Zeit. Es sollte Ihnen klar 
-%sein, dass Fehler, Ungenauigkeiten und Unklarheiten natürlich nur 
-%aus didaktischen Gründen und zu Ihrer  Belustigung eingebaut 
-%wurden. Finden Sie diese Fehler und verbessern Sie mich!
+
 
 \cleardoublepage
 
@@ -227,6 +198,7 @@
 \pagestyle{scrheadings}
 
 \pagenumbering{arabic}
+
 	
 %%%%%%%%%%%%%%%%%%%%%%%%% content begin %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -244,26 +216,38 @@
 
 % Einführung in den semi-automatischen Beweisassistenten und 
 % Grundkonzepte des Beweisens und des deduktiven Schließens 
-% Das Herleiten der natürlichen Zahlen mit den  Peanoaxiomen 
+% das Herleiten der natürlichen Zahlen mit den  Peanoaxiomen 
 
 \include{Basics}
 \include{Importing}
 \include{Induction}
 \include{Lists}
 
-%
+% Einführug in Planungsverfahren
+
 \include{TheKaisersScheduler}
+
+% Coq Anwendungen 
+
+% Listings der  Dateien aus dem PROSA repository working directory 
+
+\subimport{prosa_working_dir/}{IntroductionToRTproofs}
+\subimport{prosa_working_dir/implementation/basic/}{ImplementationInCoq}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 \include{AxiomsOfKolmogorov}
 \include{HowComputerscientistThoughtTheyDiscoverdProbabilityTheory}
 \include{BellsInequality}
 \include{PROSAandTheDiscretizationOfTime}
-\include{ImplementationInCoq}
 \include{ARingToRuleThemAllTheFourierTransforms}
 % Kapitel ohne Inhalt
 \include{ToAnswer}
 
 
 %%%%%%%%%%%%%%%%%%%%% Inhalt Ende %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 \begin{center}
 \mbox{}
@@ -276,10 +260,12 @@ $\star \star \star$ \textsc{End} $\star \star \star$
 \appendix
 
 \include{additional}
+
+
 %%%%%%%%%%%%%%%%%%% Nachschalagewerk MBasics %%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% include this later
-\subimport{mbasic/}{notation}
+\subimport{mbasic/}{notation} %% TODO: check
 
 % Einige grundlegende Notationen
 \subimport{mbasic/}{notation}
