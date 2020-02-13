@@ -1,6 +1,6 @@
-Ein Vorlesungsskript über den Coq-Proof-Assitenten
+**Ein Vorlesungsskript über den Coq-Proof-Assitenten**
 
-==================================================
+
 
 IntroductionToCoq.pdf sind die ".pdf"-Seiten über eine Zusammenfassung über den Coq-Beweis-Assitenten.
 
