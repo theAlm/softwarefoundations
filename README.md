@@ -1,5 +1,6 @@
 Ein Vorlesungsskript über den Coq-Proof-Assitenten
 
+==================================================
 
 IntroductionToCoq.pdf sind die ".pdf"-Seiten über eine Zusammenfassung über den Coq-Beweis-Assitenten.
 
@@ -12,14 +13,14 @@ Zum clonen des Skriptes sei auf Git-Submodule verwiesen.
     [git-Online-Dokumentation](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
     
 
-Die [Latex](https://www.latex-project.org/)-Dateien können wie folgt gebaut werden. 
+Die [Latex2\epsilon](https://www.latex-project.org/)-Dateien können wie folgt gebaut werden. 
 
 IntroductionToCoq.tex ist das Main-Latex-File und das Skript kann gebaut werden mit:
 
     xelatex IntroductionToCoq.tex
     bibtex IntroductionToCoq.tex
-    Xelatex IntroductionToCoq.tex
-    bibtec IntroductionToCoq.tex
+    xelatex IntroductionToCoq.tex
+    bibtex IntroductionToCoq.tex
     showpdf
     
 
