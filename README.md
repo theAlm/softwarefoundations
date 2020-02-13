@@ -1,8 +1,9 @@
-**Ein Vorlesungsskript über den Coq-Proof-Assitenten**
+**Eine Einführung in Coq **
 
 
 
-IntroductionToCoq.pdf sind die ".pdf"-Seiten über eine Zusammenfassung über den [Coq-Beweis-Assitenten](https://coq.inria.fr/).
+[IntroductionToCoq.pdf](https://gitlab.cs.hs-rm.de/almeroth/softwarefoundations/blob/master/IntroductionToCoq.pdf) sind die ".pdf"-Seiten einer Zusammenfassung über [Coq](https://coq.inria.fr/).
+Coq ist eine Software zur semi-automatischen formalen Beweisführung.
 
 Diese Einführung verwendet das Skript 'mbasics' von [Steffen Reith](https://www.hs-rm.de/de/hochschule/personen/reith-steffen/) über eine Einführung in Mathematische Grundlagen für Studierende der Informatik.
 
