@@ -6,7 +6,8 @@ This summary aims to be give a clear instruction of the usage and applicability 
 
 \subsection{Preface}
 
-Within this introduction the mathematical underpinning of reliable software is given the building blocks are
+Within this introduction the mathematical underpinning of reliable software is given.
+The building blocks are
 \begin{itemize}
 \item basics concepts of logic (see sec. \ref{} % TODO:)
 \item computer assisted theorem proving (see sec. \ref{} %TODO:)
@@ -23,9 +24,10 @@ Within this introduction the mathematical underpinning of reliable software is g
 There is a lot of motivation for reliable software. 
 First of all the scale, complexity and number of involved people in modern systems is increasing.
 Therefore building correct software is extremely difficult.
-Information processing is waved into every aspect of society, leading to amplified costs of bugs and insecurities upto multiple levels.\\
+Information processing is waved into every aspect of society, leading to amplified costs of bugs and insecurities upto multiple levels. An on the hand rule says the later an error is located the more expensive it is.\\
 Computer scientists and software engineers have responded to improve reliability with a lot of design threats and to improve reliability and mathematical technices for reasoning.
-Within this work it should be contributed to validates these properties. They are:
+Within this work it should be contributed to validates these properties. 
+They are:
 \begin{enumerate}
 \item basic tools from logic for making and justifying precise claims about programs
 \item use of proof assistants to construct rigorous logical arguments
@@ -52,7 +54,7 @@ These are able of a ''push-button- operation'' which returns true, false'' or ``
 Example applications are \glspl{SAT-solver}, \glspl{SMT-solver} or \glspl{model checker}. 
 Second there are proof assistants, which are hybrid tools that automate the more routine-like aspects of a proof, while depending on human guidance. 
 Examples are \gls{Isabelle}, Agda, Twelf, ACL2, PVS or Coq.\\
-The Coq proof assistant has been developed since 1983 and gathered a large community in research and the industry.
+The Coq proof assistant has been developed since 1983 and gathered a large community in research and industry.
 It provides a rich environment for interactive development of machine-checked code for formal reasoning.\\
 It's kernel is a simple proof checker, ensuring that correct dilution of sets are ever performed. 
 Moreover, there are high-level facilities for proof development.
@@ -62,8 +64,7 @@ Coq has been applied as critical enabler across computer science and mathematics
 \subsection{Trivia}
 
 Some French computer scientist have a tradition of naming their software as animal species.
-{\itshape Coq} is the French word for roster.
-The roster is the national symbol of the French.
+{\itshape Coq} is the French word for roster, which is the national symbol of France.
 Coq sounds like the initial of the \gls{CoC}.
 One of Coq's early developers is called Terry Coquand.
 
@@ -73,16 +74,16 @@ One of Coq's early developers is called Terry Coquand.
 There are two meanings of the term. 
 It is either refereed to programming idioms (something like a pattern) or something else as in this work.\\
 
-Functional programming refers to a programming, which is free of side effects.
+Functional programming refers to a way of programming, which is free of side effects.
 By side effects phenomena as I/O or redirecting pointers are meant. 
 For example, let's imagine iterative sorting. 
-A sorting-function might take a list of numbers to and rearrange the pointers to these numbers.
+A sorting-function might take a list of numbers and rearrange the pointers to these numbers.
 In functional programming a new list is returned which contains the same number arranged in an order.\\ 
-Advantages of functional programming are  that we are having a new data structure leaving the old one in tact. 
-Therefore there is no reason to worry about the structure being shared, weather one part of the program might break an invariant that another part of the program relies on.\par
+Advantages of functional programming are that we are having a new data structure leaving the old one intact. 
+Therefore there is no reason to worry about the structure being shared, whether one part of the program might break an invariant that another part of the program relies on.\par
 The industry is interested in functional programming due to it's simple behavior in the presence of accuracy.
 Furthermore, functional programming is more easy to parallelize then the counter parts.
-E.g. the map-reduce idiom, which relies at the heart of massively distributed query processor like \gls{Hadoop} is functional programming. 
+For example the map-reduce idiom, which relies at the heart of massively distributed query processor like \gls{Hadoop} is functional programming. 
 
 \begin{quote}
 `` [...] When we come to look more closely, we find that these two sides of Coq are actually aspects of the very same underlying machinery - i.e. proofs are programs.'' 
