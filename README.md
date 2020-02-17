@@ -24,10 +24,11 @@ IntroductionToCoq.tex ist das Main-Latex-File und das Skript kann gebaut werden 
     bibtex IntroductionToCoq.tex
     showpdf
 
-Das Glossar benutz das Latex-Paket [glossaries-extra](https://www.ctan.org/pkg/glossaries-extra). Falls das Glossar neu gebaut werden muss, müssen extrene Anwendung aufgerufen werden vor dem kompilieren mit xelatex.
+Das Glossar benutz das Latex-Paket [glossaries-extra](https://www.ctan.org/pkg/glossaries-extra). Falls das Glossar neu gebaut werden muss, müssen extrene Anwendung aufgerufen werden vor dem kompilieren mit $\LATEX$.
 
     makeglossaries-lite.lua "TntroductionToCoq"
     makeglossaries "IntroductionToCoq"
+    latex IntroductionToCoq.tex
     
  
     
