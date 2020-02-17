@@ -16,13 +16,13 @@ Zum clonen des Skriptes sei auf Git-Submodule verwiesen.
 
 Die [Latex2_{\epsilon}](https://www.latex-project.org/)-Dateien können wie folgt gebaut werden. 
 
-IntroductionToCoq.tex ist das Main-Latex-File und das Skript kann gebaut werden mit:
+[IntroductionToCoq.tex](https://gitlab.cs.hs-rm.de/almeroth/softwarefoundations/blob/master/IntroductionToCoq.tex)  ist die Latex-Master-Datei und das Dokument kann gebaut werden mittels den folgenden Komandos:
 
-    xelatex IntroductionToCoq.tex
-    bibtex IntroductionToCoq.tex
-    xelatex IntroductionToCoq.tex
-    bibtex IntroductionToCoq.tex
-    showpdf
+    $ xelatex IntroductionToCoq.tex
+    $ bibtex IntroductionToCoq.tex
+    $ xelatex IntroductionToCoq.tex
+    $ bibtex IntroductionToCoq.tex
+    $ showpdf
 
 Das Glossar benutz das Latex-Paket [glossaries-extra](https://www.ctan.org/pkg/glossaries-extra). Falls das Glossar neu gebaut werden muss, müssen extrene Anwendung aufgerufen werden vor dem kompilieren mit latex.
 
