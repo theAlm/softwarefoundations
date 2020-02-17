@@ -97,7 +97,7 @@ For example the map-reduce idiom, which relies at the heart of massively distrib
 Coq runs on Windows, Linux and macOS.
 A current installation can be found on the Coq-homepage \cite{Coq}. 
 The listings in this work from \cite{PACGGHSY} have been tested using Coq 8.8.1.
-The following choices of IDEs are available. 
+The following choices of integrated development environments (IDEs) are available. 
 
 
 \paragraph{Coq in the command line}
@@ -110,7 +110,8 @@ Because the interactive mode is preferred, when using Coq as a proof assistant.
 
 Proof general is an Emacs based IDE. 
 It is recommended to users who are familiar with the Emacs-editor.
-Proof general supports multipel proof assistants. The corresponding proof general mode (\lstinline!Coq-mode!) will be invoted automatically when a proof script a \lstinline!v.!-file is opened \cite{PROOFGENERAL}. 
+Proof general supports multipel proof assistants. 
+The corresponding proof general mode (\lstinline!Coq-mode!) will be invoted automatically when a proof script a \lstinline!v.!-file is opened \cite{PROOFGENERAL}. 
 \paragraph{CoqIDE}
 
 CoqIDE is a simple stand-alone IDE. 
@@ -121,28 +122,27 @@ It shall be warned that CoqIDE should be run with the asynchronous and error rel
 \paragraph{Coquille}
 
 Coquille is a vim plug-in used by the author.
-It can be found here: \url{https://github.com/Werner2005/coquille}.
+It can be found at \url{https://github.com/Werner2005/coquille}.
 It provides syntax check by color highlighting and and interactive evaluation.  
 The author worked with coquille to explorer Coq.\\
 It provides a similar workflow as CoqIDE. 
-Coquille labels itself as a user friendly  replacement of \gls{coqtop}. 
+Coquille labels itself as a user friendly  replacement of \lstinline!coqtop!. 
 The running buffer is the one where navigation takes place. 
 To that coquille provides forwards and backwards navigation.\\
 
 
 In order to launch coquille open a Coq script (a \texttt{.v}-file) by gvim or vim from the console and run (\texttt{:CoqLaunch}). 
 Coqille's main screen provides an evaluation of the Coq-code untill the position of the curser (press \texttt{F4}), a stepwise forward (press \texttt{F2}) and backwards (press \texttt{F3}) evaluation.                 
-Furthermore, the plug-in provides syntax highlighting (see figure \ref{fig:Coquille}).
+Furthermore, the plug-in provides syntax highlighting (see Figure \ref{fig:Coquille}).
 While running a buffer it is deposited grey.
 A green deposition indicates a correct evaluation. 
 And a just proven subgoal is displayed in the goal window. 
 Failing commands are deposited red and the message window reports errors.
 
- %%%%%%%%%%%%%%%%%%%%%% TODO %%%%%%%%%%%%%%%%%%%%%
+
 \paragraph{Encoding }
-Look this up here:Zeichensatz (ASC II)\\
-https://coq.inria.fr/refman/language/gallina-specification-language.html
-%%%%%%%%%%%%%%%%%%%%%% TODO end %%%%%%%%%%%%%%%%%
+Coq proof scripts (\texttt{.v}-files) are encoded by ASCII. But support for unicode is provided, too \cite{GallinaSpec}.
+
 
 \begin{figure}[h]
 \includegraphics[width=0.9\textwidth]{proofgeneral.png}
@@ -161,4 +161,5 @@ It's keywords start with a capital letter e.g. \lstinline!Theorem!, \lstinline!P
 Second, there is the tactics language (e.g. \lstinline!intros! and \lstinline!exact!).
 Finally there is an unnamed language of Coq-terms. 
 It consists of a lot of operators (e.g. \lstinline!for all A:Prop, A -> A!).
-Technically, it is part of the tactics language, but it is useful to think of it as it's own thing.
+Technically, it is part of the tactics language, but it is useful to think of it as it's own thing \cite{coq}.
+\url{https://coq.inria.fr/refman/language/gallina-specification-language.html}
