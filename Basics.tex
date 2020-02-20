@@ -16,7 +16,7 @@
 	 
 	 
 	  The built-in features set in Coq is extremely small. In particular, Coq is a powerful mechanism for defining data types from scratch.
-	  Current Coq distributions come preloaded with an extensive standard library containing Boolean, numbers, data struts like lists and hash tables.\\
+	  Current Coq distributions come preloaded with an extensive standard library containing Boolean, numbers, data structures like lists and hash tables.\\
 	  
 	  In this course we are going to explicitly recapitulate the used definitions. 
 	  It is started by a rather simple example of a self-defined type.  
@@ -50,7 +50,10 @@
 	  \end{lstlisting}}
 	  \end{example}
 	  Coq is able of {\itshape type  interference}, whenever the type is not defined explicitly.
-	  But for readability, we are including types in the following.\\   
+	  But for readability, we are including types in the following.
+	 Note that the keyword for function is \lstinline!Definition! and the type if called \lstinline!Inductive!. 
+	 We are calling the data-type \lstinline!day! an inductively defined data-type. 	 
+	 \\   
 	  
 	  For testing the above definition and function we have three possibilities in Coq:
 	     
@@ -62,14 +65,14 @@
 	         {\itshape The second weekday after Saturday is Tuesday.}     
 			   \begin{lstlisting}
 			   		Example. test_next_weekday: (next_weekday (next_weeekday(saturday)) = tuesday 
-			   		proof. simpl. reflexivity. Qed.
+			   		Proof. simpl. reflexivity. Qed.
 			   \end{lstlisting}
 	   			The details of the implementation are not important right now. 
 	   			We are going to come back to them later.
 	   
 	   \item \label{CoqAsCodeGen} Moreover, Coq can be asked to \lstinline!extract! a program from our \lstinline! Definition! in a programming language which is more conventional, being equipped with a high performance compiler.
 	    In particular this is one of the main uses of Coq. 
-	    It provides a method to transfer proved-correct algorithms in Gallina to efficient machine code.
+	    It provides a method to transfer proved-correct algorithms in Gallina to efficient machine code (see section \ref{sec:coqAsACodeGenerator}).
 	    (Assuming the correctness of the corresponding high performance compiler e.g. the Ocaml, Haskell or Scheme compiler.) 			
 	   \end{enumerate}   
 	
@@ -78,7 +81,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 	    Of course, Coq provides an default implementation of Boolean.
-	    (See the \newline \href{https://www.cs.princeton.edu/courses/archive/fall07/cos595/stdlib/html/Coq.Init.Datatypes.html}{Coq.Init.Datatypes in the Coq-Library documentation}).  
+	    (See the \newline \href{https://www.cs.princeton.edu/courses/archive/fall07/cos595/stdlib/html/Coq.Init.Datatypes.html}{Coq.Init.Datatypes \allowbreak in the Coq-Library documentation}).  
 	    In the following we are going to be consistent with the Coq library documentation according to the standard library.
 	    We are going to introduce coinciding self-defined data types whenever possible.\\
 	    Boolean can be defined as follows:
@@ -90,7 +93,7 @@
 	      | false.
 	    \end{lstlisting}
 	     A function with multiple input arguments is implemented by
-	    \begin{lstlisting}[caption = \lstinline!orb!]
+	    \begin{lstlisting}[caption = \lstinline!orb!, label = lst:orb]
 	    Definition orb (b1: bool) (b2: bool) : bool :=
 	    match b1 with
 		  | true -> true
@@ -136,8 +139,8 @@
 	    \begin{minipage}[t]{0.45\textwidth}
 		\begin{lstlisting}[caption = \lstinline!rgb!, label = lst:rgb]
 		 Inductive rgb: Type:=
-		  | red     (* These are the*)
-		  | green   (* expressions in*)
+		  | red     (* These are the *)
+		  | green   (* expressions in *)
 		  | blue.   (* the set [rgb]. *)
 		 \end{lstlisting}
 		 The constructors of the type \lstinline!rgb! are \lstinline!red, green! and \lstinline!blue!. 
@@ -154,7 +157,16 @@
 		 %The expressions in the set color are \lstinline!black, white! and \lstinline!primary! if primary is fomed as above.
 		 \end{minipage}	 	 
 		 
-		 Note that expressions formed as in listing \ref{lst:rgb} and \ref{lst:color} are the only ones belonging to the sets \lstinline!rgb! and \lstinline!color!.
+		 Note that expressions formed as in listing \lstinline!rgb! and \lstinline!color! (see  listing \ref{lst:rgb} and  \ref{lst:color}) are the only ones belonging to the sets \lstinline!rgb! and \lstinline!color!.
+		 A function on this struct can by defined by patternmatching just as in the previus example (listing \ref{lst:orb}).
+		 \begin{lstlisting}[caption = \lstinline!monochrome! , label = lst:monochrome]
+		 Definition monochrome (c : color) : bool :=
+			  match c with
+			  | black => true
+			  | white => true
+			  | primary q => false
+			  end.
+		 \end{lstlisting}
 
 
 		 
@@ -166,17 +178,17 @@
 		\begin{example}[A nibble: half a byte]~\\\vspace{-10mm}
 	 	 	{\normalfont 
 	 	 	    \begin{lstlisting}[caption = \lstinline!bit! and \lstinline!nibbel!]
-	 	 		Inductive bit: Type := (*a bit*) 
+	 	 		Inductive bit: Type := (* a bit *) 
 	 	 		 |B0
 	 	 		 |B1.
 	 	 		 
-	 		    Inductive nibble: Type := (*a nibble*)
+	 		    Inductive nibble: Type := (* a nibble *)
 	 		   	 |bits( b0 b1 b2 b3: bit).
 	 		   			 	
 	 		   	Check(bits B1 B0 B1 B0) (* => bits B1 B0 B1 B0 : nibble *)
 	 		\end{lstlisting}
 	 		Hence, a tuple of four bits is a nibble.\\ 		
-	 		Assume we would like to test a nibble in order to see if all it's bits are 0. 
+	 		Assume we would like to test a nibbel in order to see if all it's bits are 0. 
 	 		The nibble is unwrapped by pattern-matching:
 	 		\begin{lstlisting}[caption = \lstinline!all_zero!]
 	 		Definition all_zero(nb: nibble): bool :=
@@ -226,7 +238,7 @@
 	  The two constructors of the set \lstinline!nat! are \lstinline!S! and \lstinline!0!. \\
 	
 	 % One might picture this representation by strokes on a coaster in a beer garden.                                                       
-	 One might picture this representation by strokes on the coffee consummation list of staff members in room C382.  
+	 One might picture this representation by strokes in the beergarden.  
 	 (Actually the definition in listing \ref{lst:DefNat} is an inductive definition as delinated in the Appendix \ref{subsec:InduktiveDefinition}.)	  
 	  \begin{itemize}
 	  \item The expression \lstinline!0! is in the set \lstinline!nat!.

@@ -6,10 +6,13 @@
 \setmainlanguage[variant=british]{english}
 \setlength{\parindent}{0pt} % we don't want paragraph indentation  
 
+% packages for mathematical symbols
 \usepackage{amssymb}
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{enumerate}
+\usepackage{float}
+\usepackage{eqnarray}
 
 \usepackage{booktabs}
 \usepackage{graphicx}
@@ -44,10 +47,15 @@
 \usepackage{import}
 \usepackage{glossaries}
 \usepackage[automake]{glossaries-extra}
-\usepackage{float}
-\usepackage{eqnarray}
 
-\usepackage{listings}
+%\usepackage[hyphens]{url}
+%\usepackage{hyperref}
+
+
+
+
+
+\usepackage{listings} % syntayhighliting for coq-code
 \usepackage{lstcoq}
 \lstset{language=coq, % Coq
 		tabsize=4, % Tabulatorbreite
