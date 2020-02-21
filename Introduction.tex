@@ -10,6 +10,9 @@ This summary aims to be give a clear instruction of the usage and applicability 
 
 Within this introduction the mathematical underpinning of reliable software is given.
 The building blocks are
+
+\textcolor{red}{!!!TODO!!!}
+
 \begin{itemize}
 \item basics concepts of logic (see sec. \ref{} % TODO:)
 \item computer assisted theorem proving (see sec. \ref{} %TODO:)
@@ -100,7 +103,7 @@ For example the map-reduce idiom, which relies at the heart of massively distrib
 
 
 \subsection{System Requirements}
-\subsection{subsection:systemrequirements}
+\label{subsection:systemrequirements}
 
 Coq runs on Windows, Linux and macOS.
 A current installation can be found on the Coq-homepage \cite{Coq}. 
@@ -121,7 +124,7 @@ Because the interactive mode is preferred, when using Coq as a proof assistant.
 Proof general is an Emacs based IDE. 
 It is recommended to users who are familiar with the Emacs-editor.
 Proof general supports multipel proof assistants. 
-The corresponding proof general mode (\lstinline!Coq-mode!) will be invoted automatically when a proof script a \lstinline!v.!-file is opened \cite{PROOFGENERAL}. 
+The corresponding proof general mode,  the socalled \lstinline!Coq-mode!, will be invoted automatically when a proof script a \lstinline!v.!-file is opened \cite{PROOFGENERAL}. 
 
 
 \paragraph{CoqIDE}
@@ -144,7 +147,6 @@ Coquille labels itself as a user friendly  replacement of \lstinline!coqtop!.
 The running buffer is the one where navigation takes place. 
 To that coquille provides forwards and backwards navigation.\\
 
-
 In order to launch coquille open a Coq script (a \texttt{.v}-file) by gvim or vim from the console and run (\texttt{:CoqLaunch}). 
 Coqille's main screen provides an evaluation of the Coq-code untill the position of the curser (press \texttt{F4}), a stepwise forward (press \texttt{F2}) and backwards (press \texttt{F3}) evaluation.                 
 Furthermore, the plug-in provides syntax highlighting (see Figure \ref{fig:Coquille}).
@@ -166,7 +168,7 @@ Coq proof scripts (\texttt{.v}-files) are encoded by ASCII. But support for unic
 Left window: The open Coq-script \texttt{Basics.v}.
 Upper right: The {\itshape goal window}. 
 Lower right: The {\itshape message window} \cite{COQIDE}.}
-\label{fig:Coquille}
+\label{fig:proofGeneral}
 \end{figure}
 
 
