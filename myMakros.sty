@@ -23,16 +23,33 @@
 % C-listings
 \newcommand{\includeccode}[2][c]{\lstinputlisting[language=C, caption=#2, escapechar=]{#2}}
 
+\newcommand{\includeccodeMod}[3][c]{\lstinputlisting[language=C, caption={#2, Source: \cite{#3}, modified.}, escapechar=]{#2}}
+
+\newcommand{\includeccodeSource}[3][c]{\lstinputlisting[language=C, caption={#2, Source: \cite{#3}}, escapechar=]{#2}}
+
+
+
 % example usage:
 %\includeccode{sched.c}
 %\includeccode[asm]{sched.c}
+%\includeccodeMod{sched.c}{PROSA_schedubility_analysis}
+%\includeccodeSource{sched.c}{PROSA_schedubility_analysis}
+
 
 % Coq-listings
 \newcommand{\includecoqcode}[2][v]{\lstinputlisting[caption= \lstinline!#2!,escapechar=]{#2}}
 
+\newcommand{\includecoqcodeMod}[3][v]{\lstinputlisting[caption={\lstinline!#2!, Source: \cite{#3}, modified.}, escapechar=]{#2}}
+
+\newcommand{\includecoqcodeSource}[3][c]{\lstinputlisting[caption={\lstinline!#2!, Source: \cite{#3}}, escapechar=]{#2}}
+
 % bash-like listings
 \newcommand{\includebashcode}[2][v]{\lstinputlisting[language=bash, caption = \lstinline!#2!, escapechar=]{#2}}
 
+\newcommand{\includebashcodeMod}[3][v]{\lstinputlisting[language=bash, caption={\lstinline!#2!, Source: \cite{#3}, modified.}, escapechar=]{#2}}
+
+
+\newcommand{\includebashcodeSource}[3][v]{\lstinputlisting[language=bash, caption={\lstinline!#2!, Source: \cite{#3}.}, escapechar=]{#2}}
 
 %----------------------------------------------------------------------
 
