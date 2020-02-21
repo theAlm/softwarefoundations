@@ -1,3 +1,52 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{myMakros}[2020/02/21]
+
+\RequirePackage{script}
+\RequirePackage{listings} 
+\RequirePackage{lstcoq}
+
+%--------------------------------------------------------------------
+% additional mathematica symbols
+%--------------------------------------------------------------------
+
+% modulo-operator 
+\newcommand{\Mod}[1] {\ (\mathrm {mod} \ #1)} 
+
+%---------------------------------------------------------------------
+% sourcecode-listings: automatic formatation
+%---------------------------------------------------------------------
+
+% C-listings
+\newcommand{\includeccode}[2][c]{\lstinputlisting[language=C, caption=#2, escapechar=]{#2}}
+
+\newcommand{\includeccodeMod}[3][c]{\lstinputlisting[language=C, caption={#2, Source: \cite{#3}, modified.}, escapechar=]{#2}}
+
+\newcommand{\includeccodeSource}[3][c]{\lstinputlisting[language=C, caption={#2, Source: \cite{#3}}, escapechar=]{#2}}
+
+% example usage:
+%\includeccode{sched.c}
+%\includeccode[asm]{sched.c}
+%\includeccodeMod{sched.c}{PROSA_schedubility_analysis}
+%\includeccodeSource{sched.c}{PROSA_schedubility_analysis}
+
+
+% Coq-listings
+\newcommand{\includecoqcode}[2][v]{\lstinputlisting[caption= {\lstinline!#2!}, label = lst:#2 , escapechar=]{#2}}
+
+\newcommand{\includecoqcodeMod}[3][v]{\lstinputlisting[caption={\lstinline!#2!, Source: \cite{#3}, modified.}, escapechar=]{#2}}
+
+\newcommand{\includecoqcodeSource}[3][v]{\lstinputlisting[caption={\lstinline!#2!, Source: \cite{#3}}, escapechar=]{#2}}
+
+% bash-like listings
+\newcommand{\includebashcode}[2][md]{\lstinputlisting[language=bash, caption = \lstinline!#2!, label = lst#2, escapechar=]{#2}}
+
+\newcommand{\includebashcodeMod}[3][md]{\lstinputlisting[language=bash, caption={\lstinline!#2!, Source: \cite{#3}, modified.}]{#2}}
+
+
+\newcommand{\includebashcodeSource}[3][md]{\lstinputlisting[language=bash, caption={\lstinline!#1!, Source: \cite{#2}.}, label = lst#2] {#2}}
+
+%----------------------------------------------------------------------
+
 % Makro ex_lstlisting
 % #1 : example's caption
 % #2 : lstlisting's caption 
@@ -5,36 +54,7 @@
 % #4 : lstlisting's source code
 % #5 : example's text
 
-% Identification
-\NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{myMakros}[2019/06/19]
 
-\RequirePackage{script}
-\RequirePackage{listings} 
-\RequirePackage{lstcoq}
-
-% modulo-operator 
-\newcommand{\Mod}[1] {\ (\mathrm {mod} \ #1)} 
-
-%---------------------------------------------------------------------
-% Listings
-%---------------------------------------------------------------------
-
-% C-listings
-\newcommand{\includeccode}[2][c]{\lstinputlisting[language=C, caption=#2, escapechar=]{#2}}
-
-% example usage:
-%\includeccode{sched.c}
-%\includeccode[asm]{sched.c}
-
-% Coq-listings
-\newcommand{\includecoqcode}[2][v]{\lstinputlisting[caption= \lstinline!#2!,escapechar=]{#2}}
-
-% bash-like listings
-\newcommand{\includebashcode}[2][v]{\lstinputlisting[language=bash, caption = \lstinline!#2!, escapechar=]{#2}}
-
-
-%----------------------------------------------------------------------
 
 %
 %\newcommand{\ex_lstlisting}[5]{%
