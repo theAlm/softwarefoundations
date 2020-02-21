@@ -17,6 +17,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 	 \paragraph{Enumerated Type}
+	 \label{par:enumeratedType}
 	 
 	 
 	  The built-in features set in Coq is extremely small. In particular, Coq is a powerful mechanism for defining data types from scratch.
@@ -82,6 +83,7 @@
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\subsection{Boolean}
+	\label{subsec:boolean}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 	    Of course, Coq provides an default implementation of Boolean.
@@ -114,6 +116,7 @@
 	    
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	     
 	\subsection{Some Notation}
+	\label{subsec:someNotation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 	    As in the Coq doc documentation tool the following notation convention is introduced:
 	     
@@ -125,6 +128,7 @@
 	     
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	     
 	\subsection{Types}
+	\label{subsec:types}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	     Every expression in Coq has a type, which can be revealed by \lstinline!check!. 
 	     \begin{enumerate}
@@ -136,6 +140,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	   
 	\subsection{New Types from Old}
+	\label{subsec:newTypesFromOld}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	          
 		 Note that so far the data-types we have seen were enumerated types.
@@ -177,6 +182,7 @@
 		 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 	\subsection{Tuples}
+	\label{subsec:tuples}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 	    A single constructor with multiple parameters can be used to create a type \lstinline!tuple!.
@@ -206,6 +212,7 @@
 	 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 	\subsection{Modules}
+	\label{subsec:modules}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 		Coq provides a {\itshape module system} to aid organizing large developments (like Packages in Java (see \cite[Section 3.6.5]{U}).
@@ -223,6 +230,7 @@
 		
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 	\subsection{Numbers}
+	\label{subsec:numbers}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 	  Note that on the one hand the types day, bool, bits and tuples have a finite set of values, while on the other hand the set of natural numbers $\mathbb{N}$ is an infinite set.\\ 
@@ -369,6 +377,7 @@
 	   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	   
    \subsection{Multi Argument-Function by Recursion}
+   \label{subsec:multiArgFuncByRec}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	   
 	   \begin{lstlisting}[caption = \lstinline!plus!, label=lst:plus]
@@ -408,6 +417,7 @@
 	   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	        
    \subsection{Introducing Notations}
+   \label{subsec:IntroducingNotations}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 	
 	    For the Coq-parser and Coq-prettifyer's sake we are introducing a new notation:
@@ -442,6 +452,7 @@
 	    
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	     
 	   \subsection{Proof by Simplification}
+	   \label{subsec:ProofBySimplifictaion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	   
 	   Till now we have defined a few data types and functions.
