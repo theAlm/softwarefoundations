@@ -1,10 +1,12 @@
 \section{Introduction}
+\label{sec:Introduction}
 
 This is a summary of the electronic text-book \cite{PACGGHSY} with comments and a little rewritten sections by the author and based on the peers and supervisor's feedback. 
 Other references are marked. 
 This summary aims to be give a clear instruction of the usage and applicability of Coq.\\
 
 \subsection{Preface}
+\label{subsec:preface}
 
 Within this introduction the mathematical underpinning of reliable software is given.
 The building blocks are
@@ -20,6 +22,7 @@ The building blocks are
 
 
 \subsection{Overview}
+\label{subsec:Overview}
 
 There is a lot of motivation for reliable software. 
 First of all the scale, complexity and number of involved people in modern systems is increasing.
@@ -37,6 +40,7 @@ They are:
 
 
 \subsection{Logic}
+\label{subsec:logic}
 
 \begin{quote}
 ``As a matter of fact, logic has turned out to be significantly more effective in computer science then it has been in mathematics.'' \cite{PACGGHSY} 
@@ -46,6 +50,7 @@ It's fundamental tool {\itshape inductive proof} is going to be explored very de
 
 
 \subsection{Proof Assistants}
+\label{subsec:proofassistants}
 
 In computer science proof assistants are an important tool for helping construct formal proofs of logical propositions.
 There are two categories of these tools.\\
@@ -62,6 +67,7 @@ Coq has been applied as critical enabler across computer science and mathematics
  
 
 \subsection{Trivia}
+\label{subsec:trivia}
 
 Some French computer scientist have a tradition of naming their software as animal species.
 {\itshape Coq} is the French word for roster, which is the national symbol of France.
@@ -70,6 +76,7 @@ One of Coq's early developers is called Terry Coquand.
 
 
 \subsection{Functional Programming}
+\label{subsection:functionalProgramming}
 
 There are two meanings of the term. 
 It is either refereed to programming idioms (something like a pattern) or something else as in this work.\\
@@ -93,6 +100,7 @@ For example the map-reduce idiom, which relies at the heart of massively distrib
 
 
 \subsection{System Requirements}
+\subsection{subsection:systemrequirements}
 
 Coq runs on Windows, Linux and macOS.
 A current installation can be found on the Coq-homepage \cite{Coq}. 
@@ -101,18 +109,23 @@ The following choices of integrated development environments (IDEs) are availabl
 
 
 \paragraph{Coq in the command line}
+\label{par:CoqInTheCommandLine}
 
 It is not recommended to use Coq in the command line mode. 
 Because the interactive mode is preferred, when using Coq as a proof assistant. 
 
 
 \paragraph{Proof General}
+\label{par:proofGeneral}
 
 Proof general is an Emacs based IDE. 
 It is recommended to users who are familiar with the Emacs-editor.
 Proof general supports multipel proof assistants. 
 The corresponding proof general mode (\lstinline!Coq-mode!) will be invoted automatically when a proof script a \lstinline!v.!-file is opened \cite{PROOFGENERAL}. 
+
+
 \paragraph{CoqIDE}
+\label{par:CoqIDE}
 
 CoqIDE is a simple stand-alone IDE. 
 It labels itself as a user-friendly replacement to \lstinline!coqtop! \cite{COQIDE}.   
@@ -120,6 +133,7 @@ It should be available with any Coq-installation.
 It shall be warned that CoqIDE should be run with the asynchronous and error reliance model disabled. 
 
 \paragraph{Coquille}
+\label{par:Coquille}
 
 Coquille is a vim plug-in used by the author.
 It can be found at \url{https://github.com/Werner2005/coquille}.
@@ -140,7 +154,9 @@ And a just proven subgoal is displayed in the goal window.
 Failing commands are deposited red and the message window reports errors.
 
 
-\paragraph{Encoding }
+\paragraph{Encoding}
+\label{par:encoding}
+
 Coq proof scripts (\texttt{.v}-files) are encoded by ASCII. But support for unicode is provided, too \cite{GallinaSpec}.
 
 
@@ -153,7 +169,10 @@ Lower right: The {\itshape message window} \cite{COQIDE}.}
 \label{fig:Coquille}
 \end{figure}
 
+
 \subsection{Languages}
+\label{subsec:languages}
+
 Coq uses three different languages. 
 First, there is a vernacular language. 
 It is a top-level interaction. 
