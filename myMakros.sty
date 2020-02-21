@@ -1,23 +1,21 @@
-% Makro ex_lstlisting
-% #1 : example's caption
-% #2 : lstlisting's caption 
-% #3 : lstlisting's label
-% #4 : lstlisting's source code
-% #5 : example's text
-
 % Identification
+
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{myMakros}[2019/06/19]
+\ProvidesPackage{myMakros}[2020/02/21]
 
 \RequirePackage{script}
 \RequirePackage{listings} 
 \RequirePackage{lstcoq}
 
+%--------------------------------------------------------------------
+% additional mathematica symbols
+%--------------------------------------------------------------------
+
 % modulo-operator 
 \newcommand{\Mod}[1] {\ (\mathrm {mod} \ #1)} 
 
 %---------------------------------------------------------------------
-% Listings
+% sourcecode-listings: automatic formatation
 %---------------------------------------------------------------------
 
 % C-listings
@@ -26,8 +24,6 @@
 \newcommand{\includeccodeMod}[3][c]{\lstinputlisting[language=C, caption={#2, Source: \cite{#3}, modified.}, escapechar=]{#2}}
 
 \newcommand{\includeccodeSource}[3][c]{\lstinputlisting[language=C, caption={#2, Source: \cite{#3}}, escapechar=]{#2}}
-
-
 
 % example usage:
 %\includeccode{sched.c}
@@ -52,6 +48,15 @@
 \newcommand{\includebashcodeSource}[3][v]{\lstinputlisting[language=bash, caption={\lstinline!#2!, Source: \cite{#3}.}, escapechar=]{#2}}
 
 %----------------------------------------------------------------------
+
+% Makro ex_lstlisting
+% #1 : example's caption
+% #2 : lstlisting's caption 
+% #3 : lstlisting's label
+% #4 : lstlisting's source code
+% #5 : example's text
+
+
 
 %
 %\newcommand{\ex_lstlisting}[5]{%
