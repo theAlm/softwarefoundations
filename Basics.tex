@@ -106,7 +106,7 @@
 		  | false -> b2
 	    end.
 	    \end{lstlisting}  
-	    The interested reader might compare this to the set denoted by $\mathbb{B}$ in example \ref{ex:numbers} given in Appendix \ref{MengenDef}.\\  
+	    The interested reader might compare this to the set denoted by $\mathbb{B}$ in example \ref{ex:numbers} given in Appendix \ref{MengenDef}.
 	    The functions \lstinline!negb! and \lstinline!andb!, corresponding to the Boolean functions {\emph negation} and {\emph and}, are implemented in a similar manner.\\   
 	    And a new symbolic notations is implemented as follows:
 	    \begin{lstlisting}[caption= introducing a new notation]
@@ -291,7 +291,17 @@
 	   	\includegraphics{SemantikSyntax.eps}
 	   	\caption{An illustration of function pred. Author: Steffen Reith {\textbf Make a proper figure.}}
 	   	\label{fig:SemantikAndSyntaxPred}	     
-	   \end{figure}	    
+	   \end{figure}	  
+	   
+% see: https://www.ctan.org/tex-archive/info/svg-inkscape
+% Note that there are several known bugs.
+
+	\begin{figure}
+		\centering
+		\def\svgwidth{\columnwidth}
+		\input{image.pdf_tex}
+	\end{figure}	   
+	     
 
 	  We are following the idea:  If n has the form \lstinline!S m! for some \lstinline! m! in the set \lstinline!nat!, then return  \lstinline!m!.
 	  \begin{example}[Predecessor Function]%~\\\vspace{-10mm}
