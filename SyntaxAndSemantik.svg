@@ -13,7 +13,7 @@
    height="340.15747"
    id="svg2"
    sodipodi:version="0.32"
-   inkscape:version="0.92.4 5da689c313, 2019-01-14"
+   inkscape:version="0.92.3 (2405546, 2018-03-11)"
    sodipodi:docname="SyntaxAndSemantik.svg"
    version="1.0">
   <defs
@@ -56,13 +56,13 @@
      inkscape:pageshadow="2"
      inkscape:zoom="1.540463"
      inkscape:cx="276.66637"
-     inkscape:cy="224.41329"
+     inkscape:cy="163.18239"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
-     inkscape:window-width="1920"
-     inkscape:window-height="1025"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:window-width="1853"
+     inkscape:window-height="1145"
+     inkscape:window-x="67"
+     inkscape:window-y="27"
      width="12.8cm"
      height="9.6cm"
      units="cm"
@@ -121,7 +121,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -152,7 +152,7 @@
        xml:space="preserve"
        id="flowRoot5499"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:25px;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-       transform="translate(-5.8424003,12.333954)"><flowRegion
+       transform="translate(-11.035644,10.386488)"><flowRegion
          id="flowRegion5501"><rect
            id="rect5503"
            width="234.3307"
@@ -164,14 +164,14 @@
          id="flowPara5507" /></flowRoot>    <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:25px;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-       x="288.6434"
+       x="275.01114"
        y="174.96902"
        id="text5511"><tspan
          sodipodi:role="line"
          id="tspan5509"
-         x="288.6434"
+         x="275.01114"
          y="174.96902"
-         style="font-size:13.33333302px">$\matbhh(N)$</tspan></text>
+         style="font-size:13.33333302px">$\matbhh{N}$</tspan></text>
     <flowRoot
        xml:space="preserve"
        id="flowRoot5513"
@@ -184,11 +184,11 @@
            x="83.149605"
            y="241.88976" /></flowRegion><flowPara
          id="flowPara5519"
-         style="font-size:26.66666603px;line-height:20px">Syntax</flowPara></flowRoot>    <flowRoot
+         style="font-size:14.66602667px;line-height:20px">Syntax</flowPara></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot5521"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:25px;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-       transform="translate(3.8949329,8.4390213)"><flowRegion
+       transform="translate(32.457774,7.1407103)"><flowRegion
          id="flowRegion5523"><rect
            id="rect5525"
            width="151.18111"
@@ -196,32 +196,33 @@
            x="257.00787"
            y="234.3307" /></flowRegion><flowPara
          id="flowPara5527"
-         style="font-size:26.66666603px">Semantik</flowPara><flowPara
+         style="font-size:14.66666603px">Semantik</flowPara><flowPara
          id="flowPara5529" /></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot5531"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:25px;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"><flowRegion
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:25px;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       transform="translate(35.054396,47.38835)"><flowRegion
          id="flowRegion5533"><rect
            id="rect5535"
-           width="226.77167"
-           height="98.267715"
-           x="143.62204"
-           y="68.031487" /></flowRegion><flowPara
+           width="98.267715"
+           height="45.35434"
+           x="161.48103"
+           y="65.997467" /></flowRegion><flowPara
          id="flowPara5537"
-         style="font-size:32.2px">Interpretation</flowPara><flowPara
+         style="font-size:13.33333333px">Interpretation</flowPara><flowPara
          id="flowPara5539" /></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot5541"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:25px;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-       transform="translate(-0.64915548,50.634128)"><flowRegion
+       transform="translate(18.825509,51.283283)"><flowRegion
          id="flowRegion5543"><rect
            id="rect5545"
-           width="423.3071"
-           height="90.708664"
+           width="147.47371"
+           height="39.425385"
            x="196.53543"
            y="128.50392" /></flowRegion><flowPara
          id="flowPara5547"
-         style="font-size:20px">\lstinline!pred!</flowPara><flowPara
+         style="font-size:13.33333333px">\lstinline!pred!</flowPara><flowPara
          id="flowPara5549" /></flowRoot>    <flowRoot
        xml:space="preserve"
        id="flowRoot5551"
@@ -234,5 +235,5 @@
            x="15.118111"
            y="7.5590453"
            style="font-size:26.66666667px;" /></flowRegion><flowPara
-         id="flowPara5557"></flowPara></flowRoot>  </g>
+         id="flowPara5557" /></flowRoot>  </g>
 </svg>
