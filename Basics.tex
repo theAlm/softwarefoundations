@@ -167,8 +167,8 @@
 		 %The expressions in the set color are \lstinline!black, white! and \lstinline!primary! if primary is fomed as above.
 		 \end{minipage}	 	 
 		 
-		 Note that expressions formed as in listing \lstinline!rgb! and \lstinline!color! (see  listing \ref{lst:rgb} and  \ref{lst:color}) are the only ones belonging to the sets \lstinline!rgb! and \lstinline!color!.
-		 A function on this struct can by defined by patternmatching just as in the previus example (listing \ref{lst:orb}).
+		 Note that expressions formed as in Listing \lstinline!rgb! and \lstinline!color! (see  Listing \ref{lst:rgb} and  \ref{lst:color}) are the only ones belonging to the sets \lstinline!rgb! and \lstinline!color!.
+		 A function on this struct can by defined by patternmatching just as in the previus example (Listing \ref{lst:orb}).
 		 \begin{lstlisting}[caption = \lstinline!monochrome! , label = lst:monochrome]
 		 Definition monochrome (c : color) : bool :=
 			  match c with
@@ -252,7 +252,7 @@
 	
 	 % One might picture this representation by strokes on a coaster in a beer garden.                                                       
 	 One might picture this representation by strokes in the beergarden.  
-	 (Actually the definition in listing \ref{lst:DefNat} is an inductive definition as delinated in the Appendix \ref{subsec:InduktiveDefinition}.)	  
+	 (Actually the definition in Listing \ref{lst:DefNat} is an inductive definition as delinated in the Appendix \ref{subsec:InduktiveDefinition}.)	  
 	  \begin{itemize}
 	  \item The expression \lstinline!0! is in the set \lstinline!nat!.
 	  \item The expression \lstinline!0! represents the natural number zero. 
@@ -296,17 +296,17 @@
 % see: https://www.ctan.org/tex-archive/info/svg-inkscape
 % Note that there are several known bugs.
 
-	\begin{figure}
-		\centering
-		\def\svgwidth{\columnwidth}
-		\input{image.pdf_tex}
-	\end{figure}	   
+%	\begin{figure}
+%		\centering
+%		\def\svgwidth{\columnwidth}
+%		\input{image.pdf_tex}
+%	\end{figure}	   
 	     
 
 	  We are following the idea:  If n has the form \lstinline!S m! for some \lstinline! m! in the set \lstinline!nat!, then return  \lstinline!m!.
 	  \begin{example}[Predecessor Function]%~\\\vspace{-10mm}
 	   {\normalfont 
-	   Note that although the predecessor of the number zero is not defined, it was declared in listing \ref{lst:pred} for simplicity.    
+	   Note that although the predecessor of the number zero is not defined, it was declared in Listing \ref{lst:pred} for simplicity.    
 
 	   
 	   \begin{minipage}[t]{0.45\textwidth}
@@ -402,7 +402,7 @@
 	    Compute (plus 3 2).
 	   \end{lstlisting}   
 	    A notation convention for calling functions with two expressions and matching two expressions with multiple arguments of the same type exist in Coq, too. 
-	    See listing \ref{lst:minus_nat}.
+	    See Listing \ref{lst:minus_nat}.
 	    
 	   \begin{lstlisting}[label = lst:minus_nat, caption={ \lstinline!minus! and \lstinline!exp!}]
 	    Fixpoint minus (n m: nat): nat :=
@@ -446,7 +446,7 @@
 	   \begin{tabular}{|c|c|c|c|}
 	     \hline 
 	 	  notation      & function        & functionality                       & uses           \\  \hline
-	 	  x - y         & minus           & subtract two natural numbers        & see listing  \ref{lst:minus_nat} \\  \hline
+	 	  x - y         & minus           & subtract two natural numbers        & see Listing  \ref{lst:minus_nat} \\  \hline
 	      x * y         & mult            & multiply natural numbers            & nested \lstinline!match!es \\  \hline   
 	   	  x =? y        & eqb             & test natural numbers                & nested \lstinline!match!es \\  
 	  	                &                 & for equality yielding a Boolean     &                \\  \hline
@@ -482,7 +482,7 @@
 	    	Reflexivity does not only check weather both sides of an equation contain identical values. 
 	    	On top of this it simplifies, which makes it more powerful. 
 	    	We have seen \lstinline!simpl! added in examples so we can see the intermediate state.
-	    	Therefore, the proof in listing \ref{lst:plus_0_n} can be simplified by omitting \lstinline!simpl!.(See listing \ref{lst:plus0nPrime}.) 
+	    	Therefore, the proof in Listing \ref{lst:plus_0_n} can be simplified by omitting \lstinline!simpl!.(See Listing \ref{lst:plus0nPrime}.) 
 	     \end{remark}	
 	
 		\begin{lstlisting}[caption={ \lstinline!plus_0_n'!}, label= lst:plus0nPrime]
@@ -506,14 +506,14 @@
 	     which guides the process of checking some claim for example the keyword \lstinline!intros!, \lstinline! simpl! and \lstinline!reflexivity! 
 	     are tactics.     
 	      \begin{remark}{Notation:} 
-	     The suffix \lstinline!_l! is pronounced ``on the left'' (see listing \ref{lst:reflexivity}). 
+	     The suffix \lstinline!_l! is pronounced ``on the left'' (see Listing \ref{lst:reflexivity}). 
 	 	 \begin{lstlisting}[caption = \lstinline!mult_0_l!, label= {lst:reflexivity}]
 		 Theorem mult_0_l: forall n: nat, 0 * n = 0.
 		   Proof. intros n. reflexivity. Qed.
 		 \end{lstlisting}
 		 \end{remark} 
 	      
-	    In order to understand the tactics \lstinline!reflexivity! carefully analyse the Coq-output of listing \ref{lst:reflexivity}.   
+	    In order to understand the tactics \lstinline!reflexivity! carefully analyse the Coq-output of Listing \ref{lst:reflexivity}.   
 	    Let's recall what reflexivity in terms of an equivalence relation means: 
 	   \begin{definition}[Equivalence Relation]
 	   Assume $x,y\in \mathcal{M}$ an arbitrary set $\mathcal{M}\neq\emptyset$ and $\thicksim\subset A \times A$ an arbitrary relation.
@@ -544,7 +544,7 @@
 	%     The {\itshape tactic} \lstinline! intros!.        
 	     Note that the arrow \lstinline!->! tells Coq to rewrite the object of focus from left to right and \lstinline!<-! can be used to rewrite from right to left.\\
 	     
-	     In order to proof theorem \lstinline!plus_id_example! the theorem's hypothesis is rewritten as shown in listing \ref{lst:plus_id_example_proof}.
+	     In order to proof theorem \lstinline!plus_id_example! the theorem's hypothesis is rewritten as shown in Listing \ref{lst:plus_id_example_proof}.
 	     \begin{lstlisting}[caption = \lstinline!plus_id_example! and it's proof, label= {lst:plus_id_example_proof}]
            Theorem plus_id_example: forall n m: nat,
              n = m ->
@@ -556,7 +556,7 @@
                reflexivity.
              Qed.
          \end{lstlisting} 
-         For clearity of the semantics this Coq-code's (listing \ref{lst:plus_id_example_proof}) translation to a mathematical proof is listed in table \ref{tab:aMathematicalTranslation}.  
+         For clearity of the semantics this Coq-code's ( Listing \ref{lst:plus_id_example_proof}) translation to a mathematical proof is listed in table \ref{tab:aMathematicalTranslation}.  
          \begin{table}[h]       
 	   	  \begin{center}
 	 	    \begin{tabular}{|c|l|l|}	       
@@ -588,9 +588,9 @@
 	    	   	   \label{tab:aMathematicalTranslation}  
 	         \end{center}          
           \end{table}  
-       N	ote that the syntax and semantics of the Coq-code in listing \ref{lst:plus_id_example_proof} can be easily understood by a reader who is familiar with the notation of predicate logic as in \ref{BasisLogik}. 
+       N	ote that the syntax and semantics of the Coq-code in Listing \ref{lst:plus_id_example_proof} can be easily understood by a reader who is familiar with the notation of predicate logic as in \ref{BasisLogik}. 
        The function of the tactics \lstinline!reflexivity! is also similar to the principle of reflexivity in predicate logic (see:  Need a predicate logic reference!). 
-       Therefore a one-to-one translation of this listing into predicate logic can be found in appendix \ref{app:AdditionalMaterials} \ref{subsec:CoqAndPredicateLogic}.  \\      
+       Therefore a one-to-one translation of this Listing into predicate logic can be found in appendix \ref{app:AdditionalMaterials} \ref{subsec:CoqAndPredicateLogic}.  \\      
          
 	   \lstinline!rewrite! can also be used with a previously proven theorem instead of a hypothesis of context.
 	   If the statement of the previously proven theorem involves prequantified variables, Coq reuses them.   
@@ -629,7 +629,7 @@
 	   \end{lstlisting}
 	    One might imagine a natural number \lstinline!n! as string build up of it's constructors \lstinline!S! and \lstinline!0! at the end.
 	    Evaluating the expression \lstinline!(n+1) =? 0! suffices to either evaluate the operation \lstinline!eqb! or \lstinline!plus!.
-	    By recalling (or looking up) the declarations of those operators (see listing \ref{lst:plus} and table \ref{tab:operators}) it is noted that both scopes begin by a \lstinline!match!.
+	    By recalling (or looking up) the declarations of those operators (see Listing \ref{lst:plus} and table \ref{tab:operators}) it is noted that both scopes begin by a \lstinline!match!.
 	    Hence a pattern matching of an unknown string that is the first argument of the operator is executed.
 	    But due to the generality of this string no matching can be proceeded. It follows \lstinline!simpl! carries out nothing. \lstinline!Abort! interrupts Coq.
 	    In general unknown hypothetical values like arbitrary numbers, Boolean or lists might not be able to be evaluated.\\		
@@ -674,8 +674,8 @@
 		  	Qed.  	   
 		  \end{lstlisting}}
 		\end{example}	 
-		 Note that in the listing \ref{lst:newb_involutive} a name specification is not required, because there is no \lstinline!as! clause in the \lstinline!destruct!.
-		 Since no variable has to be bounded by the use of the tactics, listing empty lists as \lstinline![]! or \lstinline![|]! would be bad style and lead to a confusing choice by Coq.\\	 
+		 Note that in the Listing \ref{lst:newb_involutive} a name specification is not required, because there is no \lstinline!as! clause in the \lstinline!destruct!.
+		 Since no variable has to be bounded by the use of the tactics, Listing empty lists as \lstinline![]! or \lstinline![|]! would be bad style and lead to a confusing choice by Coq.\\	 
 		 \lstinline!destruct! is able to be invoked inside subgoals to generate more proof obligations.
 		  The nested subgoals can either be grouped by an addition sign \lstinline!+!, the so called asterix (\lstinline!*!), or a curly parenthesis (\lstinline!{}!). 
 		  In particular the curly parenthesis is applicable if more then three levels of subgoals are required. 
@@ -705,12 +705,12 @@
 		  \begin{lstlisting}[caption = \lstinline!intros! and \lstinline!destruct!]
 		  	intros y. destruct y as [  |y] eqn:E.
 		  \end{lstlisting}	
-		  This is able to be shortened to the expression in listing \ref{lst:shortformIntrosAndDestruct}.  
+		  This is able to be shortened to the expression in Listing \ref{lst:shortformIntrosAndDestruct}.  
 		  \begin{lstlisting}[caption= shortform \lstinline!intros! and  \lstinline!destruct!, label= lst:shortformIntrosAndDestruct]
 		  intros[ |y].
 		  \end{lstlisting}		  
 		  Note that the equation recording assumption is lost in trade of shortage.
-		  Moreover, if there is no necessity to name arguments, they can be replaced by \lstinline![]! (see listing \ref{lst:andb_commutative}).
+		  Moreover, if there is no necessity to name arguments, they can be replaced by \lstinline![]! (see Listing \ref{lst:andb_commutative}).
 		  \begin{lstlisting}[caption= \lstinline!andb_commutative!, label =lst:andb_commutative]
 		  Theorem andb_commutative:
 		    forall b, c andb b c = andb c b.
