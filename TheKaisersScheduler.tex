@@ -55,7 +55,7 @@ It is called {\itshape preemptive} if it may be interrupted after any instructio
 \end{definition}  
  
 The slotted prirority modell from \cite{B} with  sporadic and periodic processes (\cite{K}).
-Due to \cite{B} the major requirement is saied to be as in the following:
+Due to \cite{B97} the major requirement is saied to be as in the following:
 
 \begin{quote}
 	`If a system itselves the execution of a real-time and non-real-time thread in alternate intervals the intervals in which real-time threads execute are scheduled to be in every $l$ time unit, then it must be ensured that the intervall begin at time $t$ where $kl \leq t \leq kl+\epsilon \quad \forall
@@ -170,31 +170,57 @@ Note that $\sigma$ is a step-function.
 Recall the definition of a map \ref{}. We have:
 \end{proof}
 
-\subsections{The Akra-Abzzi method}
-
+\subsection{The Akra-Bazzi Theorem}
+\label{subsection:The Akra-Bazzi Theorem}
 The optimality of algorithms is a very important researche area in many fields.
 One may ask if an algorithm was best to choosen to solve the given problem.
-But first of all, we have to determine the problem carefully in which sense it should be optimal. During my studies I heared of some theorems which determine an easy solution to this optimality problem.
-For example there is this very powerfull theorem names Akra-Bazi.
- It is a general solution for linar devide-and-conquer correctnes of the form
- 
+But first of all, we have to determine the problem carefully in which sense it should be optimal.There are some theorems which determine an steight-forward solution to this optimality problem.\\
+For example there is this very powerfull theorem names Akra-Bazzi \cite{AB98}.
+It is a general solution for linar devide-and-conquer recurrences of the of the form
+
  \begin{equation}
- u_n = \sum_{i}^k a_i u _{\frac{n}{b_i}} + g(n).
+ u_n = \sum_{i}^k a_i u _{\floor{\frac{n}{b_i}}} + g(n).
  \end{equation}
  
  Linear devide-and-conquer recurrecences of the form 
  \begin{equation}
- u_n(t) =
-		\begin{cases}
-			u_0 > 0 & \\
-			\sum_{i=1}^k a_i u \ + g(n) n \n \geq 
-		\end{cases}
+ u_n(t) = 
+ 	\begin{cases}
+			u_0 > 0 & n= 0 \\
+			\sum_{i=1}^k a_i u_{\floor{\frac{n}{b_i}}} \ + g(n) \quad &n  \geq 1 
+	\end{cases}
  \end{equation}
- \cite{AB}[Theorem 4]
+ where
+ \begin{itemize}
+ \item $u_0, a_i \in \mathbb{R}^{\star+}$, $\sum_{i=1}^k a_i \geq 1$.
+ \item $b_{i}, k \in \mathbb{N}, b_i \geq 2, k\geq 1$
+ \item $g(x)$ is defined for real values $x$, and is bounded, positive an nondecreasing function $\forall x\geq 0$.
+ \item $\forall c > 1, \exists x_1, k_1 >0$ such that $g(\frac{x}{c}) \geq k_1 g(x), \forall x \geq x_1$. 
+ \end{itemize}
+ 
+ \begin{theorem}[Akra and Bazzi]
+ If $p_0$ is the characteristic of the real solution of the characteristic equation
+ \begin{equation}
+ \sum_{i=1}^k a_i b_i ^{-p} = 1
+ \end{equation}
+ (which always exists and is uniquely positive), then 
+ \begin{equation}
+ u_n = \Theta(n^{p_0}) + \Theta( n^{p_0} \int_{n_1}^n \frac{g(u)}{u^{p_0+1}} du
+ \end{equation}
+ for $n1$ large enough. In particualr,
+ \begin{itemize}
+ \item If $\exists \epsilon >0$ such that $g(x)=\mathcal{O}(x^{p_0-\epsilon})$, then $u_n = \Theta (n^{p_0})$.
+ \item If $\exists \epsilon > 0$ such that $g(x) = \Omega(x^{p_0 + \epsilon})$ and $g(x)/ x^{p_0+\epsilon}$ is a non decreasing function, then $u_n = \Theta(g(n))$.
+ \item If $g(x) = \Theta(x^{p_0})$, then $u_{n} = \Theta(n^p_0 log n)$. 
+ \end{itemize}
+ \end{theorem}
+ 
+ \end{itemize}
+  There is this application of the theorem given by \cite[Theorem 4]{AB98}.
  \begin{theorem}
  Let $f(x)$ be a function defined as in Threorem1. Let $p_0$ be the unique solution of the characteristic equation. Then,
  \begin{enumerate}
- \item If $\exists \epsilon > 0 $ such that $g(x) = \Mathcal{O}(x^{p_0-\epsilon}), then f(x) = \Theta(x^{p_0}).$
+% \item If $\exists \epsilon > 0 $ such that $g(x) = \Mathcal{O}(x^{p_0-\epsilon})$, then $f(x) = \Theta(x^{p_0}).$
  \item If $\exists \epsilon > 0$ such that $g(x) = \Omega( x^p_{0}+\epsilon)$ and $g(x)/ x^{p_0+\epsilon})$ is a non decreasing function, then $f(x)=\Theta(g(x)).$
  \item If $g(x) = \Theta(x^{p_{0}}$ then $f(x) = \Theta( x^p_{0} logx)).$   
  \end{enumerate}
