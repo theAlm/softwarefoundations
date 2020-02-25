@@ -1,6 +1,6 @@
 [submodule "mbasic"]
 	path = mbasic
-	url = ssh://git.streit.cc/Skripte/mbasic.git
+	url = ssh://git.streit.cc:3001/Skripte/mbasic.git
 [submodule "prosa_working_dir"]
 	path = prosa_working_dir
 	url = git@gitlab.cs.hs-rm.de:almeroth/prosa_working_dir.git
