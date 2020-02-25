@@ -434,15 +434,16 @@
 	
 	    For the Coq-parser and Coq-prettifyer's sake we are introducing a new notation:
 	    
-	    \begin{lstlisting}[caption= operator overloading of \lstinline!+!] 
+	    \begin{lstlisting}[caption= operator overloading of \lstinline!+!, label=lstlist:operator-overloading] 
 	     Notation " x + y ":= (plus x y)
 	                      (at level 50, left associativity) (* This line is not of interest for our purpose. *)
 	                      : nat_scope. (* This line is not of our interest. *)
 	                      
 	     Check(( 0 + 1 ) + 1).
-	    \end{lstlisting}    
-	   And in table \ref{tab:operators} some more functions for our purpose are listed.
-	   The interested reader is referred to the literature for an exact definition (see table \ref{tab:operators}).  
+	    \end{lstlisting}  
+	    Listing \ref{lstlist:operator-overloading} demonstrates the result of introducing a new notation using Coq and operator overloading by the example of \lstinline!+!. \\ 
+	   And in Table \ref{tab:operators} some more functions for our purpose are listed.
+	   The interested reader is referred to the literature for an exact definition (see Table \ref{tab:operators}).  
 	   
 	   \begin{table}   
 	   \begin{tabular}{|c|c|c|c|}
@@ -474,17 +475,16 @@
 	   For example consider the following observation: ``0+n reduces to n, no matter, what n is.''
 	   The mathematical precisely formulated statement can be proven by the definition of zero directly.
 	   
-	   \begin{example}[theorem \lstinline!plus_0_m!] ~\\\vspace{-5mm}
-	  	   {\normalfont \begin{lstlisting}[caption=\lstinline!plus_0_n!, label=lst:plus_0_n]
+	 \begin{lstlisting}[caption=\lstinline!plus_0_n!, label=lst:plus_0_n]
 	   		Theorem. plus_0_n: forall n: nat, 0+n = n.
 	   		  Proof. intros n. simpl. reflexivity. Qed.
-	    	\end{lstlisting}	}	
-		\end{example}              
+	 \end{lstlisting}		
+            
 	    \begin{remark}
-	    	Reflexivity does not only check weather both sides of an equation contain identical values. 
+	    	\lstinline!Reflexivity! does not only check whether both sides of an equation contain identical values.
 	    	On top of this it simplifies, which makes it more powerful. 
-	    	We have seen \lstinline!simpl! added in examples so we can see the intermediate state.
-	    	Therefore, the proof in Listing \ref{lst:plus_0_n} can be simplified by omitting \lstinline!simpl!.(See Listing \ref{lst:plus0nPrime}.) 
+	    	We have seen \lstinline!simpl! added in Listing \ref{lst:plus_0_n} so we can see the intermediate state.
+	    	Therefore, the proof in Listing \ref{lst:plus_0_n} can be simplified by omitting \lstinline!simpl!. (See Listing \ref{lst:plus0nPrime}.) 
 	     \end{remark}	
 	
 		\begin{lstlisting}[caption={ \lstinline!plus_0_n'!}, label= lst:plus0nPrime]
@@ -493,7 +493,7 @@
 	    \end{lstlisting}    
 	    By looking at the Coq output we can see that \lstinline!reflexivity! somehow tries ``unfolding'' defined terms.\\    
 	    Note that \lstinline!example! and \lstinline!theorem! (and \lstinline!Lemma!, \lstinline!Fact!, \lstinline!Remark! and a few other),
-	    mean pretty much the same in Coq, while in Mathematics they do not.
+	    mean pretty much the same in Coq, while in mathematics they do not.
 	    
 	   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	     
@@ -518,17 +518,17 @@
 	    In order to understand the tactics \lstinline!reflexivity! carefully analyse the Coq-output of Listing \ref{lst:reflexivity}.   
 	    Let's recall what reflexivity in terms of an equivalence relation means: 
 	   \begin{definition}[Equivalence Relation]
-	   Assume $x,y\in \mathcal{M}$ an arbitrary set $\mathcal{M}\neq\emptyset$ and $\thicksim\subset A \times A$ an arbitrary relation.
-	   Then $\thicksim$ is said to be an equivalence relation if and only if:
+	   Let $\mathcal{M}\neq \emptyset$ be a binary set. Assume $x,y \in \mathcal{M}$ and $\thicksim\subset A \times A$ an arbitrary relation.
+	   Then $\thicksim$ is said to be an equivalence relation if and only if for all $a, b , c\in\mathcal{M}$ 
 	   \begin{enumerate}
 	   \item $a\thicksim a$ (reflexivity)
-	   \item $a \thicksim b$ if and only if $b \thicksim c$ (symmetry)
+	   \item $a \thicksim b$ if and only if $b \thicksim a$ (symmetry)
 	   \item if $a \thicksim b$ and $ b\thicksim c$ then $a \thicksim c$ (transitivity) 
 	   \end{enumerate}
 	   \end{definition}
 	     
 	    A more detailed approach of understanding the tactics \lstinline!reflexivity! is elaborated in section \ref{sec:reflexivity}.  
-	    However, due to the \href{https://pjreddie.com/coq-tactics/}{Coq tactics index} it is recommended to use reflexivity, if the goal is to prove that something is equals to itself.  
+	    However, due to the \href{https://pjreddie.com/coq-tactics/}{Coq tactics index} it is recommended to use reflexivity, if the goal is to prove that something is equifalent to the identety relation.  
 	      
 	     \paragraph{Proof by Rewriting} 
 	     \label{par:ProofByRewriting}
@@ -558,7 +558,7 @@
                reflexivity.
              Qed.
          \end{lstlisting} 
-         For clearity of the semantics this Coq-code's ( Listing \ref{lst:plus_id_example_proof}) translation to a mathematical proof is listed in table \ref{tab:aMathematicalTranslation}.  
+         For clearity of the semantics this Coq-code's (Listing \ref{lst:plus_id_example_proof}) translation to a mathematical proof is listed in table \ref{tab:aMathematicalTranslation}.  
          \begin{table}[h]       
 	   	  \begin{center}
 	 	    \begin{tabular}{|c|l|l|}	       
