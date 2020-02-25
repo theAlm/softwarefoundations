@@ -170,3 +170,32 @@ Note that $\sigma$ is a step-function.
 Recall the definition of a map \ref{}. We have:
 \end{proof}
 
+\subsections{The Akra-Abzzi method}
+
+The optimality of algorithms is a very important researche area in many fields.
+One may ask if an algorithm was best to choosen to solve the given problem.
+But first of all, we have to determine the problem carefully in which sense it should be optimal. During my studies I heared of some theorems which determine an easy solution to this optimality problem.
+For example there is this very powerfull theorem names Akra-Bazi.
+ It is a general solution for linar devide-and-conquer correctnes of the form
+ 
+ \begin{equation}
+ u_n = \sum_{i}^k a_i u _{\frac{n}{b_i}} + g(n).
+ \end{equation}
+ 
+ Linear devide-and-conquer recurrecences of the form 
+ \begin{equation}
+ u_n(t) =
+		\begin{cases}
+			u_0 > 0 & \\
+			\sum_{i=1}^k a_i u \ + g(n) n \n \geq 
+		\end{cases}
+ \end{equation}
+ \cite{AB}[Theorem 4]
+ \begin{theorem}
+ Let $f(x)$ be a function defined as in Threorem1. Let $p_0$ be the unique solution of the characteristic equation. Then,
+ \begin{enumerate}
+ \item If $\exists \epsilon > 0 $ such that $g(x) = \Mathcal{O}(x^{p_0-\epsilon}), then f(x) = \Theta(x^{p_0}).$
+ \item If $\exists \epsilon > 0$ such that $g(x) = \Omega( x^p_{0}+\epsilon)$ and $g(x)/ x^{p_0+\epsilon})$ is a non decreasing function, then $f(x)=\Theta(g(x)).$
+ \item If $g(x) = \Theta(x^{p_{0}}$ then $f(x) = \Theta( x^p_{0} logx)).$   
+ \end{enumerate}
+ \end{theorem}
