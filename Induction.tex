@@ -2,7 +2,7 @@
 In this section the tactics \lstinline!induction!, which is applicable analogously to the mathematical principle of induction, is introduced.
 
 \subsection{Proof by Induction}
-In the proof in listing \ref{lst:plus0nPrime} it was shown, 
+In the proof in Listing \ref{lst:plus0nPrime} it was shown, 
 that \lstinline!0! is the neutral element with respect to \lstinline!+! from the left of the group of natural numbers \lstinline!nat!. 
 It should be shown that \lstinline!0! also is the natural element for \lstinline!+! in \lstinline!nat! from the right. 
 This writes as:
@@ -13,7 +13,7 @@ Theorem plus_n_0_first: forall n: nat,
 (If the reader is not familiar with groups it is not sufficient to understand the algebraic nature of a group.
  Thus, it can be refereed to \cite{S} for an introduction to groups.)\\
 But the tactics which were introduced till now, are not sufficiently powerful to proof this theorem.
-And applying the tactics \lstinline!simpl! yields no results, too (see listing \ref{lst:proof_of_plus_n_0_firsttry}).
+And applying the tactics \lstinline!simpl! yields no results, too (see Listing \ref{lst:proof_of_plus_n_0_firsttry}).
 \begin{lstlisting}[caption = \lstinline!plus_n_O_firsttry!, label=lst:plus_n_0_firsttry] 
 Theorem plus_n_O_firsttry : forall n:nat,
   n = n + 0.
@@ -30,7 +30,7 @@ Proof.
 Abort.
 \end{lstlisting}
 
-Furthermore, proofing by the \lstinline!destruct! tactic is going to fail, because in the case \lstinline!n = Sn'! the expression \lstinline!S n' = S n' + 0! can not be simplified by the same reason as above (see listing \ref{lst:plus_1_new_0}).
+Furthermore, proofing by the \lstinline!destruct! tactic is going to fail, because in the case \lstinline!n = Sn'! the expression \lstinline!S n' = S n' + 0! can not be simplified by the same reason as above (see Listing \ref{lst:plus_1_new_0}).
 \begin{lstlisting}[caption = \lstinline!plus_1_new_0!, label = lst:plus_1_new_0]
 Theorem plus_1_new_0: forall n : nat,
   (n+1) =? 0 = false. 
@@ -64,7 +64,7 @@ Proof.
 The \lstinline!as!-clause has two parts separated by \lstinline!|!.
 \begin{itemize}
 	\item In the above statement of \lstinline!induction! the first subgoal is to show the induction basis for \lstinline!n=0!.
-	\item And the second subgoal is the induction step for \lstinline!n = Sn'!, since \lstinline!nat! is defined inductivly (see listing  \ref{lst:DefNat}).
+	\item And the second subgoal is the induction step for \lstinline!n = Sn'!, since \lstinline!nat! is defined inductivly (see Listing  \ref{lst:DefNat}).
 	      The assumption \lstinline!n'+0 = n'! is added to Coq's context named as \lstinline!IHn'! as induction hypothesis.
 		  It must be shown \lstinline! Sn' = Sn' + 0!. \\
           Applying \lstinline!simpl! yields \lstinline!Sn' = S(n'+0)!, which follows from the induction hypothesis. 
@@ -97,7 +97,7 @@ Qed.
 \end{lstlisting}
 \end{example}
 
-In listing \ref{lst:mult_0_plus_prime} the tactics \lstinline!assert! in line 5 introduces two subgoals. 
+In Listing \ref{lst:mult_0_plus_prime} the tactics \lstinline!assert! in line 5 introduces two subgoals. 
 The assertion itself is listed with \lstinline!H! the introduction as prefix.
 The proof of the assertion is bounded by curly parenthesis.\\
 It provides reducibility and interactive use of Coq it is more easy to see when the proof of the first subgoal is finished.
@@ -123,7 +123,7 @@ Proof.
 Abort.
 \end{lstlisting}
 
-This habit can be worked around by rewriting the wanted variables as in listing \ref{lst:plus_rearrange} using the tactics \lstinline!assert!. 
+This habit can be worked around by rewriting the wanted variables as in Listing \ref{lst:plus_rearrange} using the tactics \lstinline!assert!. 
 
 \begin{lstlisting}[caption = \lstinline!plus_rearrange!, label = lst:plus_rearrange]
 Theorem plus_rearrange : forall n m p q: nat,
