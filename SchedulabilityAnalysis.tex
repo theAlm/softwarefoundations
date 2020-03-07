@@ -39,12 +39,12 @@
 
 
 
-In this section we want to investigate the encapsulated EDF-scheduler (earliest deadline first) from the schedulig procedure by \cite{K}. \\
+In this section we want to investigate the encapsulated EDF-scheduler (earliest deadline first scheduler) from the schedulig procedure by Kaiser \cite{K}. It is homogenous multiprocessor systems comprising processors.\\
 
 Let's recap \glspl{real-time system} as in \cite{KBK}.
-The {\itshape process} is defined as a sequential execution of a program on a processor. 
-The execution ends after a finite number of steps. 
-Therefore it corresponds to a finite execution of machine commands and is not separable.\\
+The {\itshape process} is defined as an sequential execution of a program on a processor.
+The execution ends after a finite number of steps.
+Therefore the execution corresponds to a finite execution of machine commands and is not separable.\\
 \begin{definition}
 	A process is called {\itshape periodic} if it should be restated after a certain time called {\itshape the period}. 
 	Otherwise a process is called {\itshape aperiodic} or {\itshape sporadic}.
@@ -54,7 +54,7 @@ Furthermore, whenever as process is said to be {\itshape non-preemptive} the exe
 It is called {\itshape preemptive} if it may be interrupted after any instruction.
 \end{definition}  
  
-The slotted prirority modell from \cite{B} with  sporadic and periodic processes (\cite{K}).
+The slotted prirority modell from \cite{B97} with  sporadic and periodic processes (\cite{K}).
 Due to \cite{B97} the major requirement is saied to be as in the following:
 
 \begin{quote}
@@ -62,19 +62,18 @@ Due to \cite{B97} the major requirement is saied to be as in the following:
  \epsilon \geq 0$'.
 \end{quote}
 
-Moreover there is this requirement $\mathcal{B}$.
+Moreover there is this requirement labeld by  $\mathcal{B}$.
 \begin{quote}
 `For $L>\epsilon$ (for a suitable $\epsilon$) for which the real-time thread schedule has asserted a real-time thread $\tau$ to be expectet on the CPU, there must be a function of the method by which the minimum number of CPU cycles avialable to execute the instructions of $\tau$ can be determined.'
 \end{quote}
 
-\paragraph{Model of a sporadic disriptive process}
-ommited because of a mighty redudandeny
 
 \paragraph*{Encapsulation of a scheduled process}
  
 The scheduler found  in \cite{K} is going to be classified for the scope of implementation. It is an encapsulated EDF (earlies-deadline-first) process with scheduling inside the represenatative process.
-Let
-      
+
+\begin{definition}
+Let      
 \begin{align}
  & \delta_p \in \mathbb{N} \quad \text{be a periodic disruptive process and}\\
  	&\delta_s \in  \mathbb{N} \quad \text{be an asporadic disruptive process.}\\
@@ -82,15 +81,16 @@ Let
  	&\text{Let} \quad  \delta p_i \in \mathbb{N}, \quad \text{for} \quad i = 1,..,n \quad  \text{denote the period and}  \\
  	&\delta e_i \in \mathbb{N} \quad \text{for} \quad  i = 1,..,n \quad  \text{denote the execution time}.  
 \end{align}   
+\end{definition}
 
 Moreover, we define the slotted priority modell by Bollea with Kaiser's sporadic and periodic disruptive process with a discrete time in contrast to these autors.
-This chioce is due to the real-time model from \cite{PROSA_schedubility_analysis} and the real-time kernel as in  \cite[chp. 5.3]{B} and the exclusion model  \cite[p.12]{B}.
+This chioce is due to the real-time kernel from \cite{PROSA_schedubility_analysis} and the real-time kernel model as in \cite[chp. 5.3]{B97} and the exclusion model \cite[p.12]{B97}.
 
 \begin{definition}
 	Time is $\mathbb{N}$.
 \end{definition}
 
-According to \cite[]{} due to the establishing the exclusion model we denote by
+According to \cite[]{B97} due to the establishing the exclusion model we denote by
 
 \begin{equation}
 \sigma: \mathbb{N}^n \times \mathbb{N}^n\longrightarrow \mathbb{N} 
@@ -162,6 +162,9 @@ With the above assumptions we have
 
 \begin{theorem}
 \end{theorem}
+
+\paragraph{Model of a sporadic disruptive process}
+We say we are talking of a solotted priority model if the 
 
 \begin{remark}
 Note that $\sigma$ is a step-function. 
