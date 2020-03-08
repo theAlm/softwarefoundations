@@ -39,62 +39,102 @@
 
 
 
-In this section we want to investigate the encapsulated EDF-scheduler (earliest deadline first scheduler) from the schedulig procedure by Kaiser \cite{K}. It is homogenous multiprocessor systems comprising processors.\\
+In this section we want to investigate the encapsulated EDF-scheduler (earliest deadline first scheduler) from the schedulig procedure by Kaiser \cite{K}. It is homogenous multiprocessor systems comprising $m\in \mathbb{N}$ processors.\\
 
-Let's recap \glspl{real-time system} as in \cite{KBK}.
-The {\itshape process} is defined as an sequential execution of a program on a processor.
-The execution ends after a finite number of steps.
+\subsection{Taxanomie of Multiprocessor Scheduling Algorithms}
+
+Let's recap \glspl{real-time system} as given in \cite{KBK}.
+And compare it with the calssification given in \cite[section 2.3]{DB2011}.
+The {\itshape process} or {\itshape task} is defined as an sequential execution of a {\itshape program}  or {\itshape job} on a processor.
+The execution ends after a \emph{finite number} of steps.
 Therefore the execution corresponds to a finite execution of machine commands and is not separable.\\
+
+\begin{remark}
+	\label{remark:problems}
+	Mutiprocessor scheduling can be viewed as attempting  to solve two problems.
+	\begin{enumerate}[label=(\roman*)]
+		\item The \emph{allocation problem}, or on which processor the task should execute.
+		\label{remark:allocationproblem}
+		\item The \emph{priority problem}, or in what order with respect to jobs of tasks each job should be executed.
+		\label{remark:priorityproblem}
+	\end{enumerate}
+\end{remark}
+
 \begin{definition}
-	A process is called {\itshape periodic} if it should be restated after a certain time called {\itshape the period}. 
-	Otherwise a process is called {\itshape aperiodic} or {\itshape sporadic}.
-
-
-Furthermore, whenever as process is said to be {\itshape non-preemptive} the execution may not be interrupted between the beginning and ending of the process. 
-It is called {\itshape preemptive} if it may be interrupted after any instruction.
-\end{definition}  
+	 A process is called periodic if it should be restated after a certain time called the period.
+	 \begin{enumerate}[label=(\roman*)] 
+	\item Otherwise a process is called aperiodic or sporadic.
+	\item Furthermore, whenever as process is said to be non-preemptive the execution may not be interrupted between the beginning and ending of the process. 
+		A process is called preemptive if it may be interrupted after any instruction.
+	\end{enumerate}
+	\end{definition}  
  
-The slotted prirority modell from \cite{B97} with  sporadic and periodic processes (\cite{K}).
-Due to \cite{B97} the major requirement is saied to be as in the following:
+The slotted priority modell is from Bollela \cite{B97} with  sporadic and periodic processes (\cite{K}).
+Due to \cite{B97} the major requirement is said to be as in the following:
 
 \begin{quote}
-	`If a system itselves the execution of a real-time and non-real-time thread in alternate intervals the intervals in which real-time threads execute are scheduled to be in every $l$ time unit, then it must be ensured that the intervall begin at time $t$ where $kl \leq t \leq kl+\epsilon \quad \forall
+	`If a system itselves the execution of a real-time and non-real-time thread in alternate intervals the intervals in which real-time threads execute are scheduled to be in every $l$ time unit, then it must be ensured that the interval begin at time $t$ where $kl \leq t \leq kl+\epsilon \quad \forall
  \epsilon \geq 0$'.
 \end{quote}
 
-Moreover there is this requirement labeld by  $\mathcal{B}$.
+Roughly speaking there should be a covering of the time $t$ with a diameter o
+of $\epsilon$ for each positive $\epsilon$.
+Moreover there is this requirement labeld by  $\mathcal{B}$ \cite{B97}.
 \begin{quote}
-`For $L>\epsilon$ (for a suitable $\epsilon$) for which the real-time thread schedule has asserted a real-time thread $\tau$ to be expectet on the CPU, there must be a function of the method by which the minimum number of CPU cycles avialable to execute the instructions of $\tau$ can be determined.'
+`For $L>\epsilon$ (for a suitable $\epsilon$) for which the real-time thread schedule has asserted a real-time thread $\tau$ to be expectet on the CPU, there must be a function of the method by which the minimum number of CPU cycles available to execute the instructions of $\tau$ can be determined.'
 \end{quote}
+But it is apriory not clear what this number $L$ might be and how this CPU-cycle number is determined.
 
 
 \paragraph*{Encapsulation of a scheduled process}
  
-The scheduler found  in \cite{K} is going to be classified for the scope of implementation. It is an encapsulated EDF (earlies-deadline-first) process with scheduling inside the represenatative process.
+The scheduler found in \cite{K} is going to be classified for the scope of implementation. 
+We follow the paper \cite{DB2011} which gives a survey of hard real-time systems.
+It is an encapsulated priority based (see Remark \ref{remark:problems} \ref{remark:priorityproblem}), fixed job priority,   EDF (earlies-deadline-first)) process with scheduling inside the representative process.
 
 \begin{definition}
 Let      
 \begin{align}
  & \delta_p \in \mathbb{N} \quad \text{be a periodic disruptive process and}\\
  	&\delta_s \in  \mathbb{N} \quad \text{be an asporadic disruptive process.}\\
-	 &\text{Let} \quad P := \{1, \cdots, n \} \subset \mathbb{N}^n \quad \text{be an disruptable process.}  \\
- 	&\text{Let} \quad  \delta p_i \in \mathbb{N}, \quad \text{for} \quad i = 1,..,n \quad  \text{denote the period and}  \\
- 	&\delta e_i \in \mathbb{N} \quad \text{for} \quad  i = 1,..,n \quad  \text{denote the execution time}.  
+	 &\text{Let} \quad P := \{1, \cdots, n \} \subset \mathbb{N}^n $\\
+	 $\quad \text{be a job, a set of disruptable processes with fixed priority order ascading.}$  \\
+ 	$&\text{Let} \quad  \delta p_i \in \mathbb{N}, \quad \text{for} \quad i = 1,..,n \quad  \text{denote the period and}  \\
+ 	&\delta e_i \in \mathbb{N} \quad \text{for} \quad  i = 1,..,n \quad  \text{denote the execution time of a proces}.  
 \end{align}   
 \end{definition}
 
-Moreover, we define the slotted priority modell by Bollea with Kaiser's sporadic and periodic disruptive process with a discrete time in contrast to these autors.
+Moreover, we define the slotted priority modell by Bollela with Kaiser's sporadic and periodic disruptive process with a discrete time in contrast to these authors.
 This chioce is due to the real-time kernel from \cite{PROSA_schedubility_analysis} and the real-time kernel model as in \cite[chp. 5.3]{B97} and the exclusion model \cite[p.12]{B97}.
 
 \begin{definition}
 	Time is $\mathbb{N}$.
 \end{definition}
 
-According to \cite[]{B97} due to the establishing the exclusion model we denote by
 
-\begin{equation}
-\sigma: \mathbb{N}^n \times \mathbb{N}^n\longrightarrow \mathbb{N} 
-\end{equation}
+\begin{definition}
+	Utalization of the i-th process is given by $U(i) = \frac{\delta e_i}{\delta p_i}$
+\end{definition}
+\begin{lemma}
+$U(i)$ is well-defined.
+\end{lemma}
+\begin{proof}
+It is the quotient of two positive numbers.
+\end{proof}
+
+\begin{definition}
+The utilization is given by $U(P)= \sum_{i=1}^n \frac{\delta e_i}{\delta p_i}$
+\end{definition}
+
+According to \cite{B97} due to establishing the exclusion model we denote  a scheduling function by
+
+\begin{definition}
+	\begin{align}
+	\sigma: \mathbb{N}^n \times \mathbb{N}^n &\longrightarrow \mathbb{N} \\
+	(\delta ,\delta e_i)  \mapsto  
+	\end{align}
+\end{definition}
+
 a scheduler satisfying an EDF-regulation \ref{}. TODO: Add this condition.
 
 \begin{equation}
@@ -177,6 +217,21 @@ Note that $\sigma$ is a step-function.
 Recall the definition of a map \ref{}. We have:
 \end{proof}
 
+\paragraph{Related Research Areas}
+Besides hard real-time scheduling for homogenous multiprocessor systems there are related ares of research. The these areas are in a  close releation to multi-processor sytems.
+\begin{itemize}
+\item Worst-case execution time (WCET) an alysis
+\item Network/bus scheduling
+\item Memory architectures
+\item scheduling of uniform and heterogeneous procesors
+\item operating systems
+\item Power consuption and dissipaation
+\item scheduling tasks with soft real-time constraints, and
+\item Non-real-time ussues such as load balancing.
+\end{itemize}
+Some of these research areas are more or less related to muti-processor systems. Some like WCET are very close to multi-processor systems.
+Task eexctution time caused by contention of hardware resources due to paralles exectution is a scheduling effect or a WCET \cite[Sec. 10.2]{DB2011}.
+ 
 \subsection{The Akra-Bazzi Theorem}
 \label{subsection:The Akra-Bazzi Theorem}
 The optimality of algorithms is a very important researche area in many fields.
