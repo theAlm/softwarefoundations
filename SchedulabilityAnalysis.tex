@@ -81,7 +81,7 @@ Roughly speaking there should be a covering of the time $t$ with a diameter o
 of $\epsilon$ for each positive $\epsilon$.
 Moreover there is this requirement labeld by  $\mathcal{B}$ \cite{B97}.
 \begin{quote}
-`For $L>\epsilon$ (for a suitable $\epsilon$) for which the real-time thread schedule has asserted a real-time thread $\tau$ to be expectet on the CPU, there must be a function of the method by which the minimum number of CPU cycles available to execute the instructions of $\tau$ can be determined.'
+`For $L>\epsilon$ (for a suitable $\epsilon$) for which the real-time thread schedule has asserted a real-time thread $\tau$ to be expected on the CPU, there must be a function of the method by which the minimum number of CPU cycles available to execute the instructions of $\tau$ can be determined.'
 \end{quote}
 But it is apriory not clear what this number $L$ might be and how this CPU-cycle number is determined.
 
@@ -90,16 +90,15 @@ But it is apriory not clear what this number $L$ might be and how this CPU-cycle
  
 The scheduler found in \cite{K} is going to be classified for the scope of implementation. 
 We follow the paper \cite{DB2011} which gives a survey of hard real-time systems.
-It is an encapsulated priority based (see Remark \ref{remark:problems} \ref{remark:priorityproblem}), fixed job priority,   EDF (earlies-deadline-first)) process with scheduling inside the representative process.
+It is an encapsulated priority based (see Remark \ref{remark:problems}, \ref{remark:priorityproblem}), fixed job priority,   EDF (earlies-deadline-first)) process with scheduling inside the representative process.
 
 \begin{definition}
 Let      
-\begin{align}
- & \delta_p \in \mathbb{N} \quad \text{be a periodic disruptive process and}\\
+\begin{align} & \delta_p \in \mathbb{N} \quad \text{be a periodic disruptive process and}\\
  	&\delta_s \in  \mathbb{N} \quad \text{be an asporadic disruptive process.}\\
-	 &\text{Let} \quad P := \{1, \cdots, n \} \subset \mathbb{N}^n $\\
-	 $\quad \text{be a job, a set of disruptable processes with fixed priority order ascading.}$  \\
- 	$&\text{Let} \quad  \delta p_i \in \mathbb{N}, \quad \text{for} \quad i = 1,..,n \quad  \text{denote the period and}  \\
+	 &\text{Let} \quad P := \{1, \cdots, n \} \subset \mathbb{N}^n \\
+	 &\quad \text{be a job, a set of disruptable processes with fixed priority order ascading.} \\
+ 	&\text{Let} \quad  \delta p_i \in \mathbb{N}, \quad \text{for} \quad i = 1,..,n \quad  \text{denote the period and}  \\
  	&\delta e_i \in \mathbb{N} \quad \text{for} \quad  i = 1,..,n \quad  \text{denote the execution time of a proces}.  
 \end{align}   
 \end{definition}
@@ -113,33 +112,29 @@ This chioce is due to the real-time kernel from \cite{PROSA_schedubility_analysi
 
 
 \begin{definition}
-	Utalization of the i-th process is given by $U(i) = \frac{\delta e_i}{\delta p_i}$
+	Utalization of the i-th process is given by $U(i) = \frac{\delta e_i}{\delta p_i}$.
 \end{definition}
 \begin{lemma}
 $U(i)$ is well-defined.
 \end{lemma}
 \begin{proof}
-It is the quotient of two positive numbers.
+For every $i\in \mathbb{N}$, $U(i)$ is the quotient of two positive numbers.
 \end{proof}
 
 \begin{definition}
-The utilization is given by $U(P)= \sum_{i=1}^n \frac{\delta e_i}{\delta p_i}$
+The utilization is given by $U(P)= \sum_{i=1}^n \frac{\delta e_i}{\delta p_i}$.
 \end{definition}
 
-According to \cite{B97} due to establishing the exclusion model we denote  a scheduling function by
+According to \cite{B97} due to establishing the exclusion model we denote  a scheduling function in the following way:
 
 \begin{definition}
-	\begin{align}
-	\sigma: \mathbb{N}^n \times \mathbb{N}^n &\longrightarrow \mathbb{N} \\
-	(\delta ,\delta e_i)  \mapsto  
+We say a multiprocessor scheduling algorithm $\sigma$ is given by 
+	\begin{align} 
+	\sigma: &\mathbb{N}^n \times \mathbb{N}^n \longrightarrow  \mathbb{N} \times \{1,2,\cdots, m\} \\
+	&\forall i, \delta e_j \in  \mathbb{N} \quad (i ,\delta e_j)  \mapsto (t,k) \in \mathbb{N}\times \{1,2,\cdots,m\}. 
 	\end{align}
 \end{definition}
 
-a scheduler satisfying an EDF-regulation \ref{}. TODO: Add this condition.
-
-\begin{equation}
-U(P) = \sum\limits_{i=1}^n \frac{\delta e_i}{\delta p_i} \leq \frac{\Delta e_{sv}}{\Delta p_{sv}}
-\end{equation}
 
 \begin{definition}
 Let $P_i\in \mathcal{P}$ be a process and 
@@ -148,14 +143,14 @@ P^j_i = ( \delta p_i, r_i) \in \mathbb{N}_o^2,
 \end{equation}
 where $\delta p_i$ is called the period and $r_i$ the residuum. 
 \end{definition}
-Furthermore, time controlled process allocation due to \cite{B} and \cite[p. 34]{K} is defined as in the following.
+Furthermore, time controlled process allocation similarly as \cite{B97} and \cite[p. 34]{K} is defined as in the following. In contrast to these authors time is discrete.
 
 \begin{definition}
-Let $\sigma: \mathbb{N} \times \mathbb{N}_0 \rightarrow \mathbb{N}_0$ be a function called the time schedule or implementation plan.
+Let $\sigma_T: \mathbb{N} \times \mathbb{N} \rightarrow \mathbb{N}_0$ be a function called the time schedule or implementation plan.
 \begin{enumerate}
-\item $\forall t \in \mathbb{R}^+$ we have $\sigma(t)\in \{1,2,...,n\}$
+\item $\forall t \in \mathbb{N}$ we have $\sigma_T(t)\in \{1,2,...,n\}$
 \item \begin{equation}
-		\sigma(t) =
+		\sigma_T(t,\delta e_j) =
 		\begin{cases}
 			k > 0 & \text{we say the process $P_k$ is working at time $t$.}\\
 			0 & \text{the process is not working.}\\
@@ -190,25 +185,37 @@ We have
 \Delta e_p &:= \Delta p_{glob} - \Delta e\\
 \Delta p_{p} &:= \Delta p_{glob}, 
 \end{align}
-where $\Delta p_{p}$ denotes the period of the desruptive process.
+where $\Delta p_{p}$ denotes the period of the disruptive process.
 
 \paragraph{The sporadic disruptive process}
 As in \cite{K} the sporadic des
-ptive process with cummulated calculation time $\Delta e$ satisfies
+ptive process with cumulated calculation time $\Delta e$ satisfies
 \begin{equation}
 \Delta p_{p} \leq \lvert{\Delta p_{glob}} \rvert. 
 \end{equation}
-With the above assumptions we have
 
-\begin{theorem}
-\end{theorem}
 
 \paragraph{Model of a sporadic disruptive process}
-We say we are talking of a solotted priority model if the 
+We say we are talking of a slotted priority model if the 
 
 \begin{remark}
 Note that $\sigma$ is a step-function. 
 \end{remark}
+
+
+\begin{remark} A scheduler satisfying an EDF-regulation satisfies the condition
+	\begin{equation}
+	U(P) = \sum\limits_{i=1}^n \frac{\delta e_i}{\delta p_i} \leq 		\frac{\Delta e_{sv}}{\Delta p_{sv}}
+	\end{equation}
+\end{remark}
+
+With the above assumptions we have the main theorem of this \cite{K}.
+\begin{theorem}
+A time scheduler is feasible iff 
+	\begin{align}
+	\sum_{i=1}^n \lfloor \frac{t}{\Delta p_i} \rfloor \Delta e_i \leq \lfloor  \frac{t}{\Delta p_{sv}} \rfloor \Delta e_{sv} + \max (0,t  mod \Delta p_{sv} -\Delta e_{s} -\Delta e_p).
+	\end{align}
+\end{theorem}
 
 \begin{lemma}
  $\sigma$ is well-defined.
@@ -265,7 +272,7 @@ It is a general solution for a linear devide-and-conquer recurrences of the of t
  If $p_0$ is the real solution of the characteristic equation
  \begin{equation}
  \label{eq:characteristicequation}
- \sum_{i=1}^k a_i b_i ^{-p} = 1
+ \sum_{i=1}^k a_i b_i ^{-p_0} = 1
  \end{equation}
  (which always exists and is unique and positive), then 
  \begin{equation}
