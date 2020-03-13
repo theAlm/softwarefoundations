@@ -81,29 +81,30 @@ Roughly speaking there should be a covering of the time $t$ with a diameter o
 of $\epsilon$ for each positive $\epsilon$.
 Moreover there is this requirement labeld by  $\mathcal{B}$ \cite{B97}.
 \begin{quote}
-`For $L>\epsilon$ (for a suitable $\epsilon$) for which the real-time thread schedule has asserted a real-time thread $\tau$ to be expected on the CPU, there must be a function of the method by which the minimum number of CPU cycles available to execute the instructions of $\tau$ can be determined.'
+	`For $L>\epsilon$ (for a suitable $\epsilon$) for which the real-time thread schedule has asserted a real-time thread $\tau$ to be executed on the CPU, there must be a function of the method by which the minimum number of CPU cycles available to execute the instructions of $\tau$ can be determined.'
 \end{quote}
 But it is apriory not clear what this number $L$ might be and how this CPU-cycle number is determined.
 
 
 \paragraph*{Encapsulation of a scheduled process}
  
-The scheduler found in \cite{K} is going to be classified for the scope of implementation. 
-We follow the paper \cite{DB2011} which gives a survey of hard real-time systems.
-It is an encapsulated priority based (see Remark \ref{remark:problems}, \ref{remark:priorityproblem}), fixed job priority,   EDF (earlies-deadline-first)) process with scheduling inside the representative process.
+	The scheduler found in \cite{K} is going to be classified for the scope of implementation. 
+	We follow the paper \cite{DB2011} which gives a survey of hard real-time 	systems.
+	It is an encapsulated priority based (see Remark \ref{remark:problems}, \ref{remark:priorityproblem}), fixed job priority,   EDF (earliest-deadline-first)) process with scheduling inside the representative process.
 
 \begin{definition}
-Let      
-\begin{align} & \delta_p \in \mathbb{N} \quad \text{be a periodic disruptive process and}\\
- 	&\delta_s \in  \mathbb{N} \quad \text{be an asporadic disruptive process.}\\
-	 &\text{Let} \quad P := \{1, \cdots, n \} \subset \mathbb{N}^n \\
-	 &\quad \text{be a job, a set of disruptable processes with fixed priority order ascading.} \\
- 	&\text{Let} \quad  \delta p_i \in \mathbb{N}, \quad \text{for} \quad i = 1,..,n \quad  \text{denote the period and}  \\
- 	&\delta e_i \in \mathbb{N} \quad \text{for} \quad  i = 1,..,n \quad  \text{denote the execution time of a proces}.  
-\end{align}   
+	Let      
+	\begin{align} 
+	& \delta_p &\in \mathbb{N} \quad \text{denote a periodic disruptive process and}\\
+ 	&\delta_s &\in \mathbb{N} \quad \text{denote a asporadic disruptive process.}\\
+ &\text{Let} \quad & P := \{1, \cdots, n \} \subset \mathbb{N}^n \\
+ &\quad & \text{be a job, a set of interruptible processes with fixed priority order ascading.} \\
+ 	&\text{Let} & \quad  \delta p_i \in \mathbb{N}, \quad \text{for} \quad i = 1,..,n \quad  \text{denote the period and}  \\
+ 	&\delta e_i & \in \mathbb{N} \quad \text{for} \quad  i = 1,..,n \quad  \text{denote the execution time of a proces}.  
+	\end{align}   
 \end{definition}
 
-Moreover, we define the slotted priority modell by Bollela with Kaiser's sporadic and periodic disruptive process with a discrete time in contrast to these authors.
+Moreover, we define the slotted priority model by Bollella with Kaiser's sporadic and periodic disruptive process with a discrete time in contrast to these authors.
 This chioce is due to the real-time kernel from \cite{PROSA_schedubility_analysis} and the real-time kernel model as in \cite[chp. 5.3]{B97} and the exclusion model \cite[p.12]{B97}.
 
 \begin{definition}
@@ -112,7 +113,7 @@ This chioce is due to the real-time kernel from \cite{PROSA_schedubility_analysi
 
 
 \begin{definition}
-	Utalization of the i-th process is given by $U(i) = \frac{\delta e_i}{\delta p_i}$.
+	Utilization of the i-th process is given by $U(i) = \frac{\delta e_i}{\delta p_i}$.
 \end{definition}
 \begin{lemma}
 $U(i)$ is well-defined.
