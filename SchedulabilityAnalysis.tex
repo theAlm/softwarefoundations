@@ -49,7 +49,7 @@ The {\itshape process} or {\itshape task} is defined as an sequential execution 
 The execution ends after a \emph{finite number} of steps.
 Therefore the execution corresponds to a finite execution of machine commands and is not separable.\\
 
-\begin{remark}
+\begin{lemma}
 	\label{remark:problems}
 	Mutiprocessor scheduling can be viewed as attempting  to solve two problems.
 	\begin{enumerate}[label=(\roman*)]
@@ -58,7 +58,8 @@ Therefore the execution corresponds to a finite execution of machine commands an
 		\item The \emph{priority problem}, or in what order with respect to jobs of tasks each job should be executed.
 		\label{remark:priorityproblem}
 	\end{enumerate}
-\end{remark}
+\end{lemma}
+
 
 \begin{definition}
 	 A process is called periodic if it should be restated after a certain time called the period.
@@ -89,7 +90,7 @@ But it is apriory not clear what this number $L$ might be and how this CPU-cycle
  
 	The scheduler found in \cite{K} is going to be classified for the scope of implementation. 
 	We follow the paper \cite{DB2011} which gives a survey of hard real-time systems.
-	It is an encapsulated priority based (see Remark \ref{remark:problems}, \ref{remark:priorityproblem}), fixed job priority,   EDF (earliest-deadline-first) process with scheduling inside the representative process.
+	It is an encapsulated priority based (see Remark \ref{remark:problems}, \ref{remark:priorityproblem}), fixed job priority,   EDF (earliest-deadline-first) process with scheduling inside the representative (global) process.
 
 
 \begin{figure}[h]
@@ -105,14 +106,31 @@ But it is apriory not clear what this number $L$ might be and how this CPU-cycle
 	\begin{subequations}     
 		\begin{align} 
 			Let \quad & \delta_p \in \mathbb{N} \quad \text{denote a periodic disruptive process and}\\
- 	&\delta_s \in \mathbb{N} \quad \text{denote a asporadic disruptive process.}\\
- &\text{Let} \quad P := \{1, \cdots, n \} \subset \mathbb{N}^n \\
- &\quad \text{be a job, a set of interruptible processes with fixed priority order ascading.} \\
- 	&\text{Let}  \quad  \delta p_i \in \mathbb{N}, \quad \text{for} \quad i = 1,..,n \quad  \text{denote the period and}  \\
+ 	&\delta_s \in \mathbb{N} \quad \text{denote a asporadic disruptive process.}
+ 		\end{align}
+	\end{subequations}
+\end{definition}
+ 	
+\begin{definition}
+ 	\begin{subequations}
+ 		\begin{align}
+ \text{Let} \quad P& := \{1, \cdots, n \} \subset \mathbb{N}^n \quad \text{be a job,}\\
+  &\text{a set of interruptible processes with fixed priority order ascading.} \\
+ 	\text{Let} \quad \delta p_i &\in \mathbb{N}, \quad \text{for} \quad i = 1,..,n \quad  \text{denote the period and}  \\
  	&\delta e_i  \in \mathbb{N} \quad \text{for} \quad  i = 1,..,n \quad  \text{denote the execution time of a proces}.  
  		\end{align}   
  	\end{subequations}
 \end{definition}
+
+\begin{theorem}
+ 	\begin{subequations}
+ 		\begin{align}
+ 		\text{Let} \quad P &=\{1, 2, \cdots,n \} \text{ be job scheduled by RTS} \\
+ 		\text{for} \quad \Delta P_A & \geq  \Delta p_{grob} \text{we have}\\
+        \quad P' &:= \{\delta_p, \delta_1, 1, \cdots, n \} \subset \mathbb{N}^{(n+2)} \quad \text{is scheduled by RTS}.
+  		\end{align}   
+ 	\end{subequations}
+\end{theorem}
 
 Moreover, we define the slotted priority model by Bollella with Kaiser's sporadic and periodic disruptive process with a discrete time in contrast to these authors.
 This chioce is due to the real-time kernel from \cite{PROSA_schedubility_analysis} and the real-time kernel model as in \cite[chp. 5.3]{B97} and the exclusion model \cite[p.12]{B97}.
@@ -180,14 +198,14 @@ Let $\sigma_T: \mathbb{N} \times \mathbb{N} \rightarrow \mathbb{N}_0$ be a funct
 A depute process is given by $ N = \{1, \cdots, n\}\subset \mathbb{N}$. 
 
 Let $P \subset \{1, \cdots, n\} \subset S$.
-$S$ is executed in a periodically repeated timeslot such that $\delta p_{sv}$ is the periodlength and $\delta e_{sv}$ is the size of the time slot.
+$S$ is executed in a periodically repeated timeslot such that $\delta p_{sv}$ is the periodlength and $\delta e_{sv}$ is the size of the time slot (see Figure \ref{fig:timeslots}).
 The remaining period time is contains the  disruptive process $\delta_p$ and $\delta_s$.
 
 We are writing
 \begin{align}
 	\Delta p_{sv} &\text{ for the period length} \\
-	\Delta e_s &\text{ for the executiontime of the sporatic process and}\\ 
-	\Delta e_p &\text{ for the executiontime of a periodic task.}
+	\Delta e_s &\text{ for the execution time of the sporatic process and}\\ 
+	\Delta e_p &\text{ for the execution time of a periodic task.}
 \end{align}
 
 \paragraph{The slotted priority model by Bollela}
@@ -226,6 +244,27 @@ Note that $\sigma$ is a step-function.
 	\end{equation}
 \end{remark}
 
+\begin{theorem}
+A if a time scheduler is feasible we have
+	\begin{subequations} 
+	\begin{align}
+	 \Delta e_{sv} &= 2 \cdot \Delta p_{sv} \Big( 1- \frac{1}{(\frac{U(P)}{
+	 n}+1)^n} \Big)\\
+	 U_{sv} &= 2 \cdot \Big( 1-e^{U(P)} \Big)\\
+	 \Delta e_{sv} &= 2 \cdot \Delta p_{sv} \Big( 1 -e ^{U(P)} \Big) 
+	\end{align}
+	\end{subequations}
+\end{theorem}
+
+\begin{theorem}
+The fraction of the cyletime due to the disruptive porcess model writes as 
+	\begin{subequations} 
+	\begin{align}
+	U_{sv} = \frac{\Delta e_{sv}}{\Delta p_{sv}} = 1 - U_p - U_s
+	\end{align}
+	\end{subequations}
+\end{theorem}
+
 With the above assumptions we have the main theorem of this \cite{K}.
 \begin{theorem}
 A time scheduler is feasible iff 
@@ -233,6 +272,24 @@ A time scheduler is feasible iff
 	\sum_{i=1}^n \lfloor \frac{t}{\Delta p_i} \rfloor \Delta e_i \leq \lfloor  \frac{t}{\Delta p_{sv}} \rfloor \Delta e_{sv} + \max (0,t  mod \Delta p_{sv} -\Delta e_{s} -\Delta e_p).
 	\end{align}
 \end{theorem}
+
+ 
+\paragraph{discretization of time}
+We denote by $\Delta t$ a time interval length.  
+\begin{definition}
+The computing time of proxy process is given by 
+\begin{equation}
+N = \lfloor \frac{\Delta t}{\delta p_s} \rfloor.
+\end{equation}
+\end{definition} 
+
+
+It follows the identety
+\begin{align}
+\Delta t - N ( \Delta e_{sv} + \Delta e_{s} + \Delta e_{p} ) = \Delta t - N \Delta p_{sv} = \Delta t mod \Delta p_{sv}.
+\end{align}
+Moreover we have the maximal runtime. 
+ 
 
 \begin{lemma}
  $\sigma$ is well-defined.
