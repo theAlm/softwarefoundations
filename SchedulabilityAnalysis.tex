@@ -77,8 +77,7 @@ Due to \cite{B97} the major requirement is said to be as in the following:
  \epsilon \geq 0$'.
 \end{quote}
 
-Roughly speaking there should be a covering of the time $t$ with a diameter o
-of $\epsilon$ for each positive $\epsilon$.
+Roughly speaking there should be a covering of the time $t$ with a diameter of $\epsilon$ for each positive $\epsilon$.
 Moreover there is this requirement labeld by  $\mathcal{B}$ \cite{B97}.
 \begin{quote}
 	`For $L>\epsilon$ (for a suitable $\epsilon$) for which the real-time thread schedule has asserted a real-time thread $\tau$ to be executed on the CPU, there must be a function of the method by which the minimum number of CPU cycles available to execute the instructions of $\tau$ can be determined.'
@@ -89,19 +88,30 @@ But it is apriory not clear what this number $L$ might be and how this CPU-cycle
 \paragraph*{Encapsulation of a scheduled process}
  
 	The scheduler found in \cite{K} is going to be classified for the scope of implementation. 
-	We follow the paper \cite{DB2011} which gives a survey of hard real-time 	systems.
-	It is an encapsulated priority based (see Remark \ref{remark:problems}, \ref{remark:priorityproblem}), fixed job priority,   EDF (earliest-deadline-first)) process with scheduling inside the representative process.
+	We follow the paper \cite{DB2011} which gives a survey of hard real-time systems.
+	It is an encapsulated priority based (see Remark \ref{remark:problems}, \ref{remark:priorityproblem}), fixed job priority,   EDF (earliest-deadline-first) process with scheduling inside the representative process.
+
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{timeslot_and_disruptive_process.eps}
+	\caption{Timeslot partitioning of  $\Delta e_s, \Delta e_p$, $\Delta e_{sv}$ and $\Delta_e$ of the disruptive process $\delta_s$ and $\delta_p$, Source: \cite{K}}
+	\label{fig:timeslots}
+\end{figure}
+
+
 
 \begin{definition}
-	Let      
-	\begin{align} 
-	& \delta_p &\in \mathbb{N} \quad \text{denote a periodic disruptive process and}\\
- 	&\delta_s &\in \mathbb{N} \quad \text{denote a asporadic disruptive process.}\\
- &\text{Let} \quad & P := \{1, \cdots, n \} \subset \mathbb{N}^n \\
- &\quad & \text{be a job, a set of interruptible processes with fixed priority order ascading.} \\
- 	&\text{Let} & \quad  \delta p_i \in \mathbb{N}, \quad \text{for} \quad i = 1,..,n \quad  \text{denote the period and}  \\
- 	&\delta e_i & \in \mathbb{N} \quad \text{for} \quad  i = 1,..,n \quad  \text{denote the execution time of a proces}.  
- 	\end{align}   
+	\begin{subequations}     
+		\begin{align} 
+			Let \quad & \delta_p \in \mathbb{N} \quad \text{denote a periodic disruptive process and}\\
+ 	&\delta_s \in \mathbb{N} \quad \text{denote a asporadic disruptive process.}\\
+ &\text{Let} \quad P := \{1, \cdots, n \} \subset \mathbb{N}^n \\
+ &\quad \text{be a job, a set of interruptible processes with fixed priority order ascading.} \\
+ 	&\text{Let}  \quad  \delta p_i \in \mathbb{N}, \quad \text{for} \quad i = 1,..,n \quad  \text{denote the period and}  \\
+ 	&\delta e_i  \in \mathbb{N} \quad \text{for} \quad  i = 1,..,n \quad  \text{denote the execution time of a proces}.  
+ 		\end{align}   
+ 	\end{subequations}
 \end{definition}
 
 Moreover, we define the slotted priority model by Bollella with Kaiser's sporadic and periodic disruptive process with a discrete time in contrast to these authors.
@@ -113,7 +123,10 @@ This chioce is due to the real-time kernel from \cite{PROSA_schedubility_analysi
 
 
 \begin{definition}
-	Utilization of the i-th process is given by $U(i) = \frac{\delta e_i}{\delta p_i}$.
+	The utilization of the i-th process is given by 
+	\begin{equation} 
+	U(i) = \frac{\delta e_i}{\delta p_i}- 
+	\end{equation}
 \end{definition}
 \begin{lemma}
 $U(i)$ is well-defined.
@@ -123,7 +136,10 @@ For every $i\in \mathbb{N}$, $U(i)$ is the quotient of two positive numbers.
 \end{proof}
 
 \begin{definition}
-The utilization is given by $U(P)= \sum_{i=1}^n \frac{\delta e_i}{\delta p_i}$.
+The utilization of the process set $P$ is given by 
+	\begin{equation}
+	U(P)= \sum_{i=1}^n \frac{\delta e_i}{\delta p_i}.
+	\end{equation}
 \end{definition}
 
 According to \cite{B97} due to establishing the exclusion model we denote  a scheduling function in the following way:
