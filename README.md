@@ -17,7 +17,7 @@ Zum Clonen des Skriptes müssen Git-Submodule geklont werden:
 Weitere informationen zum Arbeiten mit git submodules sind in der [git-Online-Dokumentation](https://git-scm.com/book/en/v2/Git-Tools-Submodules) zu finden.
     
 
-Die [Latex 2_{\epsilon}](https://www.latex-project.org/)-Dateien können wie im folgenden beschrieben gebaut werden: 
+Die [LaTeX2e](https://www.latex-project.org/)-Dateien können wie im folgenden beschrieben gebaut werden: 
 
 [IntroductionToCoq.tex](https://gitlab.cs.hs-rm.de/almeroth/softwarefoundations/blob/master/IntroductionToCoq.tex) ist die Latex-Master-Datei und das Dokument kann gebaut werden mittels den folgenden Komandos:
 
