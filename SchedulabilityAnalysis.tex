@@ -274,21 +274,28 @@ A time scheduler is feasible iff
 \end{theorem}
 
  
-\paragraph{discretization of time}
+\paragraph{Discretization of Time}
 We denote by $\Delta t$ a time interval length.  
 \begin{definition}
 The computing time of proxy process is given by 
 \begin{equation}
-N = \lfloor \frac{\Delta t}{\delta p_s} \rfloor.
+N = \lfloor \frac{\Delta t}{\Delta p_s} \rfloor.
 \end{equation}
 \end{definition} 
 
 
 It follows the identety
 \begin{align}
-\Delta t - N ( \Delta e_{sv} + \Delta e_{s} + \Delta e_{p} ) = \Delta t - N \Delta p_{sv} = \Delta t mod \Delta p_{sv}.
+\Delta t - N ( \Delta e_{sv} + \Delta e_{s} + \Delta e_{p} ) = \Delta t - N \Delta p_{sv} = \Delta t \mod \Delta p_{sv}.
 \end{align}
-Moreover we have the maximal runtime. 
+Moreover we have the maximal run-time for $\Delta e_s + \Delta e_p$.
+\begin{align}
+\Delta e_s + \Delta e_p \leq \Delta t \mod \Delta p_{sv}
+\end{align} 
+
+\begin{equation}
+\lfloor \frac{\Delta t}{ \Delta p_{sv}} \cdot \Delta e_{sv} \rfloor + max ( 0, \Delta t \mod \Delta p_{sv} - \Delta e_{s} - \Delta e_{p})
+\end{equation}
  
 
 \begin{lemma}
@@ -299,18 +306,18 @@ Recall the definition of a map \ref{}. We have:
 \end{proof}
 
 \paragraph{Related Research Areas}
-Besides hard real-time scheduling for homogenous multiprocessor systems there are related ares of research. The these areas are in a  close releation to multi-processor sytems.
+Besides hard real-time scheduling for homogeneous multiprocessor systems there are related ares of research. The these areas are in a  close relation to multi-processor systems.
 \begin{itemize}
-\item Worst-case execution time (WCET) an alysis
+\item Worst-case execution time (WCET) an analysis
 \item Network/bus scheduling
 \item Memory architectures
-\item scheduling of uniform and heterogeneous procesors
+\item scheduling of uniform and heterogeneous processors
 \item operating systems
-\item Power consuption and dissipaation
+\item Power consumption and dissipation
 \item scheduling tasks with soft real-time constraints, and
 \item Non-real-time ussues such as load balancing.
 \end{itemize}
-Some of these research areas are more or less related to muti-processor systems. Some like WCET are very close to multi-processor systems.
+Some of these research areas are more or less related to multi-processor systems. Some like WCET are very close to multi-processor systems.
 Task eexctution time caused by contention of hardware resources due to paralles exectution is a scheduling effect or a WCET \cite[Sec. 10.2]{DB2011}.
  
 \subsection{The Akra-Bazzi Theorem}
