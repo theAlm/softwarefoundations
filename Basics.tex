@@ -3,6 +3,7 @@
 
 	In this chapter we are going to introduce the most essential elements of Coq's functional programming language called {\itshape Gallina}. 
 	Moreover, {\itshape tactics} which can be applied to prove properties of Coq programs are introduced (subsection \ref{subsec:proof-techniques} and \ref{subsec:proofByCaseAnalysis}).
+In particular Gallina provides {\itshape algebraic data types}, {\itshape pattern matching} and sophisticated {\itshape polymorphic type systems}. These progamming idioms enable to construct rich data structues suporting abstracion and code reuse.
 	
 	\subsection{Introduction}
 	\label{subsec:Introduction}
@@ -77,8 +78,8 @@
 	   
 	   \item \label{CoqAsCodeGen} Moreover, Coq can be asked to \lstinline!extract! a program from our \lstinline! Definition! in a programming language which is more conventional, being equipped with a high performance compiler.
 	    In particular this is one of the main uses of Coq. 
-	    It provides a method to transfer proved-correct algorithms in Gallina to efficient machine code (see section \ref{sec:coqAsACodeGenerator}).
-	    (Assuming the correctness of the corresponding high performance compiler e.g. the Ocaml, Haskell or Scheme compiler.) 			
+	    It provides a method to transfer proved-correct algorithms in Gallina to efficient machine code (see Section \ref{sec:coqAsACodeGenerator}).
+	    (Assuming the correctness of the corresponding high performance compiler e.g. the OCaml, Haskell or Scheme compiler.) 			
 	   \end{enumerate}   
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
