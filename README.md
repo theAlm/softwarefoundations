@@ -4,8 +4,8 @@
 
 [IntroductionToCoq.pdf](https://gitlab.cs.hs-rm.de/almeroth/softwarefoundations/blob/master/IntroductionToCoq.pdf) sind die ".pdf"-Seiten einer Zusammenfassung über [Coq](https://coq.inria.fr/). Coq ist eine Software zur semi-automatischen formalen Beweisführung.
 
-    Diese Einführung verwendet das Vorlesungskript "Elementare mathematische Begriffe, Probleme und Schreibweisen" von [Steffen Reith](https://www.hs-rm.de/de/hochschule/personen/reith-steffen/) über eine Einführung in Mathematische Grundlagen für Studierende der Informatik.
-    Zusätzlich sind Listings aus dem [RT-proof Project](https://gitlab.cs.hs-rm.de/almeroth/prosa_working_dir.git) in der Zusammenfassung zu Demonstrationszwecken integriert. 
+Diese Einführung verwendet das Vorlesungskript "Elementare mathematische Begriffe, Probleme und Schreibweisen" von [Steffen Reith](https://www.hs-rm.de/de/hochschule/personen/reith-steffen/) über eine Einführung in Mathematische Grundlagen für Studierende der Informatik.
+Zusätzlich sind Listings aus dem [RT-proof Project](https://gitlab.cs.hs-rm.de/almeroth/prosa_working_dir.git) in der Zusammenfassung zu Demonstrationszwecken integriert. 
     
     
     Zum clonen des Skriptes müssen Git-Submodule geklont werden:
@@ -21,19 +21,19 @@ Die [Latex 2_{\epsilon}](https://www.latex-project.org/)-Dateien können wie im 
 
     1. [IntroductionToCoq.tex](https://gitlab.cs.hs-rm.de/almeroth/softwarefoundations/blob/master/IntroductionToCoq.tex) ist die Latex-Master-Datei und das Dokument kann gebaut werden mittels den folgenden Komandos:
      
-         $ xelatex IntroductionToCoq.tex
-         $ bibtex IntroductionToCoq.tex
-         $ xelatex IntroductionToCoq.tex
-         $ bibtex IntroductionToCoq.tex
-         $ showpdf
+     $ xelatex IntroductionToCoq.tex
+     $ bibtex IntroductionToCoq.tex
+     $ xelatex IntroductionToCoq.tex
+     $ bibtex IntroductionToCoq.tex
+     $ showpdf
 
 
 
     2. Das Glossar des Vorlesungskriptes wurde erstellt mit dem Latex-Paket [glossaries-extra](https://www.ctan.org/pkg/glossaries-extra). Falls das Glossar neu erstellt werden muss, müssen externe Anwendung aufgerufen werden vor dem Kompilieren mitttels latex.
     
-        $ makeglossaries-lite.lua "TntroductionToCoq"
-        $ makeglossaries "IntroductionToCoq"
-        $ latex IntroductionToCoq.tex
+     $ makeglossaries-lite.lua "TntroductionToCoq"
+     $ makeglossaries "IntroductionToCoq"
+     $ latex IntroductionToCoq.tex
         
  
     
