@@ -1,10 +1,13 @@
 \section{Additional Materials}
 \label{app:AdditionalMaterials}
 
-\subsection{Coq and Predicate Logic} \label{subsec:CoqAndPredicateLogic}
+\subsection{Coq and Predicate Logic} 
+\label{subsec:CoqAndPredicateLogic}
+
 	The semantics of a Coq-\lstinline!theorem! might be interpreted as a logical formula.
 	The Coq-\lstinline!Proof.! might be the justification of this formula. 
 	For readability in the following premises denoted by capital letters ($P$ and $N$) are introduced which do not appear in Coq.
+	
 	\begin{table}[h]
 		\begin{center}
 			\begin{tabular}{|c|l|}
@@ -28,3 +31,41 @@
 	\end{table}
 
 TODO: Reference for the logical notation and basics.
+
+\subsection{Coquille - Coqtop Cheat Sheet}
+
+\begin{table}[h]
+		\begin{left}
+			\begin{tabular}{l|l}
+			  \emph{Shortcuts}\\ 		
+		      F2      & :CoqUndo \\ 	     	                                                   
+		      F3      & :CoqNext \\         
+		      F4      & :CoqToCurser  
+		    \end{tabular}
+		\end{left}
+		\label{tab:coquilleCheatSheetKeys}
+	\end{table}		    
+\begin{table}[h]
+		\begin{left}		    	
+		    \begin{tabular}{l|l}
+		    \emph{Coqtop}\\
+		    \lstinline!:CoqRestart! &   restarts the proof checker \\       
+		    \lstinline!:CoqKill!    &   quits the proof checker \\        
+		    \lstinline!:CoqLaunch!  &   starts the proof checker\\   
+		    \lstinline!:CoqPrint!  &   prints the command from the information window \\
+		    \end{tabular}
+		    \label{tab:coquilleCheatSheetCoqTop}
+		\end{left} 
+	\end{table}			    
+\begin{table}[h]
+		\begin{left}		    
+     	     \begin{tabular}{l|l}
+     	     \emph{Vernacular commands}\\
+		          \lstinline!Eval!       & displays the resulting term with its type  \\  
+		          \lstinline!Compute!    & call by value evaluation \\          	          
+		          \lstinline!About!      & retuns namespace
+	   		\end{tabular}
+	   			\label{tab:coquilleCheatSheetVernacular}
+		\end{left} 
+	\end{table}		  
+	
