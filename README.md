@@ -20,12 +20,13 @@ Weitere informationen zum arbeiten mit git submodules sind in der [git-Online-Do
 Die [Latex 2_{\epsilon}](https://www.latex-project.org/)-Dateien können wie im folgenden beschrieben gebaut werden: 
 
 1. [IntroductionToCoq.tex](https://gitlab.cs.hs-rm.de/almeroth/softwarefoundations/blob/master/IntroductionToCoq.tex) ist die Latex-Master-Datei und das Dokument kann gebaut werden mittels den folgenden Komandos:
-     
+
      $ xelatex IntroductionToCoq.tex
      $ bibtex IntroductionToCoq.tex
      $ xelatex IntroductionToCoq.tex
      $ bibtex IntroductionToCoq.tex
-     $ showpdf
+     $ showpdf 
+
 
 
 2. Das Glossar des Vorlesungskriptes wurde erstellt mit dem Latex-Paket [glossaries-extra](https://www.ctan.org/pkg/glossaries-extra). Falls das Glossar neu erstellt werden muss, müssen externe Anwendung aufgerufen werden vor dem Kompilieren mitttels latex.
@@ -33,9 +34,6 @@ Die [Latex 2_{\epsilon}](https://www.latex-project.org/)-Dateien können wie im 
      $ makeglossaries-lite.lua "TntroductionToCoq"
      $ makeglossaries "IntroductionToCoq"
      $ latex IntroductionToCoq.tex
-        
- 
-    
     
 
 Das ist eine kurze [Präsentation]( https://gitlab.cs.hs-rm.de/almeroth/coq_praesentation.git) über den Beweisassitenten.
