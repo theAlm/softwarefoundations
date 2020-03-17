@@ -37,10 +37,10 @@ TODO: Reference for the logical notation and basics.
 \begin{table}[h]
 		\begin{left}
 			\begin{tabular}{l|l}
-			  \emph{Shortcuts}\\ 		
-		      F2      & :CoqUndo \\ 	     	                                                   
-		      F3      & :CoqNext \\         
-		      F4      & :CoqToCurser  
+			  \emph{Key}\\ 		
+		      F2      & \lstinline!:CoqUndo! \\ 	     	                                                   
+		      F3      & \lstinline!:CoqNext! \\         
+		      F4      & \lstinline!:CoqToCurser!  
 		    \end{tabular}
 		\end{left}
 		\label{tab:coquilleCheatSheetKeys}
@@ -49,10 +49,10 @@ TODO: Reference for the logical notation and basics.
 		\begin{left}		    	
 		    \begin{tabular}{l|l}
 		    \emph{Coqtop}\\
+		    \lstinline!:CoqLaunch!  &   starts the proof checker\\   
 		    \lstinline!:CoqRestart! &   restarts the proof checker \\       
 		    \lstinline!:CoqKill!    &   quits the proof checker \\        
-		    \lstinline!:CoqLaunch!  &   starts the proof checker\\   
-		    \lstinline!:CoqPrint!  &   prints the command from the information window \\
+		    \lstinline!:CoqPrint!   &   prints the command from the information window \\
 		    \end{tabular}
 		    \label{tab:coquilleCheatSheetCoqTop}
 		\end{left} 
@@ -61,9 +61,9 @@ TODO: Reference for the logical notation and basics.
 		\begin{left}		    
      	     \begin{tabular}{l|l}
      	     \emph{Vernacular commands}\\
-		          \lstinline!Eval!       & displays the resulting term with its type  \\  
-		          \lstinline!Compute!    & call by value evaluation \\          	          
-		          \lstinline!About!      & retuns namespace
+		          \lstinline!Eval!  \texttt{term}     & displays the resulting \texttt{term} with its type  \\  
+		          \lstinline!Compute! \texttt{term}   & call by value evaluation of the \texttt{term} \\          	          
+		          \lstinline!About! \texttt{term}     & returns the namespace of the \texttt{term}
 	   		\end{tabular}
 	   			\label{tab:coquilleCheatSheetVernacular}
 		\end{left} 
