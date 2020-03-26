@@ -1,11 +1,13 @@
 \section{Importing}
-
+\label{sec:importing}
 
 In order to use the definitions from the previous chapter we are going to compile the file 
 \texttt{Basics.v} and import the compiles version in the current file \texttt{Induction.v}.
 (In case the book \cite{PACGGHSY} is used and downloaded as an archive, the following steps can be skipped.)   
 
 \subsection{Building Coq Libraries}
+\label{subsec:BuildingCoqLibraries}
+
 
 First of all, a Coq project, called {\itshape \_CoqProject}, is created.  
 It is going to map the current directory ``\texttt{.}'' to the directory \texttt{lf} wherein the source files are kept.
@@ -52,6 +54,8 @@ into the first line of the \texttt{Induction.v}-file.
  
 
 \subsection{Potential Troubles}
+\label{subsection:PotentialTroubles}
+
 
 If an error arises which complains about missing identifiers in the file the "load path" for Coq might not be set up correctly.
 Checking the loaded path by the command
