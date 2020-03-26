@@ -1,30 +1,128 @@
 \section{Additional Materials}
 \label{app:AdditionalMaterials}
 
-\subsection{Coq and Predicate Logic} \label{subsec:CoqAndPredicateLogic}
+In this section selected additional topics about the Coq proof assistant are listed.
+They are sought to give example applications of Coq, help or substitute studying and understanding.
+
+\subsection{Coq and Predicate Logic} 
+\label{subsec:CoqAndPredicateLogic}
+
 	The semantics of a Coq-\lstinline!theorem! might be interpreted as a logical formula.
 	The Coq-\lstinline!Proof.! might be the justification of this formula. 
-	For readability in the following premises denoted by capital letters ($P$ and $N$) are introduced which do not appear in Coq.
+	For readability in the following premises denoted by capital letters ($P$ and $N$) are introduced which do not appear in Coq. A similar predicate logic based approach is introduced in mathematical standart text books like \cite[Kapitel 1.4.3. Anmerkungen zur Struktur mathematischer Sätze und ihrer Formulierung in der Sparche der Mengenlehre]{Z06}.  
+	
 	\begin{table}[h]
-		\begin{center}
-			\begin{tabular}{|c|l|}
-			    \hline
-	 			line no.  &  predicate logical translation \\  \hline
+		\begin{left}
+			\begin{tabular}{l|l}
+	 			line no.  &  predicate logical translation \\ \hline 
 		     	  1-3    % & $P\ n \ m$ means `' \\ 	     	                                                   
 		     	         % & $N\ n\ m$ means `$n, m \in \mathbb{N}$' \\ 
-		                  & \lstinline!plus_id_example! means `$ \forall\ n\ m\ [n\ , m \in \mathbb{N}]: n = m \rightarrow n+n = m+m.$'\\ \hline        
-		     	  4       & Proof: \\     	     	      	                      
-		                  &   $ P\ n\ m:= (n+n = m+m)$    \\ \hline
-		          5       &   $N \ n \ m \ := ( n,\ m \in \mathbb{N})$       \\ \hline       
-		          6       &   $ H\ n\ m :=( n= m)$ \\        
-		    	      7       &   $ \forall n \ m\ [N \ n\ m]: H\ n\ m \rightarrow (P\ n\ m \leftrightarrow( m+m = m+m))$\\   \hline 
+		                  & \lstinline!plus_id_example! := $ \forall\ n, \ m\ \in \mathbb{N}: \big(n = m \big) \rightarrow \big( n+n = m+m. \big) $ \\ \hline        
+		     	  4       & Proof: \\     \hline	     	      	                      
+		                  &   $P( n,\ m):= (n+n = m+m)$    \\
+		          5       &   $N( n, \ m) \ := ( n,\ m \in \mathbb{N})$       \\ \hline       
+		          6       &   $H(n, \ m) := (n = m)$ \\        
+		    	      7   &   $N (n,\ m) :=  H(n, \ m) \rightarrow \Big(P( n, \ m) \leftrightarrow( m+m = m+m) \Big)$\\   \hline 
 		          8       &   (* by reflexivity and simplification it is concluded *) \\
-		                  & $\forall n\ m\ [ N\ n\ m]: H\ n\ m  \rightarrow P\ n\ m$.  \\  \hline
-		          9       & $\qed.$\\ \hline        	          
+		                  & $N(n, \ m) :=  H( n, \ m) \rightarrow P( n, \ m)$.  \\  \hline
+		          9       & $\qed.$\\      	          
 	        		\end{tabular}
-		\end{center}
+		\end{left}
 		\label{tab:CoqAndPreciateLogic}
 		\caption{listing \ref{lst:plus_id_example_proof} \lstinline!plus_id_example!'s translation into predicate logic.} 
 	\end{table}
 
-TODO: Reference for the logical notation and basics.
+\clearpage
+\subsection{Coquille - Coqtop Cheat Sheet}
+
+\begin{table}[h]
+		\begin{left}
+			\begin{tabular}{l|l}
+			  \emph{Key}\\ 		
+		      F2      & \lstinline!:CoqUndo! \\ 	     	                                                   
+		      F3      & \lstinline!:CoqNext! \\         
+		      F4      & \lstinline!:CoqToCurser!  
+		    \end{tabular}
+		\end{left}
+		\label{tab:coquilleCheatSheetKeys}
+	\end{table}		    
+\begin{table}[h]
+		\begin{left}		    	
+		    \begin{tabular}{l|l}
+		    \emph{Coqtop}\\
+		    \lstinline!:CoqLaunch!  &   starts the proof checker\\   
+		    \lstinline!:CoqRestart! &   restarts the proof checker \\       
+		    \lstinline!:CoqKill!    &   quits the proof checker \\        
+		    \lstinline!:CoqPrint!   &   prints the command from the information window \\
+		    \end{tabular}
+		    \label{tab:coquilleCheatSheetCoqTop}
+		\end{left} 
+	\end{table}	
+			    
+\begin{table}[h]
+   \begin{left}		     	  
+     	     \begin{tabular}{l|l}
+     	     
+     	     \emph{Vernacular commands}\\
+		          \lstinline!Eval!  \texttt{term}     & displays the resulting \texttt{term} with its type  \\  
+		          \lstinline!Compute! \texttt{term}   & call by value evaluation of the \texttt{term} \\          	          
+		          \lstinline!About! \texttt{term}     & returns the namespace of the \texttt{term}
+	   		\end{tabular}
+	   			\label{tab:coquilleCheatSheetVernacular}
+		\end{left} 
+	\end{table}		  
+
+	
+	
+	\clearpage
+
+\subsection{Tactics}	
+In this work it remains open how the proof tactic \lstinline!reflexivity! actually works\label{sec:reflexivity} (see Subsection \ref{subsec:proof-techniques}).
+	
+	
+\subsection{Axioms of Kolmogorov}
+\label{subsec:AxiomsOfKolmogorov }
+ 
+ This section gives some potential applications of the Coq proof assitent for some more advanced selected topics.
+ 	
+ 
+
+ \begin{itemize}
+	\item set theory and the scheduler	      
+ 	\item Borells $\sigma-Algebra$
+ 	\item $\mathbb{R}$ and $\mathbb{N}$
+ 	\item Note that $\# \mathcal{M}$ in the "Mathematische Grundlagen" lecture notes \cite[]{} is defined for finite sets only.  
+	 \item Die Kardinalität, $|\mathbb{R}| = |\mathbb{N}|$ ? ( See Zorich )
+ 	 \item $C$ if $f$ is a function  falls es gibt höchstens ein $b\in B$ mit $(a,b)\in f$\\
+ 		 $A^n = ?$
+ 	\item Es ist messbar.
+ \item   Borel-Cantelli lemma, abhängigkeits Definition$\mapsto$ Zeit-Diskretisierung
+ \item Bsp: endlich viele Würfe einer Münze, Lebesgue, Faires Modell\\
+ 		Zufallsvariable ist messbar abhängig d.h. 
+ 		\begin{align}
+ 			\mu(A) = \mathbb{R}(\lambda^{-1}(A)) = \mathbb{P} (\{ X| X(\omega)\} \in A \})
+ 				 & = \mathbb{P}(\{ X \in A \geq 1| X_n = 1 \} 
+ 		\end{align}  
+ 		
+ 		where $\mu$ denotes the probability measure of $A$\\
+ 		$\lambda$ denotes the Lebesgue measure\\
+ 		$\mathbb{P}$ the probability\\
+ 		$A$ an event in the probability space\\
+ 	
+ 					
+ \item Die Verteilung von $Y = X-1$ mit $X(\omega) = min \{ \omega \}$.
+       \begin{equation}\label{eq:random_walk}
+       	\mu(A)= p \sum_{k \in A } (1-p) ^{k-1}    	
+       	\end{equation}
+ 		Jede Verteilfunktion mit den eigenschaften von satz 3.5 ( mein wahrscheinlichkeitstheore \& statistik Skript) ist eine Zufallsvariable.\\
+ 		Was muss gelten?\\
+ 		Das suksezzive Gesetzt vom Logarithmus.   
+   		Gleichung (\ref{eq:random_walk}) beschreibt die Wahrscheinlichkeitsverteilung eines Random Walks . 
+ \end{itemize}
+ 
+ 
+   There are several publications about set theory and schedubility analysis.\par   
+   Keyword: Adjacency Matrix Random Graph Degree Distribution Average Degree Edge Density
+   Example Applications:\\
+   Partitioning, Random Graphs with General Degree Distributions
+ 		

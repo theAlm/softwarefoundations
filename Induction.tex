@@ -1,7 +1,11 @@
 \section{Induction}
+\label{sec:Induction}
+
 In this section the tactics \lstinline!induction!, which is applicable analogously to the mathematical principle of induction, is introduced.
 
 \subsection{Proof by Induction}
+\label{subsec:ProofByInduction}
+
 In the proof in Listing \ref{lst:plus0nPrime} it was shown, 
 that \lstinline!0! is the neutral element with respect to \lstinline!+! from the left of the group of natural numbers \lstinline!nat!. 
 It should be shown that \lstinline!0! also is the natural element for \lstinline!+! in \lstinline!nat! from the right. 
@@ -72,6 +76,7 @@ The \lstinline!as!-clause has two parts separated by \lstinline!|!.
 \end{itemize} 
 
 \subsection{Proofs Within Proofs}
+\label{subsec:ProofsWithinProofs}
 
 In Coq and {\itshape formal mathematics} large proofs are often broken into a sequence of theorems and later proofs might refer to more early stated proofs.
 Sometimes a proof requires miscellaneous trivial or to little general facts. 
@@ -139,6 +144,7 @@ Qed.
 
 
 \subsection{Formal vs. Informal Proofs}
+\label{subsec:ForamlVSInforamlProofs}
 
 \begin{quote}
 `Informal proofs are algorithms; Formal proofs are code.'

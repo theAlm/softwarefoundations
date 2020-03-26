@@ -1,4 +1,5 @@
 \section{Scheduability Analysis Modeling}
+\label{sec:ScheduabilityAnalysisModeling}
 
 	In this section we want to investigate the encapsulated EDF-scheduler (earliest deadline first scheduler) from the schedulig procedure by Kaiser \cite{K}. It is homogeneous multiprocessor systems comprising $m\in \mathbb{N}$ processors.\\
 
@@ -9,6 +10,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsection{Taxanomie of Multiprocessor Scheduling Algorithms}
+\label{subsec:TaxanomieOfMultiprocessorSchedulingAlgorithms}
 
 	Let's recap \glspl{real-time system} as given in \cite{KBK}.
 	And compare it with the classification given in \cite[section 2.3]{DB2011}.
@@ -53,6 +55,7 @@
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 	\paragraph*{Encapsulation of a scheduled process}
+	\label{par:EncapsulationOfAScheduledProcess}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	 
 		The scheduler found in \cite{K} is going to be classified for the scope of implementation. 
@@ -173,6 +176,7 @@
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\paragraph{The slotted priority model by Bollela}
+	\label{par:TheSlottedPriorirtyModelByBollela}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 	Within this model we are having a two-staged process hirachie. 
@@ -189,6 +193,7 @@
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\paragraph{The sporadic disruptive process}
+	\label{par:TheSporadicDisruptiveProcess}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 	As in \cite{K} the sporadic des
@@ -199,6 +204,8 @@
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\paragraph{Model of a sporadic disruptive process}
+	\label{par:ModelOfASporadicDisruptiveProcess}
+	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 	We say we are talking of a slotted priority model if the 
@@ -245,6 +252,7 @@
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	 
 	\paragraph{Discretization of Time}
+	\label{par:DiscretizationOfTime}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 	We denote by $\Delta t$ a time interval length.  
 	\begin{definition}
@@ -272,12 +280,14 @@
 	\begin{lemma}
 	 $\sigma$ is well-defined.
 	\end{lemma}
-	\begin{proof}
-	Recall the definition of a map \ref{}. We have:
-	\end{proof}
+	This suffice to be proven.
+	%\begin{proof}
+	%Recall the definition of a map \ref{}. We have:
+	%\end{proof}
 	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
 	\paragraph{Related Research Areas}
+	\label{par:RelatedResearchAreas}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	
 		Besides hard real-time scheduling for homogeneous multiprocessor systems there are related ares of research. The these areas are in a  close relation to multi-processor systems.
@@ -303,7 +313,7 @@
 
 	The optimality of algorithms is a very important research area in many fields.
 	One may ask if an algorithm was chosen optimal to solve the given problem.
-	But first of all, we have to determine the problem carefully. And in which sense optimality is required. There are some theorems which determine an straight-forward solution to this optimality problem. A well known-example is application of the master-theorem in search-algorithms e.g. \cite {}TODO: Add reference, master-theorem is linked on wikipedia.\\
+	But first of all, we have to determine the problem carefully. And in which sense optimality is required. There are some theorems which determine an straight-forward solution to this optimality problem. A well known-example is application of the master-theorem in search-algorithms. % e.g. \cite {}TODO: Add reference, master-theorem is linked on wikipedia.\\
 	For example there is this very powerfull theorem know as Akra-Bazzi-theorem \cite{AB98}.
 	It is a general solution for a linear divide-and-conquer recurrences of the of the form
 
