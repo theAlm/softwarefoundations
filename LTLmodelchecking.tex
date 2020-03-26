@@ -1,4 +1,5 @@
 \section{High Order Logic and Model Checking}
+\label{sec:HighOrderLogicAndModelChecking}
 
 Verfiying complex computer systems requires propostional temporal logics. 
 Time in these forms of logic can be reprented linear or branching. Time means the order of events e.g. \glqq The message has been send after receiving. \grqq
@@ -18,16 +19,18 @@ Solve the following questions concerning the leader election protocol:
 \begin{enumerate}
 	\item Model Peterson’s leader election protocol in Promela (avoid invalid end states).
 	\item  Verify the following properties:
-	\item There is always at most one leader.
-	\item Eventually always a leader will be elected.
-	\item The elected leader will be the process with the highest number.
-	\item The maximum total amount of messages sent in order to elect a leader is at most $2N \lfloor log 2 N \rfloor  + N$.
+	\begin{enumerate}	
+		\item There is always at most one leader.
+		\item Eventually always a leader will be elected.
+		\item The elected leader will be the process with the highest number.
+		\item The maximum total amount of messages sent in order to elect a leader is at most $2N \lfloor log 2 N \rfloor  + N$.
+	\end{enumerate}
 \end{enumerate}
 
 
 \begin{table}[h]
 		\begin{left}
-			\begin{tabular}{l|l}
+			\begin{tabular}{l|l|l|l}
 	 		logic  &  linear time  &  branching-time  & real-time requirement  \\ 
 	 		       &  (path-based) &  (state based)   & (continous-time-doamin) \\  \hline 
 		           &   \checkmark  &                  &                         \\  
@@ -38,6 +41,7 @@ Solve the following questions concerning the leader election protocol:
 		\label{tab:CoqAndPreciateLogic}
 		\caption{classification of temporal logics in \cite{BK} } 
 	\end{table}
+	
 complexity of model checking problems
-p. 314 book
+p. 314 book \cite{BK}
 
