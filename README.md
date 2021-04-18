@@ -2,15 +2,15 @@
 
 
 
-[IntroductionToCoq.pdf](https://gitlab.cs.hs-rm.de/almeroth/softwarefoundations/blob/master/IntroductionToCoq.pdf) sind die ".pdf"-Seiten einer Zusammenfassung über [Coq](https://coq.inria.fr/). Coq ist eine Software zur semi-automatischen formalen Beweisführung.
+[IntroductionToCoq.pdf](git@github.com:theAlm/softwarefoundations/blob/master/IntroductionToCoq.pdf) sind die ".pdf"-Seiten einer Zusammenfassung über [Coq](https://coq.inria.fr/). Coq ist eine Software zur semi-automatischen formalen Beweisführung.
 
 Diese Einführung verwendet das Vorlesungskript "Elementare mathematische Begriffe, Probleme und Schreibweisen" von [Steffen Reith](https://www.hs-rm.de/de/hochschule/personen/reith-steffen/) über eine Einführung in Mathematische Grundlagen für Studierende der Informatik.
-Zusätzlich sind Listings aus dem [RT-proof Project](https://gitlab.cs.hs-rm.de/almeroth/prosa_working_dir.git) in der Zusammenfassung zu Demonstrationszwecken integriert. 
+Zusätzlich sind Listings aus dem [RT-proof Project](https://github.com/theAlm/prosa_working_dir.git) in der Zusammenfassung zu Demonstrationszwecken integriert. 
     
     
 Zum Clonen des Skriptes müssen Git-Submodule geklont werden:
     
-        $ git clone git@gitlab.cs.hs-rm.de:almeroth/softwarefoundations.git
+        $ git clone git@github.com:theAlm/coq_praesentation.git/softwarefoundations.git
         $ git submodule init 
         $ git submodlue update
 
@@ -19,7 +19,7 @@ Weitere informationen zum Arbeiten mit git submodules sind in der [git-Online-Do
 
 Die [LaTeX2e](https://www.latex-project.org/)-Dateien können wie im folgenden beschrieben gebaut werden: 
 
-[IntroductionToCoq.tex](https://gitlab.cs.hs-rm.de/almeroth/softwarefoundations/blob/master/IntroductionToCoq.tex) ist die Latex-Master-Datei und das Dokument kann gebaut werden mittels den folgenden Komandos:
+[IntroductionToCoq.tex](https://github.com/theAlm/coq_praesentation.git/softwarefoundations/blob/master/IntroductionToCoq.tex) ist die Latex-Master-Datei und das Dokument kann gebaut werden mittels den folgenden Komandos:
 
         $ xelatex IntroductionToCoq.tex
         $ bibtex IntroductionToCoq.tex
@@ -36,11 +36,6 @@ Die [LaTeX2e](https://www.latex-project.org/)-Dateien können wie im folgenden b
         $ latex IntroductionToCoq.tex
     
 
-Das ist eine kurze [Präsentation]( https://gitlab.cs.hs-rm.de/almeroth/coq_praesentation.git) über den Beweisassitenten.
+Das ist eine kurze [Präsentation](https://github.com/theAlm/coq_praesentation.git) über den Beweisassitenten.
     
 
-[Steffen Reith](mailto:Steffen.Reith@hs-rm.de) ist Maintainer diese Repositories. 
-
-    
-Aufgrund des Styleguides der Hochschule RheinMain ist das Skript nur für die interne Verwendung freigegeben.
-Für Fragen und Anmerkungen bin ich zu erreichen unter [tanja.almeroth@mailbox.org](mailto:tanja.almeroth@mailbox.org).
